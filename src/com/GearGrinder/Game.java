@@ -143,6 +143,7 @@ public class Game extends Canvas implements Runnable {
 		g.setColor(Color.WHITE); //x,y display
 		g.setFont(new Font("Veranda", 0, 16)); //x,y display
 		g.drawString("X: " + player.x + ", Y: " + player.y, 400, 16); //x,y display
+		g.drawString("Tile X: " + (player.x / 16) + ", Y: " + ((player.y / 16) + 1), 400, 480); //x,y display
 		g.dispose();
 		bs.show(); // shows the next available buffer
 	}
