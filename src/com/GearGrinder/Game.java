@@ -10,6 +10,7 @@ import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import com.GearGrinder.entity.mob.Player;
 import com.GearGrinder.graphics.Screen;
@@ -17,15 +18,16 @@ import com.GearGrinder.input.Keyboard;
 import com.GearGrinder.input.Mouse;
 import com.GearGrinder.level.Level;
 import com.GearGrinder.level.TileCoordinate;
-import com.GearGrinder.multiplayer.login;
+
 
 public class Game extends Canvas implements Runnable {
-
+	
 	private static final long serialVersionUID = 1L;
 	public static int width = 300;
 	public static int height = width / 16 * 9;
 	public static int scale = 3;
 
+	public boolean auth = false;
 	private Thread gamethread;
 	private JFrame frame;
 	private Keyboard key;
@@ -45,10 +47,8 @@ public class Game extends Canvas implements Runnable {
 		setPreferredSize(size);
 
 		screen = new Screen(width, height);
-		//login.login();
-		frame = new JFrame();
 		
-		login.main(null);
+		frame = new JFrame();
 		
 		key = new Keyboard();		
 		level = Level.spawn;
@@ -79,8 +79,6 @@ public class Game extends Canvas implements Runnable {
 
 	@Override
 	public void run() {
-
-		// timing variables
 		long lastTime = System.nanoTime();
 		long timer = System.currentTimeMillis();
 		final double ns = 1000000000.0 / 60.0;
@@ -89,7 +87,7 @@ public class Game extends Canvas implements Runnable {
 		int updates = 0;
 		requestFocus();
 		// game loop
-		while (running == true) {
+		while (running == true) {			
 			long now = System.nanoTime();
 			delta = delta + (now - lastTime) / ns;
 			lastTime = now;
@@ -106,7 +104,12 @@ public class Game extends Canvas implements Runnable {
 				frame.setTitle("rain    |    FPS: " + frames);
 				updates = 0;
 				frames = 0;
-			}
+			}			
+		/*	if(key.menu == true){
+				key.menu = false;
+				JOptionPane.showMessageDialog(null, "menu initialized!");
+				
+			}*/			
 		}
 	}
 
@@ -156,4 +159,5 @@ public class Game extends Canvas implements Runnable {
 
 		game.start();
 	}
+	
 }
