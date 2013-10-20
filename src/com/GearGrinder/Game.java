@@ -164,14 +164,14 @@ public class Game extends Canvas implements Runnable {
 		g.drawString("X: " + player.x + ", Y: " + player.y, 225, 16); //x,y display		
 		//g.drawString(""+level, 25, (height * 3 -4));
 		// for mouse angle display
-		int sx = width / 2;
+		/*int sx = width / 2;
 		int sy = height / 2;
 		double dx = Mouse.getX() - sx;
 		double dy = Mouse.getY() - sy;
 		double dir = Math.atan2(dy, dx);
 		double dir2 = dir;
 		dir2 *= 180 / Math.PI;
-		g.drawString("mouse angle = Rad: " + dir + "   Deg: " + dir2, 5, height * 3 - 4);
+		g.drawString("mouse angle = Rad: " + dir + "   Deg: " + dir2, 5, height * 3 - 4);*/
 		
 		g.dispose();
 		bs.show(); // shows the next available buffer

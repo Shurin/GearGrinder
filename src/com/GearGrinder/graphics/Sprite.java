@@ -62,6 +62,10 @@ public class Sprite {
 	public static Sprite player_downleft_2 = new Sprite (32, 6, 2, SpriteSheet.playersprites);	
 	
 	
+	// PROJECTILE SPRITES
+	public static Sprite projectile_wizard = new Sprite (16, 0, 0, SpriteSheet.projectile_wizard);
+	
+	
 
 	public Sprite(int size, int x, int y, SpriteSheet sheet) {
 		SIZE = size;

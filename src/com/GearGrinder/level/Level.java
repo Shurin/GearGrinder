@@ -12,6 +12,7 @@ public class Level {
 	protected int width, height;
 	protected int[] tilesInt;
 	protected int[] tiles;
+	protected int tile_size;
 	
 	private List<Entity> entities = new ArrayList<Entity>();
 	
@@ -31,7 +32,12 @@ public class Level {
 	}
 
 	protected void generateLevel() { // creates random level
-
+		for(int y = 0; y < 64; y++){
+			for(int x = 0; x < 64; x++){
+				getTile(x, y);
+			}
+		}
+		tile_size = 16;
 	}
 
 	protected void loadLevel(String path) {

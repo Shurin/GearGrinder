@@ -2,7 +2,7 @@ package com.GearGrinder.graphics;
 
 import java.util.Random;
 
-import com.GearGrinder.level.tile.Tile;
+import com.GearGrinder.entity.Projectile.Projectile;
 
 public class Screen {
 	// tile size is going to be 32x32
@@ -46,21 +46,34 @@ public class Screen {
 		}
 	}
 	
-	public void renderTil(int xp, int yp, Tile tile){
-		renderTile(xp, yp, tile.sprite);
+	public void renderProjectile(int xp, int yp, Projectile p) {
+		xp -= xOffset;
+		yp -= yOffset;
+		for (int y = 0; y < p.getSpriteSize(); y++) {
+			int ya = y + yp; // ya = actual y position
+			for (int x = 0; x < p.getSpriteSize(); x++) {
+				int xa = x + xp; // ya = actual y position
+				if (xa < -p.getSpriteSize() || xa >= width || ya < 0 || ya >= height)	break;
+				if(xa <0) xa = 0;
+				int col = p.getSprite().pixels[x + y * p.getSprite().SIZE];
+				if(col != 0xffff00ff) pixels[xa + ya * width] = col;
+			}
+		}
 	}
+	
+	
 	
 	public void renderPlayer(int xp, int yp, Sprite sprite){
 		// all player sprites are in 16 px chunks!!
 		xp -= xOffset;
 		yp -= yOffset;
-		for (int y = 0; y < 32; y++) {
+		for (int y = 0; y < sprite.SIZE; y++) {
 			int ya = y + yp; // ya = actual y position
-			for (int x = 0; x < 32; x++) {
+			for (int x = 0; x < sprite.SIZE; x++) {
 				int xa = x + xp; // ya = actual y position
-				if (xa < -32 || xa >= width || ya < 0 || ya >= height)	break;
+				if (xa < -sprite.SIZE || xa >= width || ya < 0 || ya >= height)	break;
 				if(xa <0) xa = 0;
-				int col = sprite.pixels[x + y * 32];
+				int col = sprite.pixels[x + y * sprite.SIZE];
 				// oxfff00ff has 2 extra f's because it needs the alpha value too
 				// so it's really just 0xff00ff but with full alpha (+ ff)
 				// so you get 0xffff00ff

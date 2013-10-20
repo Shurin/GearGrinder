@@ -47,13 +47,7 @@ public class Player extends Mob{
 		updateShooting();	
 	}
 	
-	private void updateShooting() {	
-		//Dimension maxRes = Toolkit.getDefaultToolkit().getScreenSize();
-		//int maxW = maxRes.width;
-		//int maxY = maxRes.height;
-		//int sx = maxW / 2;
-		//int sy = maxY / 2;
-		
+	private void updateShooting() {		
 		if(Mouse.getB() == 1){
 			double dx = Mouse.getX() - Game.getWindowWidth() / 2;
 			double dy = Mouse.getY() - Game.getWindowHeight() / 2;
