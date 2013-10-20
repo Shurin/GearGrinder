@@ -1,8 +1,13 @@
 package com.GearGrinder.entity.mob;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
+import com.GearGrinder.Game;
 import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.graphics.Sprite;
 import com.GearGrinder.input.Keyboard;
+import com.GearGrinder.input.Mouse;
 
 public class Player extends Mob{
 	
@@ -31,23 +36,38 @@ public class Player extends Mob{
 		if (input.up)ya--;
 		if (input.down)ya++;
 		if (input.left)xa--;
-		if (input.right)xa++;
-		
+		if (input.right)xa++;		
 		if(xa != 0 || ya != 0){
 		move(xa, ya);
 		walking = true;
 		} else {
 			walking = false;
 		}
-	
+		
+		updateShooting();	
 	}
 	
+	private void updateShooting() {	
+		//Dimension maxRes = Toolkit.getDefaultToolkit().getScreenSize();
+		//int maxW = maxRes.width;
+		//int maxY = maxRes.height;
+		//int sx = maxW / 2;
+		//int sy = maxY / 2;
+		
+		if(Mouse.getB() == 1){
+			double dx = Mouse.getX() - Game.getWindowWidth() / 2;
+			double dy = Mouse.getY() - Game.getWindowHeight() / 2;
+			double dir = Math.atan2(dy, dx);// atan2 takes y first
+			shoot(x, y, dir);
+		}
+	}
+
 	public void render(Screen screen){
 		// assigns sprite frame based on direction of movement
 		// and how long it is displayed until next frame
 		// and continues to loop until direction change or movement stops
 		if(dir == 0){
-			sprite = Sprite.player_up;
+			sprite = Sprite.player_up;			
 			if(walking){
 				if(anim % 25 > 10){
 					sprite = Sprite.player_up_1;

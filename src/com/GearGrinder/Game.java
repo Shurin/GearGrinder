@@ -5,12 +5,12 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Toolkit;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 import com.GearGrinder.entity.mob.Player;
 import com.GearGrinder.graphics.Screen;
@@ -23,9 +23,16 @@ import com.GearGrinder.level.TileCoordinate;
 public class Game extends Canvas implements Runnable {
 	
 	private static final long serialVersionUID = 1L;
-	public static int width = 300;
-	public static int height = width / 16 * 9;
-	public static int scale = 3;
+	
+	Dimension maxRes = Toolkit.getDefaultToolkit().getScreenSize();
+	//int maxW = maxRes.width;
+	//int maxY = maxRes.height;
+	
+	//public int width = maxW;
+	//public int height = maxY;
+	private static int width = 300;
+	private static int height = 168;
+	private static int scale = 3;
 
 	public boolean auth = false;
 	private Thread gamethread;
@@ -37,18 +44,20 @@ public class Game extends Canvas implements Runnable {
 
 	private Screen screen;
 
-	private BufferedImage image = new BufferedImage(width, height,
-			BufferedImage.TYPE_INT_RGB);
-	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer())
-			.getData();
+	private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
 
 	public Game() {
 		Dimension size = new Dimension(width * scale, height * scale);
-		setPreferredSize(size);
+		setPreferredSize(size);		
 
 		screen = new Screen(width, height);
 		
 		frame = new JFrame();
+		//frame.setSize(Toolkit.getDefaultToolkit().getScreenSize());
+		//frame.setUndecorated(true);
+		frame.setVisible(true);
+		//frame.setAlwaysOnTop(true);
 		
 		key = new Keyboard();		
 		level = Level.spawn;
@@ -62,6 +71,14 @@ public class Game extends Canvas implements Runnable {
 		addMouseMotionListener(mouse);
 	}
 
+	public static int getWindowWidth(){
+		return width * scale;
+	}
+	
+	public static int getWindowHeight(){
+		return height * scale;
+	}
+	
 	public synchronized void start() {
 		running = true;
 		gamethread = new Thread(this, "Display");
@@ -101,7 +118,7 @@ public class Game extends Canvas implements Runnable {
 
 			if (System.currentTimeMillis() - timer > 1000) {
 				timer = timer + 1000; // adds a second to above criteria
-				frame.setTitle("rain    |    FPS: " + frames);
+				frame.setTitle("GearGrinder    |    FPS: " + frames);
 				updates = 0;
 				frames = 0;
 			}			
@@ -116,6 +133,7 @@ public class Game extends Canvas implements Runnable {
 	public void update() {
 		key.update();
 		player.update();
+		level.update();
 	}
 
 	public void render() {
@@ -136,14 +154,25 @@ public class Game extends Canvas implements Runnable {
 											// Screen
 		}
 
-		Graphics g = bs.getDrawGraphics();
-		// g.setColor(Color.black);
-		// g.fillRect(0, 0, getWidth(), getHeight());
+	    Graphics g = bs.getDrawGraphics();
+
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
 		g.setColor(Color.WHITE); //x,y display
 		g.setFont(new Font("Veranda", 0, 16)); //x,y display
-		g.drawString("X: " + player.x + ", Y: " + player.y, 400, 16); //x,y display
-		g.drawString("Tile X: " + (player.x / 16) + ", Y: " + ((player.y / 16) + 1), 400, 480); //x,y display
+		g.drawString("Button: " + Mouse.getB(),  width * 3 - 70, height * 3 - 5);
+		g.drawString("Tile X: " + (player.x / 16) + ", Y: " + ((player.y / 16) + 1), 85, 16); //x,y display
+		g.drawString("X: " + player.x + ", Y: " + player.y, 225, 16); //x,y display		
+		//g.drawString(""+level, 25, (height * 3 -4));
+		// for mouse angle display
+		int sx = width / 2;
+		int sy = height / 2;
+		double dx = Mouse.getX() - sx;
+		double dy = Mouse.getY() - sy;
+		double dir = Math.atan2(dy, dx);
+		double dir2 = dir;
+		dir2 *= 180 / Math.PI;
+		g.drawString("mouse angle = Rad: " + dir + "   Deg: " + dir2, 5, height * 3 - 4);
+		
 		g.dispose();
 		bs.show(); // shows the next available buffer
 	}

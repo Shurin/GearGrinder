@@ -1,6 +1,11 @@
 package com.GearGrinder.entity.mob;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.GearGrinder.entity.Entity;
+import com.GearGrinder.entity.Projectile.Projectile;
+import com.GearGrinder.entity.Projectile.WizardProjectile;
 import com.GearGrinder.graphics.Sprite;
 
 public abstract class Mob extends Entity {
@@ -8,6 +13,8 @@ public abstract class Mob extends Entity {
 	protected Sprite sprite;
 	protected int dir = 2;
 	protected boolean moving = false;
+	
+	protected List<Projectile> projectiles = new ArrayList<Projectile>();
 
 	public void move(int xa, int ya) {
 		// this allows "sliding" on solid tile edges
@@ -41,6 +48,12 @@ public abstract class Mob extends Entity {
 
 	public void update() {
 
+	}
+	
+	protected void shoot(int x, int y, double dir){
+		Projectile p = new WizardProjectile(x-9, y, (int) dir);
+		projectiles.add(p);
+		level.add(p);
 	}
 
 	private boolean collision(int xa, int ya) {

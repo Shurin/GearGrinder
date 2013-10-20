@@ -10,7 +10,7 @@ public class GrassTile extends Tile {
 	}
 
 	public void render(int x, int y, Screen screen) { // needs to be in EVERY tile class
-		screen.renderTile(x << 4, y << 4, this); // << 4 == * 16									
+		screen.renderTile(x << 4, y << 4, sprite); // << 4 == * 16									
 	}
 
 }
