@@ -19,14 +19,13 @@ public class WizardProjectile extends Projectile{
 	}
 
 	public void update(){
+		if(level.particleCollision(x, y, nx, ny, 8)) remove();
 		move();
 	}
 		
 	protected void move(){
-		if(!level.particleCollision(x, y, nx, ny, 8)){
-			x += nx;
-			y += ny;
-		}
+		x += nx;
+		y += ny;
 		if(distance() > range) remove();
 		
 	}
