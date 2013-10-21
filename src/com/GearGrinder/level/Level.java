@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.GearGrinder.entity.Entity;
+import com.GearGrinder.entity.Projectile.Projectile;
 import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.level.tile.Tile;
 
@@ -15,6 +16,7 @@ public class Level {
 	protected int tile_size;
 	
 	private List<Entity> entities = new ArrayList<Entity>();
+	private List<Projectile>  projectiles = new ArrayList<Projectile>();
 	
 	public static Level spawn = new SpawnLevel("/levels/spawn.png");
 
@@ -48,7 +50,14 @@ public class Level {
 		for(int i = 0; i < entities.size(); i++){
 			entities.get(i).update();
 		}
+		for(int i = 0; i < projectiles.size(); i++){
+			projectiles.get(i).update();
+		}
 
+	}
+	
+	public List<Projectile> getProjectiles(){
+		return projectiles;
 	}
 
 	private void time() { // manages the time in game ( day / night)
@@ -73,10 +82,17 @@ public class Level {
 		for(int i = 0; i < entities.size(); i++){
 			entities.get(i).render(screen);
 		}
+		for(int i = 0; i < projectiles.size(); i++)
+		{
+			projectiles.get(i).render(screen);
+		}
 	}
 	
 	public void add(Entity e){
 		entities.add(e);
+	}
+	public void addProjectile(Projectile p){
+		projectiles.add(p);
 	}
 
 	// Grass = 0xFF00FF00

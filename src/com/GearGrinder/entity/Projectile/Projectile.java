@@ -1,5 +1,7 @@
 package com.GearGrinder.entity.Projectile;
 
+import java.util.Random;
+
 import com.GearGrinder.entity.Entity;
 import com.GearGrinder.graphics.Sprite;
 
@@ -8,8 +10,11 @@ public class Projectile extends Entity{
 	protected final int xOrigin, yOrigin;
 	protected double angle;
 	protected Sprite sprite;
+	protected double x, y;
 	protected double nx, ny; //vector variables
-	protected double speed, rateOfFire,  range, damage;
+	protected double speed, rateOfFire,  range, damage, distance;
+	
+	protected final Random random = new Random();//var for random range
 	
 	public Projectile(int x, int y, double dir){
 		xOrigin = x;

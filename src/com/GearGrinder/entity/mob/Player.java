@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 
 import com.GearGrinder.Game;
+import com.GearGrinder.entity.Projectile.Projectile;
 import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.graphics.Sprite;
 import com.GearGrinder.input.Keyboard;
@@ -43,8 +44,15 @@ public class Player extends Mob{
 		} else {
 			walking = false;
 		}
-		
+		clear();
 		updateShooting();	
+	}
+	
+	private void clear(){
+		for(int i = 0; i< level.getProjectiles().size(); i++){
+			Projectile p = level.getProjectiles().get(i);
+			if(p.isRemoved()) level.getProjectiles().remove(i);
+		}
 	}
 	
 	private void updateShooting() {		
