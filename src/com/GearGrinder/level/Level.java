@@ -63,6 +63,16 @@ public class Level {
 	private void time() { // manages the time in game ( day / night)
 
 	}
+	//x, y = location of entity. xa, ya direction of it's heading. size = entity size
+	public boolean particleCollision(double x, double y, double xa, double ya, int size) {
+		boolean solid = false;
+		for (int c = 0; c < 4; c++){
+			int xt = (((int)x + (int)xa) + c % 2 * size / 2 + 5) /16; // x is handled with % operand
+			int yt = (((int)y + (int)ya) + c / 2 + size / 2 + 4) /16; // y is handled with / operand
+			if (getTile(xt, yt).solid()) solid = true;
+		}		
+		return solid;
+	}	
 
 	public void render(int xScroll, int yScroll, Screen screen) {
 		screen.setOffset(xScroll, yScroll);
@@ -92,6 +102,7 @@ public class Level {
 		entities.add(e);
 	}
 	public void addProjectile(Projectile p){
+		p.init(this);
 		projectiles.add(p);
 	}
 

@@ -1,10 +1,8 @@
 package com.GearGrinder.entity.mob;
 
-import java.awt.Dimension;
-import java.awt.Toolkit;
-
 import com.GearGrinder.Game;
 import com.GearGrinder.entity.Projectile.Projectile;
+import com.GearGrinder.entity.Projectile.WizardProjectile;
 import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.graphics.Sprite;
 import com.GearGrinder.input.Keyboard;
@@ -17,10 +15,15 @@ public class Player extends Mob{
 	private int anim = 0;
 	private boolean walking = false;
 	
+	private int fireRate = 0;
+	
 	
 	public Player(Keyboard input){
+		this.x = x;
+		this.y = y;
 		this.input = input;
 		sprite = Sprite.player_down;
+		fireRate = WizardProjectile.FIRE_RATE;
 	}
 	
 	public Player(int x, int y, Keyboard input){
@@ -31,6 +34,7 @@ public class Player extends Mob{
 	}
 	
 	public void update(){
+		if(fireRate > 0) fireRate--;
 		int xa = 0;
 		int ya = 0;
 		if (anim < 7500)anim++; else anim = 0;
@@ -56,11 +60,12 @@ public class Player extends Mob{
 	}
 	
 	private void updateShooting() {		
-		if(Mouse.getB() == 1){
+		if(Mouse.getB() == 1 && fireRate <= 0){
 			double dx = Mouse.getX() - Game.getWindowWidth() / 2;
 			double dy = Mouse.getY() - Game.getWindowHeight() / 2;
 			double dir = Math.atan2(dy, dx);// atan2 takes y first
 			shoot(x, y, dir);
+			fireRate = WizardProjectile.FIRE_RATE;
 		}
 	}
 
