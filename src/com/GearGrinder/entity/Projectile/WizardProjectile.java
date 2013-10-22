@@ -39,6 +39,6 @@ public class WizardProjectile extends Projectile{
 	}
 
 	public void render(Screen screen){
-		screen.renderProjectile((int)x, (int)y, this);
+		screen.renderProjectile((int)x -7, (int)y, this);
 	}
 }

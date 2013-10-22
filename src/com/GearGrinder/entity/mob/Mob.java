@@ -46,7 +46,7 @@ public abstract class Mob extends Entity {
 	
 	protected void shoot(int x, int y, double dir){
 		//dir *= 180 / Math.PI;
-		Projectile p = new WizardProjectile(x-9, y, dir);// -9 centers the projectile on the player sprite
+		Projectile p = new WizardProjectile(x, y, dir);
 		level.addProjectile(p);
 		
 		//experiment

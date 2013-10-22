@@ -67,8 +67,8 @@ public class Level {
 	public boolean particleCollision(double x, double y, double xa, double ya, int size) {
 		boolean solid = false;
 		for (int c = 0; c < 4; c++){
-			int xt = (((int)x + (int)xa) + c % 2 * size / 2 + 5) /16; // x is handled with % operand
-			int yt = (((int)y + (int)ya) + c / 2 + size / 2 + 4) /16; // y is handled with / operand
+			int xt = (((int)x + (int)xa) + c % 2 * size / 2 -2) /16; // x is handled with % operand
+			int yt = (((int)y + (int)ya) + c / 2 + size / 2 + 3) /16; // y is handled with / operand
 			if (getTile(xt, yt).solid()) solid = true;
 		}		
 		return solid;
