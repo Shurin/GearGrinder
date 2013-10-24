@@ -24,9 +24,10 @@ public class Particle extends Entity{
 		this.life = life + (random.nextInt(35) + random.nextInt(25) - random.nextInt(59));
 		sprite = Sprite.particle_normal;
 
-		this.xa = random.nextGaussian() + 2.0;
+		this.xa = random.nextGaussian() + 1.8;
+		if(this.xa < 0) xa = 0.1;
 		this.ya = random.nextGaussian();
-		this.zz = 10.0;//gravity
+		this.zz = random.nextFloat() + 4.0;//gravity
 	}
 	
 	public void update(){
@@ -37,7 +38,7 @@ public class Particle extends Entity{
 		
 		if(zz < 0){
 			zz = 0;//makes sure particles don't go below "floor"
-			za *= -0.8;//bounce degrade
+			za *= -0.65;//bounce degrade
 			xa *= 0.5;// travel degrade
 			ya *= 0.5;
 		}
@@ -48,6 +49,6 @@ public class Particle extends Entity{
 	}
 	
 	public void render(Screen screen){
-		screen.renderSprite((int)xx, (int)yy - (int)zz, sprite, true);//gravity ( -(int) zz  ) only
+		screen.renderSprite((int)xx - 1, (int)yy - (int)zz, sprite, true);//gravity ( -(int) zz  ) only
 	}
 }
