@@ -1,5 +1,6 @@
  package com.GearGrinder.entity.Projectile;
 
+import com.GearGrinder.entity.particle.Particle;
 import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.graphics.Sprite;
 
@@ -19,7 +20,11 @@ public class WizardProjectile extends Projectile{
 	}
 
 	public void update(){
-		if(level.particleCollision(x, y, nx, ny, 8)) remove();
+		if(level.particleCollision(x, y, nx, ny, 8)){
+			Particle p = new Particle((int)x, (int)y, 50, 500);
+			level.add(p);
+			remove();
+		}
 		move();
 	}
 		

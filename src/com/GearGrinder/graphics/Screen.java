@@ -12,7 +12,7 @@ public class Screen {
 	public final int MAP_SIZE = 64;
 	public final int MAP_SIZE_MASK = MAP_SIZE - 1;
 	public int xOffset, yOffset;
-	public int[] tiles = new int[64 * 64]; // if MAP_SIZE = 64, then
+	public int[] tiles = new int[MAP_SIZE * MAP_SIZE]; // if MAP_SIZE = 64, then
 														// tiles = 4,096
 	private Random random = new Random();
 
@@ -22,13 +22,28 @@ public class Screen {
 		pixels = new int[width * height]; // atm it's 50,400
 
 		for (int i = 0; i < MAP_SIZE * MAP_SIZE; i++) {
-			tiles[i] = random.nextInt(0xcc00cc);
+			tiles[i] = random.nextInt(0xffffff);
 		}
 	}
 
 	public void clear() {
 		for (int i = 0; i < pixels.length; i++) {
 			pixels[i] = 0;
+		}
+	}
+	
+	public void renderSprite(int xp, int yp, Sprite sprite, boolean fixed){
+		if(fixed){
+			xp -= xOffset;
+			yp -= yOffset;
+		}
+		for(int y = 0; y < sprite.getHeight(); y++){
+			int ya = y + yp;
+			for(int x = 0; x < sprite.getWidth(); x++){
+				int xa = x + xp;
+				if(xa < 0 || xa >= width || ya < 0 || ya >= height) continue;
+				pixels[xa + ya * width] = sprite.pixels[x + y * sprite.getWidth()];
+			}
 		}
 	}
 
@@ -40,7 +55,7 @@ public class Screen {
 			for (int x = 0; x < sprite.SIZE; x++) {
 				int xa = x + xp; // ya = actual y position
 				if (xa < -sprite.SIZE || xa >= width || ya < 0 || ya >= height)	break;
-				if(xa <0) xa = 0;
+				if(xa <0 ) xa = 0;
 				pixels[xa + ya * width] = sprite.pixels[x + y * sprite.SIZE];
 			}
 		}

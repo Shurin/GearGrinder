@@ -3,6 +3,7 @@ package com.GearGrinder.entity.mob;
 import com.GearGrinder.entity.Entity;
 import com.GearGrinder.entity.Projectile.Projectile;
 import com.GearGrinder.entity.Projectile.WizardProjectile;
+import com.GearGrinder.entity.particle.Particle;
 import com.GearGrinder.graphics.Sprite;
 
 public abstract class Mob extends Entity {
@@ -36,8 +37,11 @@ public abstract class Mob extends Entity {
 		if (!collision(xa, ya)) {
 			// x or y = -1, 0, 1
 			// 0 == not moving
-			x = x + xa;
-			y = y + ya;
+			x += xa;
+			y += ya;
+		}else{
+			Particle p = new Particle(x, y, 50, 50);
+			level.add(p);
 		}
 	}
 
