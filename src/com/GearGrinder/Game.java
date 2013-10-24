@@ -14,7 +14,6 @@ import javax.swing.JFrame;
 
 import com.GearGrinder.entity.mob.Player;
 import com.GearGrinder.graphics.Screen;
-import com.GearGrinder.graphics.Sprite;
 import com.GearGrinder.input.Keyboard;
 import com.GearGrinder.input.Mouse;
 import com.GearGrinder.level.Level;

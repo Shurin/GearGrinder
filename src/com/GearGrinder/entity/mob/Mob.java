@@ -24,7 +24,6 @@ public abstract class Mob extends Entity {
 			if (xa < 0 && ya < 0) dir = 7;
 			return;
 		}
-		
 		// this assigns what direction we're going
 		// based off of x/y travel
 		// 0 up, 1 east, 2 down, 3 west
@@ -39,9 +38,6 @@ public abstract class Mob extends Entity {
 			// 0 == not moving
 			x += xa;
 			y += ya;
-		}else{
-			Particle p = new Particle(x, y, 50, 50);
-			level.add(p);
 		}
 	}
 
@@ -51,13 +47,7 @@ public abstract class Mob extends Entity {
 	protected void shoot(int x, int y, double dir){
 		//dir *= 180 / Math.PI;
 		Projectile p = new WizardProjectile(x, y, dir);
-		level.addProjectile(p);
-		
-		//experiment
-		// adds another instance of the same projectile
-		//Projectile q = new WizardProjectile(x-24, y, dir);// -9 centers the projectile on the player sprite
-		//projectiles.add(q);
-		//level.add(q);
+		level.add(p);
 	}
 
 	private boolean collision(int xa, int ya) {
@@ -66,12 +56,10 @@ public abstract class Mob extends Entity {
 			int xt = ((x + xa) + c % 2 * 14 - 8) /16; // x is handled with % operand
 			int yt = ((y + ya) + c / 2 + 12 + 3) /16; // y is handled with / operand
 			if (level.getTile(xt, yt).solid()) solid = true;
-		}
-		
+		}		
 		return solid;
 	}
 
 	public void render() {
-
 	}
 }

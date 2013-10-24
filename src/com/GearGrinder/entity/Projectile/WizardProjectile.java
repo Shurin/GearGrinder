@@ -1,6 +1,7 @@
  package com.GearGrinder.entity.Projectile;
 
-import com.GearGrinder.entity.particle.Particle;
+import com.GearGrinder.entity.spawner.ParticleSpawner;
+import com.GearGrinder.entity.spawner.Spawner;
 import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.graphics.Sprite;
 
@@ -21,8 +22,7 @@ public class WizardProjectile extends Projectile{
 
 	public void update(){
 		if(level.particleCollision(x, y, nx, ny, 8)){
-			Particle p = new Particle((int)x, (int)y, 50, 500);
-			level.add(p);
+			level.add(new ParticleSpawner((int)x, (int)y, 15, 50, level));
 			remove();
 		}
 		move();
@@ -31,15 +31,12 @@ public class WizardProjectile extends Projectile{
 	protected void move(){
 		x += nx;
 		y += ny;
-		if(distance() > range) remove();
-		
+		if(distance() > range) remove();		
 	}
 	
 	private double distance() {
-		double dist = 0;
-		
-		dist = Math.sqrt(Math.abs((xOrigin - x)*(xOrigin - x) + (yOrigin - y) * (yOrigin - y)));
-		
+		double dist = 0;		
+		dist = Math.sqrt(Math.abs((xOrigin - x)*(xOrigin - x) + (yOrigin - y) * (yOrigin - y)));		
 		return dist;
 	}
 
