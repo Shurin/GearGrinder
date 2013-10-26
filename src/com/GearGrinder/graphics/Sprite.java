@@ -45,21 +45,6 @@ public class Sprite {
 	public static Sprite player_right_1 = new Sprite (32, 1, 1, SpriteSheet.playersprites);
 	public static Sprite player_right_2 = new Sprite (32, 1, 2, SpriteSheet.playersprites);	
 	
-	public static Sprite player_upright = new Sprite (32, 5, 0, SpriteSheet.playersprites);
-	public static Sprite player_upright_1 = new Sprite (32, 5, 1, SpriteSheet.playersprites);
-	public static Sprite player_upright_2 = new Sprite (32, 5, 2, SpriteSheet.playersprites);
-	
-	public static Sprite player_downright = new Sprite (32, 4, 0, SpriteSheet.playersprites);
-	public static Sprite player_downright_1 = new Sprite (32, 4, 1, SpriteSheet.playersprites);
-	public static Sprite player_downright_2 = new Sprite (32, 4, 2, SpriteSheet.playersprites);	
-	
-	public static Sprite player_upleft = new Sprite (32, 7, 0, SpriteSheet.playersprites);
-	public static Sprite player_upleft_1 = new Sprite (32, 7, 1, SpriteSheet.playersprites);
-	public static Sprite player_upleft_2 = new Sprite (32, 7, 2, SpriteSheet.playersprites);
-	
-	public static Sprite player_downleft = new Sprite (32, 6, 0, SpriteSheet.playersprites);
-	public static Sprite player_downleft_1 = new Sprite (32, 6, 1, SpriteSheet.playersprites);
-	public static Sprite player_downleft_2 = new Sprite (32, 6, 2, SpriteSheet.playersprites);	
 	
 	//PARTICLES
 	public static Sprite particle_normal = new Sprite(3, 0xffaaaaaa);//size in px and color

@@ -80,12 +80,11 @@ public class Level {
 	private void time() { // manages the time in game ( day / night)
 
 	}
-	//x, y = location of entity. xa, ya direction of it's heading. size = entity size
-	public boolean particleCollision(double x, double y, double xa, double ya, int size) {
+	public boolean projectileCollision(int x, int y, int size, int xOffset, int yOffset) {
 		boolean solid = false;
 		for (int c = 0; c < 4; c++){
-			int xt = (((int)x + (int)xa) + c % 2 * size / 2 -2) /16; // x is handled with % operand
-			int yt = (((int)y + (int)ya) + c / 2 + size / 2 + 3) /16; // y is handled with / operand
+			int xt = (x - c % 2 * size + xOffset) /16;
+			int yt = (y - c / 2 * size + (yOffset * 3)) /16;
 			if (getTile(xt, yt).solid()) solid = true;
 		}		
 		return solid;

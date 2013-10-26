@@ -21,8 +21,8 @@ public class WizardProjectile extends Projectile{
 	}
 
 	public void update(){
-		if(level.particleCollision(x, y, nx, ny, 8)){
-			level.add(new ParticleSpawner((int)x, (int)y, 15, 50, level));
+		if(level.projectileCollision((int)(x + nx), (int)(y + ny), 8, 4, 4)){
+			level.add(new ParticleSpawner((int)x, (int)y + 6, 15, 50, level));
 			remove();
 		}
 		move();
@@ -41,6 +41,6 @@ public class WizardProjectile extends Projectile{
 	}
 
 	public void render(Screen screen){
-		screen.renderProjectile((int)x -7, (int)y, this);
+		screen.renderProjectile((int)x - 8, (int)y, this);
 	}
 }

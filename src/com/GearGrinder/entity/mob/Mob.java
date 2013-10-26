@@ -17,11 +17,6 @@ public abstract class Mob extends Entity {
 		if(xa !=0 && ya != 0){
 			move(xa, 0);
 			move(0, ya);
-			// diagonal movement has to be here
-			if (xa > 0 && ya > 0) dir = 4;
-			if (xa > 0 && ya < 0) dir = 5;
-			if (xa < 0 && ya > 0) dir = 6;
-			if (xa < 0 && ya < 0) dir = 7;
 			return;
 		}
 		// this assigns what direction we're going

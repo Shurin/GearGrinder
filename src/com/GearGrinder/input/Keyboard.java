@@ -13,7 +13,6 @@ public class Keyboard implements KeyListener{
 		down = keys[KeyEvent.VK_DOWN] || keys[KeyEvent.VK_S];
 		left = keys[KeyEvent.VK_LEFT] || keys[KeyEvent.VK_A];
 		right = keys[KeyEvent.VK_RIGHT] || keys[KeyEvent.VK_D];
-		menu = keys[KeyEvent.VK_NUMPAD9];
 		
 		
 		for(int i=0; i< keys.length; i++){

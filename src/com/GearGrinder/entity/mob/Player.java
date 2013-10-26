@@ -113,46 +113,6 @@ public class Player extends Mob{
 				}
 			}
 		}
-		if(dir == 5){
-			sprite = Sprite.player_upright;
-			if(walking){
-				if(anim % 25 > 10){
-					sprite = Sprite.player_upright_1;
-				} else{
-					sprite = Sprite.player_upright_2;
-				}
-			}
-		}
-		if(dir == 4){
-			sprite = Sprite.player_downright;
-			if(walking){
-				if(anim % 25 > 10){
-					sprite = Sprite.player_downright_1;
-				} else{
-					sprite = Sprite.player_downright_2;
-				}
-			}
-		}
-		if(dir == 7){
-			sprite = Sprite.player_upleft;
-			if(walking){
-				if(anim % 25 > 10){
-					sprite = Sprite.player_upleft_1;
-				} else{
-					sprite = Sprite.player_upleft_2;
-				}
-			}
-		}
-		if(dir == 6){
-			sprite = Sprite.player_downleft;
-			if(walking){
-				if(anim % 25 > 10){
-					sprite = Sprite.player_downleft_1;
-				} else{
-					sprite = Sprite.player_downleft_2;
-				}
-			}
-		}
 
 		// the -16 is to make the center of the player 0,0		
 		screen.renderPlayer(x - 16, y - 16, sprite);
