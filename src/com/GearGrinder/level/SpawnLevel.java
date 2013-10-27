@@ -5,7 +5,8 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import com.GearGrinder.level.tile.Tile;
+import com.GearGrinder.entity.mob.NinjaBot;
+import com.GearGrinder.entity.mob.NinjaBotBoss;
 
 public class SpawnLevel extends Level{
 
@@ -26,6 +27,9 @@ public class SpawnLevel extends Level{
 			e.printStackTrace();
 			System.out.println("Exception! Could not load level file!");
 		}
+		add(new NinjaBot(20, 8));
+		add(new NinjaBot(20, 10));
+		add(new NinjaBotBoss(4, 17));
 	}
 	
 	// Grass = 0x00FF00

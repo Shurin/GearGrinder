@@ -4,7 +4,7 @@ import com.GearGrinder.entity.Entity;
 import com.GearGrinder.entity.particle.Particle;
 import com.GearGrinder.level.Level;
 
-public class Spawner extends Entity{
+public abstract class Spawner extends Entity{
 	
 	public enum Type{
 		MOB, PARTICLE

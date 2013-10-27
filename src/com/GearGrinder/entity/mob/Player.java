@@ -86,51 +86,8 @@ public class Player extends Mob{
 	}
 
 	public void render(Screen screen){
-		// assigns sprite frame based on direction of movement
-		// and how long it is displayed until next frame
-		// and continues to loop until direction change or movement stops
-		/*if(dir == 0){
-			sprite = Sprite.player_up;			
-			if(walking){
-				if(anim % 25 > 10){
-					sprite = Sprite.player_up_1;
-				} else{
-					sprite = Sprite.player_up_2;
-				}
-			}
-		}
-		if(dir == 2){
-			sprite = Sprite.player_down;
-			if(walking){
-				if(anim % 25 > 10){
-					sprite = Sprite.player_down_1;
-				} else{
-					sprite = Sprite.player_down_2;
-				}
-			}
-		}
-		if(dir == 3){
-			sprite = Sprite.player_left;
-			if(walking){
-				if(anim % 25 > 10){
-					sprite = Sprite.player_left_1;
-				} else{
-					sprite = Sprite.player_left_2;
-				}
-			}
-		}
-		if(dir == 1){
-			sprite = Sprite.player_right;
-			if(walking){
-				if(anim % 25 > 10){
-					sprite = Sprite.player_right_1;
-				} else{
-					sprite = Sprite.player_right_2;
-				}
-			}
-		}*/
 		sprite = animSprite.getSprite();
 		// the -16 is to make the center of the player 0,0		
-		screen.renderPlayer(x - 16, y - 16, sprite);
+		screen.renderMob(x - 16, y - 16, sprite);
 	}
 }

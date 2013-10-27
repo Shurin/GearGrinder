@@ -94,7 +94,7 @@ public class Screen {
 	
 	
 	
-	public void renderPlayer(int xp, int yp, Sprite sprite){
+	public void renderMob(int xp, int yp, Sprite sprite){
 		// all player sprites are in 16 px chunks!!
 		xp -= xOffset;
 		yp -= yOffset;

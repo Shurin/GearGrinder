@@ -15,11 +15,24 @@ public class SpriteSheet {
 	public static SpriteSheet playersprites = new SpriteSheet("/textures/sheets/playersprites.png", 128); // 256 is the length of the spritesheet in pixels
 	public static SpriteSheet spawn_level_tiles = new SpriteSheet("/textures/sheets/spawnleveltiles.png", 48); // 48 is the length of the spritesheet in pixels
 	public static SpriteSheet projectile_wizard = new SpriteSheet("/textures/sheets/projectiles/wizard.png", 48); // 48 is the length of the spritesheet in pixels
+	//player
 	public static SpriteSheet player = new SpriteSheet("/textures/sheets/player_sheet.png", 128, 96);
 	public static SpriteSheet player_down = new SpriteSheet(player, 2, 0, 1, 3, 32);
 	public static SpriteSheet player_up = new SpriteSheet(player, 0, 0, 1, 3, 32);
 	public static SpriteSheet player_right = new SpriteSheet(player, 1, 0, 1, 3, 32);
 	public static SpriteSheet player_left = new SpriteSheet(player, 3, 0, 1, 3, 32);
+	//Ninja Bot
+	public static SpriteSheet ninjabot = new SpriteSheet("/textures/sheets/ninjabot.png", 128, 96);
+	public static SpriteSheet ninjabot_down = new SpriteSheet(ninjabot, 2, 0, 1, 3, 32);
+	public static SpriteSheet ninjabot_up = new SpriteSheet(ninjabot, 0, 0, 1, 3, 32);
+	public static SpriteSheet ninjabot_right = new SpriteSheet(ninjabot, 1, 0, 1, 3, 32);
+	public static SpriteSheet ninjabot_left = new SpriteSheet(ninjabot, 3, 0, 1, 3, 32);
+	//Ninja Bot
+	public static SpriteSheet ninjabotboss = new SpriteSheet("/textures/sheets/ninjabotboss.png", 128, 96);
+	public static SpriteSheet ninjabotboss_down = new SpriteSheet(ninjabotboss, 2, 0, 1, 3, 32);
+	public static SpriteSheet ninjabotboss_up = new SpriteSheet(ninjabotboss, 0, 0, 1, 3, 32);
+	public static SpriteSheet ninjabotboss_right = new SpriteSheet(ninjabotboss, 1, 0, 1, 3, 32);
+	public static SpriteSheet ninjabotboss_left = new SpriteSheet(ninjabotboss, 3, 0, 1, 3, 32);
 	
 	private Sprite[] sprites;
 	
