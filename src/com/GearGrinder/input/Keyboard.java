@@ -6,13 +6,14 @@ import java.awt.event.KeyListener;
 public class Keyboard implements KeyListener{
 
 	private boolean[] keys = new boolean[230];
-	public boolean up, down, left, right, menu;
+	public boolean up, down, left, right, sprint;
 	public String keystring;
 	public void update(){
 		up = keys[KeyEvent.VK_UP] || keys[KeyEvent.VK_W];
 		down = keys[KeyEvent.VK_DOWN] || keys[KeyEvent.VK_S];
 		left = keys[KeyEvent.VK_LEFT] || keys[KeyEvent.VK_A];
 		right = keys[KeyEvent.VK_RIGHT] || keys[KeyEvent.VK_D];
+		sprint = keys[KeyEvent.VK_SHIFT];
 		
 		
 		for(int i=0; i< keys.length; i++){

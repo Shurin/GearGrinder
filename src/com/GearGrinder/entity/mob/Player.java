@@ -58,6 +58,22 @@ public class Player extends Mob{
 			animSprite = right;
 			xa++;		
 		}
+		//sprint stuff
+		if (input.up && input.sprint){
+			animSprite = up;
+			ya-=1.5;
+		} else if (input.down && input.sprint){
+			animSprite = down;
+			ya+=1.5;
+		}
+		if (input.left && input.sprint){
+			animSprite = left;
+			xa-=1.5;
+		} else if (input.right && input.sprint){
+			animSprite = right;
+			xa+=1.5;		
+		}
+		
 		if(xa != 0 || ya != 0){
 			move(xa, ya);
 			walking = true;
