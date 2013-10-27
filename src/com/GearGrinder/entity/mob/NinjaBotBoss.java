@@ -63,6 +63,7 @@ public class NinjaBotBoss extends Mob{
 	
 	public void render(Screen screen) {
 		sprite = animSprite.getSprite();
-		screen.renderMob(x, y, this);
+		// -16 MUST be there to make sure mob collides properly
+		screen.renderMob(x - 16, y - 16, this);
 	}
 }

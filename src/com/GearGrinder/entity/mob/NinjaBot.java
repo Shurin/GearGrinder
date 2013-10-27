@@ -61,6 +61,6 @@ public class NinjaBot extends Mob{
 
 	public void render(Screen screen) {
 		sprite = animSprite.getSprite();
-		screen.renderMob(x, y, sprite);
+		screen.renderMob(x - 16, y - 16, sprite);
 	}
 }
