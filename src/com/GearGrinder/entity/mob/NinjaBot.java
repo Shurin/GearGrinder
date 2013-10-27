@@ -34,6 +34,7 @@ public class NinjaBot extends Mob{
 				ya = random.nextInt(3) - 1;
 			}
 		}
+		
 		if(walking) animSprite.update();
 		else animSprite.setFrame(0);
 		if (ya < 0){

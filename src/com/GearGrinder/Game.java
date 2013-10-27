@@ -45,15 +45,16 @@ public class Game extends Canvas implements Runnable {
 
 	public Game() {
 		Dimension size = new Dimension(width * scale, height * scale);
-		setPreferredSize(size);		
+		setPreferredSize(size);
+		
 		screen = new Screen(width, height);
 		frame = new JFrame();
-		frame.setVisible(true);
 		key = new Keyboard();		
 		level = Level.spawn;
 		TileCoordinate playerSpawn = new TileCoordinate(21, 18); //SPAWN LOCATION!!
 		player = new Player(playerSpawn.x(), playerSpawn.y(), key);
-		player.init(level);
+		level.add(player);
+		
 		addKeyListener(key);
 		
 		Mouse mouse = new Mouse();
@@ -122,7 +123,6 @@ public class Game extends Canvas implements Runnable {
 
 	public void update() {
 		key.update();
-		player.update();
 		level.update();
 	}
 
@@ -133,23 +133,21 @@ public class Game extends Canvas implements Runnable {
 			return;
 		}
 		screen.clear();
-		int xScroll = player.x - screen.width /2; // puts player in middle of x-axis
-		int yScroll = player.y - screen.height /2; // puts player in middle of y-axis
+		int xScroll = player.getX() - screen.width /2; // puts player in middle of x-axis
+		int yScroll = player.getY() - screen.height /2; // puts player in middle of y-axis
 		level.render(xScroll, yScroll, screen);
-		player.render(screen);
 		
 		for (int i = 0; i < pixels.length; i++) {
 			pixels[i] = screen.pixels[i];
 		}
 
 	    Graphics g = bs.getDrawGraphics();
-
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Veranda", 0, 16));
 		g.drawString("Button: " + Mouse.getB(),  width * 3 - 70, height * 3 - 5);
-		g.drawString("Tile X: " + (player.x / 16) + ", Y: " + ((player.y / 16) + 1), 85, 16);
-		g.drawString("X: " + player.x + ", Y: " + player.y, 225, 16);			
+		g.drawString("Tile X: " + (player.getX() / 16) + ", Y: " + ((player.getY() / 16) + 1), 85, 16);
+		g.drawString("X: " + player.getX() + ", Y: " + player.getY(), 225, 16);			
 		g.dispose();
 		bs.show();
 	}

@@ -8,7 +8,6 @@ import com.GearGrinder.graphics.Sprite;
 
 public abstract class Mob extends Entity {
 
-	protected Sprite sprite;
 	protected boolean moving = false;
 	protected boolean walking = false; // ******* if everything is working ok, delete this line
 
@@ -45,7 +44,7 @@ public abstract class Mob extends Entity {
 		Projectile p = new WizardProjectile(x, y, dir);
 		level.add(p);
 	}
-
+	
 	private boolean collision(int xa, int ya) {
 		boolean solid = false;
 		for (int c = 0; c < 4; c++){
