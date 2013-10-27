@@ -1,5 +1,7 @@
 package com.GearGrinder.entity.mob;
 
+import java.util.List;
+
 import com.GearGrinder.graphics.AnimatedSprite;
 import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.graphics.Sprite;
@@ -25,14 +27,15 @@ public class NinjaBotBoss extends Mob{
 	
 	private void move(){
 		xa = 0;
-		ya = 0;
-		
-		Player player = level.getClientPlayer();
-		if(x < player.getX()) xa++;
-		if(x > player.getX()) xa--;
-		if(y < player.getY()) ya++;
-		if(y > player.getY()) ya--;
-		
+		ya = 0;		
+		List<Player> players = level.getPlayers(this, 50);
+		if(players.size() > 0){
+		Player player = players.get(0);
+			if(x < player.getX()) xa++;
+			if(x > player.getX()) xa--;
+			if(y < player.getY()) ya++;
+			if(y > player.getY()) ya--;
+		}
 		if(xa != 0 || ya != 0){
 			move(xa, ya);
 			walking = true;
