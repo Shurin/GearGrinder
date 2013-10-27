@@ -92,9 +92,6 @@ public class Level {
 
 	public void render(int xScroll, int yScroll, Screen screen) {
 		screen.setOffset(xScroll, yScroll);
-		// Scroll keeps track of player location
-		// x0 & y0 are the starting cornerpins of the screen
-		// x1 & y1 are the far cornerpins of the screen
 		int x0 = xScroll >> 4; // >> 4 == / 16
 		int x1 = (xScroll + screen.width + 16) >> 4;
 		int y0 = yScroll >> 4;

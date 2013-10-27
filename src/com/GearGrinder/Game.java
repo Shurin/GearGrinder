@@ -26,11 +26,6 @@ public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
 	
 	Dimension maxRes = Toolkit.getDefaultToolkit().getScreenSize();
-	//int maxW = maxRes.width;
-	//int maxY = maxRes.height;
-	
-	//public int width = maxW;
-	//public int height = maxY;
 	private static int width = 300;
 	private static int height = 168;
 	private static int scale = 3;
@@ -51,18 +46,12 @@ public class Game extends Canvas implements Runnable {
 	public Game() {
 		Dimension size = new Dimension(width * scale, height * scale);
 		setPreferredSize(size);		
-
 		screen = new Screen(width, height);
-		
 		frame = new JFrame();
-		//frame.setSize(Toolkit.getDefaultToolkit().getScreenSize());
-		//frame.setUndecorated(true);
 		frame.setVisible(true);
-		//frame.setAlwaysOnTop(true);
-		
 		key = new Keyboard();		
 		level = Level.spawn;
-		TileCoordinate playerSpawn = new TileCoordinate(68, 48);
+		TileCoordinate playerSpawn = new TileCoordinate(21, 18); //SPAWN LOCATION!!
 		player = new Player(playerSpawn.x(), playerSpawn.y(), key);
 		player.init(level);
 		addKeyListener(key);
