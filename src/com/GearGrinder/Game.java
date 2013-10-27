@@ -9,11 +9,9 @@ import java.awt.Toolkit;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
-import java.util.List;
 
 import javax.swing.JFrame;
 
-import com.GearGrinder.entity.Entity;
 import com.GearGrinder.entity.mob.Player;
 import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.input.Keyboard;
@@ -148,7 +146,7 @@ public class Game extends Canvas implements Runnable{
 		g.setFont(new Font("Veranda", 0, 16));
 		g.drawString("Button: " + Mouse.getB(),  width * 3 - 70, height * 3 - 5);
 		g.drawString("Tile X: " + (player.getX() / 16) + ", Y: " + ((player.getY() / 16) + 1), 85, 16);
-		g.drawString("X: " + player.getX() + ", Y: " + player.getY(), 225, 16);		
+		g.drawString("X: " + player.getX() + ", Y: " + player.getY(), 225, 16);	
 		g.dispose();
 		bs.show();
 	}

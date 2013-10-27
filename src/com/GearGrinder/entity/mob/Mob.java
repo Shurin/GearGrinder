@@ -36,6 +36,11 @@ public abstract class Mob extends Entity {
 		}
 	}
 
+	public int abs(double value){
+		if(value < 0) return -1;
+		else return 1;
+	}
+	
 	public abstract void update();
 	
 	public abstract void render(Screen screen);
