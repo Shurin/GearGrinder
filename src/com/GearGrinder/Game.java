@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 
 import com.GearGrinder.entity.mob.Player;
 import com.GearGrinder.graphics.Screen;
+import com.GearGrinder.graphics.SpriteSheet;
 import com.GearGrinder.input.Keyboard;
 import com.GearGrinder.input.Mouse;
 import com.GearGrinder.level.Level;
@@ -138,7 +139,7 @@ public class Game extends Canvas implements Runnable {
 
 	public void render() {
 		BufferStrategy bs = getBufferStrategy();
-		if (bs == null) { // if the buffer isn't created yet, this creates it
+		if (bs == null) {
 			createBufferStrategy(3); // 3 = triple buffer
 			return;
 		}
@@ -147,23 +148,21 @@ public class Game extends Canvas implements Runnable {
 		int yScroll = player.y - screen.height /2; // puts player in middle of y-axis
 		level.render(xScroll, yScroll, screen);
 		player.render(screen);
-
+		
 		for (int i = 0; i < pixels.length; i++) {
-			pixels[i] = screen.pixels[i]; // assigns the value of pixels defined
-											// here to the pixels array in
-											// Screen
+			pixels[i] = screen.pixels[i];
 		}
 
 	    Graphics g = bs.getDrawGraphics();
 
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
-		g.setColor(Color.WHITE); //x,y display
-		g.setFont(new Font("Veranda", 0, 16)); //x,y display
+		g.setColor(Color.WHITE);
+		g.setFont(new Font("Veranda", 0, 16));
 		g.drawString("Button: " + Mouse.getB(),  width * 3 - 70, height * 3 - 5);
-		g.drawString("Tile X: " + (player.x / 16) + ", Y: " + ((player.y / 16) + 1), 85, 16); //x,y display
-		g.drawString("X: " + player.x + ", Y: " + player.y, 225, 16); //x,y display				
+		g.drawString("Tile X: " + (player.x / 16) + ", Y: " + ((player.y / 16) + 1), 85, 16);
+		g.drawString("X: " + player.x + ", Y: " + player.y, 225, 16);			
 		g.dispose();
-		bs.show(); // shows the next available buffer
+		bs.show();
 	}
 
 	public static void main(String[] args) {

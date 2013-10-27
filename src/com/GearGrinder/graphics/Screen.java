@@ -32,6 +32,22 @@ public class Screen {
 		}
 	}
 	
+	//testing purposes only
+	public void renderSheet(int xp, int yp, SpriteSheet sheet, boolean fixed){
+		if(fixed){
+			xp -= xOffset;
+			yp -= yOffset;
+		}
+		for(int y = 0; y < sheet.HEIGHT; y++){
+			int ya = y + yp;
+			for(int x = 0; x < sheet.WIDTH; x++){
+				int xa = x + xp;
+				if(xa < 0 || xa >= width || ya < 0 || ya >= height) continue;
+				pixels[xa + ya * width] = sheet.pixels[x + y * sheet.WIDTH];
+			}
+		}
+	}
+	
 	public void renderSprite(int xp, int yp, Sprite sprite, boolean fixed){
 		if(fixed){
 			xp -= xOffset;
@@ -83,15 +99,12 @@ public class Screen {
 		xp -= xOffset;
 		yp -= yOffset;
 		for (int y = 0; y < sprite.SIZE; y++) {
-			int ya = y + yp; // ya = actual y position
+			int ya = y + yp;
 			for (int x = 0; x < sprite.SIZE; x++) {
-				int xa = x + xp; // ya = actual y position
+				int xa = x + xp;
 				if (xa < -sprite.SIZE || xa >= width || ya < 0 || ya >= height)	break;
 				if(xa <0) xa = 0;
 				int col = sprite.pixels[x + y * sprite.SIZE];
-				// oxfff00ff has 2 extra f's because it needs the alpha value too
-				// so it's really just 0xff00ff but with full alpha (+ ff)
-				// so you get 0xffff00ff
 				if (col != 0xffff00ff) pixels[xa + ya * width] = col;
 			}
 		}
