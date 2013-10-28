@@ -63,4 +63,8 @@ public class NinjaBot extends Mob{
 		sprite = animSprite.getSprite();
 		screen.renderMob(x - 16, y - 16, sprite);
 	}
+	
+	public boolean solid(){
+		return true;
+	}
 }
