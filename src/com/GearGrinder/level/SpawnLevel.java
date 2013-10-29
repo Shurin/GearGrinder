@@ -9,12 +9,10 @@ import com.GearGrinder.entity.mob.NinjaBot;
 import com.GearGrinder.entity.mob.NinjaBotBoss;
 
 public class SpawnLevel extends Level{
-
 	
 	public SpawnLevel(String path) {		
 		super(path);
-	}
-	
+	}	
 	
 	protected void loadLevel(String path){
 		try{ 
@@ -28,13 +26,9 @@ public class SpawnLevel extends Level{
 			System.out.println("Exception! Could not load level file!");
 		}
 		add(new NinjaBot(20, 8));
-		add(new NinjaBot(20, 10));
-		add(new NinjaBotBoss(4, 17));
+		add(new NinjaBotBoss(10,17));		
 	}
 	
-	// Grass = 0x00FF00
-	// Flower = 0xFFFF00
-	// Rock = 0x7F7F00
 	protected void generateLevel(){
 		
 	}

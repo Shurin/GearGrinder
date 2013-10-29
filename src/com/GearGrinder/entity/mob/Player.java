@@ -38,6 +38,8 @@ public class Player extends Mob{
 	public static double maxstamina = stamina;
 	public static double staminapercent = currentstamina / maxstamina * 100;
 	
+	public static boolean swap = false;
+	
 	public Player(Keyboard input){
 		this.input = input;
 		sprite = Sprite.player_down;
@@ -101,12 +103,20 @@ public class Player extends Mob{
 			currentstamina--;
 		}
 		
+		if(input.spawnmob){
+			for(int i = 0; i < 1; i++){
+			level.add(new NinjaBot(x / 16,y / 16)); 
+			Game.mobsonscreen = Game.mobsonscreen + 1;
+			}
+		}
+		
 		if(xa != 0 || ya != 0){
 			move(xa, ya);
 			walking = true;
 		} else {
 			walking = false;
 		}
+		
 		clear();
 		updateShooting();	
 	}

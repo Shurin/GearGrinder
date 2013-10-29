@@ -11,6 +11,7 @@ import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import com.GearGrinder.entity.mob.Mob;
 import com.GearGrinder.entity.mob.Player;
@@ -29,10 +30,9 @@ public class Game extends Canvas implements Runnable {
 	private static int height = 168;
 	private static int scale = 3;
 
-	// experimental
 	public int healthPosX = 50, healthPosY = 678;
 	public int staminaPosX = 95, staminaPosY = 725;
-	private Mob mob;
+	public static int mobsonscreen = 3;
 
 	public boolean auth = false;
 	private Thread gamethread;
@@ -50,6 +50,7 @@ public class Game extends Canvas implements Runnable {
 			.getData();
 
 	public Game() {
+		JOptionPane.showMessageDialog(null, "             run  >  shift \n         decrease hp  >  1 \n          shoot  >  L click \n       spawn mob at your x,y  >  3");
 		Dimension size = new Dimension(width * scale, height * scale);
 		setPreferredSize(size);
 
@@ -210,8 +211,8 @@ public class Game extends Canvas implements Runnable {
 		g.setColor(Color.lightGray);
 		g.drawString("Stamina : " + (int)Player.staminapercent, 351, height * scale - 10);
 		
-		g.setColor(Color.WHITE);
-		g.drawString("current " + Player.currenthealth + " max " + Player.maxhealth + "percent " + Player.healthpercent, 150, 150);
+		g.setColor(Color.GREEN);
+		g.drawString("Mobs on screen: " + mobsonscreen, 370, 16);
 		
 		g.dispose();
 		bs.show();
