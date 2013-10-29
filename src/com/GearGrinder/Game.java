@@ -139,6 +139,16 @@ public class Game extends Canvas implements Runnable {
 					Player.currenthealth = Player.maxhealth;
 					Player.healthpercent = Player.currenthealth / Player.maxhealth * 100;
 				}
+				
+				//STAMINA REGEN LOOP
+				double staminaregenrate = Player.maxstamina * 0.02;
+				if(Player.currentstamina < Player.maxstamina && (Player.currentstamina + staminaregenrate) <= Player.maxstamina){
+					Player.currentstamina = (int)staminaregenrate + Player.currentstamina;
+					Player.staminapercent = Player.currentstamina / Player.maxstamina * 100;
+				}else {
+					Player.currentstamina = Player.maxstamina;
+					Player.staminapercent = Player.currentstamina / Player.maxstamina * 100;
+				}
 			}
 			 //JOptionPane.showMessageDialog(null, "menu initialized!");
 		}

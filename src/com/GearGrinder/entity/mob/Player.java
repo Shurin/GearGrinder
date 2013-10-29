@@ -33,7 +33,7 @@ public class Player extends Mob{
 	public static double currentmagic = magic;
 	public static double maxmagic = magic;
 	public static double magicpercent = currentmagic / maxmagic * 100;
-	public static int stamina = 5000;
+	public static int stamina = 150;
 	public static double currentstamina = stamina;
 	public static double maxstamina = stamina;
 	public static double staminapercent = currentstamina / maxstamina * 100;
