@@ -26,9 +26,9 @@ public class Player extends Mob{
 	
 	//experimental
 	public static int health = 100000;
-	public static int currenthealth = health;
-	public static int maxhealth = health;
-	public static int healthpercent = currenthealth / maxhealth * 100;
+	public static double currenthealth = health;
+	public static double maxhealth = health;
+	public static double healthpercent = currenthealth / maxhealth * 100;
 	public static int magic = 300;
 	public static double currentmagic = magic;
 	public static double maxmagic = magic;
@@ -59,6 +59,10 @@ public class Player extends Mob{
 		int ya = 0;
 		if (anim < 7500)anim++; 
 		else anim = 0;
+		if(input.damage){
+			currenthealth -= 500;
+			healthpercent = currenthealth / maxhealth * 100;
+		}
 		if (input.up){
 			animSprite = up;
 			ya--;

@@ -183,14 +183,17 @@ public class Game extends Canvas implements Runnable {
 		g.drawString("Button: " + Mouse.getB(), width * 3 - 70, height * 3 - 5);
 		g.drawString("Tile X: " + (player.getX() / 16) + ", Y: " + ((player.getY() / 16) + 1), 85, 16);
 		g.drawString("X: " + player.getX() + ", Y: " + player.getY(), 225, 16);
+		
 		// experimental
+		
 		// health bar
 		g.setColor(Color.DARK_GRAY);
 		g.fillRect(11, height * scale - 30, 209, 30);
 		g.setColor(Color.RED);
 		g.fillRect(16, height * scale - 25, ((int)Player.healthpercent * 2), 20);
 		g.setColor(Color.lightGray);
-		g.drawString("Health : " + player.currenthealth + " / " + player.maxhealth, 35, height * scale - 10);
+		g.drawString("Health : " + (int)player.currenthealth + " / " + (int)player.maxhealth, 35, height * scale - 10);
+		
 		// Magic bar
 		g.setColor(Color.DARK_GRAY);
 		g.fillRect(11, height * scale - 62, 209, 30);
@@ -198,6 +201,7 @@ public class Game extends Canvas implements Runnable {
 		g.fillRect(16, height * scale - 57, ((int)Player.magicpercent * 2), 20);
 		g.setColor(Color.lightGray);
 		g.drawString("Magic : " + (int)player.currentmagic + " / " + (int)player.maxmagic, 35, height * scale - 42);
+		
 		// Stamina bar
 		g.setColor(Color.DARK_GRAY);
 		g.fillRect(345, height * scale - 30, 110, 30);
@@ -207,7 +211,7 @@ public class Game extends Canvas implements Runnable {
 		g.drawString("Stamina : " + (int)Player.staminapercent, 351, height * scale - 10);
 		
 		g.setColor(Color.WHITE);
-		g.drawString("current " + Player.currentmagic + " max " + Player.maxmagic + "percent " + Player.magicpercent, 150, 150);
+		g.drawString("current " + Player.currenthealth + " max " + Player.maxhealth + "percent " + Player.healthpercent, 150, 150);
 		
 		g.dispose();
 		bs.show();
