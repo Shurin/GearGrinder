@@ -4,7 +4,6 @@ import com.GearGrinder.entity.Entity;
 import com.GearGrinder.entity.Projectile.Projectile;
 import com.GearGrinder.entity.Projectile.WizardProjectile;
 import com.GearGrinder.graphics.Screen;
-import com.GearGrinder.graphics.Sprite;
 
 public abstract class Mob extends Entity {
 
@@ -46,8 +45,12 @@ public abstract class Mob extends Entity {
 	public abstract void render(Screen screen);
 	
 	protected void shoot(int x, int y, double dir){
-		Projectile p = new WizardProjectile(x, y, dir);
-		level.add(p);
+		if(Player.currentmagic > 5){
+			Projectile p = new WizardProjectile(x, y, dir);
+			level.add(p);
+			Player.currentmagic-=5;
+			Player.magicpercent = Player.currentmagic / Player.maxmagic * 100;
+		}
 	}
 	
 	private boolean collision(int xa, int ya) {

@@ -12,6 +12,7 @@ import java.awt.image.DataBufferInt;
 
 import javax.swing.JFrame;
 
+import com.GearGrinder.entity.mob.Mob;
 import com.GearGrinder.entity.mob.Player;
 import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.input.Keyboard;
@@ -27,6 +28,11 @@ public class Game extends Canvas implements Runnable {
 	private static int width = 300;
 	private static int height = 168;
 	private static int scale = 3;
+
+	// experimental
+	public int healthPosX = 50, healthPosY = 678;
+	public int staminaPosX = 95, staminaPosY = 725;
+	private Mob mob;
 
 	public boolean auth = false;
 	private Thread gamethread;
@@ -89,7 +95,7 @@ public class Game extends Canvas implements Runnable {
 	@Override
 	public void run() {
 		long lastTime = System.nanoTime();
-		long timer = System.currentTimeMillis();
+	    long timer = System.currentTimeMillis();
 		final double ns = 1000000000.0 / 60.0;
 		double delta = 0;
 		int frames = 0;
@@ -113,13 +119,28 @@ public class Game extends Canvas implements Runnable {
 				frame.setTitle("GearGrinder    |    FPS: " + frames);
 				updates = 0;
 				frames = 0;
+				
+				//MAGIC HEALING LOOP
+				double magichealrate = Player.maxmagic * 0.1;
+				if(Player.currentmagic < Player.maxmagic && (Player.currentmagic + magichealrate) <= Player.maxmagic){
+					Player.currentmagic = (int)magichealrate + Player.currentmagic;
+					Player.magicpercent = Player.currentmagic / Player.maxmagic * 100;
+				}else {
+					Player.currentmagic = Player.maxmagic;
+					Player.magicpercent = Player.currentmagic / Player.maxmagic * 100;
+				}
+				
+				//MAGIC HEALING LOOP
+				double healthhealrate = Player.maxhealth * 0.02;
+				if(Player.currenthealth < Player.maxhealth && (Player.currenthealth + healthhealrate) <= Player.maxhealth){
+					Player.currenthealth = (int)healthhealrate + Player.currenthealth;
+					Player.healthpercent = Player.currenthealth / Player.maxhealth * 100;
+				}else {
+					Player.currenthealth = Player.maxhealth;
+					Player.healthpercent = Player.currenthealth / Player.maxhealth * 100;
+				}
 			}
-			/*
-			 * if(key.menu == true){ key.menu = false;
-			 * JOptionPane.showMessageDialog(null, "menu initialized!");
-			 * 
-			 * }
-			 */
+			 //JOptionPane.showMessageDialog(null, "menu initialized!");
 		}
 	}
 
@@ -150,10 +171,34 @@ public class Game extends Canvas implements Runnable {
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Veranda", 0, 16));
 		g.drawString("Button: " + Mouse.getB(), width * 3 - 70, height * 3 - 5);
-		g.drawString(
-				"Tile X: " + (player.getX() / 16) + ", Y: "
-						+ ((player.getY() / 16) + 1), 85, 16);
+		g.drawString("Tile X: " + (player.getX() / 16) + ", Y: " + ((player.getY() / 16) + 1), 85, 16);
 		g.drawString("X: " + player.getX() + ", Y: " + player.getY(), 225, 16);
+		// experimental
+		// health bar
+		g.setColor(Color.DARK_GRAY);
+		g.fillRect(11, height * scale - 30, 209, 30);
+		g.setColor(Color.RED);
+		g.fillRect(16, height * scale - 25, ((int)Player.healthpercent * 2), 20);
+		g.setColor(Color.lightGray);
+		g.drawString("Health : " + player.currenthealth + " / " + player.maxhealth, 35, height * scale - 10);
+		// Magic bar
+		g.setColor(Color.DARK_GRAY);
+		g.fillRect(11, height * scale - 62, 209, 30);
+		g.setColor(Color.BLUE);
+		g.fillRect(16, height * scale - 57, ((int)Player.magicpercent * 2), 20);
+		g.setColor(Color.lightGray);
+		g.drawString("Magic : " + (int)player.currentmagic + " / " + (int)player.maxmagic, 35, height * scale - 42);
+		// Stamina bar
+		g.setColor(Color.DARK_GRAY);
+		g.fillRect(345, height * scale - 30, 110, 30);
+		g.setColor(Color.BLACK);
+		g.fillRect(350, height * scale - 25, (int)Player.staminapercent, 20);
+		g.setColor(Color.lightGray);
+		g.drawString("Stamina : " + (int)Player.staminapercent, 351, height * scale - 10);
+		
+		g.setColor(Color.WHITE);
+		g.drawString("current " + Player.currentmagic + " max " + Player.maxmagic + "percent " + Player.magicpercent, 150, 150);
+		
 		g.dispose();
 		bs.show();
 	}

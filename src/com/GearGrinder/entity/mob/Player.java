@@ -9,6 +9,7 @@ import com.GearGrinder.graphics.Sprite;
 import com.GearGrinder.graphics.SpriteSheet;
 import com.GearGrinder.input.Keyboard;
 import com.GearGrinder.input.Mouse;
+import com.GearGrinder.level.tile.Tile;
 
 public class Player extends Mob{
 	
@@ -22,6 +23,20 @@ public class Player extends Mob{
 	private AnimatedSprite left = new AnimatedSprite(SpriteSheet.player_left, 32, 32, 3);
 	private AnimatedSprite right = new AnimatedSprite(SpriteSheet.player_right, 32, 32, 3);
 	private AnimatedSprite animSprite = down;
+	
+	//experimental
+	public static int health = 100000;
+	public static int currenthealth = health;
+	public static int maxhealth = health;
+	public static int healthpercent = currenthealth / maxhealth * 100;
+	public static int magic = 300;
+	public static double currentmagic = magic;
+	public static double maxmagic = magic;
+	public static double magicpercent = currentmagic / maxmagic * 100;
+	public static int stamina = 5000;
+	public static double currentstamina = stamina;
+	public static double maxstamina = stamina;
+	public static double staminapercent = currentstamina / maxstamina * 100;
 	
 	public Player(Keyboard input){
 		this.input = input;
@@ -59,19 +74,27 @@ public class Player extends Mob{
 			xa++;		
 		}
 		//sprint stuff
-		if (input.up && input.sprint){
+		if (input.up && input.sprint && currentstamina > 0){
 			animSprite = up;
 			ya-=1.5;
-		} else if (input.down && input.sprint){
+			staminapercent = currentstamina / maxstamina * 100;
+			currentstamina-- ;
+		} else if (input.down && input.sprint && currentstamina > 0){
 			animSprite = down;
 			ya+=1.5;
+			staminapercent = currentstamina / maxstamina * 100;
+			currentstamina--;
 		}
-		if (input.left && input.sprint){
+		if (input.left && input.sprint && currentstamina > 0){
 			animSprite = left;
 			xa-=1.5;
-		} else if (input.right && input.sprint){
+			staminapercent = currentstamina / maxstamina * 100;
+			currentstamina--;
+		} else if (input.right && input.sprint && currentstamina > 0){
 			animSprite = right;
-			xa+=1.5;		
+			xa+=1.5;	
+			staminapercent = currentstamina / maxstamina * 100;
+			currentstamina--;
 		}
 		
 		if(xa != 0 || ya != 0){
