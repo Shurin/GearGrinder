@@ -20,6 +20,8 @@ public class Sprite {
 	public static Sprite spawn_wall1 = new Sprite(16, 0, 1, SpriteSheet.spawn_level_tiles);
 	public static Sprite spawn_wall2 = new Sprite(16, 0, 2, SpriteSheet.spawn_level_tiles);
 	public static Sprite spawn_floor = new Sprite(16, 1, 1, SpriteSheet.spawn_level_tiles);
+	
+
 	//PARTICLES
 	public static Sprite particle_normal = new Sprite(3, 0xff68B96F);//size in px and color
 	// PROJECTILE SPRITES

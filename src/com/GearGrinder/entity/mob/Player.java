@@ -117,6 +117,10 @@ public class Player extends Mob{
 			walking = false;
 		}
 		
+		if(input.escape){				
+					System.exit(0);			
+		}
+		
 		clear();
 		updateShooting();	
 	}

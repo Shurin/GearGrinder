@@ -13,7 +13,8 @@ import java.awt.image.DataBufferInt;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import com.GearGrinder.entity.mob.Mob;
+import com.GearGrinder.DataIO.Load;
+import com.GearGrinder.DataIO.Save;
 import com.GearGrinder.entity.mob.Player;
 import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.input.Keyboard;
@@ -26,21 +27,23 @@ public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
 
 	Dimension maxRes = Toolkit.getDefaultToolkit().getScreenSize();
-	private static int width = 300;
-	private static int height = 168;
-	private static int scale = 3;
+	private static int width = 450;
+	private static int height = 252;
+	private static int scale = 2;
 
 	public int healthPosX = 50, healthPosY = 678;
 	public int staminaPosX = 95, staminaPosY = 725;
 	public static int mobsonscreen = 3;
+	public static int PlayerSpawnX = 21;
+	public static int PlayerSpawnY = 18;
 
 	public boolean auth = false;
-	private Thread gamethread;
-	private JFrame frame;
+	public static Thread gamethread;
+	public static JFrame frame;
 	private Keyboard key;
 	private Level level;
 	private Player player;
-	private boolean running = false;
+	public static boolean running = false;
 
 	private Screen screen;
 
@@ -57,10 +60,13 @@ public class Game extends Canvas implements Runnable {
 		screen = new Screen(width, height);
 		frame = new JFrame();
 		key = new Keyboard();
+		
+		Load.Load();
+		
 		level = Level.spawn;
 		TileCoordinate playerSpawn = new TileCoordinate(21, 18); // SPAWN
 																	// LOCATION!!
-		player = new Player(playerSpawn.x(), playerSpawn.y(), key);
+		player = new Player(PlayerSpawnX, PlayerSpawnY, key);
 		level.add(player);
 
 		addKeyListener(key);
@@ -84,7 +90,7 @@ public class Game extends Canvas implements Runnable {
 		gamethread.start();
 	}
 
-	public synchronized void stop() {
+	public static synchronized void stop() {
 		running = false;
 		try {
 			gamethread.join();
@@ -151,6 +157,9 @@ public class Game extends Canvas implements Runnable {
 					Player.staminapercent = Player.currentstamina / Player.maxstamina * 100;
 				}
 			}
+			PlayerSpawnX = player.getX();
+			PlayerSpawnY = player.getY();
+			Save.Save();
 			 //JOptionPane.showMessageDialog(null, "menu initialized!");
 		}
 	}
@@ -230,5 +239,4 @@ public class Game extends Canvas implements Runnable {
 
 		game.start();
 	}
-
 }

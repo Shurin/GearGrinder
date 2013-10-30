@@ -8,7 +8,7 @@ import com.GearGrinder.entity.mob.Player;
 public class Keyboard implements KeyListener{
 
 	private boolean[] keys = new boolean[230];
-	public static boolean up, down, left, right, sprint, damage, spawnmob;
+	public static boolean up, down, left, right, sprint, damage, spawnmob, escape;
 	public String keystring;
 	public void update(){
 		up = keys[KeyEvent.VK_UP] || keys[KeyEvent.VK_W];
@@ -18,6 +18,7 @@ public class Keyboard implements KeyListener{
 		sprint = keys[KeyEvent.VK_SHIFT];
 		damage = keys[KeyEvent.VK_1];
 		spawnmob = keys[KeyEvent.VK_3];
+		escape = keys[KeyEvent.VK_ESCAPE];
 		
 		
 		for(int i=0; i< keys.length; i++){
