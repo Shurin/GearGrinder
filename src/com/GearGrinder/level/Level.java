@@ -209,6 +209,7 @@ public class Level {
 			return Tile.spawn_wall2_tile;
 		if (tiles[x + y * width] == Tile.col_spawn_floor)
 			return Tile.spawn_floor_tile;
+		
 
 		return Tile.spawn_grass_tile;
 	}

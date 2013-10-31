@@ -5,16 +5,16 @@ import com.GearGrinder.entity.spawner.Spawner;
 import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.graphics.Sprite;
 
-public class WizardProjectile extends Projectile{
+public class QuakeProjectile extends Projectile{
 
-	public static final int FIRE_RATE = 6;// higher the value the slower the rate of fire
+	public static final int FIRE_RATE = 25;// higher the value the slower the rate of fire
 	
-	public WizardProjectile(int x, int y, double dir) {
+	public QuakeProjectile(int x, int y, double dir) {
 		super(x, y, dir);
 		range = 150 + random.nextInt(20);
 		speed = 2;
 		damage = 20;
-		sprite = Sprite.projectile_wizard;
+		sprite = Sprite.projectile_quake;
 		
 		nx = speed * Math.cos(angle);
 		ny = speed * Math.sin(angle);

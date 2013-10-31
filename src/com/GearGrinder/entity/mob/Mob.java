@@ -44,11 +44,10 @@ public abstract class Mob extends Entity {
 	
 	public abstract void render(Screen screen);
 	
-	protected void shoot(int x, int y, double dir){
+	protected void shoot(int x, int y, double dir, Projectile p, int manacost){
 		if(Player.currentmagic > 5){
-			Projectile p = new WizardProjectile(x, y, dir);
 			level.add(p);
-			Player.currentmagic-=5;
+			Player.currentmagic-=manacost;
 			Player.magicpercent = Player.currentmagic / Player.maxmagic * 100;
 		}
 	}

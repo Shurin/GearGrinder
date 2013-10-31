@@ -21,11 +21,13 @@ public class Sprite {
 	public static Sprite spawn_wall2 = new Sprite(16, 0, 2, SpriteSheet.spawn_level_tiles);
 	public static Sprite spawn_floor = new Sprite(16, 1, 1, SpriteSheet.spawn_level_tiles);
 	
+	
 
 	//PARTICLES
 	public static Sprite particle_normal = new Sprite(3, 0xff68B96F);//size in px and color
 	// PROJECTILE SPRITES
 	public static Sprite projectile_wizard = new Sprite (16, 0, 0, SpriteSheet.projectile_wizard);
+	public static Sprite projectile_quake = new Sprite (16, 1, 0, SpriteSheet.projectile_wizard);
 	//PLAYER SPRITES
 	// _1 is right foot forward
 	// _2 is left foot forward

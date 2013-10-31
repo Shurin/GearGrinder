@@ -16,6 +16,8 @@ public class SpriteSheet {
 	public static SpriteSheet spawn_level_tiles = new SpriteSheet("/textures/sheets/spawnleveltiles.png", 48); // 48 is the length of the spritesheet in pixels
 	
 	
+	
+	
 	public static SpriteSheet projectile_wizard = new SpriteSheet("/textures/sheets/projectiles/wizard.png", 48); // 48 is the length of the spritesheet in pixels
 	//player
 	public static SpriteSheet player = new SpriteSheet("/textures/sheets/player_sheet.png", 128, 96);

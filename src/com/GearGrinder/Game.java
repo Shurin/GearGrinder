@@ -223,6 +223,9 @@ public class Game extends Canvas implements Runnable {
 		g.setColor(Color.GREEN);
 		g.drawString("Mobs on screen: " + mobsonscreen, 370, 16);
 		
+		
+		//g.drawString("MOUSE BUTTON: " + Mouse.getB(), 470, 160);
+		
 		g.dispose();
 		bs.show();
 	}

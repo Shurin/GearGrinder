@@ -1,7 +1,9 @@
 package com.GearGrinder.entity.mob;
 
 import com.GearGrinder.Game;
+import com.GearGrinder.DataIO.Save;
 import com.GearGrinder.entity.Projectile.Projectile;
+import com.GearGrinder.entity.Projectile.QuakeProjectile;
 import com.GearGrinder.entity.Projectile.WizardProjectile;
 import com.GearGrinder.graphics.AnimatedSprite;
 import com.GearGrinder.graphics.Screen;
@@ -117,8 +119,9 @@ public class Player extends Mob{
 			walking = false;
 		}
 		
-		if(input.escape){				
-					System.exit(0);			
+		if(input.escape){	
+			Save.Save();
+			System.exit(0);			
 		}
 		
 		clear();
@@ -134,12 +137,24 @@ public class Player extends Mob{
 	
 	private void updateShooting() {		
 		if(Mouse.getB() == 1 && fireRate <= 0){
+			int manacost = 5;
 			double dx = Mouse.getX() - Game.getWindowWidth() / 2;
 			double dy = Mouse.getY() - Game.getWindowHeight() / 2;
 			double dir = Math.atan2(dy, dx);// atan2 takes y first
-			shoot(x, y, dir);
+			Projectile p = new WizardProjectile(x, y, dir);
+			shoot(x, y, dir, p, manacost);
 			fireRate = WizardProjectile.FIRE_RATE;
 		}
+		else if(Mouse.getB() == 3 && fireRate <= 0){
+			int manacost = 85;
+			double dx = Mouse.getX() - Game.getWindowWidth() / 2;
+			double dy = Mouse.getY() - Game.getWindowHeight() / 2;
+			double dir = Math.atan2(dy, dx);// atan2 takes y first
+			Projectile p = new QuakeProjectile(x, y, dir);
+			shoot(x, y, dir, p, manacost);
+			fireRate = QuakeProjectile.FIRE_RATE;
+		}
+		
 	}
 
 	public void render(Screen screen){
