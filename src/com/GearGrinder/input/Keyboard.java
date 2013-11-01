@@ -9,6 +9,7 @@ public class Keyboard implements KeyListener{
 
 	private boolean[] keys = new boolean[230];
 	public static boolean up, down, left, right, sprint, damage, spawnmob, escape;
+	public static boolean Cpanel;
 	public String keystring;
 	public void update(){
 		up = keys[KeyEvent.VK_UP] || keys[KeyEvent.VK_W];
@@ -19,6 +20,7 @@ public class Keyboard implements KeyListener{
 		damage = keys[KeyEvent.VK_1];
 		spawnmob = keys[KeyEvent.VK_3];
 		escape = keys[KeyEvent.VK_ESCAPE];
+		Cpanel = keys[KeyEvent.VK_C];
 		
 		
 		for(int i=0; i< keys.length; i++){
@@ -28,15 +30,14 @@ public class Keyboard implements KeyListener{
 	}
 	
 	public void keyPressed(KeyEvent e) {
-		keys[e.getKeyCode()] = true;
+			keys[e.getKeyCode()] = true;
 	}
 
 	public void keyReleased(KeyEvent e) {
-		keys[e.getKeyCode()] = false;
+			keys[e.getKeyCode()] = false;
 	}
 	
 	public void keyTyped(KeyEvent e) {
-		
-		
+				
 	}
 }

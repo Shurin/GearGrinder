@@ -1,17 +1,19 @@
 package com.GearGrinder.entity.mob;
 
+import java.awt.Color;
+
 import com.GearGrinder.Game;
 import com.GearGrinder.DataIO.Save;
 import com.GearGrinder.entity.Projectile.Projectile;
 import com.GearGrinder.entity.Projectile.QuakeProjectile;
 import com.GearGrinder.entity.Projectile.WizardProjectile;
 import com.GearGrinder.graphics.AnimatedSprite;
+import com.GearGrinder.graphics.HelpPage;
 import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.graphics.Sprite;
 import com.GearGrinder.graphics.SpriteSheet;
 import com.GearGrinder.input.Keyboard;
 import com.GearGrinder.input.Mouse;
-import com.GearGrinder.level.tile.Tile;
 
 public class Player extends Mob{
 	
@@ -26,7 +28,7 @@ public class Player extends Mob{
 	private AnimatedSprite right = new AnimatedSprite(SpriteSheet.player_right, 32, 32, 3);
 	private AnimatedSprite animSprite = down;
 	
-	//experimental
+	public static String charname = "CharName";
 	public static int health = 100000;
 	public static double currenthealth = health;
 	public static double maxhealth = health;
@@ -40,7 +42,7 @@ public class Player extends Mob{
 	public static double maxstamina = stamina;
 	public static double staminapercent = currentstamina / maxstamina * 100;
 	
-	public static boolean swap = false;
+	public static boolean characterpanel = false;
 	
 	public Player(Keyboard input){
 		this.input = input;
@@ -119,10 +121,18 @@ public class Player extends Mob{
 			walking = false;
 		}
 		
+		
+		/*if(input.Cpanel && characterpanel == false){
+			characterpanel = true;			
+		}else if(input.Cpanel && characterpanel == true){
+			characterpanel = false;			
+		}*/
+		
 		if(input.escape){	
 			Save.Save();
 			System.exit(0);			
 		}
+		
 		
 		clear();
 		updateShooting();	

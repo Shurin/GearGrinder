@@ -9,7 +9,10 @@ import java.awt.Toolkit;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -26,10 +29,13 @@ public class Game extends Canvas implements Runnable {
 
 	private static final long serialVersionUID = 1L;
 
-	Dimension maxRes = Toolkit.getDefaultToolkit().getScreenSize();
-	private static int width = 450;
-	private static int height = 252;
+	static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+
+	private static int width = (int) 1280/2;
+	private static int height = (int) 768/2;
 	private static int scale = 2;
+	public static BufferStrategy bs;
+	public static Graphics g;
 
 	public int healthPosX = 50, healthPosY = 678;
 	public int staminaPosX = 95, staminaPosY = 725;
@@ -52,6 +58,7 @@ public class Game extends Canvas implements Runnable {
 	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer())
 			.getData();
 
+	
 	public Game() {
 		JOptionPane.showMessageDialog(null, "             run  >  shift \n         decrease hp  >  1 \n          shoot  >  L click \n       spawn mob at your x,y  >  3");
 		Dimension size = new Dimension(width * scale, height * scale);
@@ -170,6 +177,13 @@ public class Game extends Canvas implements Runnable {
 	}
 
 	public void render() {
+		BufferedImage slotpic = null;
+		try {
+			slotpic = ImageIO.read(new File("slot.png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		BufferStrategy bs = getBufferStrategy();
 		if (bs == null) {
 			createBufferStrategy(3); // 3 = triple buffer
@@ -223,8 +237,19 @@ public class Game extends Canvas implements Runnable {
 		g.setColor(Color.GREEN);
 		g.drawString("Mobs on screen: " + mobsonscreen, 370, 16);
 		
-		
-		//g.drawString("MOUSE BUTTON: " + Mouse.getB(), 470, 160);
+		// CHARACTER PANEL
+		//if(Player.characterpanel == true){
+			g.drawImage(slotpic, width * 2 - 499, height/18+5, null);
+			g.drawImage(slotpic, width * 2 - 499, height/18+75, null);
+			g.drawImage(slotpic, width * 2 - 499, height/18+145, null);
+			g.drawImage(slotpic, width * 2 - 499, height/18+215, null);
+			g.drawImage(slotpic, width * 2 - 499, height/18+285, null);
+			g.drawImage(slotpic, width * 2 - 499, height/18+355, null);
+			g.drawImage(slotpic, width * 2 - 499, height/18+425, null);
+			g.drawImage(slotpic, width * 2 - 499, height/18+495, null);
+			g.drawImage(slotpic, width * 2 - 499, height/18+565, null);
+			g.drawImage(slotpic, width * 2 - 499, height/18+635, null);
+		//}
 		
 		g.dispose();
 		bs.show();
@@ -233,7 +258,9 @@ public class Game extends Canvas implements Runnable {
 	public static void main(String[] args) {
 		Game game = new Game();
 		game.frame.setResizable(false); // must be first thing applied to frame
-		game.frame.setTitle("rain");
+		game.frame.setTitle("GearGrinder_BETA");
+		//Game.frame.setExtendedState(Frame.MAXIMIZED_BOTH);
+		Game.frame.setUndecorated(true);
 		game.frame.add(game);
 		game.frame.pack();
 		game.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
