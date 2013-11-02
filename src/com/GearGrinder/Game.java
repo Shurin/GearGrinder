@@ -16,6 +16,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import com.GearGrinder.Audio.Audio;
 import com.GearGrinder.DataIO.Load;
 import com.GearGrinder.DataIO.Save;
 import com.GearGrinder.entity.mob.Player;
@@ -42,8 +43,10 @@ public class Game extends Canvas implements Runnable {
 	public static int mobsonscreen = 3;
 	public static int PlayerSpawnX = 21;
 	public static int PlayerSpawnY = 18;
+	
 
-	public boolean auth = false;
+	
+	public int fpsDisplay = 0;
 	public static Thread gamethread;
 	public static JFrame frame;
 	private Keyboard key;
@@ -53,10 +56,8 @@ public class Game extends Canvas implements Runnable {
 
 	private Screen screen;
 
-	private BufferedImage image = new BufferedImage(width, height,
-			BufferedImage.TYPE_INT_RGB);
-	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer())
-			.getData();
+	private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
 
 	
 	public Game() {
@@ -131,6 +132,7 @@ public class Game extends Canvas implements Runnable {
 			if (System.currentTimeMillis() - timer > 1000) {
 				timer = timer + 1000; // adds a second to above criteria
 				frame.setTitle("GearGrinder    |    FPS: " + frames);
+				fpsDisplay = frames;
 				updates = 0;
 				frames = 0;
 				
@@ -234,11 +236,13 @@ public class Game extends Canvas implements Runnable {
 		g.setColor(Color.lightGray);
 		g.drawString("Stamina : " + (int)Player.staminapercent, 351, height * scale - 10);
 		
-		g.setColor(Color.GREEN);
+		g.setColor(Color.WHITE);
 		g.drawString("Mobs on screen: " + mobsonscreen, 370, 16);
+		g.drawString("FPS: " + fpsDisplay, width *2 - 100, 16);
 		
 		// CHARACTER PANEL
-		//if(Player.characterpanel == true){
+		if(Player.invshow == true){
+			//Audio.Audio();
 			g.drawImage(slotpic, width * 2 - 499, height/18+5, null);
 			g.drawImage(slotpic, width * 2 - 499, height/18+75, null);
 			g.drawImage(slotpic, width * 2 - 499, height/18+145, null);
@@ -249,7 +253,7 @@ public class Game extends Canvas implements Runnable {
 			g.drawImage(slotpic, width * 2 - 499, height/18+495, null);
 			g.drawImage(slotpic, width * 2 - 499, height/18+565, null);
 			g.drawImage(slotpic, width * 2 - 499, height/18+635, null);
-		//}
+		}
 		
 		g.dispose();
 		bs.show();

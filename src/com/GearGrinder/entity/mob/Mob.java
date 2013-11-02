@@ -2,7 +2,6 @@ package com.GearGrinder.entity.mob;
 
 import com.GearGrinder.entity.Entity;
 import com.GearGrinder.entity.Projectile.Projectile;
-import com.GearGrinder.entity.Projectile.WizardProjectile;
 import com.GearGrinder.graphics.Screen;
 
 public abstract class Mob extends Entity {

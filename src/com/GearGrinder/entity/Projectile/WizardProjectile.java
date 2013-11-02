@@ -1,7 +1,9 @@
  package com.GearGrinder.entity.Projectile;
 
+
+
+import com.GearGrinder.entity.mob.NinjaBot;
 import com.GearGrinder.entity.spawner.ParticleSpawner;
-import com.GearGrinder.entity.spawner.Spawner;
 import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.graphics.Sprite;
 

@@ -52,6 +52,14 @@ public class Level {
 	public void update() { // updates the levels
 		for (int i = 0; i < entities.size(); i++) {
 			entities.get(i).update();
+			/*for(int a = 0; a < entities.size(); a++){
+				for(int b = 0; b < projectiles.size(); b++){
+					if(projectiles.get(b).PX == entities.get(a).mX){
+						System.out.println("BOOYAH!!");
+					}
+					//System.out.println("P is at: " + projectiles.get(b).mX + " | Mob is at: " + entities.get(a).mX);
+				}
+			}*/
 		}
 		for (int i = 0; i < projectiles.size(); i++) {
 			projectiles.get(i).update();

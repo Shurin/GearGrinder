@@ -1,14 +1,11 @@
 package com.GearGrinder.entity.mob;
 
-import java.awt.Color;
-
 import com.GearGrinder.Game;
 import com.GearGrinder.DataIO.Save;
 import com.GearGrinder.entity.Projectile.Projectile;
 import com.GearGrinder.entity.Projectile.QuakeProjectile;
 import com.GearGrinder.entity.Projectile.WizardProjectile;
 import com.GearGrinder.graphics.AnimatedSprite;
-import com.GearGrinder.graphics.HelpPage;
 import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.graphics.Sprite;
 import com.GearGrinder.graphics.SpriteSheet;
@@ -28,7 +25,9 @@ public class Player extends Mob{
 	private AnimatedSprite right = new AnimatedSprite(SpriteSheet.player_right, 32, 32, 3);
 	private AnimatedSprite animSprite = down;
 	
+	//PLAYER STATS
 	public static String charname = "CharName";
+	public static int gold = 0;
 	public static int health = 100000;
 	public static double currenthealth = health;
 	public static double maxhealth = health;
@@ -42,7 +41,8 @@ public class Player extends Mob{
 	public static double maxstamina = stamina;
 	public static double staminapercent = currentstamina / maxstamina * 100;
 	
-	public static boolean characterpanel = false;
+	
+	public static boolean invshow = false;
 	
 	public Player(Keyboard input){
 		this.input = input;
@@ -107,6 +107,7 @@ public class Player extends Mob{
 			currentstamina--;
 		}
 		
+		
 		if(input.spawnmob){
 			for(int i = 0; i < 1; i++){
 			level.add(new NinjaBot(x / 16,y / 16)); 
@@ -120,7 +121,7 @@ public class Player extends Mob{
 		} else {
 			walking = false;
 		}
-		
+
 		
 		/*if(input.Cpanel && characterpanel == false){
 			characterpanel = true;			
@@ -171,5 +172,8 @@ public class Player extends Mob{
 		sprite = animSprite.getSprite();
 		// the -16 is to make the center of the player 0,0		
 		screen.renderMob(x - 16, y - 16, sprite);
+	}
+	
+	public void CharPanel(){
 	}
 }

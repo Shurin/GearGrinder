@@ -6,5 +6,7 @@
 	<classpathentry exported="true" kind="lib" path="libs/tween-engine-api.jar" sourcepath="libs/tween-engine-api-sources.jar"/>
 	<classpathentry exported="true" kind="lib" path="libs/bodyeditor-loader.jar" sourcepath="libs/bodyeditor-loader-sources.jar"/>
 	<classpathentry kind="lib" path="res"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.7.0_45/lib/javafx-mx.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.7.0_45/lib/ant-javafx.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

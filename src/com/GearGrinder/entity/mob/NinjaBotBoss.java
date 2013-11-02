@@ -2,6 +2,7 @@ package com.GearGrinder.entity.mob;
 
 import java.util.List;
 
+import com.GearGrinder.entity.Projectile.Projectile;
 import com.GearGrinder.graphics.AnimatedSprite;
 import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.graphics.Sprite;

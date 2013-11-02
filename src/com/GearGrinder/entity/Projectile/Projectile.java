@@ -13,6 +13,8 @@ public class Projectile extends Entity{
 	protected double x, y;
 	protected double nx, ny; //vector variables
 	protected double speed, range, damage, distance;
+	public static int PX;
+	public static int PY;
 	
 	protected final Random random = new Random();//var for random range
 	
@@ -22,6 +24,8 @@ public class Projectile extends Entity{
 		angle = dir;
 		this.x=x;
 		this.y=y;
+		PX = x;
+		PY = y;
 	}
 	
 	public Sprite getSprite(){

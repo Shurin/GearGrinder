@@ -8,11 +8,16 @@ import com.GearGrinder.level.Level;
 
 public class Entity {
 
-	protected int x, y;
+	protected int x;
+	protected int y;
+	public static int mX;
+	
+	
 	protected Sprite sprite;
 	private boolean removed = false;
 	protected Level level;
 	protected final Random random = new Random();
+	
 
 	public Entity(){
 		
@@ -21,7 +26,7 @@ public class Entity {
 	public Entity(int x, int y, Sprite sprite){
 		this.x = x;
 		this.y = y;
-		this.sprite = sprite;
+		this.sprite = sprite;		
 	}
 	
 	public void update(){
@@ -29,6 +34,7 @@ public class Entity {
 	}
 	
 	public void render(Screen screen){
+		mX = x-16;
 		if (sprite != null) screen.renderSprite(x, y, sprite, true);
 	}
 	

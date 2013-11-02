@@ -9,7 +9,7 @@ public class Keyboard implements KeyListener{
 
 	private boolean[] keys = new boolean[230];
 	public static boolean up, down, left, right, sprint, damage, spawnmob, escape;
-	public static boolean Cpanel;
+	public static boolean Cinv;
 	public String keystring;
 	public void update(){
 		up = keys[KeyEvent.VK_UP] || keys[KeyEvent.VK_W];
@@ -20,7 +20,7 @@ public class Keyboard implements KeyListener{
 		damage = keys[KeyEvent.VK_1];
 		spawnmob = keys[KeyEvent.VK_3];
 		escape = keys[KeyEvent.VK_ESCAPE];
-		Cpanel = keys[KeyEvent.VK_C];
+		Cinv = keys[KeyEvent.VK_I];
 		
 		
 		for(int i=0; i< keys.length; i++){
@@ -38,6 +38,13 @@ public class Keyboard implements KeyListener{
 	}
 	
 	public void keyTyped(KeyEvent e) {
-				
+	
+				if(keys[e.getKeyCode()] != keys[KeyEvent.VK_I]){
+					if(Player.invshow == false){
+						Player.invshow = true;
+					}else if(Player.invshow == true){
+						Player.invshow = false;
+					}
+				}
 	}
 }
