@@ -228,12 +228,12 @@ public class Game extends Canvas implements Runnable {
 		g.drawString("Magic : " + (int)player.currentmagic + " / " + (int)player.maxmagic, 45, height * scale - 67);
 		
 		// Stamina bar
-		g.setColor(Color.DARK_GRAY);
-		g.fillRect(345, height * scale - 30, 110, 30);
+		//g.setColor(Color.DARK_GRAY);
+		//g.fillRect(345, height * scale - 55, 110, 30);
 		g.setColor(Color.BLACK);
-		g.fillRect(350, height * scale - 25, (int)Player.staminapercent, 20);
+		g.fillRect(350, height * scale - 50, (int)Player.staminapercent, 20);
 		g.setColor(Color.lightGray);
-		g.drawString("Stamina : " + (int)Player.staminapercent, 351, height * scale - 10);
+		g.drawString("Stamina : " + (int)Player.staminapercent, 351, height * scale - 35);
 		
 		g.setColor(Color.WHITE);
 		g.drawString("Mobs on screen: " + mobsonscreen, 370, 16);
