@@ -42,7 +42,9 @@ public class Player extends Mob{
 	public static double staminapercent = currentstamina / maxstamina * 100;
 	
 	
+	public static boolean helpshow = false;
 	public static boolean invshow = false;
+	
 	
 	public Player(Keyboard input){
 		this.input = input;

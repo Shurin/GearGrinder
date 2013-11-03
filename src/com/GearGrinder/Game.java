@@ -2,11 +2,14 @@ package com.GearGrinder;
 
 import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.Toolkit;
-import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
@@ -14,9 +17,11 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 import com.GearGrinder.DataIO.Load;
 import com.GearGrinder.DataIO.Save;
@@ -62,6 +67,8 @@ public class Game extends Canvas implements Runnable {
 	private BufferedImage bag = null;
 	private BufferedImage bag2 = null;
 	private BufferedImage help = null;
+	
+	private Mouse mouse = new Mouse();
 
 	private Screen screen;
 
@@ -88,7 +95,6 @@ public class Game extends Canvas implements Runnable {
 
 		addKeyListener(key);
 
-		Mouse mouse = new Mouse();
 		addMouseListener(mouse);
 		addMouseMotionListener(mouse);
 	}
@@ -194,6 +200,7 @@ public class Game extends Canvas implements Runnable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		uicached = true;
 	}
 	
@@ -202,7 +209,16 @@ public class Game extends Canvas implements Runnable {
 		level.update();
 	}
 
+	public void mouseClicked(MouseEvent me) {
+	    Point clicked = me.getPoint();
+	    Rectangle bounds = new Rectangle(250, 250, help.getWidth(), help.getHeight());
+	    if (bounds.contains(clicked)) {
+	        // target image was clicked
+	    }
+	}
+	
 	public void render() {
+		
 		if(uicached == false) uicache();
 		BufferStrategy bs = getBufferStrategy();
 		if (bs == null) {
@@ -283,12 +299,18 @@ public class Game extends Canvas implements Runnable {
 			g.drawImage(slotpic, width * 2 - 499, height/18+565, null);
 		}
 		
+		//HELP PANEL
+		if(Player.helpshow == true){
+			g.setColor(Color.RED);
+			g.drawString("HELP PAGE OPENED!", width, height);
+		}
+		
 		//logo
 		g.drawImage(logo, width * 2 - 235, height * 2 - 105, null);
 		
 		g.dispose();
 		bs.show();
-	}
+	}	
 
 	public static void main(String[] args) {
 		Game game = new Game();

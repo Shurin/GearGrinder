@@ -4,6 +4,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+import com.GearGrinder.entity.mob.Player;
+
 public class Mouse implements MouseListener, MouseMotionListener{
 
 	private static int mouseX = -1;
@@ -28,19 +30,35 @@ public class Mouse implements MouseListener, MouseMotionListener{
 	public void mouseMoved(MouseEvent e) {
 		mouseX = e.getX();
 		mouseY = e.getY();
+		System.out.println("" + e.getX() + ", " + e.getY());
 	}
 
 	public void mouseClicked(MouseEvent e) {
-		
+			
 	}
 
 	public void mousePressed(MouseEvent e) {
-		mouseB = e.getButton();
+		
+		//checks if an object was clicked
+		if((e.getX() >= 643 && e.getX() <= 667) && (e.getY() >= 671 && e.getY() <= 701)){
+			if(Player.helpshow == false){
+				Player.helpshow = true;
+			}else if(Player.helpshow == true){
+				Player.helpshow = false;
+			}
+		}else if((e.getX() >= 962 && e.getX() <= 1004) && (e.getY() >= 693 && e.getY() <= 741)){
+			if(Player.invshow == false){
+				Player.invshow = true;
+			}else if(Player.invshow == true){
+				Player.invshow = false;
+			}
+		} else{
+			mouseB = e.getButton();
+		}
 	}
 
 	public void mouseReleased(MouseEvent e) {
-		mouseB = -1;
-		
+		mouseB = -1;		
 	}
 	@Override
 	public void mouseEntered(MouseEvent e) {
