@@ -16,7 +16,6 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import com.GearGrinder.Audio.Audio;
 import com.GearGrinder.DataIO.Load;
 import com.GearGrinder.DataIO.Save;
 import com.GearGrinder.entity.mob.Player;
@@ -213,20 +212,20 @@ public class Game extends Canvas implements Runnable {
 		// experimental
 		
 		// health bar
-		g.setColor(Color.DARK_GRAY);
-		g.fillRect(11, height * scale - 30, 209, 30);
+		//g.setColor(Color.DARK_GRAY);
+		//g.fillRect(21, height * scale - 55, 209, 30);
 		g.setColor(Color.RED);
-		g.fillRect(16, height * scale - 25, ((int)Player.healthpercent * 2), 20);
+		g.fillRect(26, height * scale - 50, ((int)Player.healthpercent * 2), 20);
 		g.setColor(Color.lightGray);
-		g.drawString("Health : " + (int)player.currenthealth + " / " + (int)player.maxhealth, 35, height * scale - 10);
+		g.drawString("Health : " + (int)player.currenthealth + " / " + (int)player.maxhealth, 45, height * scale - 35);
 		
 		// Magic bar
-		g.setColor(Color.DARK_GRAY);
-		g.fillRect(11, height * scale - 62, 209, 30);
+		//g.setColor(Color.DARK_GRAY);
+		//g.fillRect(21, height * scale - 87, 209, 30);
 		g.setColor(Color.BLUE);
-		g.fillRect(16, height * scale - 57, ((int)Player.magicpercent * 2), 20);
+		g.fillRect(26, height * scale - 82, ((int)Player.magicpercent * 2), 20);
 		g.setColor(Color.lightGray);
-		g.drawString("Magic : " + (int)player.currentmagic + " / " + (int)player.maxmagic, 35, height * scale - 42);
+		g.drawString("Magic : " + (int)player.currentmagic + " / " + (int)player.maxmagic, 45, height * scale - 67);
 		
 		// Stamina bar
 		g.setColor(Color.DARK_GRAY);
@@ -242,7 +241,7 @@ public class Game extends Canvas implements Runnable {
 		
 		// CHARACTER PANEL
 		if(Player.invshow == true){
-			//Audio.Audio();
+			
 			g.drawImage(slotpic, width * 2 - 499, height/18+5, null);
 			g.drawImage(slotpic, width * 2 - 499, height/18+75, null);
 			g.drawImage(slotpic, width * 2 - 499, height/18+145, null);
