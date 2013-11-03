@@ -20,7 +20,6 @@ public class Keyboard implements KeyListener{
 		damage = keys[KeyEvent.VK_1];
 		spawnmob = keys[KeyEvent.VK_3];
 		escape = keys[KeyEvent.VK_ESCAPE];
-		Cinv = keys[KeyEvent.VK_I];
 		
 		
 		for(int i=0; i< keys.length; i++){
@@ -44,6 +43,12 @@ public class Keyboard implements KeyListener{
 						Player.invshow = true;
 					}else if(Player.invshow == true){
 						Player.invshow = false;
+					}
+				}else if(keys[e.getKeyCode()] != keys[KeyEvent.VK_H]){
+					if(Player.helpshow == false){
+						Player.helpshow = true;
+					}else if(Player.helpshow == true){
+						Player.helpshow = false;
 					}
 				}
 	}

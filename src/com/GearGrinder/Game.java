@@ -67,6 +67,8 @@ public class Game extends Canvas implements Runnable {
 	private BufferedImage bag = null;
 	private BufferedImage bag2 = null;
 	private BufferedImage help = null;
+	private BufferedImage help2 = null;
+	private BufferedImage helppage = null;
 	
 	private Mouse mouse = new Mouse();
 
@@ -196,6 +198,8 @@ public class Game extends Canvas implements Runnable {
 			bag = ImageIO.read(new File("bag.png"));
 			bag2 = ImageIO.read(new File("bag2.png"));
 			help = ImageIO.read(new File("help.png"));
+			help2 = ImageIO.read(new File("help2.png"));
+			helppage = ImageIO.read(new File("helppage.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -270,7 +274,11 @@ public class Game extends Canvas implements Runnable {
 			g.drawImage(bag, width + 324, height * 2 - 76, null);
 		}
 		g.drawImage(hud, width / 2 - 60, height * 2 - 102, null);
-		g.drawImage(help, width - 7, height * 2 - 100, null);
+		if(Player.helpshow == true){
+			g.drawImage(help2, width - 7, height * 2 - 100, null);
+		}else {
+			g.drawImage(help, width - 7, height * 2 - 100, null);
+		}
 		
 		// Stamina bar
 		g.setColor(Color.DARK_GRAY);
@@ -301,8 +309,25 @@ public class Game extends Canvas implements Runnable {
 		
 		//HELP PANEL
 		if(Player.helpshow == true){
+			g.drawImage(helppage, 16, 35, null);
+			g.setColor(Color.GREEN);
+			g.drawString("- Shoot1 = left mouse", 40, 75);
+			g.drawString("- Shoot2 = right mouse", 40, 100);
+			g.drawString("- Inventory = I", 40, 125);
+			g.drawString("- This Page = H", 40, 150);
+			g.drawString("- Close game = Esc", 40, 175);
 			g.setColor(Color.RED);
-			g.drawString("HELP PAGE OPENED!", width, height);
+			g.drawString("- Finish adding UI elements", 40, 200);
+			g.drawString("- Finish adding UI mouse interaction", 40, 225);
+			g.drawString("- Finish adding basic player stats", 40, 250);
+			g.drawString("- Finish adding Save/Load game", 40, 275);
+			g.drawString("- Start adding items", 40, 300);
+			g.drawString("- Start adding a chatbox", 40, 325);
+			g.drawString("- Start adding Mob collision", 40, 350);
+			g.drawString("- Start adding Database I/O", 40, 375);
+			g.drawString("- Start adding Networking", 40, 400);
+			g.setColor(Color.WHITE);
+			g.drawString("I'll add more to this as needed ...", 40, 700);
 		}
 		
 		//logo
