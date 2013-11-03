@@ -1,5 +1,6 @@
 package com.GearGrinder.level;
 
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,6 +9,7 @@ import com.GearGrinder.entity.Projectile.Projectile;
 import com.GearGrinder.entity.mob.Player;
 import com.GearGrinder.entity.particle.Particle;
 import com.GearGrinder.graphics.Screen;
+import com.GearGrinder.input.Keyboard;
 import com.GearGrinder.level.tile.Tile;
 
 public class Level {
@@ -52,14 +54,6 @@ public class Level {
 	public void update() { // updates the levels
 		for (int i = 0; i < entities.size(); i++) {
 			entities.get(i).update();
-			/*for(int a = 0; a < entities.size(); a++){
-				for(int b = 0; b < projectiles.size(); b++){
-					if(projectiles.get(b).PX == entities.get(a).mX){
-						System.out.println("BOOYAH!!");
-					}
-					//System.out.println("P is at: " + projectiles.get(b).mX + " | Mob is at: " + entities.get(a).mX);
-				}
-			}*/
 		}
 		for (int i = 0; i < projectiles.size(); i++) {
 			projectiles.get(i).update();
@@ -215,6 +209,32 @@ public class Level {
 			return Tile.spawn_wall1_tile;
 		if (tiles[x + y * width] == Tile.col_spawn_wall2)
 			return Tile.spawn_wall2_tile;
+		if (tiles[x + y * width] == Tile.col_spawn_wall3)
+			return Tile.spawn_wall3_tile;
+		if (tiles[x + y * width] == Tile.col_spawn_wall4)
+			return Tile.spawn_wall4_tile;
+		if (tiles[x + y * width] == Tile.col_spawn_wall5)
+			return Tile.spawn_wall5_tile;
+		if (tiles[x + y * width] == Tile.col_spawn_wall6)
+			return Tile.spawn_wall6_tile;
+		if (tiles[x + y * width] == Tile.col_spawn_wall7)
+			return Tile.spawn_wall7_tile;
+		if (tiles[x + y * width] == Tile.col_spawn_wall8)
+			return Tile.spawn_wall8_tile;
+		if (tiles[x + y * width] == Tile.col_spawn_wall9)
+			return Tile.spawn_wall9_tile;
+		if (tiles[x + y * width] == Tile.col_spawn_wall10)
+			return Tile.spawn_wall10_tile;
+		if (tiles[x + y * width] == Tile.col_spawn_wall11)
+			return Tile.spawn_wall11_tile;
+		if (tiles[x + y * width] == Tile.col_spawn_wall12)
+			return Tile.spawn_wall12_tile;
+		if (tiles[x + y * width] == Tile.col_spawn_stairmiddle)
+			return Tile.spawn_stairmiddle_tile;
+		if (tiles[x + y * width] == Tile.col_spawn_stairleft)
+			return Tile.spawn_stairleft_tile;
+		if (tiles[x + y * width] == Tile.col_spawn_stairright)
+			return Tile.spawn_stairright_tile;
 		if (tiles[x + y * width] == Tile.col_spawn_floor)
 			return Tile.spawn_floor_tile;
 		

@@ -20,7 +20,20 @@ public class Sprite {
 	public static Sprite spawn_wall1 = new Sprite(16, 0, 1, SpriteSheet.spawn_level_tiles);
 	public static Sprite spawn_wall2 = new Sprite(16, 0, 2, SpriteSheet.spawn_level_tiles);
 	public static Sprite spawn_floor = new Sprite(16, 1, 1, SpriteSheet.spawn_level_tiles);
-	
+	public static Sprite spawn_wall3 = new Sprite(16, 3, 0, SpriteSheet.spawn_level_tiles);
+	public static Sprite spawn_wall4 = new Sprite(16, 3, 1, SpriteSheet.spawn_level_tiles);
+	public static Sprite spawn_wall5 = new Sprite(16, 3, 2, SpriteSheet.spawn_level_tiles);
+	public static Sprite spawn_wall6 = new Sprite(16, 4, 0, SpriteSheet.spawn_level_tiles);	
+	public static Sprite spawn_wall7 = new Sprite(16, 4, 1, SpriteSheet.spawn_level_tiles);	
+	public static Sprite spawn_wall8 = new Sprite(16, 5, 0, SpriteSheet.spawn_level_tiles);	
+	public static Sprite spawn_wall9 = new Sprite(16, 5, 1, SpriteSheet.spawn_level_tiles);	
+	public static Sprite spawn_wall10 = new Sprite(16, 6, 0, SpriteSheet.spawn_level_tiles);
+	public static Sprite spawn_wall11 = new Sprite(16, 6, 1, SpriteSheet.spawn_level_tiles);
+	public static Sprite spawn_wall12 = new Sprite(16, 6, 2, SpriteSheet.spawn_level_tiles);
+	public static Sprite spawn_stairmiddle = new Sprite(16, 2, 1, SpriteSheet.spawn_level_tiles);
+	public static Sprite spawn_stairleft = new Sprite(16, 2, 1, SpriteSheet.spawn_level_tiles);
+	public static Sprite spawn_stairright = new Sprite(16, 2, 1, SpriteSheet.spawn_level_tiles);
+		
 	
 
 	//PARTICLES

@@ -7,7 +7,7 @@ import com.GearGrinder.entity.mob.Player;
 
 public class Keyboard implements KeyListener{
 
-	private boolean[] keys = new boolean[230];
+	public static boolean[] keys = new boolean[230];
 	public static boolean up, down, left, right, sprint, damage, spawnmob, escape;
 	public static boolean Cinv;
 	public String keystring;

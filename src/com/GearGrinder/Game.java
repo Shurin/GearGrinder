@@ -69,6 +69,7 @@ public class Game extends Canvas implements Runnable {
 	private BufferedImage help = null;
 	private BufferedImage help2 = null;
 	private BufferedImage helppage = null;
+	private BufferedImage hpmpframe = null;
 	
 	private Mouse mouse = new Mouse();
 
@@ -79,7 +80,6 @@ public class Game extends Canvas implements Runnable {
 
 	
 	public Game() {
-		JOptionPane.showMessageDialog(null, "             run  >  shift \n         decrease hp  >  1 \n          shoot  >  L click \n       spawn mob at your x,y  >  3");
 		Dimension size = new Dimension(width * scale, height * scale);
 		setPreferredSize(size);
 
@@ -200,6 +200,7 @@ public class Game extends Canvas implements Runnable {
 			help = ImageIO.read(new File("help.png"));
 			help2 = ImageIO.read(new File("help2.png"));
 			helppage = ImageIO.read(new File("helppage.png"));
+			hpmpframe = ImageIO.read(new File("hpmpframe.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -211,14 +212,6 @@ public class Game extends Canvas implements Runnable {
 	public void update() {
 		key.update();
 		level.update();
-	}
-
-	public void mouseClicked(MouseEvent me) {
-	    Point clicked = me.getPoint();
-	    Rectangle bounds = new Rectangle(250, 250, help.getWidth(), help.getHeight());
-	    if (bounds.contains(clicked)) {
-	        // target image was clicked
-	    }
 	}
 	
 	public void render() {
@@ -248,8 +241,6 @@ public class Game extends Canvas implements Runnable {
 		g.drawString("Tile X: " + (player.getX() / 16) + ", Y: " + ((player.getY() / 16) + 1), 85, 16);
 		g.drawString("X: " + player.getX() + ", Y: " + player.getY(), 225, 16);
 		
-		// experimental
-
 		g.setColor(Color.BLACK);
 		g.fillRect(width - 370, height * scale - 88, 220, 70);
 		
@@ -267,13 +258,20 @@ public class Game extends Canvas implements Runnable {
 
 		// hud elements
 		
-		//HUD
+		//INVENTORY
 		if(Player.invshow == true){
 			g.drawImage(bag2, width + 324, height * 2 - 76, null);			
 		}else {
 			g.drawImage(bag, width + 324, height * 2 - 76, null);
 		}
+		
+		// HUD
 		g.drawImage(hud, width / 2 - 60, height * 2 - 102, null);
+		//HUD top elements
+		//g.drawImage(hpmpframe, width / 2 - 60, height * 2 - 102, null);
+		
+		
+		//HELP PAGE
 		if(Player.helpshow == true){
 			g.drawImage(help2, width - 7, height * 2 - 100, null);
 		}else {
@@ -332,6 +330,7 @@ public class Game extends Canvas implements Runnable {
 		
 		//logo
 		g.drawImage(logo, width * 2 - 235, height * 2 - 105, null);
+		
 		
 		g.dispose();
 		bs.show();
