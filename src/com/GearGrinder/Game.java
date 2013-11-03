@@ -179,8 +179,16 @@ public class Game extends Canvas implements Runnable {
 
 	public void render() {
 		BufferedImage slotpic = null;
+		BufferedImage hud = null;
+		BufferedImage logo = null;
+		BufferedImage bag = null;
+		BufferedImage bag2 = null;
 		try {
 			slotpic = ImageIO.read(new File("slot.png"));
+			hud = ImageIO.read(new File("hud.png"));
+			logo = ImageIO.read(new File("logo.png"));
+			bag = ImageIO.read(new File("bag.png"));
+			bag2 = ImageIO.read(new File("bag2.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -210,34 +218,44 @@ public class Game extends Canvas implements Runnable {
 		g.drawString("X: " + player.getX() + ", Y: " + player.getY(), 225, 16);
 		
 		// experimental
+
+		g.setColor(Color.BLACK);
+		g.fillRect(width - 370, height * scale - 88, 220, 70);
 		
 		// health bar
-		//g.setColor(Color.DARK_GRAY);
-		//g.fillRect(21, height * scale - 55, 209, 30);
 		g.setColor(Color.RED);
-		g.fillRect(26, height * scale - 50, ((int)Player.healthpercent * 2), 20);
+		g.fillRect(width  - 366, height * scale - 53, ((int)Player.healthpercent * 2), 30);
 		g.setColor(Color.lightGray);
-		g.drawString("Health : " + (int)player.currenthealth + " / " + (int)player.maxhealth, 45, height * scale - 35);
+		g.drawString("Health : " + (int)player.currenthealth + " / " + (int)player.maxhealth, width - 358, height * scale - 35);
 		
 		// Magic bar
-		//g.setColor(Color.DARK_GRAY);
-		//g.fillRect(21, height * scale - 87, 209, 30);
 		g.setColor(Color.BLUE);
-		g.fillRect(26, height * scale - 82, ((int)Player.magicpercent * 2), 20);
+		g.fillRect(width - 366, height * scale - 88, ((int)Player.magicpercent * 2), 30);
 		g.setColor(Color.lightGray);
-		g.drawString("Magic : " + (int)player.currentmagic + " / " + (int)player.maxmagic, 45, height * scale - 67);
+		g.drawString("Magic : " + (int)player.currentmagic + " / " + (int)player.maxmagic, width - 358, height * scale - 67);
+
+		// hud elements
+		
+		//HUD
+		if(Player.invshow == true){
+			g.drawImage(bag2, width + 324, height * 2 - 76, null);			
+		}else {
+			g.drawImage(bag, width + 324, height * 2 - 76, null);
+		}
+		g.drawImage(hud, width / 2 - 60, height * 2 - 102, null);
 		
 		// Stamina bar
-		//g.setColor(Color.DARK_GRAY);
-		//g.fillRect(345, height * scale - 55, 110, 30);
+		g.setColor(Color.DARK_GRAY);
+		g.fillRect(width - 35, height * scale - 50, 100, 20);
 		g.setColor(Color.BLACK);
-		g.fillRect(350, height * scale - 50, (int)Player.staminapercent, 20);
+		g.fillRect(width - 35, height * scale - 50, (int)Player.staminapercent, 20);
 		g.setColor(Color.lightGray);
-		g.drawString("Stamina : " + (int)Player.staminapercent, 351, height * scale - 35);
+		g.drawString("Stamina : " + (int)Player.staminapercent, width - 35, height * scale - 35);
 		
 		g.setColor(Color.WHITE);
 		g.drawString("Mobs on screen: " + mobsonscreen, 370, 16);
 		g.drawString("FPS: " + fpsDisplay, width *2 - 100, 16);
+		
 		
 		// CHARACTER PANEL
 		if(Player.invshow == true){
@@ -251,8 +269,10 @@ public class Game extends Canvas implements Runnable {
 			g.drawImage(slotpic, width * 2 - 499, height/18+425, null);
 			g.drawImage(slotpic, width * 2 - 499, height/18+495, null);
 			g.drawImage(slotpic, width * 2 - 499, height/18+565, null);
-			g.drawImage(slotpic, width * 2 - 499, height/18+635, null);
 		}
+		
+		//logo
+		g.drawImage(logo, width * 2 - 235, height * 2 - 105, null);
 		
 		g.dispose();
 		bs.show();
@@ -263,7 +283,7 @@ public class Game extends Canvas implements Runnable {
 		game.frame.setResizable(false); // must be first thing applied to frame
 		game.frame.setTitle("GearGrinder_BETA");
 		//Game.frame.setExtendedState(Frame.MAXIMIZED_BOTH);
-		Game.frame.setUndecorated(true);
+		Game.frame.setUndecorated(false);
 		game.frame.add(game);
 		game.frame.pack();
 		game.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
