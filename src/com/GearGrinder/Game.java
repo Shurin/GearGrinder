@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
@@ -13,6 +14,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -43,7 +45,7 @@ public class Game extends Canvas implements Runnable {
 	public static int PlayerSpawnX = 21;
 	public static int PlayerSpawnY = 18;
 	
-
+	private boolean uicached = false;
 	
 	public int fpsDisplay = 0;
 	public static Thread gamethread;
@@ -52,6 +54,14 @@ public class Game extends Canvas implements Runnable {
 	private Level level;
 	private Player player;
 	public static boolean running = false;
+	
+	//ui elements
+	private BufferedImage slotpic = null;
+	private BufferedImage hud = null;
+	private BufferedImage logo = null;
+	private BufferedImage bag = null;
+	private BufferedImage bag2 = null;
+	private BufferedImage help = null;
 
 	private Screen screen;
 
@@ -172,27 +182,28 @@ public class Game extends Canvas implements Runnable {
 		}
 	}
 
-	public void update() {
-		key.update();
-		level.update();
-	}
-
-	public void render() {
-		BufferedImage slotpic = null;
-		BufferedImage hud = null;
-		BufferedImage logo = null;
-		BufferedImage bag = null;
-		BufferedImage bag2 = null;
+	public void uicache(){
 		try {
 			slotpic = ImageIO.read(new File("slot.png"));
 			hud = ImageIO.read(new File("hud.png"));
 			logo = ImageIO.read(new File("logo.png"));
 			bag = ImageIO.read(new File("bag.png"));
 			bag2 = ImageIO.read(new File("bag2.png"));
+			help = ImageIO.read(new File("help.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		uicached = true;
+	}
+	
+	public void update() {
+		key.update();
+		level.update();
+	}
+
+	public void render() {
+		if(uicached == false) uicache();
 		BufferStrategy bs = getBufferStrategy();
 		if (bs == null) {
 			createBufferStrategy(3); // 3 = triple buffer
@@ -243,6 +254,7 @@ public class Game extends Canvas implements Runnable {
 			g.drawImage(bag, width + 324, height * 2 - 76, null);
 		}
 		g.drawImage(hud, width / 2 - 60, height * 2 - 102, null);
+		g.drawImage(help, width - 7, height * 2 - 100, null);
 		
 		// Stamina bar
 		g.setColor(Color.DARK_GRAY);
