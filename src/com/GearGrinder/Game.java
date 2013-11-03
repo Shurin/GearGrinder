@@ -246,15 +246,15 @@ public class Game extends Canvas implements Runnable {
 		
 		// health bar
 		g.setColor(Color.RED);
-		g.fillRect(width  - 366, height * scale - 53, ((int)Player.healthpercent * 2), 30);
+		g.fillRect(width  - 361, height * scale - 53, ((int)Player.healthpercent * 2), 30);
 		g.setColor(Color.lightGray);
-		g.drawString("Health : " + (int)player.currenthealth + " / " + (int)player.maxhealth, width - 358, height * scale - 35);
+		//g.drawString("Health : " + (int)player.currenthealth + " / " + (int)player.maxhealth, width - 358, height * scale - 35);
 		
 		// Magic bar
 		g.setColor(Color.BLUE);
-		g.fillRect(width - 366, height * scale - 88, ((int)Player.magicpercent * 2), 30);
+		g.fillRect(width - 361, height * scale - 88, ((int)Player.magicpercent * 2), 30);
 		g.setColor(Color.lightGray);
-		g.drawString("Magic : " + (int)player.currentmagic + " / " + (int)player.maxmagic, width - 358, height * scale - 67);
+		//g.drawString("Magic : " + (int)player.currentmagic + " / " + (int)player.maxmagic, width - 358, height * scale - 67);
 
 		// hud elements
 		
@@ -268,7 +268,7 @@ public class Game extends Canvas implements Runnable {
 		// HUD
 		g.drawImage(hud, width / 2 - 60, height * 2 - 102, null);
 		//HUD top elements
-		//g.drawImage(hpmpframe, width / 2 - 60, height * 2 - 102, null);
+		g.drawImage(hpmpframe, width / 2 - 54, height * 2 - 95, null);
 		
 		
 		//HELP PAGE
