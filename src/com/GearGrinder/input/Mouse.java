@@ -30,7 +30,7 @@ public class Mouse implements MouseListener, MouseMotionListener{
 	public void mouseMoved(MouseEvent e) {
 		mouseX = e.getX();
 		mouseY = e.getY();
-		//System.out.println("" + e.getX() + ", " + e.getY());
+		System.out.println("" + e.getX() + ", " + e.getY());
 	}
 
 	public void mouseClicked(MouseEvent e) {
@@ -40,13 +40,13 @@ public class Mouse implements MouseListener, MouseMotionListener{
 	public void mousePressed(MouseEvent e) {
 		
 		//checks if an object was clicked
-		if((e.getX() >= 643 && e.getX() <= 667) && (e.getY() >= 671 && e.getY() <= 701)){
+		if((e.getX() >= 631 && e.getX() <= 663) && (e.getY() >= 673 && e.getY() <= 702)){
 			if(Player.helpshow == false){
 				Player.helpshow = true;
 			}else if(Player.helpshow == true){
 				Player.helpshow = false;
 			}
-		}else if((e.getX() >= 962 && e.getX() <= 1004) && (e.getY() >= 693 && e.getY() <= 741)){
+		}else if((e.getX() >= 960 && e.getX() <= 1002) && (e.getY() >= 693 && e.getY() <= 738)){
 			if(Player.invshow == false){
 				Player.invshow = true;
 			}else if(Player.invshow == true){

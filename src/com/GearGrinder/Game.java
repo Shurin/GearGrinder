@@ -260,31 +260,31 @@ public class Game extends Canvas implements Runnable {
 		
 		//INVENTORY
 		if(Player.invshow == true){
-			g.drawImage(bag2, width + 324, height * 2 - 76, null);			
+			g.drawImage(bag2, width + 321, height * 2 - 78, null);			
 		}else {
-			g.drawImage(bag, width + 324, height * 2 - 76, null);
+			g.drawImage(bag, width + 321, height * 2 - 78, null);
 		}
 		
 		// HUD
-		g.drawImage(hud, width / 2 - 60, height * 2 - 102, null);
+		g.drawImage(hud, width / 2 - 69, height * 2 - 112, null);
 		//HUD top elements
 		g.drawImage(hpmpframe, width / 2 - 54, height * 2 - 95, null);
 		
 		
-		//HELP PAGE
+		//HELP button
 		if(Player.helpshow == true){
-			g.drawImage(help2, width - 7, height * 2 - 100, null);
+			g.drawImage(help2, width - 10, height * 2 - 98, null);
 		}else {
-			g.drawImage(help, width - 7, height * 2 - 100, null);
+			g.drawImage(help, width - 10, height * 2 - 98, null);
 		}
 		
 		// Stamina bar
 		g.setColor(Color.DARK_GRAY);
-		g.fillRect(width - 35, height * scale - 50, 100, 20);
+		g.fillRect(width - 37, height * scale - 50, 100, 20);
 		g.setColor(Color.BLACK);
-		g.fillRect(width - 35, height * scale - 50, (int)Player.staminapercent, 20);
+		g.fillRect(width - 37, height * scale - 50, (int)Player.staminapercent, 20);
 		g.setColor(Color.lightGray);
-		g.drawString("Stamina : " + (int)Player.staminapercent, width - 35, height * scale - 35);
+		g.drawString("Stamina : " + (int)Player.staminapercent, width - 37, height * scale - 35);
 		
 		g.setColor(Color.WHITE);
 		g.drawString("Mobs on screen: " + mobsonscreen, 370, 16);
