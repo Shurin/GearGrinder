@@ -43,6 +43,7 @@ public class Game extends Canvas implements Runnable {
 	private static int scale = 2;
 	public static BufferStrategy bs;
 	public static Graphics g;
+	private Font boldfont = new Font("veranda", Font.BOLD, 18);
 
 	public int healthPosX = 50, healthPosY = 678;
 	public int staminaPosX = 95, staminaPosY = 725;
@@ -309,19 +310,19 @@ public class Game extends Canvas implements Runnable {
 		//CHARACTER PANEL
 		if(Player.charshow == true){
 			g.drawImage(charpanel, 30, 65, null);
-			g.setColor(Color.RED);
-			g.drawString("HP: ", 105, 400);
-			g.setColor(Color.BLUE);
-			g.drawString("MP: ", 380, 400);
-			g.setColor(Color.BLACK);
-			g.drawString("Str: ", 105, 450);
-			g.drawString("Def: ", 105, 475);
-			g.drawString("Vit: ", 105, 500);
-			g.drawString("Sta: ", 105, 525);
-			g.drawString("Agi: ", 380, 450);
-			g.drawString("Int: ", 380, 475);
-			g.drawString("Dex: ", 380, 500);
-			g.drawString("Lck: ", 380, 525);
+			//g.setColor(Color.RED);
+			//g.drawString("HP: ", 105, 400);
+			//g.setColor(Color.BLUE);
+			//g.drawString("MP: ", 380, 400);
+			//g.setColor(Color.BLACK);
+			//g.drawString("Str: ", 105, 450);
+			//g.drawString("Def: ", 105, 475);
+			//g.drawString("Vit: ", 105, 500);
+			//g.drawString("Sta: ", 105, 525);
+			//g.drawString("Agi: ", 380, 450);
+			//g.drawString("Int: ", 380, 475);
+			//g.drawString("Dex: ", 380, 500);
+			//g.drawString("Lck: ", 380, 525);
 			
 			g.setColor(Color.GREEN);
 			g.drawString("" + Player.health, 135,  400);
@@ -330,10 +331,12 @@ public class Game extends Canvas implements Runnable {
 			g.drawString("" + Player.defense, 135, 475);
 			g.drawString("" + Player.vitality, 135, 500);
 			g.drawString("" + Player.stamina, 135, 525);
+			//g.setFont(boldfont);
 			g.drawString("" + Player.agility, 420, 450);
 			g.drawString("" + Player.intelligence, 420, 475);
 			g.drawString("" + Player.dexterity, 420, 500);
-			g.drawString("" + Player.luck, 420, 525);			
+			g.drawString("" + Player.luck, 420, 525);
+			
 		}
 		
 		// Stamina bar
