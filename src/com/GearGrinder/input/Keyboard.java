@@ -50,6 +50,12 @@ public class Keyboard implements KeyListener{
 					}else if(Player.helpshow == true){
 						Player.helpshow = false;
 					}
+				}else if(keys[e.getKeyCode()] != keys[KeyEvent.VK_C]){
+					if(Player.charshow == false){
+						Player.charshow = true;
+					}else if(Player.charshow == true){
+						Player.charshow = false;
+					}
 				}
 	}
 }

@@ -61,7 +61,7 @@ public class Game extends Canvas implements Runnable {
 	public static boolean running = false;
 	
 	//ui elements
-	private BufferedImage slotpic = null;
+	private BufferedImage inventory = null;
 	private BufferedImage hud = null;
 	private BufferedImage logo = null;
 	private BufferedImage bag = null;
@@ -70,6 +70,8 @@ public class Game extends Canvas implements Runnable {
 	private BufferedImage help2 = null;
 	private BufferedImage helppage = null;
 	private BufferedImage hpmpframe = null;
+	private BufferedImage staminaframe = null;
+	private BufferedImage charpanel = null;
 	
 	private Mouse mouse = new Mouse();
 
@@ -192,7 +194,7 @@ public class Game extends Canvas implements Runnable {
 
 	public void uicache(){
 		try {
-			slotpic = ImageIO.read(new File("slot.png"));
+			inventory = ImageIO.read(new File("inventory.png"));
 			hud = ImageIO.read(new File("hud.png"));
 			logo = ImageIO.read(new File("logo.png"));
 			bag = ImageIO.read(new File("bag.png"));
@@ -201,6 +203,8 @@ public class Game extends Canvas implements Runnable {
 			help2 = ImageIO.read(new File("help2.png"));
 			helppage = ImageIO.read(new File("helppage.png"));
 			hpmpframe = ImageIO.read(new File("hpmpframe.png"));
+			staminaframe = ImageIO.read(new File("staminaframe.png"));
+			charpanel = ImageIO.read(new File("charpanel.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -260,7 +264,8 @@ public class Game extends Canvas implements Runnable {
 		
 		//INVENTORY
 		if(Player.invshow == true){
-			g.drawImage(bag2, width + 321, height * 2 - 78, null);			
+			g.drawImage(bag2, width + 321, height * 2 - 78, null);
+			g.drawImage(inventory, width * 2 - 499, height/18+5, null);
 		}else {
 			g.drawImage(bag, width + 321, height * 2 - 78, null);
 		}
@@ -268,7 +273,7 @@ public class Game extends Canvas implements Runnable {
 		// HUD
 		g.drawImage(hud, width / 2 - 69, height * 2 - 112, null);
 		//HUD top elements
-		g.drawImage(hpmpframe, width / 2 - 54, height * 2 - 95, null);
+		g.drawImage(hpmpframe, width / 2 - 54, height * 2 - 97, null);
 		
 		
 		//HELP button
@@ -276,33 +281,6 @@ public class Game extends Canvas implements Runnable {
 			g.drawImage(help2, width - 10, height * 2 - 98, null);
 		}else {
 			g.drawImage(help, width - 10, height * 2 - 98, null);
-		}
-		
-		// Stamina bar
-		g.setColor(Color.DARK_GRAY);
-		g.fillRect(width - 37, height * scale - 50, 100, 20);
-		g.setColor(Color.BLACK);
-		g.fillRect(width - 37, height * scale - 50, (int)Player.staminapercent, 20);
-		g.setColor(Color.lightGray);
-		g.drawString("Stamina : " + (int)Player.staminapercent, width - 37, height * scale - 35);
-		
-		g.setColor(Color.WHITE);
-		g.drawString("Mobs on screen: " + mobsonscreen, 370, 16);
-		g.drawString("FPS: " + fpsDisplay, width *2 - 100, 16);
-		
-		
-		// CHARACTER PANEL
-		if(Player.invshow == true){
-			
-			g.drawImage(slotpic, width * 2 - 499, height/18+5, null);
-			g.drawImage(slotpic, width * 2 - 499, height/18+75, null);
-			g.drawImage(slotpic, width * 2 - 499, height/18+145, null);
-			g.drawImage(slotpic, width * 2 - 499, height/18+215, null);
-			g.drawImage(slotpic, width * 2 - 499, height/18+285, null);
-			g.drawImage(slotpic, width * 2 - 499, height/18+355, null);
-			g.drawImage(slotpic, width * 2 - 499, height/18+425, null);
-			g.drawImage(slotpic, width * 2 - 499, height/18+495, null);
-			g.drawImage(slotpic, width * 2 - 499, height/18+565, null);
 		}
 		
 		//HELP PANEL
@@ -327,6 +305,50 @@ public class Game extends Canvas implements Runnable {
 			g.setColor(Color.WHITE);
 			g.drawString("I'll add more to this as needed ...", 40, 700);
 		}
+
+		//CHARACTER PANEL
+		if(Player.charshow == true){
+			g.drawImage(charpanel, 30, 65, null);
+			g.setColor(Color.RED);
+			g.drawString("HP: ", 105, 400);
+			g.setColor(Color.BLUE);
+			g.drawString("MP: ", 380, 400);
+			g.setColor(Color.BLACK);
+			g.drawString("Str: ", 105, 450);
+			g.drawString("Def: ", 105, 475);
+			g.drawString("Vit: ", 105, 500);
+			g.drawString("Sta: ", 105, 525);
+			g.drawString("Agi: ", 380, 450);
+			g.drawString("Int: ", 380, 475);
+			g.drawString("Dex: ", 380, 500);
+			g.drawString("Lck: ", 380, 525);
+			
+			g.setColor(Color.GREEN);
+			g.drawString("" + Player.health, 135,  400);
+			g.drawString("" + Player.magic, 420,  400);
+			g.drawString("" + Player.strength, 135, 450);
+			g.drawString("" + Player.defense, 135, 475);
+			g.drawString("" + Player.vitality, 135, 500);
+			g.drawString("" + Player.stamina, 135, 525);
+			g.drawString("" + Player.agility, 420, 450);
+			g.drawString("" + Player.intelligence, 420, 475);
+			g.drawString("" + Player.dexterity, 420, 500);
+			g.drawString("" + Player.luck, 420, 525);			
+		}
+		
+		// Stamina bar
+		g.setColor(Color.DARK_GRAY);
+		g.fillRect(width - 37, height * scale - 47, 100, 20);
+		g.setColor(Color.BLACK);
+		g.fillRect(width - 37, height * scale - 47, (int)Player.staminapercent, 20);
+		g.setColor(Color.lightGray);
+		g.drawString((int)Player.staminapercent + "%", width - 8, height * scale - 30);
+		g.drawImage(staminaframe, width - 40, height * scale - 50, null);
+		
+		//DEV DISPLAY
+		g.setColor(Color.WHITE);
+		g.drawString("Mobs on screen: " + mobsonscreen, 370, 16);
+		g.drawString("FPS: " + fpsDisplay, width *2 - 100, 16);		
 		
 		//logo
 		g.drawImage(logo, width * 2 - 235, height * 2 - 105, null);

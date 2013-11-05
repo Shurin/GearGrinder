@@ -40,10 +40,20 @@ public class Player extends Mob{
 	public static double currentstamina = stamina;
 	public static double maxstamina = stamina;
 	public static double staminapercent = currentstamina / maxstamina * 100;
+	public static int strength = 5000;
+	public static int defense = 5000;
+	public static int vitality = 5000;
+	public static int agility = 5000;
+	public static int intelligence = 5000;
+	public static int dexterity = 5000;
+	public static int luck = 5000;
+	
 	
 	
 	public static boolean helpshow = false;
 	public static boolean invshow = false;
+	public static boolean charshow = false;
+	public static boolean uitargeted = false;
 	
 	
 	public Player(Keyboard input){
@@ -72,38 +82,38 @@ public class Player extends Mob{
 			healthpercent = currenthealth / maxhealth * 100;
 		}
 		if (input.up){
-			animSprite = up;
+			if(uitargeted == false) animSprite = up;
 			ya--;
 		} else if (input.down){
-			animSprite = down;
+			if(uitargeted == false) animSprite = down;
 			ya++;
 		}
 		if (input.left){
-			animSprite = left;
+			if(uitargeted == false) animSprite = left;
 			xa--;
 		} else if (input.right){
-			animSprite = right;
+			if(uitargeted == false) animSprite = right;
 			xa++;		
 		}
 		//sprint stuff
 		if (input.up && input.sprint && currentstamina > 0){
-			animSprite = up;
+			if(uitargeted == false) animSprite = up;
 			ya-=1.5;
 			staminapercent = currentstamina / maxstamina * 100;
 			currentstamina-- ;
 		} else if (input.down && input.sprint && currentstamina > 0){
-			animSprite = down;
+			if(uitargeted == false) animSprite = down;
 			ya+=1.5;
 			staminapercent = currentstamina / maxstamina * 100;
 			currentstamina--;
 		}
 		if (input.left && input.sprint && currentstamina > 0){
-			animSprite = left;
+			if(uitargeted == false) animSprite = left;
 			xa-=1.5;
 			staminapercent = currentstamina / maxstamina * 100;
 			currentstamina--;
 		} else if (input.right && input.sprint && currentstamina > 0){
-			animSprite = right;
+			if(uitargeted == false) animSprite = right;
 			xa+=1.5;	
 			staminapercent = currentstamina / maxstamina * 100;
 			currentstamina--;

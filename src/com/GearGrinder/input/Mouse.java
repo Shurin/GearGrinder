@@ -11,6 +11,7 @@ public class Mouse implements MouseListener, MouseMotionListener{
 	private static int mouseX = -1;
 	private static int mouseY = -1;
 	private static int mouseB = -1;
+	public int i;
 	
 	public static int getX(){
 		return mouseX;
@@ -52,7 +53,15 @@ public class Mouse implements MouseListener, MouseMotionListener{
 			}else if(Player.invshow == true){
 				Player.invshow = false;
 			}
-		} else{
+		}else if((e.getX() >= 258 && e.getX() <= 1018) && (e.getY() >= 663 && e.getY() <= 755)){
+			// prevents firing while clicking hub
+		}else if((e.getX() >= 781 && e.getX() <= 1263) && (e.getY() >= 26 && e.getY() <= 655) && Player.invshow == true){
+			//prevents firing while interacting with inventory
+		}else if((e.getX() >= 30 && e.getX() <= 539) && (e.getY() >= 65 && e.getY() <= 616) && Player.charshow == true){
+			//prevents firing while interacting with charpanel
+		}else if((e.getX() >= 16 && e.getX() <= 415) && (e.getY() >= 35 && e.getY() <= 734) && Player.helpshow == true){
+			//prevents firing while interacting with help page
+		}else{
 			mouseB = e.getButton();
 		}
 	}
