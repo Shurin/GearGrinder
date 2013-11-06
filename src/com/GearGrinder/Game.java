@@ -2,14 +2,10 @@ package com.GearGrinder;
 
 import java.awt.Canvas;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Point;
-import java.awt.Rectangle;
 import java.awt.Toolkit;
-import java.awt.event.MouseEvent;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
@@ -17,14 +13,11 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
 import com.GearGrinder.DataIO.Load;
 import com.GearGrinder.DataIO.Save;
+import com.GearGrinder.Networking.JDBCExample;
 import com.GearGrinder.entity.mob.Player;
 import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.input.Keyboard;
@@ -90,6 +83,7 @@ public class Game extends Canvas implements Runnable {
 		frame = new JFrame();
 		key = new Keyboard();
 		
+		JDBCExample.DBTEST();//CONNECT TO DATABASE
 		Load.Load();
 		
 		level = Level.spawn;
@@ -147,8 +141,8 @@ public class Game extends Canvas implements Runnable {
 				delta--;
 			}
 			render();// our gfx handler
-			frames++;
-
+			frames++;		
+			
 			if (System.currentTimeMillis() - timer > 1000) {
 				timer = timer + 1000; // adds a second to above criteria
 				frame.setTitle("GearGrinder    |    FPS: " + frames);
