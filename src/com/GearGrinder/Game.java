@@ -11,12 +11,15 @@ import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 import java.io.File;
 import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
-import com.GearGrinder.DataIO.Load;
 import com.GearGrinder.DataIO.Save;
+import com.GearGrinder.Networking.InitialStat;
+import com.GearGrinder.Networking.SaveStat;
 import com.GearGrinder.entity.mob.Player;
 import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.input.Keyboard;
@@ -40,8 +43,11 @@ public class Game extends Canvas implements Runnable {
 	public int healthPosX = 50, healthPosY = 678;
 	public int staminaPosX = 95, staminaPosY = 725;
 	public static int mobsonscreen = 3;
+	public static String Playername = null;
 	public static int PlayerSpawnX = 21;
 	public static int PlayerSpawnY = 18;
+	public static int currentx = 0;
+	public static int currenty = 0;
 	
 	private boolean uicached = false;
 	
@@ -67,6 +73,7 @@ public class Game extends Canvas implements Runnable {
 	private BufferedImage hpmpframe = null;
 	private BufferedImage staminaframe = null;
 	private BufferedImage charpanel = null;
+	private int savetick = 0;
 	
 	private Mouse mouse = new Mouse();
 
@@ -82,16 +89,10 @@ public class Game extends Canvas implements Runnable {
 
 		screen = new Screen(width, height);
 		frame = new JFrame();
-		key = new Keyboard();		
-		
-		Load.Load();
-		
-		
-		
+		key = new Keyboard();				
 		
 		level = Level.spawn;
-		TileCoordinate playerSpawn = new TileCoordinate(21, 18); // SPAWN
-																	// LOCATION!!
+
 		player = new Player(PlayerSpawnX, PlayerSpawnY, key);
 		level.add(player);
 
@@ -149,38 +150,44 @@ public class Game extends Canvas implements Runnable {
 			if (System.currentTimeMillis() - timer > 1000) {
 				timer = timer + 1000; // adds a second to above criteria
 				frame.setTitle("GearGrinder    |    FPS: " + frames);
+				savetick = savetick +1;
+				if(savetick == 60){
+					System.out.println("Saving Game ...");
+					SaveStat.SaveStat();
+					savetick = 0;
+				}
 				fpsDisplay = frames;
 				updates = 0;
-				frames = 0;
+				frames = 0;				
 				
 				//MAGIC HEALING LOOP
-				double magichealrate = Player.maxmagic * 0.1;
-				if(Player.currentmagic < Player.maxmagic && (Player.currentmagic + magichealrate) <= Player.maxmagic){
-					Player.currentmagic = (int)magichealrate + Player.currentmagic;
-					Player.magicpercent = Player.currentmagic / Player.maxmagic * 100;
+				double magichealrate = InitialStat.maxmagic * 0.1;
+				if(InitialStat.currentmagic < InitialStat.maxmagic && (InitialStat.currentmagic + magichealrate) <= InitialStat.maxmagic){
+					InitialStat.currentmagic = (int)magichealrate + InitialStat.currentmagic;
+					InitialStat.magicpercent = InitialStat.currentmagic / InitialStat.maxmagic * 100;
 				}else {
-					Player.currentmagic = Player.maxmagic;
-					Player.magicpercent = Player.currentmagic / Player.maxmagic * 100;
+					InitialStat.currentmagic = InitialStat.maxmagic;
+					InitialStat.magicpercent = InitialStat.currentmagic / InitialStat.maxmagic * 100;
 				}
 				
 				//MAGIC HEALING LOOP
-				double healthhealrate = Player.maxhealth * 0.02;
-				if(Player.currenthealth < Player.maxhealth && (Player.currenthealth + healthhealrate) <= Player.maxhealth){
-					Player.currenthealth = (int)healthhealrate + Player.currenthealth;
-					Player.healthpercent = Player.currenthealth / Player.maxhealth * 100;
+				double healthhealrate = InitialStat.maxhealth * 0.02;
+				if(InitialStat.currenthealth < InitialStat.maxhealth && (InitialStat.currenthealth + healthhealrate) <= InitialStat.maxhealth){
+					InitialStat.currenthealth = (int)healthhealrate + InitialStat.currenthealth;
+					InitialStat.healthpercent = InitialStat.currenthealth / InitialStat.maxhealth * 100;
 				}else {
-					Player.currenthealth = Player.maxhealth;
-					Player.healthpercent = Player.currenthealth / Player.maxhealth * 100;
+					InitialStat.currenthealth = InitialStat.maxhealth;
+					InitialStat.healthpercent = InitialStat.currenthealth / InitialStat.maxhealth * 100;
 				}
 				
 				//STAMINA REGEN LOOP
-				double staminaregenrate = Player.maxstamina * 0.02;
-				if(Player.currentstamina < Player.maxstamina && (Player.currentstamina + staminaregenrate) <= Player.maxstamina){
-					Player.currentstamina = (int)staminaregenrate + Player.currentstamina;
-					Player.staminapercent = Player.currentstamina / Player.maxstamina * 100;
+				double staminaregenrate = InitialStat.maxstamina * 0.02;
+				if(InitialStat.currentstamina < InitialStat.maxstamina && (InitialStat.currentstamina + staminaregenrate) <= InitialStat.maxstamina){
+					InitialStat.currentstamina = (int)staminaregenrate + InitialStat.currentstamina;
+					InitialStat.staminapercent = InitialStat.currentstamina / InitialStat.maxstamina * 100;
 				}else {
-					Player.currentstamina = Player.maxstamina;
-					Player.staminapercent = Player.currentstamina / Player.maxstamina * 100;
+					InitialStat.currentstamina = InitialStat.maxstamina;
+					InitialStat.staminapercent = InitialStat.currentstamina / InitialStat.maxstamina * 100;
 				}
 			}
 			PlayerSpawnX = player.getX();
@@ -243,21 +250,21 @@ public class Game extends Canvas implements Runnable {
 		g.drawString("Button: " + Mouse.getB(), width * 3 - 70, height * 3 - 5);
 		g.drawString("Tile X: " + (player.getX() / 16) + ", Y: " + ((player.getY() / 16) + 1), 85, 16);
 		g.drawString("X: " + player.getX() + ", Y: " + player.getY(), 225, 16);
+		currentx = player.getX();
+		currenty = player.getY();
 		
 		g.setColor(Color.BLACK);
 		g.fillRect(width - 370, height * scale - 88, 220, 70);
 		
 		// health bar
 		g.setColor(Color.RED);
-		g.fillRect(width  - 361, height * scale - 53, ((int)Player.healthpercent * 2), 30);
+		g.fillRect(width  - 361, height * scale - 53, ((int)InitialStat.healthpercent * 2), 30);
 		g.setColor(Color.lightGray);
-		//g.drawString("Health : " + (int)player.currenthealth + " / " + (int)player.maxhealth, width - 358, height * scale - 35);
 		
 		// Magic bar
 		g.setColor(Color.BLUE);
-		g.fillRect(width - 361, height * scale - 88, ((int)Player.magicpercent * 2), 30);
+		g.fillRect(width - 361, height * scale - 88, ((int)InitialStat.magicpercent * 2), 30);
 		g.setColor(Color.lightGray);
-		//g.drawString("Magic : " + (int)player.currentmagic + " / " + (int)player.maxmagic, width - 358, height * scale - 67);
 
 		// hud elements
 		
@@ -323,17 +330,17 @@ public class Game extends Canvas implements Runnable {
 			//g.drawString("Lck: ", 380, 525);
 			
 			g.setColor(Color.GREEN);
-			g.drawString("" + Player.health, 135,  400);
-			g.drawString("" + Player.magic, 420,  400);
-			g.drawString("" + Player.strength, 135, 450);
-			g.drawString("" + Player.defense, 135, 475);
-			g.drawString("" + Player.vitality, 135, 500);
-			g.drawString("" + Player.stamina, 135, 525);
+			g.drawString("" + InitialStat.health, 135,  400);
+			g.drawString("" + InitialStat.magic, 420,  400);
+			g.drawString("" + InitialStat.strength, 135, 450);
+			g.drawString("" + InitialStat.defense, 135, 475);
+			g.drawString("" + InitialStat.vitality, 135, 500);
+			g.drawString("" + InitialStat.stamina, 135, 525);
 			//g.setFont(boldfont);
-			g.drawString("" + Player.agility, 420, 450);
-			g.drawString("" + Player.intelligence, 420, 475);
-			g.drawString("" + Player.dexterity, 420, 500);
-			g.drawString("" + Player.luck, 420, 525);
+			g.drawString("" + InitialStat.agility, 420, 450);
+			g.drawString("" + InitialStat.intelligence, 420, 475);
+			g.drawString("" + InitialStat.dexterity, 420, 500);
+			g.drawString("" + InitialStat.luck, 420, 525);
 			
 		}
 		
@@ -341,9 +348,9 @@ public class Game extends Canvas implements Runnable {
 		g.setColor(Color.DARK_GRAY);
 		g.fillRect(width - 37, height * scale - 47, 100, 20);
 		g.setColor(Color.BLACK);
-		g.fillRect(width - 37, height * scale - 47, (int)Player.staminapercent, 20);
+		g.fillRect(width - 37, height * scale - 47, (int)InitialStat.staminapercent, 20);
 		g.setColor(Color.lightGray);
-		g.drawString((int)Player.staminapercent + "%", width - 8, height * scale - 30);
+		g.drawString((int)InitialStat.staminapercent + "%", width - 8, height * scale - 30);
 		g.drawImage(staminaframe, width - 40, height * scale - 50, null);
 		
 		//DEV DISPLAY

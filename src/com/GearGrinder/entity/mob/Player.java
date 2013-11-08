@@ -1,7 +1,10 @@
 package com.GearGrinder.entity.mob;
 
+import java.awt.Color;
+
 import com.GearGrinder.Game;
 import com.GearGrinder.DataIO.Save;
+import com.GearGrinder.Networking.InitialStat;
 import com.GearGrinder.entity.Projectile.Projectile;
 import com.GearGrinder.entity.Projectile.QuakeProjectile;
 import com.GearGrinder.entity.Projectile.WizardProjectile;
@@ -24,30 +27,6 @@ public class Player extends Mob{
 	private AnimatedSprite left = new AnimatedSprite(SpriteSheet.player_left, 32, 32, 3);
 	private AnimatedSprite right = new AnimatedSprite(SpriteSheet.player_right, 32, 32, 3);
 	private AnimatedSprite animSprite = down;
-	
-	//PLAYER STATS
-	public static String charname = "CharName";
-	public static int gold = 0;
-	public static int health = 100000;
-	public static double currenthealth = health;
-	public static double maxhealth = health;
-	public static double healthpercent = currenthealth / maxhealth * 100;
-	public static int magic = 300;
-	public static double currentmagic = magic;
-	public static double maxmagic = magic;
-	public static double magicpercent = currentmagic / maxmagic * 100;
-	public static int stamina = 150;
-	public static double currentstamina = stamina;
-	public static double maxstamina = stamina;
-	public static double staminapercent = currentstamina / maxstamina * 100;
-	public static int strength = 5000;
-	public static int defense = 5000;
-	public static int vitality = 5000;
-	public static int agility = 5000;
-	public static int intelligence = 5000;
-	public static int dexterity = 5000;
-	public static int luck = 5000;
-	
 	
 	
 	public static boolean helpshow = false;
@@ -78,8 +57,8 @@ public class Player extends Mob{
 		if (anim < 7500)anim++; 
 		else anim = 0;
 		if(input.damage){
-			currenthealth -= 500;
-			healthpercent = currenthealth / maxhealth * 100;
+			InitialStat.currenthealth -= 500;
+			InitialStat.healthpercent = InitialStat.currenthealth / InitialStat.maxhealth * 100;			
 		}
 		if (input.up){
 			if(uitargeted == false) animSprite = up;
@@ -96,27 +75,27 @@ public class Player extends Mob{
 			xa++;		
 		}
 		//sprint stuff
-		if (input.up && input.sprint && currentstamina > 0){
+		if (input.up && input.sprint && InitialStat.currentstamina > 0){
 			if(uitargeted == false) animSprite = up;
 			ya-=1.5;
-			staminapercent = currentstamina / maxstamina * 100;
-			currentstamina-- ;
-		} else if (input.down && input.sprint && currentstamina > 0){
+			InitialStat.staminapercent = InitialStat.currentstamina / InitialStat.maxstamina * 100;
+			InitialStat.currentstamina-- ;
+		} else if (input.down && input.sprint && InitialStat.currentstamina > 0){
 			if(uitargeted == false) animSprite = down;
 			ya+=1.5;
-			staminapercent = currentstamina / maxstamina * 100;
-			currentstamina--;
+			InitialStat.staminapercent = InitialStat.currentstamina / InitialStat.maxstamina * 100;
+			InitialStat.currentstamina--;
 		}
-		if (input.left && input.sprint && currentstamina > 0){
+		if (input.left && input.sprint && InitialStat.currentstamina > 0){
 			if(uitargeted == false) animSprite = left;
 			xa-=1.5;
-			staminapercent = currentstamina / maxstamina * 100;
-			currentstamina--;
-		} else if (input.right && input.sprint && currentstamina > 0){
+			InitialStat.staminapercent = InitialStat.currentstamina / InitialStat.maxstamina * 100;
+			InitialStat.currentstamina--;
+		} else if (input.right && input.sprint && InitialStat.currentstamina > 0){
 			if(uitargeted == false) animSprite = right;
 			xa+=1.5;	
-			staminapercent = currentstamina / maxstamina * 100;
-			currentstamina--;
+			InitialStat.staminapercent = InitialStat.currentstamina / InitialStat.maxstamina * 100;
+			InitialStat.currentstamina--;
 		}
 		
 		
@@ -133,13 +112,6 @@ public class Player extends Mob{
 		} else {
 			walking = false;
 		}
-
-		
-		/*if(input.Cpanel && characterpanel == false){
-			characterpanel = true;			
-		}else if(input.Cpanel && characterpanel == true){
-			characterpanel = false;			
-		}*/
 		
 		if(input.escape){	
 			Save.Save();

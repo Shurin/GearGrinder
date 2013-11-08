@@ -1,5 +1,6 @@
 package com.GearGrinder.entity.mob;
 
+import com.GearGrinder.Networking.InitialStat;
 import com.GearGrinder.entity.Entity;
 import com.GearGrinder.entity.Projectile.Projectile;
 import com.GearGrinder.graphics.Screen;
@@ -44,10 +45,10 @@ public abstract class Mob extends Entity {
 	public abstract void render(Screen screen);
 	
 	protected void shoot(int x, int y, double dir, Projectile p, int manacost){
-		if(Player.currentmagic > 5){
+		if(InitialStat.currentmagic > 5){
 			level.add(p);
-			Player.currentmagic-=manacost;
-			Player.magicpercent = Player.currentmagic / Player.maxmagic * 100;
+			InitialStat.currentmagic-=manacost;
+			InitialStat.magicpercent = InitialStat.currentmagic / InitialStat.maxmagic * 100;
 		}
 	}
 	

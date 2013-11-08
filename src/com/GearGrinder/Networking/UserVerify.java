@@ -20,7 +20,7 @@ public class UserVerify {
 	static final String PASS = "RRRRrrrr$$$$4444r4";
 	
 	static final String tablename = "accounts";
-	static int rowCount = -1;
+	public static int rowCount = -1;
 	public static int clientID = 0;
 	public static String Pusername = null;
 	public static String Ppassword = null;
@@ -66,11 +66,12 @@ public class UserVerify {
 			for(int i = 0; i < rowCount; i ++){
 				if((accounts[i+1].equals(LoginPage.usrname)) && (passwords[i+1].equals(LoginPage.usrpass))){
 					System.out.println("Row is : " + (i+1));
+					clientID = (i+1);
 					Pusername = LoginPage.usrname;
 					Ppassword = LoginPage.usrpass;
 					System.out.println("LOGGED IN AS: " + Pusername + " : " + Ppassword);
 					loggedin = true;
-					Game.launch();
+					InitialStat.InitialStat();
 				}
 			}
 			
