@@ -3,6 +3,7 @@ package com.GearGrinder.input;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import com.GearGrinder.Networking.SaveStat;
 import com.GearGrinder.entity.mob.Player;
 
 public class Keyboard implements KeyListener{
@@ -56,6 +57,8 @@ public class Keyboard implements KeyListener{
 					}else if(Player.charshow == true){
 						Player.charshow = false;
 					}
+				}else if(keys[e.getKeyCode()] != keys[KeyEvent.VK_NUMPAD9] && SaveStat.saving == false){
+					SaveStat.SaveStat();
 				}
 	}
 }

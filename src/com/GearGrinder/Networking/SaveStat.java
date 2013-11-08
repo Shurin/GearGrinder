@@ -12,13 +12,16 @@ public class SaveStat {
 
 	// JDBC driver name and database URL
 		static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-		static final String DB_URL = "jdbc:mysql://localhost/ggdb";
+		static final String DB_URL = "jdbc:mysql://184.168.194.136/GGdb";
 		
 		// Database credentials
-		static final String USER = "root";
-		static final String PASS = "RRRRrrrr$$$$4444r4";
+		static final String USER = "GGdb";
+		static final String PASS = "GGgg##12";
+		
+		public static boolean saving = false;
 		
 		public static void SaveStat(){
+			saving = true;
 			Connection conn = null;
 			Statement stmt = null;
 			int rs = 0;
@@ -55,6 +58,7 @@ public class SaveStat {
 				}
 			}
 			System.out.println("Closed Database connection.");
+			saving = false;
 		}
 	
 }

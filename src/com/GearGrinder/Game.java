@@ -361,6 +361,11 @@ public class Game extends Canvas implements Runnable {
 		//logo
 		g.drawImage(logo, width * 2 - 235, height * 2 - 105, null);
 		
+		if(SaveStat.saving == true){
+			g.setColor(Color.RED);
+			g.drawString("SAVING ...", width, height);
+		}
+		
 		
 		g.dispose();
 		bs.show();

@@ -39,11 +39,11 @@ public class InitialStat {
 	
 	// JDBC driver name and database URL
 	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-	static final String DB_URL = "jdbc:mysql://localhost/ggdb";
+	static final String DB_URL = "jdbc:mysql://184.168.194.136/GGdb";
 	
 	// Database credentials
-	static final String USER = "root";
-	static final String PASS = "RRRRrrrr$$$$4444r4";
+	static final String USER = "GGdb";
+	static final String PASS = "GGgg##12";
 	
 	public static void InitialStat(){
 		Connection conn = null;
