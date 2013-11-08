@@ -1,13 +1,15 @@
 package com.GearGrinder.Networking;
 
-//Step 1: Use interfaces from java.sql package
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class JDBCExample{
+import com.GearGrinder.Game;
+import com.GearGrinder.LoginPage;
+
+public class UserVerify {
 
 	// JDBC driver name and database URL
 	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
@@ -19,15 +21,22 @@ public class JDBCExample{
 	
 	static final String tablename = "accounts";
 	static int rowCount = -1;
+	public static int clientID = 0;
+	public static String Pusername = null;
+	public static String Ppassword = null;
+	static boolean loggedin = false;
 	
-	public static void DBTEST(){
+	
+	public static void UserVerify(){
 		Connection conn = null;
 		Statement stmt = null;
+		ResultSet rs = null;
 		
 		try{
+			System.out.println("verifying username ...");
 			// Register JDBC driver
 			Class.forName("com.mysql.jdbc.Driver");
-			
+					
 			// Open a connection
 			System.out.println("Connecting to database ...");
 			conn = DriverManager.getConnection(DB_URL, USER, PASS);
@@ -37,47 +46,52 @@ public class JDBCExample{
 			System.out.println("Creating statement ...");
 			stmt = conn.createStatement();
 			
+			//finds total number of rows in accounts table
 			countRows(conn, tablename);
 			System.out.println("TOTAL ROWS: " + rowCount);
-			int testid = 3;
 			
-			String sql = "SELECT AccountID, AccountName, AccountPwd, PlayerName FROM accounts WHERE AccountID = " + testid;
-			ResultSet rs = stmt.executeQuery(sql);
+			String []accounts = new String[rowCount + 1];
+			String []passwords = new String[rowCount + 1];
 			
-			// Extract data from result set
-			while(rs.next()){
-				Integer testtest = rs.getInt("AccountID");
-				if(testtest !=  null){
-					int ID = rs.getInt("AccountID");
-					String NAME = rs.getString("AccountName");
-					String PWD = rs.getString("AccountPwd");
-					String PLAYER = rs.getString("PlayerName");
-					// Display values
-					System.out.println("ID: " + ID);
-					System.out.println("NAME: " + NAME);
-					System.out.println("PWD: " + PWD);
-					System.out.println("PLAYER: " + PLAYER);
-				}else if(testtest == null){ 
-					System.out.println("null check worked!");
+			for(int Rowi = 0; Rowi < rowCount + 1; Rowi ++){
+				rs = stmt.executeQuery("SELECT AccountName, AccountPwd FROM accounts WHERE AccountID = " + Rowi);
+				while(rs.next()){
+					String index = rs.getString("AccountName");
+					String index2 = rs.getString("AccountPwd");
+					accounts[Rowi] = index;
+					passwords[Rowi] = index2;
 				}
-				
 			}
-			rs.close();
+			
+			for(int i = 0; i < rowCount; i ++){
+				if((accounts[i+1].equals(LoginPage.usrname)) && (passwords[i+1].equals(LoginPage.usrpass))){
+					System.out.println("Row is : " + (i+1));
+					Pusername = LoginPage.usrname;
+					Ppassword = LoginPage.usrpass;
+					System.out.println("LOGGED IN AS: " + Pusername + " : " + Ppassword);
+					loggedin = true;
+					Game.launch();
+				}
+			}
+			
+			if(loggedin == false){
+				LoginPage.LoginPage();
+			}
+			
 		}catch(SQLException se){
 			// Handle errors for JDBC
 			se.printStackTrace();
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{
-			// finally block used to close resources
 			try{
 				if(stmt!=null) conn.close();
 			}catch(SQLException se){
 				se.printStackTrace();
-			}// end finally try
-		}// end try
-		System.out.println("GOODBYE!!!!!!!");
-	}//end main
+			}
+		}
+		System.out.println("Closed Database connection.");
+	}
 	
 	public static int countRows(Connection conn, String tableName) throws SQLException {
 	    // select the number of rows in the table
@@ -95,4 +109,4 @@ public class JDBCExample{
 	    }
 	    return rowCount;
 	  }
-}//end 
+}

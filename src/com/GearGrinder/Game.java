@@ -17,7 +17,6 @@ import javax.swing.JFrame;
 
 import com.GearGrinder.DataIO.Load;
 import com.GearGrinder.DataIO.Save;
-import com.GearGrinder.Networking.JDBCExample;
 import com.GearGrinder.entity.mob.Player;
 import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.input.Keyboard;
@@ -47,12 +46,14 @@ public class Game extends Canvas implements Runnable {
 	private boolean uicached = false;
 	
 	public int fpsDisplay = 0;
+	public static int accounttableheight = 0;
 	public static Thread gamethread;
 	public static JFrame frame;
 	private Keyboard key;
 	private Level level;
 	private Player player;
 	public static boolean running = false;
+	public static boolean logcheck = false;
 	
 	//ui elements
 	private BufferedImage inventory = null;
@@ -81,10 +82,12 @@ public class Game extends Canvas implements Runnable {
 
 		screen = new Screen(width, height);
 		frame = new JFrame();
-		key = new Keyboard();
+		key = new Keyboard();		
 		
-		JDBCExample.DBTEST();//CONNECT TO DATABASE
 		Load.Load();
+		
+		
+		
 		
 		level = Level.spawn;
 		TileCoordinate playerSpawn = new TileCoordinate(21, 18); // SPAWN
@@ -189,7 +192,8 @@ public class Game extends Canvas implements Runnable {
 
 	public void uicache(){
 		try {
-			inventory = ImageIO.read(new File("inventory.png"));
+			String testpic = "inventory.png";
+			inventory = ImageIO.read(new File(testpic));
 			hud = ImageIO.read(new File("hud.png"));
 			logo = ImageIO.read(new File("logo.png"));
 			bag = ImageIO.read(new File("bag.png"));
@@ -355,7 +359,7 @@ public class Game extends Canvas implements Runnable {
 		bs.show();
 	}	
 
-	public static void main(String[] args) {
+	public static void launch() {
 		Game game = new Game();
 		game.frame.setResizable(false); // must be first thing applied to frame
 		game.frame.setTitle("GearGrinder_BETA");
