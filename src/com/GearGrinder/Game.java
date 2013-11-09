@@ -17,7 +17,7 @@ import java.util.TimerTask;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
-import com.GearGrinder.DataIO.Save;
+
 import com.GearGrinder.Networking.InitialStat;
 import com.GearGrinder.Networking.SaveStat;
 import com.GearGrinder.entity.mob.Player;
@@ -194,7 +194,7 @@ public class Game extends Canvas implements Runnable {
 			}
 			PlayerSpawnX = player.getX();
 			PlayerSpawnY = player.getY();
-			Save.Save();
+			
 			 //JOptionPane.showMessageDialog(null, "menu initialized!");
 		}
 	}

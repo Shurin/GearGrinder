@@ -3,8 +3,8 @@ package com.GearGrinder.entity.mob;
 import java.awt.Color;
 
 import com.GearGrinder.Game;
-import com.GearGrinder.DataIO.Save;
 import com.GearGrinder.Networking.InitialStat;
+import com.GearGrinder.Networking.SaveStat;
 import com.GearGrinder.entity.Projectile.Projectile;
 import com.GearGrinder.entity.Projectile.QuakeProjectile;
 import com.GearGrinder.entity.Projectile.WizardProjectile;
@@ -114,7 +114,7 @@ public class Player extends Mob{
 		}
 		
 		if(input.escape){	
-			Save.Save();
+			SaveStat.SaveStat();
 			System.exit(0);			
 		}
 		
