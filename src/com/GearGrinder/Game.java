@@ -32,10 +32,12 @@ public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
 
 	static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	static double widthmax = screenSize.getWidth();
+	static double heightmax = screenSize.getHeight();
 
-	private static int width = (int) 1280/2;
-	private static int height = (int) 768/2;
-	private static int scale = 2;
+	private static int width = (int) widthmax;
+	private static int height = (int) heightmax;
+	private static int scale = 1;
 	public static BufferStrategy bs;
 	public static Graphics g;
 	private Font boldfont = new Font("veranda", Font.BOLD, 18);
@@ -247,123 +249,109 @@ public class Game extends Canvas implements Runnable {
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Veranda", 0, 16));
-		g.drawString("Button: " + Mouse.getB(), width * 3 - 70, height * 3 - 5);
+		g.drawString("Button: " + Mouse.getB(), width - 70, height - 5);
 		g.drawString("Tile X: " + (player.getX() / 16) + ", Y: " + ((player.getY() / 16) + 1), 85, 16);
 		g.drawString("X: " + player.getX() + ", Y: " + player.getY(), 225, 16);
 		currentx = player.getX();
 		currenty = player.getY();
 		
 		g.setColor(Color.BLACK);
-		g.fillRect(width - 370, height * scale - 88, 220, 70);
+		g.fillRect(width / 2 - 370, height - 88, 220, 70);
 		
 		// health bar
 		g.setColor(Color.RED);
-		g.fillRect(width  - 361, height * scale - 53, ((int)InitialStat.healthpercent * 2), 30);
+		g.fillRect(width / 2 - 361, height - 53, ((int)InitialStat.healthpercent * 2), 30);
 		g.setColor(Color.lightGray);
 		
 		// Magic bar
 		g.setColor(Color.BLUE);
-		g.fillRect(width - 361, height * scale - 88, ((int)InitialStat.magicpercent * 2), 30);
+		g.fillRect(width / 2 - 361, height - 88, ((int)InitialStat.magicpercent * 2), 30);
 		g.setColor(Color.lightGray);
 
 		// hud elements
 		
 		//INVENTORY
 		if(Player.invshow == true){
-			g.drawImage(bag2, width + 321, height * 2 - 78, null);
-			g.drawImage(inventory, width * 2 - 499, height/18+5, null);
+			g.drawImage(bag2, width / 2 + 322, height - 78, null);
+			g.drawImage(inventory, width - 499, height / 2 - 20, null);
 		}else {
-			g.drawImage(bag, width + 321, height * 2 - 78, null);
+			g.drawImage(bag, width / 2 + 322, height - 78, null);
 		}
 		
 		// HUD
-		g.drawImage(hud, width / 2 - 69, height * 2 - 112, null);
+		g.drawImage(hud, width / 2 - 388, height - 112, null);
 		//HUD top elements
-		g.drawImage(hpmpframe, width / 2 - 54, height * 2 - 97, null);
+		g.drawImage(hpmpframe, width / 2 - 373, height - 97, null);
 		
 		
 		//HELP button
 		if(Player.helpshow == true){
-			g.drawImage(help2, width - 10, height * 2 - 98, null);
+			g.drawImage(help2, width / 2 - 9, height - 99, null);
 		}else {
-			g.drawImage(help, width - 10, height * 2 - 98, null);
+			g.drawImage(help, width / 2 - 9, height - 99, null);
 		}
 		
 		//HELP PANEL
 		if(Player.helpshow == true){
-			g.drawImage(helppage, 16, 35, null);
+			g.drawImage(helppage, width / 2 - 160, 35, null);
 			g.setColor(Color.GREEN);
-			g.drawString("- Shoot1 = left mouse", 40, 75);
-			g.drawString("- Shoot2 = right mouse", 40, 100);
-			g.drawString("- Inventory = I", 40, 125);
-			g.drawString("- This Page = H", 40, 150);
-			g.drawString("- Close game = Esc", 40, 175);
+			g.drawString("- Shoot1 = left mouse", width / 2 - 60, 75);
+			g.drawString("- Shoot2 = right mouse", width / 2 - 60, 100);
+			g.drawString("- Inventory = I", width / 2 - 60, 125);
+			g.drawString("- This Page = H", width / 2 - 60, 150);
+			g.drawString("- Close game = Esc", width / 2 - 60, 175);
 			g.setColor(Color.RED);
-			g.drawString("- Finish adding UI elements", 40, 200);
-			g.drawString("- Finish adding UI mouse interaction", 40, 225);
-			g.drawString("- Finish adding basic player stats", 40, 250);
-			g.drawString("- Finish adding Save/Load game", 40, 275);
-			g.drawString("- Start adding items", 40, 300);
-			g.drawString("- Start adding a chatbox", 40, 325);
-			g.drawString("- Start adding Mob collision", 40, 350);
-			g.drawString("- Start adding Database I/O", 40, 375);
-			g.drawString("- Start adding Networking", 40, 400);
+			g.drawString("- Finish adding UI elements", width / 2 - 60, 200);
+			g.drawString("- Finish adding UI mouse interaction", width / 2 - 60, 225);
+			g.drawString("- Finish adding basic player stats", width / 2 - 60, 250);
+			g.drawString("- Finish adding Save/Load game", width / 2 - 60, 275);
+			g.drawString("- Start adding items", width / 2 - 60, 300);
+			g.drawString("- Start adding a chatbox", width / 2 - 60, 325);
+			g.drawString("- Start adding Mob collision", width / 2 - 60, 350);
+			g.drawString("- Start adding Database I/O", width / 2 - 60, 375);
+			g.drawString("- Start adding Networking", width / 2 - 60, 400);
 			g.setColor(Color.WHITE);
-			g.drawString("I'll add more to this as needed ...", 40, 700);
+			g.drawString("I'll add more to this as needed ...", width / 2 - 60, 700);
 		}
 
 		//CHARACTER PANEL
 		if(Player.charshow == true){
-			g.drawImage(charpanel, 30, 65, null);
-			//g.setColor(Color.RED);
-			//g.drawString("HP: ", 105, 400);
-			//g.setColor(Color.BLUE);
-			//g.drawString("MP: ", 380, 400);
-			//g.setColor(Color.BLACK);
-			//g.drawString("Str: ", 105, 450);
-			//g.drawString("Def: ", 105, 475);
-			//g.drawString("Vit: ", 105, 500);
-			//g.drawString("Sta: ", 105, 525);
-			//g.drawString("Agi: ", 380, 450);
-			//g.drawString("Int: ", 380, 475);
-			//g.drawString("Dex: ", 380, 500);
-			//g.drawString("Lck: ", 380, 525);
-			
+			g.drawImage(charpanel, 30, 265, null);		
 			g.setColor(Color.GREEN);
-			g.drawString("" + InitialStat.health, 135,  400);
-			g.drawString("" + InitialStat.magic, 420,  400);
-			g.drawString("" + InitialStat.strength, 135, 450);
-			g.drawString("" + InitialStat.defense, 135, 475);
-			g.drawString("" + InitialStat.vitality, 135, 500);
-			g.drawString("" + InitialStat.stamina, 135, 525);
+			g.drawString("" + InitialStat.health, 135,  600);
+			g.drawString("" + InitialStat.magic, 420,  600);
+			g.drawString("" + InitialStat.strength, 135, 650);
+			g.drawString("" + InitialStat.defense, 135, 675);
+			g.drawString("" + InitialStat.vitality, 135, 700);
+			g.drawString("" + InitialStat.stamina, 135, 725);
 			//g.setFont(boldfont);
-			g.drawString("" + InitialStat.agility, 420, 450);
-			g.drawString("" + InitialStat.intelligence, 420, 475);
-			g.drawString("" + InitialStat.dexterity, 420, 500);
-			g.drawString("" + InitialStat.luck, 420, 525);
+			g.drawString("" + InitialStat.agility, 420, 650);
+			g.drawString("" + InitialStat.intelligence, 420, 675);
+			g.drawString("" + InitialStat.dexterity, 420, 700);
+			g.drawString("" + InitialStat.luck, 420, 725);
 			
 		}
 		
 		// Stamina bar
 		g.setColor(Color.DARK_GRAY);
-		g.fillRect(width - 37, height * scale - 47, 100, 20);
+		g.fillRect(width / 2 - 37, height - 47, 100, 20);
 		g.setColor(Color.BLACK);
-		g.fillRect(width - 37, height * scale - 47, (int)InitialStat.staminapercent, 20);
+		g.fillRect(width / 2 - 37, height - 47, (int)InitialStat.staminapercent, 20);
 		g.setColor(Color.lightGray);
-		g.drawString((int)InitialStat.staminapercent + "%", width - 8, height * scale - 30);
-		g.drawImage(staminaframe, width - 40, height * scale - 50, null);
+		g.drawString((int)InitialStat.staminapercent + "%", width / 2 - 8, height - 30);
+		g.drawImage(staminaframe, width / 2 - 40, height - 50, null);
 		
 		//DEV DISPLAY
 		g.setColor(Color.WHITE);
 		g.drawString("Mobs on screen: " + mobsonscreen, 370, 16);
-		g.drawString("FPS: " + fpsDisplay, width *2 - 100, 16);		
+		g.drawString("FPS: " + fpsDisplay, width - 100, 16);		
 		
 		//logo
-		g.drawImage(logo, width * 2 - 235, height * 2 - 105, null);
+		g.drawImage(logo, width - 335, height - 105, null);
 		
 		if(SaveStat.saving == true){
-			g.setColor(Color.RED);
-			g.drawString("SAVING ...", width, height);
+			g.setColor(Color.red);
+			g.drawString("SAVING GAME ...", width / 2 - 80, 16);
 		}
 		
 		
@@ -373,10 +361,11 @@ public class Game extends Canvas implements Runnable {
 
 	public static void launch() {
 		Game game = new Game();
+		game.frame.setUndecorated(true);
+		game.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		game.frame.setResizable(false); // must be first thing applied to frame
 		game.frame.setTitle("GearGrinder_BETA");
 		//Game.frame.setExtendedState(Frame.MAXIMIZED_BOTH);
-		Game.frame.setUndecorated(false);
 		game.frame.add(game);
 		game.frame.pack();
 		game.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

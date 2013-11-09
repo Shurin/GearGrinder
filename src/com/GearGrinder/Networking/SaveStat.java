@@ -1,8 +1,8 @@
 package com.GearGrinder.Networking;
 
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -27,7 +27,6 @@ public class SaveStat {
 			int rs = 0;
 			
 			try{
-				System.out.println("verifying username ...");
 				// Register JDBC driver
 				Class.forName("com.mysql.jdbc.Driver");
 						

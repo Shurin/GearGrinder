@@ -56,7 +56,7 @@ public class Player extends Mob{
 		int ya = 0;
 		if (anim < 7500)anim++; 
 		else anim = 0;
-		if(input.damage){
+		if((input.damage == true) && (InitialStat.currenthealth - 500 > 0)){
 			InitialStat.currenthealth -= 500;
 			InitialStat.healthpercent = InitialStat.currenthealth / InitialStat.maxhealth * 100;			
 		}
