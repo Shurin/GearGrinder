@@ -68,7 +68,7 @@ public class Level {
 		remove();
 	}
 
-	private void remove() {
+	public void remove() {
 		for (int i = 0; i < entities.size(); i++) {
 			if (entities.get(i).isRemoved())
 				entities.remove(i);
@@ -143,6 +143,18 @@ public class Level {
 			players.add((Player) e);
 		} else {
 			entities.add(e);
+		}
+	}
+	public void remove(Entity e) {
+		e.init(this);
+		if (e instanceof Particle) {
+			particles.remove((Particle) e);
+		} else if (e instanceof Projectile) {
+			projectiles.remove((Projectile) e);
+		} else if (e instanceof Player) {
+			players.remove((Player) e);
+		} else {
+			entities.remove(e);
 		}
 	}
 
