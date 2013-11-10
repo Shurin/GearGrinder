@@ -16,6 +16,7 @@ public class Tile {
 	public Sprite sprite;
 	
 	// tile definitions
+	//DAY TILES
 	public static Tile spawn_grass_tile = new SpawnGrassTile(Sprite.spawn_grass);
 	public static Tile spawn_hedge_tile = new SpawnHedgeTile(Sprite.spawn_hedge);
 	public static Tile spawn_water_tile = new SpawnWaterTile(Sprite.spawn_water);
@@ -37,6 +38,29 @@ public class Tile {
 	public static Tile spawn_floor_tile = new SpawnFloorTile(Sprite.spawn_floor);
 	public static Tile global_portal_up = new SpawnFloorTile(Sprite.portal_up);
 	public static Tile global_portal_down = new SpawnFloorTile(Sprite.portal_down);
+	
+	//NIGHT TILES
+	public static Tile spawn_grass_tile_night = new SpawnGrassTile(Sprite.spawn_grass_night);
+	public static Tile spawn_hedge_tile_night = new SpawnHedgeTile(Sprite.spawn_hedge_night);
+	public static Tile spawn_water_tile_night = new SpawnWaterTile(Sprite.spawn_water_night);
+	public static Tile spawn_wall1_tile_night = new SpawnWallTile(Sprite.spawn_wall1_night);
+	public static Tile spawn_wall2_tile_night = new SpawnWallTile(Sprite.spawn_wall2_night);
+	public static Tile spawn_wall3_tile_night = new SpawnWallTile(Sprite.spawn_wall3_night);
+	public static Tile spawn_wall4_tile_night = new SpawnWallTile(Sprite.spawn_wall4_night);
+	public static Tile spawn_wall5_tile_night = new SpawnWallTile(Sprite.spawn_wall5_night);
+	public static Tile spawn_wall6_tile_night = new SpawnWallTile(Sprite.spawn_wall6_night);
+	public static Tile spawn_wall7_tile_night = new SpawnWallTile(Sprite.spawn_wall7_night);
+	public static Tile spawn_wall8_tile_night = new SpawnWallTile(Sprite.spawn_wall8_night);
+	public static Tile spawn_wall9_tile_night = new SpawnWallTile(Sprite.spawn_wall9_night);
+	public static Tile spawn_wall10_tile_night = new SpawnWallTile(Sprite.spawn_wall10_night);
+	public static Tile spawn_wall11_tile_night = new SpawnWallTile(Sprite.spawn_wall11_night);
+	public static Tile spawn_wall12_tile_night = new SpawnWallTile(Sprite.spawn_wall12_night);
+	public static Tile spawn_stairmiddle_tile_night = new SpawnFloorTile(Sprite.spawn_stairmiddle_night);
+	public static Tile spawn_stairleft_tile_night = new SpawnFloorTile(Sprite.spawn_stairleft_night);
+	public static Tile spawn_stairright_tile_night = new SpawnFloorTile(Sprite.spawn_stairright_night);
+	public static Tile spawn_floor_tile_night = new SpawnFloorTile(Sprite.spawn_floor_night);
+	public static Tile global_portal_up_night = new SpawnFloorTile(Sprite.portal_up_night);
+	public static Tile global_portal_down_night = new SpawnFloorTile(Sprite.portal_down_night);
 	
 	
 	// the colors that dictate what tiles are to be rendered

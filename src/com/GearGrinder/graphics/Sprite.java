@@ -14,6 +14,7 @@ public class Sprite {
 	// OR it can take size and fixed color like below
 	public static Sprite voidSprite = new Sprite(16, 0x1B87E0);
 	//SPAWN LEVEL SPRITES
+	//DAY SPRITES
 	public static Sprite spawn_grass = new Sprite(16, 0, 0, SpriteSheet.spawn_level_tiles);
 	public static Sprite spawn_hedge = new Sprite(16, 1, 0, SpriteSheet.spawn_level_tiles);
 	public static Sprite spawn_water = new Sprite(16, 2, 0, SpriteSheet.spawn_level_tiles);
@@ -35,6 +36,29 @@ public class Sprite {
 	public static Sprite spawn_stairright = new Sprite(16, 2, 1, SpriteSheet.spawn_level_tiles);
 	public static Sprite portal_up = new Sprite(16, 1, 2, SpriteSheet.spawn_level_tiles);
 	public static Sprite portal_down = new Sprite(16, 2, 2, SpriteSheet.spawn_level_tiles);
+	
+	//NIGHT SPRITES
+	public static Sprite spawn_grass_night = new Sprite(16, 0, 0, SpriteSheet.spawn_level_tiles_night);
+	public static Sprite spawn_hedge_night = new Sprite(16, 1, 0, SpriteSheet.spawn_level_tiles_night);
+	public static Sprite spawn_water_night = new Sprite(16, 2, 0, SpriteSheet.spawn_level_tiles_night);
+	public static Sprite spawn_wall1_night = new Sprite(16, 0, 1, SpriteSheet.spawn_level_tiles_night);
+	public static Sprite spawn_wall2_night = new Sprite(16, 0, 2, SpriteSheet.spawn_level_tiles_night);
+	public static Sprite spawn_floor_night = new Sprite(16, 1, 1, SpriteSheet.spawn_level_tiles_night);
+	public static Sprite spawn_wall3_night = new Sprite(16, 3, 0, SpriteSheet.spawn_level_tiles_night);
+	public static Sprite spawn_wall4_night = new Sprite(16, 3, 1, SpriteSheet.spawn_level_tiles_night);
+	public static Sprite spawn_wall5_night = new Sprite(16, 3, 2, SpriteSheet.spawn_level_tiles_night);
+	public static Sprite spawn_wall6_night = new Sprite(16, 4, 0, SpriteSheet.spawn_level_tiles_night);	
+	public static Sprite spawn_wall7_night = new Sprite(16, 4, 1, SpriteSheet.spawn_level_tiles_night);	
+	public static Sprite spawn_wall8_night = new Sprite(16, 5, 0, SpriteSheet.spawn_level_tiles_night);	
+	public static Sprite spawn_wall9_night = new Sprite(16, 5, 1, SpriteSheet.spawn_level_tiles_night);	
+	public static Sprite spawn_wall10_night = new Sprite(16, 6, 0, SpriteSheet.spawn_level_tiles_night);
+	public static Sprite spawn_wall11_night = new Sprite(16, 6, 1, SpriteSheet.spawn_level_tiles_night);
+	public static Sprite spawn_wall12_night = new Sprite(16, 6, 2, SpriteSheet.spawn_level_tiles_night);
+	public static Sprite spawn_stairmiddle_night = new Sprite(16, 2, 1, SpriteSheet.spawn_level_tiles_night);
+	public static Sprite spawn_stairleft_night = new Sprite(16, 2, 1, SpriteSheet.spawn_level_tiles_night);
+	public static Sprite spawn_stairright_night = new Sprite(16, 2, 1, SpriteSheet.spawn_level_tiles_night);
+	public static Sprite portal_up_night = new Sprite(16, 1, 2, SpriteSheet.spawn_level_tiles_night);
+	public static Sprite portal_down_night = new Sprite(16, 2, 2, SpriteSheet.spawn_level_tiles_night);
 		
 	
 

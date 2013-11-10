@@ -211,49 +211,137 @@ public class Level {
 
 	public Tile getTile(int x, int y) {
 		if (x < 0 || y < 0 || x >= width || y >= height)
-			return Tile.spawn_grass_tile;
+			if(Player.invshow){
+				return Tile.spawn_grass_tile_night;
+			}else{
+				return Tile.spawn_grass_tile;
+			}
 		if (tiles[x + y * width] == Tile.col_spawn_grass)
-			return Tile.spawn_grass_tile;
+			if(Player.invshow){
+				return Tile.spawn_grass_tile_night;
+			}else{
+				return Tile.spawn_grass_tile;
+			}
 		if (tiles[x + y * width] == Tile.col_spawn_hedge)
-			return Tile.spawn_hedge_tile;
+			if(Player.invshow){
+				return Tile.spawn_hedge_tile_night;
+			}else{
+				return Tile.spawn_hedge_tile;
+			}
 		if (tiles[x + y * width] == Tile.col_spawn_water)
-			return Tile.spawn_water_tile;
+			if(Player.invshow){
+				return Tile.spawn_water_tile_night;
+			}else{
+				return Tile.spawn_water_tile;
+			}
 		if (tiles[x + y * width] == Tile.col_spawn_wall1)
-			return Tile.spawn_wall1_tile;
+			if(Player.invshow){
+				return Tile.spawn_wall1_tile_night;
+			}else{
+				return Tile.spawn_wall1_tile;
+			}
 		if (tiles[x + y * width] == Tile.col_spawn_wall2)
-			return Tile.spawn_wall2_tile;
+			if(Player.invshow){
+				return Tile.spawn_wall2_tile_night;
+			}else{
+				return Tile.spawn_wall2_tile;
+			}
 		if (tiles[x + y * width] == Tile.col_spawn_wall3)
-			return Tile.spawn_wall3_tile;
+			if(Player.invshow){
+				return Tile.spawn_wall3_tile_night;
+			}else{
+				return Tile.spawn_wall3_tile;
+			}
 		if (tiles[x + y * width] == Tile.col_spawn_wall4)
-			return Tile.spawn_wall4_tile;
+			if(Player.invshow){
+				return Tile.spawn_wall4_tile_night;
+			}else{
+				return Tile.spawn_wall4_tile;
+			}
 		if (tiles[x + y * width] == Tile.col_spawn_wall5)
-			return Tile.spawn_wall5_tile;
+			if(Player.invshow){
+				return Tile.spawn_wall5_tile_night;
+			}else{
+				return Tile.spawn_wall5_tile;
+			}
 		if (tiles[x + y * width] == Tile.col_spawn_wall6)
-			return Tile.spawn_wall6_tile;
+			if(Player.invshow){
+				return Tile.spawn_wall6_tile_night;
+			}else{
+				return Tile.spawn_wall6_tile;
+			}
 		if (tiles[x + y * width] == Tile.col_spawn_wall7)
-			return Tile.spawn_wall7_tile;
+			if(Player.invshow){
+				return Tile.spawn_wall7_tile_night;
+			}else{
+				return Tile.spawn_wall7_tile;
+			}
 		if (tiles[x + y * width] == Tile.col_spawn_wall8)
-			return Tile.spawn_wall8_tile;
+			if(Player.invshow){
+				return Tile.spawn_wall8_tile_night;
+			}else{
+				return Tile.spawn_wall8_tile;
+			}
 		if (tiles[x + y * width] == Tile.col_spawn_wall9)
-			return Tile.spawn_wall9_tile;
+			if(Player.invshow){
+				return Tile.spawn_wall9_tile_night;
+			}else{
+				return Tile.spawn_wall9_tile;
+			}
 		if (tiles[x + y * width] == Tile.col_spawn_wall10)
-			return Tile.spawn_wall10_tile;
+			if(Player.invshow){
+				return Tile.spawn_wall10_tile_night;
+			}else{
+				return Tile.spawn_wall10_tile;
+			}
 		if (tiles[x + y * width] == Tile.col_spawn_wall11)
-			return Tile.spawn_wall11_tile;
+			if(Player.invshow){
+				return Tile.spawn_wall11_tile_night;
+			}else{
+				return Tile.spawn_wall11_tile;
+			}
 		if (tiles[x + y * width] == Tile.col_spawn_wall12)
-			return Tile.spawn_wall12_tile;
+			if(Player.invshow){
+				return Tile.spawn_wall12_tile_night;
+			}else{
+				return Tile.spawn_wall12_tile;
+			}
 		if (tiles[x + y * width] == Tile.col_spawn_stairmiddle)
-			return Tile.spawn_stairmiddle_tile;
+			if(Player.invshow){
+				return Tile.spawn_stairmiddle_tile_night;
+			}else{
+				return Tile.spawn_stairmiddle_tile;
+			}
 		if (tiles[x + y * width] == Tile.col_spawn_stairleft)
-			return Tile.spawn_stairleft_tile;
+			if(Player.invshow){
+				return Tile.spawn_stairleft_tile_night;
+			}else{
+				return Tile.spawn_stairleft_tile;
+			}
 		if (tiles[x + y * width] == Tile.col_spawn_stairright)
-			return Tile.spawn_stairright_tile;
+			if(Player.invshow){
+				return Tile.spawn_stairright_tile_night;
+			}else{
+				return Tile.spawn_stairright_tile;
+			}
 		if (tiles[x + y * width] == Tile.col_spawn_floor)
-			return Tile.spawn_floor_tile;
+			if(Player.invshow){
+				return Tile.spawn_floor_tile_night;
+			}else{
+				return Tile.spawn_floor_tile;
+			}
 		if (tiles[x + y * width] == Tile.col_portal_up)
-			return Tile.global_portal_up;
+			if(Player.invshow){
+				return Tile.global_portal_up_night;
+			}else{
+				return Tile.global_portal_up;
+			}
 		if (tiles[x + y * width] == Tile.col_portal_down)
-			return Tile.global_portal_down;
+			if(Player.invshow){
+				return Tile.global_portal_down_night;
+			}else{
+				return Tile.global_portal_down;
+			}
 		
 
 		return Tile.spawn_grass_tile;
