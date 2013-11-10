@@ -39,7 +39,7 @@ public class SaveStat {
 				System.out.println("Creating statement ...");
 				stmt = conn.createStatement();
 				
-					rs = stmt.executeUpdate("UPDATE `accounts` SET `Xloc`='"+Game.currentx+"', `Yloc`='"+Game.currenty+"', `Level`='"+InitialStat.PlayerLevel+""
+					rs = stmt.executeUpdate("UPDATE `accounts` SET `Zone`='"+Game.currentzone+"',`Xloc`='"+Game.currentx+"', `Yloc`='"+Game.currenty+"', `Level`='"+InitialStat.PlayerLevel+""
 							+ "', `XP`='"+InitialStat.XP+"', `Health`='"+InitialStat.currenthealth+"', `Magic`='"+InitialStat.currentmagic+"', `Stamina`='"+InitialStat.currentstamina+""
 							+ "', `Strength`='"+InitialStat.strength+"', `Defense`='"+InitialStat.defense+"', `Vitality`='"+InitialStat.vitality+""
 							+ "', `Agility`='"+InitialStat.agility+"', `Intelligence`='"+InitialStat.intelligence+"', `Dexterity`='"+InitialStat.dexterity+""

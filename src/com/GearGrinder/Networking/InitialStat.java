@@ -35,6 +35,7 @@ public class InitialStat {
 		public static int luck = 1;
 		public static int PlayerLevel = 1;
 		public static int XP = 1;
+		public static String DB_Zone = null;
 	
 	
 	// JDBC driver name and database URL
@@ -64,9 +65,10 @@ public class InitialStat {
 			System.out.println("Creating statement ...");
 			stmt = conn.createStatement();
 			
-				rs = stmt.executeQuery("SELECT PlayerName, Xloc, Yloc, Level, XP, Health, Magic, Stamina, Strength, Defense, Vitality, Agility, Intelligence, Dexterity, Luck, Gold FROM accounts WHERE AccountID = " + UserVerify.clientID);
+				rs = stmt.executeQuery("SELECT PlayerName, Zone, Xloc, Yloc, Level, XP, Health, Magic, Stamina, Strength, Defense, Vitality, Agility, Intelligence, Dexterity, Luck, Gold FROM accounts WHERE AccountID = " + UserVerify.clientID);
 				while(rs.next()){
 					Game.Playername = rs.getString("PlayerName");
+					DB_Zone = rs.getString("Zone");
 					Game.PlayerSpawnX = rs.getInt("Xloc");
 					Game.PlayerSpawnY = rs.getInt("Yloc");
 					PlayerLevel = rs.getInt("Level");

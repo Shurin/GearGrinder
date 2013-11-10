@@ -35,6 +35,8 @@ public class Tile {
 	public static Tile spawn_stairleft_tile = new SpawnFloorTile(Sprite.spawn_stairleft);
 	public static Tile spawn_stairright_tile = new SpawnFloorTile(Sprite.spawn_stairright);
 	public static Tile spawn_floor_tile = new SpawnFloorTile(Sprite.spawn_floor);
+	public static Tile global_portal_up = new SpawnFloorTile(Sprite.portal_up);
+	public static Tile global_portal_down = new SpawnFloorTile(Sprite.portal_down);
 	
 	
 	// the colors that dictate what tiles are to be rendered
@@ -57,6 +59,8 @@ public class Tile {
 	public final static  int col_spawn_stairleft = 0xff85D6E2;
 	public final static  int col_spawn_stairright = 0xff63ABB5;
 	public final static  int col_spawn_floor = 0xFFFF6A00;
+	public final static  int col_portal_up = 0xFFA602FF;
+	public final static  int col_portal_down = 0xFF8419FF;
 	
 
 

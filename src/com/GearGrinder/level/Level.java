@@ -24,7 +24,8 @@ public class Level {
 	private List<Particle> particles = new ArrayList<Particle>();
 	private List<Player> players = new ArrayList<Player>();
 
-	public static Level spawn = new SpawnLevel("/levels/spawn.png");
+	public static Level world = new SpawnLevel("/levels/world.png");
+	public static Level dungeon1 = new SpawnLevel("/levels/dungeon1.png");
 
 	public Level(int width, int height) {
 		this.width = width;
@@ -237,6 +238,10 @@ public class Level {
 			return Tile.spawn_stairright_tile;
 		if (tiles[x + y * width] == Tile.col_spawn_floor)
 			return Tile.spawn_floor_tile;
+		if (tiles[x + y * width] == Tile.col_portal_up)
+			return Tile.global_portal_up;
+		if (tiles[x + y * width] == Tile.col_portal_down)
+			return Tile.global_portal_down;
 		
 
 		return Tile.spawn_grass_tile;

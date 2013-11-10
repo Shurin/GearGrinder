@@ -11,12 +11,9 @@ import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 import java.io.File;
 import java.io.IOException;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
-
 
 import com.GearGrinder.Networking.InitialStat;
 import com.GearGrinder.Networking.SaveStat;
@@ -25,7 +22,6 @@ import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.input.Keyboard;
 import com.GearGrinder.input.Mouse;
 import com.GearGrinder.level.Level;
-import com.GearGrinder.level.TileCoordinate;
 
 public class Game extends Canvas implements Runnable {
 
@@ -50,6 +46,7 @@ public class Game extends Canvas implements Runnable {
 	public static int PlayerSpawnY = 18;
 	public static int currentx = 0;
 	public static int currenty = 0;
+	public static String currentzone = null;
 	
 	private boolean uicached = false;
 	
@@ -57,9 +54,9 @@ public class Game extends Canvas implements Runnable {
 	public static int accounttableheight = 0;
 	public static Thread gamethread;
 	public static JFrame frame;
-	private Keyboard key;
-	private Level level;
-	private Player player;
+	private static Keyboard key;
+	public static Level level;
+	private static Player player;
 	public static boolean running = false;
 	public static boolean logcheck = false;
 	
@@ -93,7 +90,13 @@ public class Game extends Canvas implements Runnable {
 		frame = new JFrame();
 		key = new Keyboard();				
 		
-		level = Level.spawn;
+		if(InitialStat.DB_Zone.equals("world")){
+			level = level.world;
+			currentzone = "world";
+		}else if(InitialStat.DB_Zone.equals("dungeon1")){
+			level = level.dungeon1;
+			currentzone = "dungeon1";
+		}
 
 		player = new Player(PlayerSpawnX, PlayerSpawnY, key);
 		level.add(player);
@@ -221,7 +224,7 @@ public class Game extends Canvas implements Runnable {
 		uicached = true;
 	}
 	
-	public void update() {
+	public static void update() {
 		key.update();
 		level.update();
 	}
@@ -354,11 +357,30 @@ public class Game extends Canvas implements Runnable {
 			g.drawString("SAVING GAME ...", width / 2 - 80, 16);
 		}
 		
+		portalcheck();
 		
 		g.dispose();
 		bs.show();
 	}	
 
+	public static void portalcheck(){
+		if(Game.currentzone.equals("world")){
+			if((currentx >= 328 && currentx <= 345) && (currenty >= 193 && currenty <= 206)){
+				level = Game.level.dungeon1;
+				currentzone = "dungeon1";
+				player = new Player(52, 84, key);
+				level.add(player);
+			}
+		}else if(Game.currentzone.equals("dungeon1")){
+			if((currentx >= 21 && currentx <= 34) && (currenty >= 65 && currenty <= 95)){
+				level = Game.level.world;
+				currentzone = "world";
+				player = new Player(337, 228, key);
+				level.add(player);
+			}
+		}
+	}
+	
 	public static void launch() {
 		Game game = new Game();
 		game.frame.setUndecorated(true);

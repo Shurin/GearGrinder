@@ -33,6 +33,8 @@ public class Sprite {
 	public static Sprite spawn_stairmiddle = new Sprite(16, 2, 1, SpriteSheet.spawn_level_tiles);
 	public static Sprite spawn_stairleft = new Sprite(16, 2, 1, SpriteSheet.spawn_level_tiles);
 	public static Sprite spawn_stairright = new Sprite(16, 2, 1, SpriteSheet.spawn_level_tiles);
+	public static Sprite portal_up = new Sprite(16, 1, 2, SpriteSheet.spawn_level_tiles);
+	public static Sprite portal_down = new Sprite(16, 2, 2, SpriteSheet.spawn_level_tiles);
 		
 	
 
