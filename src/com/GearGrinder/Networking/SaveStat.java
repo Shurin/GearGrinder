@@ -40,7 +40,7 @@ public class SaveStat {
 				stmt = conn.createStatement();
 				
 					rs = stmt.executeUpdate("UPDATE `accounts` SET `Zone`='"+Game.currentzone+"',`Xloc`='"+Game.currentx+"', `Yloc`='"+Game.currenty+"', `Level`='"+InitialStat.PlayerLevel+""
-							+ "', `XP`='"+InitialStat.XP+"', `Health`='"+InitialStat.currenthealth+"', `Magic`='"+InitialStat.currentmagic+"', `Stamina`='"+InitialStat.currentstamina+""
+							+ "', `XP`='"+InitialStat.XP+"', `Health`='"+InitialStat.health+"', `Magic`='"+InitialStat.magic+"', `Stamina`='"+InitialStat.stamina+""
 							+ "', `Strength`='"+InitialStat.strength+"', `Defense`='"+InitialStat.defense+"', `Vitality`='"+InitialStat.vitality+""
 							+ "', `Agility`='"+InitialStat.agility+"', `Intelligence`='"+InitialStat.intelligence+"', `Dexterity`='"+InitialStat.dexterity+""
 							+ "', `Luck`='"+InitialStat.luck+"', `Gold`='"+InitialStat.gold+"' WHERE (`AccountID`='"+UserVerify.clientID+"') LIMIT 1");							
