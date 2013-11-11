@@ -1,13 +1,12 @@
 package com.GearGrinder.Networking;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.GearGrinder.Game;
-import com.GearGrinder.LoginPage;
+import com.GearGrinder.entity.Entity;
 
 public class InitialStat {
 
@@ -40,6 +39,9 @@ public class InitialStat {
 		public static double XPpercent = 725 / leveltotalxp * XP; 
 		public static String DB_Zone = null;
 		public static int Onlineint = 1;
+		public static List<Entity> onlineplayersID = new ArrayList<Entity>();//stores the ID of online players
+		public static List<Entity> onlineplayersX = new ArrayList<Entity>();//stores the ID of online players
+		public static List<Entity> onlineplayersY = new ArrayList<Entity>();//stores the ID of online players
 	
 	
 	// JDBC driver name and database URL
@@ -93,14 +95,11 @@ public class InitialStat {
 			se.printStackTrace();
 		}catch(Exception e){
 			e.printStackTrace();
-		}/*finally{
-			try{
-				if(stmt!=null) conn.close();
-			}catch(SQLException se){
-				se.printStackTrace();
-			}
-		}*/
-		//System.out.println("Closed Database connection.");
+		}
 		Game.launch();
+	}
+	
+	public static void whosonline(){
+		
 	}
 }

@@ -17,6 +17,7 @@ import javax.swing.JFrame;
 
 import com.GearGrinder.Networking.InitialStat;
 import com.GearGrinder.Networking.SaveStat;
+import com.GearGrinder.Networking.TimeLookup;
 import com.GearGrinder.entity.mob.Player;
 import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.input.Keyboard;
@@ -152,7 +153,7 @@ public class Game extends Canvas implements Runnable {
 				delta--;
 			}
 			render();// our gfx handler
-			frames++;		
+			frames++;	
 			
 			if (System.currentTimeMillis() - timer > 1000) {
 				timer = timer + 1000; // adds a second to above criteria
@@ -164,15 +165,16 @@ public class Game extends Canvas implements Runnable {
 					e.printStackTrace();
 				}
 				frame.setTitle("GearGrinder    |    FPS: " + frames);
+				fpsDisplay = frames;
+				updates = 0;
+				frames = 0;
+				
 				savetick = savetick +1;
 				if(savetick == 60){
 					System.out.println("Saving Game ...");
 					SaveStat.SaveStat();
 					savetick = 0;
 				}
-				fpsDisplay = frames;
-				updates = 0;
-				frames = 0;				
 				
 				//MAGIC HEALING LOOP
 				double magichealrate = InitialStat.maxmagic * 0.1;
@@ -425,7 +427,7 @@ public class Game extends Canvas implements Runnable {
 		game.frame.setLocationRelativeTo(null); // centers the frame
 		game.frame.setVisible(true);
 
-		//TimeLookup.TimeLookup();
+		TimeLookup.TimeLookup();
 		
 		game.start();
 	}

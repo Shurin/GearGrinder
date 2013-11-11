@@ -3,24 +3,39 @@ package com.GearGrinder.Networking;
 import com.GearGrinder.Game;
 
 
-public class TimeLookup {
-	public static Thread timethread;
-	public synchronized static void start() {
+public class TimeLookup implements Runnable{
+	public static Thread TimeLookup;
+	public static Boolean time = true;
+	
+	public TimeLookup(){
+		
+	}
+	
+	public synchronized void start(String time) {
 		Game.running = true;
-		timethread = new Thread("Time");
-		timethread.start();
+		TimeLookup = new Thread(this);
+		TimeLookup.start();
 	}
 
 	public static synchronized void stop() {
 		Game.running = false;
 		try {
-			timethread.join();
+			TimeLookup.join();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 	}
+	
+	public void run(){
+		while(time == true){
+			SaveLoc.SaveLoc();
+		}
+		
+	}
+	
 public static void TimeLookup(){
-	start();
-	System.out.println("TIME THREAD CREATED AND RUNNING!!!!!");
+	TimeLookup T = new TimeLookup();
+	T.start("TIME");
+	System.out.println("TIME THREAD CREATED");
 	}
 }

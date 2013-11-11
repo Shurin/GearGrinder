@@ -38,14 +38,7 @@ public class SaveStat {
 				se.printStackTrace();
 			}catch(Exception e){
 				e.printStackTrace();
-			}/*finally{
-				try{
-					if(stmt!=null) conn.close();
-				}catch(SQLException se){
-					se.printStackTrace();
-				}
-			}*/
-			//System.out.println("Closed Database connection.");
+			}
 			saving = false;
 		}
 	

@@ -65,7 +65,6 @@ public class UserVerify {
 			
 			for(int i = 0; i < rowCount; i ++){
 				if((accounts[i+1].equals(LoginPage.usrname)) && (passwords[i+1].equals(LoginPage.usrpass))){
-					System.out.println("Row is : " + (i+1));
 					clientID = (i+1);
 					Pusername = LoginPage.usrname;
 					Ppassword = LoginPage.usrpass;
@@ -84,14 +83,7 @@ public class UserVerify {
 			se.printStackTrace();
 		}catch(Exception e){
 			e.printStackTrace();
-		}/*finally{
-			try{
-				if(stmt!=null) conn.close();
-			}catch(SQLException se){
-				se.printStackTrace();
-			}
-		}*/
-		//System.out.println("Closed Database connection.");
+		}
 	}
 	
 	public static int countRows(Connection conn, String tableName) throws SQLException {
