@@ -12,7 +12,7 @@ public class QuakeProjectile extends Projectile{
 		super(x, y, dir, Name);
 		range = 150 + random.nextInt(20);
 		speed = 2;
-		damage = 20;
+		damage = 100;
 		sprite = Sprite.projectile_quake;
 		
 		nx = speed * Math.cos(angle);

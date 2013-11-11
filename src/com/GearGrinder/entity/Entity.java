@@ -15,6 +15,7 @@ public class Entity {
 	
 	protected Sprite sprite;
 	protected String Name;
+	protected int mobHP;
 	private boolean removed = false;
 	protected Level level;
 	protected final Random random = new Random();
@@ -29,6 +30,7 @@ public class Entity {
 		this.y = y;
 		this.sprite = sprite;		
 		this.Name = Name;
+		this.mobHP = mobHP;
 	}
 	
 	public void update(){
@@ -50,6 +52,10 @@ public class Entity {
 	
 	public int getY(){
 		return y;
+	}
+	
+	public int getHP(){
+		return mobHP;
 	}
 	
 	public Sprite getSprite(){

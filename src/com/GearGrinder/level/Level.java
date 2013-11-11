@@ -100,9 +100,8 @@ public class Level {
 	public void mobhit(){
 		boolean hit = false;
 		for (int i = 0; i < entities.size(); i++) {
-			String mobname = entities.get(i).getName();
-			System.out.println("mob name: " + mobname);
 			if(projectiles.size() >= 0){
+				String mobname = entities.get(i).getName();
 				if(mobname == "ninjabot" || mobname == "ninjabotboss"){//sets boundaries for ninjabot/ninjabot boss mobs
 					mobxl = entities.get(i).getX() - 13;
 					mobyb = entities.get(i).getY() - 16;
@@ -113,6 +112,7 @@ public class Level {
 					int prox = projectiles.get(j).getX();
 					int proy = projectiles.get(j).getY();
 					String name = projectiles.get(j).getName();
+					System.out.println("pro damage: " + projectiles.get(j).getDamage());
 					if(((prox >= mobxl) && (proy >= mobyb )) && ((prox <= mobxr) && (proy <= mobyt))){
 						entities.get(i).remove();
 						projectiles.get(j).remove();
