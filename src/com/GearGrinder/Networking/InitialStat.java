@@ -50,25 +50,13 @@ public class InitialStat {
 	static final String PASS = "GGgg##12";
 	
 	public static void InitialStat(){
-		Connection conn = null;
-		Statement stmt = null;
 		ResultSet rs = null;
 		
 		try{
-			System.out.println("verifying username ...");
-			// Register JDBC driver
 			Class.forName("com.mysql.jdbc.Driver");
-					
-			// Open a connection
-			System.out.println("Connecting to database ...");
-			conn = DriverManager.getConnection(DB_URL, USER, PASS);
-			System.out.println("Connected database succesfully ...");
 			
-			// Execute a query
-			System.out.println("Creating statement ...");
-			stmt = conn.createStatement();
 			
-				rs = stmt.executeQuery("SELECT PlayerName, Zone, Xloc, Yloc, Level, XP, Health, Magic, Stamina, Strength, Defense, Vitality, Agility, Intelligence, Dexterity, Luck, Gold FROM accounts WHERE AccountID = " + UserVerify.clientID);
+				rs = UserVerify.stmt.executeQuery("SELECT PlayerName, Zone, Xloc, Yloc, Level, XP, Health, Magic, Stamina, Strength, Defense, Vitality, Agility, Intelligence, Dexterity, Luck, Gold FROM accounts WHERE AccountID = " + UserVerify.clientID);
 				while(rs.next()){
 					Game.Playername = rs.getString("PlayerName");
 					DB_Zone = rs.getString("Zone");
@@ -104,14 +92,14 @@ public class InitialStat {
 			se.printStackTrace();
 		}catch(Exception e){
 			e.printStackTrace();
-		}finally{
+		}/*finally{
 			try{
 				if(stmt!=null) conn.close();
 			}catch(SQLException se){
 				se.printStackTrace();
 			}
-		}
-		System.out.println("Closed Database connection.");
+		}*/
+		//System.out.println("Closed Database connection.");
 		Game.launch();
 	}
 }

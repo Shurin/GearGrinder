@@ -25,12 +25,12 @@ public class UserVerify {
 	public static String Pusername = null;
 	public static String Ppassword = null;
 	static boolean loggedin = false;
+	public static Connection conn = null;
+	public static Statement stmt = null;
+	public static ResultSet rs = null;
 	
 	
 	public static void UserVerify(){
-		Connection conn = null;
-		Statement stmt = null;
-		ResultSet rs = null;
 		
 		try{
 			System.out.println("verifying username ...");
@@ -84,29 +84,25 @@ public class UserVerify {
 			se.printStackTrace();
 		}catch(Exception e){
 			e.printStackTrace();
-		}finally{
+		}/*finally{
 			try{
 				if(stmt!=null) conn.close();
 			}catch(SQLException se){
 				se.printStackTrace();
 			}
-		}
-		System.out.println("Closed Database connection.");
+		}*/
+		//System.out.println("Closed Database connection.");
 	}
 	
 	public static int countRows(Connection conn, String tableName) throws SQLException {
 	    // select the number of rows in the table
-	    Statement stmt = null;
 	    ResultSet rs = null;
 	    try {
-	      stmt = conn.createStatement();
 	      rs = stmt.executeQuery("SELECT COUNT(*) FROM " + tableName);
 	      // get the number of rows from the result set
 	      rs.next();
 	      rowCount = rs.getInt(1);
 	    } finally {
-	      rs.close();
-	      stmt.close();
 	    }
 	    return rowCount;
 	  }

@@ -77,7 +77,6 @@ public class LoginPage{
 				JButton source = (JButton) e.getSource();
 				usrname = userText.getText();
 				usrpass = passwordText.getText();
-				System.out.println("username cached: " + usrname);
 				frame.dispose();
 				UserVerify.UserVerify();
 			}
