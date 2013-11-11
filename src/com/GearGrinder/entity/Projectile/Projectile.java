@@ -13,19 +13,17 @@ public class Projectile extends Entity{
 	protected double x, y;
 	protected double nx, ny; //vector variables
 	protected double speed, range, damage, distance;
-	public static int PX;
-	public static int PY;
 	
 	protected final Random random = new Random();//var for random range
 	
-	public Projectile(int x, int y, double dir){
+	public Projectile(int x, int y, double dir, String Name){
 		xOrigin = x;
 		yOrigin = y;
 		angle = dir;
 		this.x=x;
 		this.y=y;
-		PX = x;
-		PY = y;
+
+		this.Name = Name;
 	}
 	
 	public Sprite getSprite(){
@@ -34,6 +32,18 @@ public class Projectile extends Entity{
 	
 	public int getSpriteSize(){
 		return sprite.SIZE;
+	}
+	
+	public String getName(){
+		return Name;
+	}
+	
+	public int getX(){
+		return (int)x;
+	}
+	
+	public int getY(){
+		return (int)y;
 	}
 	
 	protected void move(){

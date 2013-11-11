@@ -101,7 +101,7 @@ public class Player extends Mob{
 		
 		if(input.spawnmob){
 			for(int i = 0; i < 1; i++){
-			level.add(new NinjaBot(x / 16,y / 16)); 
+			level.add(new NinjaBot(x / 16,y / 16));
 			Game.mobsonscreen = Game.mobsonscreen + 1;
 			}
 		}
@@ -136,7 +136,8 @@ public class Player extends Mob{
 			double dx = Mouse.getX() - Game.getWindowWidth() / 2;
 			double dy = Mouse.getY() - Game.getWindowHeight() / 2;
 			double dir = Math.atan2(dy, dx);// atan2 takes y first
-			Projectile p = new WizardProjectile(x, y, dir);
+			String Name = "wizpro";
+			Projectile p = new WizardProjectile(x, y, dir, Name);
 			shoot(x, y, dir, p, manacost);
 			fireRate = WizardProjectile.FIRE_RATE;
 		}
@@ -145,7 +146,8 @@ public class Player extends Mob{
 			double dx = Mouse.getX() - Game.getWindowWidth() / 2;
 			double dy = Mouse.getY() - Game.getWindowHeight() / 2;
 			double dir = Math.atan2(dy, dx);// atan2 takes y first
-			Projectile p = new QuakeProjectile(x, y, dir);
+			String Name = "quakepro";
+			Projectile p = new QuakeProjectile(x, y, dir, Name);
 			shoot(x, y, dir, p, manacost);
 			fireRate = QuakeProjectile.FIRE_RATE;
 		}

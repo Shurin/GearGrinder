@@ -1,7 +1,6 @@
  package com.GearGrinder.entity.Projectile;
 
 import com.GearGrinder.entity.spawner.ParticleSpawner;
-import com.GearGrinder.entity.spawner.Spawner;
 import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.graphics.Sprite;
 
@@ -9,8 +8,8 @@ public class QuakeProjectile extends Projectile{
 
 	public static final int FIRE_RATE = 25;// higher the value the slower the rate of fire
 	
-	public QuakeProjectile(int x, int y, double dir) {
-		super(x, y, dir);
+	public QuakeProjectile(int x, int y, double dir, String Name) {
+		super(x, y, dir, Name);
 		range = 150 + random.nextInt(20);
 		speed = 2;
 		damage = 20;

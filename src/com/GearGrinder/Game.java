@@ -11,18 +11,13 @@ import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 import java.io.File;
 import java.io.IOException;
-import java.net.InetAddress;
-import java.sql.Date;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
-import org.apache.commons.net.ntp.NTPUDPClient;
-import org.apache.commons.net.ntp.TimeInfo;
-
 import com.GearGrinder.Networking.InitialStat;
 import com.GearGrinder.Networking.SaveStat;
-import com.GearGrinder.Networking.TimeLookup;
+import com.GearGrinder.entity.mob.MobHit;
 import com.GearGrinder.entity.mob.Player;
 import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.input.Keyboard;
@@ -264,6 +259,8 @@ public class Game extends Canvas implements Runnable {
 			pixels[i] = screen.pixels[i];
 		}
 
+	//	MobHit.mobhit();
+		
 		Graphics g = bs.getDrawGraphics();
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
 		g.setColor(Color.WHITE);

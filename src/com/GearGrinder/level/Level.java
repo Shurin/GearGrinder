@@ -23,6 +23,15 @@ public class Level {
 	private List<Projectile> projectiles = new ArrayList<Projectile>();
 	private List<Particle> particles = new ArrayList<Particle>();
 	private List<Player> players = new ArrayList<Player>();
+	
+	public static int mobxl;//boundaries for mob
+	public static int mobyb;
+	public static int mobxr;
+	public static int mobyt;
+	public static int proxl;//boundaries for projectile
+	public static int proyb;
+	public static int proxr;
+	public static int proyt;
 
 	public static Level world = new SpawnLevel("/levels/world.png");
 	public static Level dungeon1 = new SpawnLevel("/levels/dungeon1.png");
@@ -65,6 +74,7 @@ public class Level {
 		for (int i = 0; i < players.size(); i++) {
 			players.get(i).update();
 		}
+		mobhit();
 		remove();
 	}
 
@@ -86,6 +96,36 @@ public class Level {
 				players.remove(i);
 		}
 	}
+	
+	public void mobhit(){
+		boolean hit = false;
+		for (int i = 0; i < entities.size(); i++) {
+			String mobname = entities.get(i).getName();
+			System.out.println("mob name: " + mobname);
+			if(projectiles.size() >= 0){
+				if(mobname == "ninjabot" || mobname == "ninjabotboss"){//sets boundaries for ninjabot/ninjabot boss mobs
+					mobxl = entities.get(i).getX() - 13;
+					mobyb = entities.get(i).getY() - 16;
+					mobxr = entities.get(i).getX() + 10;
+					mobyt = entities.get(i).getY() + 16;
+				}
+				for (int j = 0; j < projectiles.size(); j++) {
+					int prox = projectiles.get(j).getX();
+					int proy = projectiles.get(j).getY();
+					String name = projectiles.get(j).getName();
+					if(((prox >= mobxl) && (proy >= mobyb )) && ((prox <= mobxr) && (proy <= mobyt))){
+						entities.get(i).remove();
+						projectiles.get(j).remove();
+						hit = true;
+						continue;
+					}
+				}
+				if(hit == true){
+					continue;
+				}
+			}				
+		}
+	}
 
 	public List<Projectile> getProjectiles() {
 		return projectiles;
@@ -103,8 +143,7 @@ public class Level {
 			int yt = (y - c / 2 * size + (yOffset * 3)) / 16;
 			if (getTile(xt, yt).solid())
 				solid = true;
-		}
-		return solid;
+		} return solid;
 	}
 
 	public void render(int xScroll, int yScroll, Screen screen) {
@@ -120,7 +159,7 @@ public class Level {
 			}
 		}
 		for (int i = 0; i < entities.size(); i++) {
-			entities.get(i).render(screen);
+			entities.get(i).render(screen);				
 		}
 		for (int i = 0; i < projectiles.size(); i++) {
 			projectiles.get(i).render(screen);

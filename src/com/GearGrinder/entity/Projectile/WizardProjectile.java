@@ -2,7 +2,6 @@
 
 
 
-import com.GearGrinder.entity.mob.NinjaBot;
 import com.GearGrinder.entity.spawner.ParticleSpawner;
 import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.graphics.Sprite;
@@ -11,8 +10,8 @@ public class WizardProjectile extends Projectile{
 
 	public static final int FIRE_RATE = 6;// higher the value the slower the rate of fire
 	
-	public WizardProjectile(int x, int y, double dir) {
-		super(x, y, dir);
+	public WizardProjectile(int x, int y, double dir, String Name) {
+		super(x, y, dir, Name);
 		range = 150 + random.nextInt(20);
 		speed = 2;
 		damage = 20;

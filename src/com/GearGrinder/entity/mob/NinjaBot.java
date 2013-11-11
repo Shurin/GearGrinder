@@ -23,6 +23,7 @@ public class NinjaBot extends Mob{
 		this.x = x * 16;
 		this.y = y * 16;
 		sprite = Sprite.ninjabot;
+		this.Name = "ninjabot";
 	}
 	
 	public void update() {
@@ -62,6 +63,7 @@ public class NinjaBot extends Mob{
 
 	public void render(Screen screen) {
 		sprite = animSprite.getSprite();
+		Name = "ninjabot";
 		screen.renderMob(x - 16, y - 16, sprite);
 	}
 	

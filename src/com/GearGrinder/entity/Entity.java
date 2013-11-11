@@ -14,6 +14,7 @@ public class Entity {
 	
 	
 	protected Sprite sprite;
+	protected String Name;
 	private boolean removed = false;
 	protected Level level;
 	protected final Random random = new Random();
@@ -23,10 +24,11 @@ public class Entity {
 		
 	}
 	
-	public Entity(int x, int y, Sprite sprite){
+	public Entity(int x, int y, Sprite sprite, String Name){
 		this.x = x;
 		this.y = y;
 		this.sprite = sprite;		
+		this.Name = Name;
 	}
 	
 	public void update(){
@@ -52,6 +54,10 @@ public class Entity {
 	
 	public Sprite getSprite(){
 		return sprite;
+	}
+	
+	public String getName(){
+		return Name;
 	}
 	
 	public boolean isRemoved(){

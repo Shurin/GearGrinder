@@ -25,7 +25,11 @@ public class SpawnLevel extends Level{
 			e.printStackTrace();
 			System.out.println("Exception! Could not load level file!");
 		}
-		add(new NinjaBot(10,17));
+		//add(new NinjaBot(10,17));
+		add(new NinjaBot(10,35));
+		
+		//add(new NinjaBot(39,12));
+		//add(new NinjaBot(17,5));
 		//add(new NinjaBotBoss(22, 45));
 	}
 	
