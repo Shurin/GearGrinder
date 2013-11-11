@@ -70,7 +70,6 @@ public class Game extends Canvas implements Runnable {
 	private BufferedImage help = null;
 	private BufferedImage help2 = null;
 	private BufferedImage helppage = null;
-	private BufferedImage staminaframe = null;
 	private BufferedImage charpanel = null;
 	private BufferedImage broadsword = null;
 	
@@ -226,7 +225,6 @@ public class Game extends Canvas implements Runnable {
 			help = ImageIO.read(new File("help.png"));
 			help2 = ImageIO.read(new File("help2.png"));
 			helppage = ImageIO.read(new File("helppage.png"));
-			staminaframe = ImageIO.read(new File("staminaframe.png"));
 			charpanel = ImageIO.read(new File("charpanel.png"));
 			broadsword = ImageIO.read(new File("BroadSword.png"));
 		} catch (IOException e) {
