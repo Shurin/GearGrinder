@@ -78,6 +78,8 @@ public class Game extends Canvas implements Runnable {
 	private BufferedImage hpmpframe = null;
 	private BufferedImage staminaframe = null;
 	private BufferedImage charpanel = null;
+	private BufferedImage broadsword = null;
+	
 	private int savetick = 0;
 	
 	private Mouse mouse = new Mouse();
@@ -229,6 +231,7 @@ public class Game extends Canvas implements Runnable {
 			hpmpframe = ImageIO.read(new File("hpmpframe.png"));
 			staminaframe = ImageIO.read(new File("staminaframe.png"));
 			charpanel = ImageIO.read(new File("charpanel.png"));
+			broadsword = ImageIO.read(new File("BroadSword.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -290,6 +293,9 @@ public class Game extends Canvas implements Runnable {
 		if(Player.invshow == true){
 			g.drawImage(bag2, width / 2 + 322, height - 78, null);
 			g.drawImage(inventory, width - 499, height / 2 - 20, null);
+			int ixt = width - 499;
+			int iyt = height / 2 - 20;
+			g.drawImage(broadsword, ixt + 10, iyt + 10, null);
 		}else {
 			g.drawImage(bag, width / 2 + 322, height - 78, null);
 		}
