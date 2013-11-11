@@ -15,9 +15,10 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
+import com.GearGrinder.Networking.GetLocThread;
 import com.GearGrinder.Networking.InitialStat;
+import com.GearGrinder.Networking.SaveLocThread;
 import com.GearGrinder.Networking.SaveStat;
-import com.GearGrinder.Networking.TimeLookup;
 import com.GearGrinder.entity.mob.Player;
 import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.input.Keyboard;
@@ -427,7 +428,8 @@ public class Game extends Canvas implements Runnable {
 		game.frame.setLocationRelativeTo(null); // centers the frame
 		game.frame.setVisible(true);
 
-		TimeLookup.TimeLookup();
+		SaveLocThread.SaveLocThread();
+		GetLocThread.GetLocThread();
 		
 		game.start();
 	}

@@ -13,7 +13,7 @@ public class Entity {
 	public static int mX;
 	
 	
-	protected Sprite sprite;
+	protected static Sprite sprite;
 	protected String Name;
 	protected int mobHP;
 	private boolean removed = false;

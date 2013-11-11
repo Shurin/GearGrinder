@@ -1,8 +1,7 @@
 package com.GearGrinder.entity.mob;
 
-import java.awt.Color;
-
 import com.GearGrinder.Game;
+import com.GearGrinder.Networking.GetLoc;
 import com.GearGrinder.Networking.InitialStat;
 import com.GearGrinder.Networking.SaveStat;
 import com.GearGrinder.entity.Projectile.Projectile;
@@ -159,6 +158,7 @@ public class Player extends Mob{
 		sprite = animSprite.getSprite();
 		// the -16 is to make the center of the player 0,0		
 		screen.renderMob(x - 16, y - 16, sprite);
+		screen.renderMob(GetLoc.xp1 -16, GetLoc.yp1 -16, sprite);
 	}
 	
 	public void CharPanel(){

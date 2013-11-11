@@ -117,7 +117,6 @@ public class Level {
 					String name = projectiles.get(j).getName();
 					if(((prox >= mobxl) && (proy >= mobyb )) && ((prox <= mobxr) && (proy <= mobyt))){
 						entities.get(i).takeDmg(prodamage);
-						System.out.println("MOB HP: " + entities.get(i).getHP());
 						if(entities.get(i).getHP() <=0){
 							entities.get(i).remove();
 							if(InitialStat.XP + 1 > InitialStat.leveltotalxp){

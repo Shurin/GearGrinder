@@ -38,9 +38,7 @@ public class UserVerify {
 			Class.forName("com.mysql.jdbc.Driver");
 					
 			// Open a connection
-			System.out.println("Connecting to database ...");
 			conn = DriverManager.getConnection(DB_URL, USER, PASS);
-			System.out.println("Connected database succesfully ...");
 			
 			// Execute a query
 			System.out.println("Creating statement ...");
@@ -48,7 +46,6 @@ public class UserVerify {
 			
 			//finds total number of rows in accounts table
 			countRows(conn, tablename);
-			System.out.println("TOTAL ROWS: " + rowCount);
 			
 			String []accounts = new String[rowCount + 1];
 			String []passwords = new String[rowCount + 1];
