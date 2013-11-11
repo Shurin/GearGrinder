@@ -33,6 +33,7 @@ public class Level {
 	public static int proyb;
 	public static int proxr;
 	public static int proyt;
+	public static int prodamage;
 
 	public static Level world = new SpawnLevel("/levels/world.png");
 	public static Level dungeon1 = new SpawnLevel("/levels/dungeon1.png");
@@ -112,20 +113,24 @@ public class Level {
 				for (int j = 0; j < projectiles.size(); j++) {
 					int prox = projectiles.get(j).getX();
 					int proy = projectiles.get(j).getY();
+					prodamage = projectiles.get(j).getDamage();
 					String name = projectiles.get(j).getName();
-					System.out.println("pro damage: " + projectiles.get(j).getDamage());
 					if(((prox >= mobxl) && (proy >= mobyb )) && ((prox <= mobxr) && (proy <= mobyt))){
-						if(InitialStat.XP + 1 > InitialStat.leveltotalxp){
-							
-							InitialStat.PlayerLevel += 1;
-							InitialStat.XP = 0;
-							InitialStat.XP += 1;
-							InitialStat.XPpercent = 725 / InitialStat.leveltotalxp * InitialStat.XP;
-						}else{
-							InitialStat.XP += 1;
-							InitialStat.XPpercent = 725 / InitialStat.leveltotalxp * InitialStat.XP;
+						entities.get(i).takeDmg(prodamage);
+						System.out.println("MOB HP: " + entities.get(i).getHP());
+						if(entities.get(i).getHP() <=0){
+							entities.get(i).remove();
+							if(InitialStat.XP + 1 > InitialStat.leveltotalxp){
+								
+								InitialStat.PlayerLevel += 1;
+								InitialStat.XP = 0;
+								InitialStat.XP += 1;
+								InitialStat.XPpercent = 725 / InitialStat.leveltotalxp * InitialStat.XP;
+							}else{
+								InitialStat.XP += 1;
+								InitialStat.XPpercent = 725 / InitialStat.leveltotalxp * InitialStat.XP;
+							}
 						}
-						entities.get(i).remove();
 						projectiles.get(j).remove();
 						hit = true;
 						continue;

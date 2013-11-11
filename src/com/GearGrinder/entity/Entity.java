@@ -57,6 +57,14 @@ public class Entity {
 	public int getHP(){
 		return mobHP;
 	}
+	public int takeDmg(int damage){
+		if(mobHP - damage > 0){
+			mobHP = mobHP - damage;
+		}else{
+			mobHP = 0;
+		}
+		return mobHP;
+	}
 	
 	public Sprite getSprite(){
 		return sprite;

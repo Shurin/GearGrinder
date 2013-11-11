@@ -17,7 +17,6 @@ import javax.swing.JFrame;
 
 import com.GearGrinder.Networking.InitialStat;
 import com.GearGrinder.Networking.SaveStat;
-import com.GearGrinder.entity.mob.MobHit;
 import com.GearGrinder.entity.mob.Player;
 import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.input.Keyboard;
