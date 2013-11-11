@@ -35,6 +35,9 @@ public class InitialStat {
 		public static int luck = 1;
 		public static int PlayerLevel = 1;
 		public static int XP = 1;
+		public static double leveltotalxp = 11;
+		public static double XP2lvl = 1;
+		public static double XPpercent = 725 / leveltotalxp * XP; 
 		public static String DB_Zone = null;
 	
 	
@@ -71,6 +74,7 @@ public class InitialStat {
 					DB_Zone = rs.getString("Zone");
 					Game.PlayerSpawnX = rs.getInt("Xloc");
 					Game.PlayerSpawnY = rs.getInt("Yloc");
+					XP = rs.getInt("XP");
 					PlayerLevel = rs.getInt("Level");
 					health = rs.getInt("Health");
 					magic = rs.getInt("Magic");
@@ -93,6 +97,7 @@ public class InitialStat {
 					currentstamina = stamina;
 					maxstamina = stamina;
 					staminapercent = currentstamina / maxstamina * 100;
+					XPpercent = 725 / leveltotalxp * XP; 
 				}			
 		}catch(SQLException se){
 			// Handle errors for JDBC

@@ -70,7 +70,6 @@ public class Game extends Canvas implements Runnable {
 	private BufferedImage help = null;
 	private BufferedImage help2 = null;
 	private BufferedImage helppage = null;
-	private BufferedImage hpmpframe = null;
 	private BufferedImage staminaframe = null;
 	private BufferedImage charpanel = null;
 	private BufferedImage broadsword = null;
@@ -204,6 +203,10 @@ public class Game extends Canvas implements Runnable {
 					InitialStat.currentstamina = InitialStat.maxstamina;
 					InitialStat.staminapercent = InitialStat.currentstamina / InitialStat.maxstamina * 100;
 				}
+				//XP refresher
+			//	InitialStat.XP = InitialStat.XP;
+				 
+				
 			}
 			PlayerSpawnX = player.getX();
 			PlayerSpawnY = player.getY();
@@ -223,7 +226,6 @@ public class Game extends Canvas implements Runnable {
 			help = ImageIO.read(new File("help.png"));
 			help2 = ImageIO.read(new File("help2.png"));
 			helppage = ImageIO.read(new File("helppage.png"));
-			hpmpframe = ImageIO.read(new File("hpmpframe.png"));
 			staminaframe = ImageIO.read(new File("staminaframe.png"));
 			charpanel = ImageIO.read(new File("charpanel.png"));
 			broadsword = ImageIO.read(new File("BroadSword.png"));
@@ -241,7 +243,6 @@ public class Game extends Canvas implements Runnable {
 	}
 	
 	public void render() {
-		
 		if(uicached == false) uicache();
 		BufferStrategy bs = getBufferStrategy();
 		if (bs == null) {
@@ -271,18 +272,34 @@ public class Game extends Canvas implements Runnable {
 		currentx = player.getX();
 		currenty = player.getY();
 		
+		int hudx = width / 2 - 431;
+		int hudy = height - 222;
+		int ixt = width - 499;
+		int iyt = height / 2 - 20;
+		
 		g.setColor(Color.BLACK);
-		g.fillRect(width / 2 - 370, height - 88, 220, 70);
+		g.fillRect(hudx + 50, hudy + 70, 210, 75);
+		g.fillRect(hudx + 50, hudy + 70, 210, 75);
 		
 		// health bar
 		g.setColor(Color.RED);
-		g.fillRect(width / 2 - 361, height - 53, ((int)InitialStat.healthpercent * 2), 30);
-		g.setColor(Color.lightGray);
+		g.fillRect(hudx + 57, hudy + 71, ((int)InitialStat.healthpercent * 2), 30);
 		
 		// Magic bar
 		g.setColor(Color.BLUE);
-		g.fillRect(width / 2 - 361, height - 88, ((int)InitialStat.magicpercent * 2), 30);
-		g.setColor(Color.lightGray);
+		g.fillRect(hudx + 57, hudy + 103, ((int)InitialStat.magicpercent * 2), 30);
+		
+		// Stamina bar		
+		g.setColor(Color.BLACK);
+		g.fillRect(hudx + 381, hudy + 113, 100, 20);
+		g.setColor(Color.GREEN);
+		g.fillRect(hudx + 380, hudy + 113, (int)InitialStat.staminapercent, 20);
+		
+		// XP bar
+		g.setColor(Color.BLACK);
+		g.fillRect(hudx + 56, hudy + 147, 725, 20);
+		g.setColor(Color.YELLOW);
+		g.fillRect(hudx + 56, hudy + 147, (int)InitialStat.XPpercent, 20);
 
 		// hud elements
 		
@@ -290,17 +307,14 @@ public class Game extends Canvas implements Runnable {
 		if(Player.invshow == true){
 			g.drawImage(bag2, width / 2 + 322, height - 78, null);
 			g.drawImage(inventory, width - 499, height / 2 - 20, null);
-			int ixt = width - 499;
-			int iyt = height / 2 - 20;
 			g.drawImage(broadsword, ixt + 10, iyt + 10, null);
 		}else {
-			g.drawImage(bag, width / 2 + 322, height - 78, null);
+			//g.drawImage(bag, width / 2 + 322, height - 78, null);
 		}
 		
 		// HUD
-		g.drawImage(hud, width / 2 - 388, height - 112, null);
-		//HUD top elements
-		g.drawImage(hpmpframe, width / 2 - 373, height - 97, null);
+		g.drawImage(hud, width / 2 - 431, height - 222, null);
+		
 		
 		
 		//HELP button
@@ -349,16 +363,7 @@ public class Game extends Canvas implements Runnable {
 			g.drawString("" + InitialStat.dexterity, 420, 700);
 			g.drawString("" + InitialStat.luck, 420, 725);
 			
-		}
-		
-		// Stamina bar
-		g.setColor(Color.DARK_GRAY);
-		g.fillRect(width / 2 - 37, height - 47, 100, 20);
-		g.setColor(Color.BLACK);
-		g.fillRect(width / 2 - 37, height - 47, (int)InitialStat.staminapercent, 20);
-		g.setColor(Color.lightGray);
-		g.drawString((int)InitialStat.staminapercent + "%", width / 2 - 8, height - 30);
-		g.drawImage(staminaframe, width / 2 - 40, height - 50, null);
+		}		
 		
 		//DEV DISPLAY
 		g.setColor(Color.WHITE);

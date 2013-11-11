@@ -4,6 +4,7 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.GearGrinder.Networking.InitialStat;
 import com.GearGrinder.entity.Entity;
 import com.GearGrinder.entity.Projectile.Projectile;
 import com.GearGrinder.entity.mob.Player;
@@ -114,6 +115,16 @@ public class Level {
 					String name = projectiles.get(j).getName();
 					System.out.println("pro damage: " + projectiles.get(j).getDamage());
 					if(((prox >= mobxl) && (proy >= mobyb )) && ((prox <= mobxr) && (proy <= mobyt))){
+						if(InitialStat.XP + 1 > InitialStat.leveltotalxp){
+							
+							InitialStat.PlayerLevel += 1;
+							InitialStat.XP = 0;
+							InitialStat.XP += 1;
+							InitialStat.XPpercent = 725 / InitialStat.leveltotalxp * InitialStat.XP;
+						}else{
+							InitialStat.XP += 1;
+							InitialStat.XPpercent = 725 / InitialStat.leveltotalxp * InitialStat.XP;
+						}
 						entities.get(i).remove();
 						projectiles.get(j).remove();
 						hit = true;
