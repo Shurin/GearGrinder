@@ -28,7 +28,7 @@ public class SaveStat {
 				// Register JDBC driver
 				Class.forName("com.mysql.jdbc.Driver");
 				
-					rs = UserVerify.stmt.executeUpdate("UPDATE `accounts` SET `Zone`='"+Game.currentzone+"',`Xloc`='"+Game.currentx+"', `Yloc`='"+Game.currenty+"', `Level`='"+InitialStat.PlayerLevel+""
+					rs = UserVerify.stmt.executeUpdate("UPDATE `accounts` SET `Online`='"+InitialStat.Onlineint+"',`Zone`='"+Game.currentzone+"',`Xloc`='"+Game.currentx+"', `Yloc`='"+Game.currenty+"', `Level`='"+InitialStat.PlayerLevel+""
 							+ "', `XP`='"+InitialStat.XP+"', `Health`='"+InitialStat.health+"', `Magic`='"+InitialStat.magic+"', `Stamina`='"+InitialStat.stamina+""
 							+ "', `Strength`='"+InitialStat.strength+"', `Defense`='"+InitialStat.defense+"', `Vitality`='"+InitialStat.vitality+""
 							+ "', `Agility`='"+InitialStat.agility+"', `Intelligence`='"+InitialStat.intelligence+"', `Dexterity`='"+InitialStat.dexterity+""

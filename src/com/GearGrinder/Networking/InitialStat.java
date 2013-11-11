@@ -39,6 +39,7 @@ public class InitialStat {
 		public static double XP2lvl = 1;
 		public static double XPpercent = 725 / leveltotalxp * XP; 
 		public static String DB_Zone = null;
+		public static int Onlineint = 1;
 	
 	
 	// JDBC driver name and database URL
@@ -85,7 +86,7 @@ public class InitialStat {
 					currentstamina = stamina;
 					maxstamina = stamina;
 					staminapercent = currentstamina / maxstamina * 100;
-					XPpercent = 725 / leveltotalxp * XP; 
+					XPpercent = 725 / leveltotalxp * XP; 					
 				}			
 		}catch(SQLException se){
 			// Handle errors for JDBC

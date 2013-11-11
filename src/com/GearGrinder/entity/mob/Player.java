@@ -114,6 +114,7 @@ public class Player extends Mob{
 		}
 		
 		if(input.escape){	
+			InitialStat.Onlineint = 0;
 			SaveStat.SaveStat();
 			System.exit(0);			
 		}

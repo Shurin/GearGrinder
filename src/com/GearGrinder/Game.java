@@ -86,6 +86,8 @@ public class Game extends Canvas implements Runnable {
 		Dimension size = new Dimension(width * scale, height * scale);
 		setPreferredSize(size);
 
+		InitialStat.Onlineint = 1;
+		
 		screen = new Screen(width, height);
 		frame = new JFrame();
 		key = new Keyboard();				
