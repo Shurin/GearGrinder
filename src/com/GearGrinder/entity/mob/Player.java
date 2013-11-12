@@ -28,11 +28,9 @@ public class Player extends Mob{
 	private AnimatedSprite right = new AnimatedSprite(SpriteSheet.player_right, 32, 32, 3);
 	private AnimatedSprite animSprite = down;
 	
-	
 	public static boolean helpshow = false;
 	public static boolean invshow = false;
-	public static boolean charshow = false;
-	public static boolean uitargeted = false;
+	public static boolean charshow = false;	
 	
 	
 	public Player(Keyboard input){
@@ -61,38 +59,46 @@ public class Player extends Mob{
 			InitialStat.healthpercent = InitialStat.currenthealth / InitialStat.maxhealth * 100;			
 		}
 		if (input.up){
-			if(uitargeted == false) animSprite = up;
+			animSprite = up;
+			InitialStat.PSpriteDir = "up";
 			ya--;
 		} else if (input.down){
-			if(uitargeted == false) animSprite = down;
+			animSprite = down;
+			InitialStat.PSpriteDir = "down";
 			ya++;
 		}
 		if (input.left){
-			if(uitargeted == false) animSprite = left;
+			animSprite = left;
+			InitialStat.PSpriteDir = "left";
 			xa--;
 		} else if (input.right){
-			if(uitargeted == false) animSprite = right;
+			animSprite = right;
+			InitialStat.PSpriteDir = "right";
 			xa++;		
 		}
 		//sprint stuff
 		if (input.up && input.sprint && InitialStat.currentstamina > 0){
-			if(uitargeted == false) animSprite = up;
+			animSprite = up;
+			InitialStat.PSpriteDir = "up";
 			ya-=1.5;
 			InitialStat.staminapercent = InitialStat.currentstamina / InitialStat.maxstamina * 100;
 			InitialStat.currentstamina-- ;
 		} else if (input.down && input.sprint && InitialStat.currentstamina > 0){
-			if(uitargeted == false) animSprite = down;
+			animSprite = down;
+			InitialStat.PSpriteDir = "down";
 			ya+=1.5;
 			InitialStat.staminapercent = InitialStat.currentstamina / InitialStat.maxstamina * 100;
 			InitialStat.currentstamina--;
 		}
 		if (input.left && input.sprint && InitialStat.currentstamina > 0){
-			if(uitargeted == false) animSprite = left;
+			animSprite = left;
+			InitialStat.PSpriteDir = "left";
 			xa-=1.5;
 			InitialStat.staminapercent = InitialStat.currentstamina / InitialStat.maxstamina * 100;
 			InitialStat.currentstamina--;
 		} else if (input.right && input.sprint && InitialStat.currentstamina > 0){
-			if(uitargeted == false) animSprite = right;
+			animSprite = right;
+			InitialStat.PSpriteDir = "right";
 			xa+=1.5;	
 			InitialStat.staminapercent = InitialStat.currentstamina / InitialStat.maxstamina * 100;
 			InitialStat.currentstamina--;
@@ -158,6 +164,15 @@ public class Player extends Mob{
 		// the -16 is to make the center of the player 0,0		
 		screen.renderMob(x - 16, y - 16, sprite);
 		if(GetLoc.RENDER){
+			if(GetLoc.psdir.equals("down")){
+				sprite = animSprite.player_down;
+			}else if(GetLoc.psdir.equals("up")){
+				sprite = animSprite.player_up;
+			}else if(GetLoc.psdir.equals("left")){
+				sprite = animSprite.player_left;
+			}else if(GetLoc.psdir.equals("right")){
+				sprite = animSprite.player_right;
+			}
 			screen.renderMob(GetLoc.xp1 -16, GetLoc.yp1 -16, sprite);
 		}
 	}

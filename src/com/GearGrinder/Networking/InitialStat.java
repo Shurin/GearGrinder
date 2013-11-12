@@ -12,6 +12,8 @@ public class InitialStat {
 
 	//PLAYER STATS
 		public static String charname = "CharName";
+		public static String PSprite = null;
+		public static String PSpriteDir = null;
 		public static int gold = 1;
 		public static int health = 1;
 		public static double currenthealth = health;
@@ -51,8 +53,10 @@ public class InitialStat {
 			Class.forName("com.mysql.jdbc.Driver");
 			
 			
-				rs = UserVerify.stmt.executeQuery("SELECT PlayerName, Zone, Xloc, Yloc, Level, XP, Health, Magic, Stamina, Strength, Defense, Vitality, Agility, Intelligence, Dexterity, Luck, Gold FROM accounts WHERE AccountID = " + UserVerify.clientID);
+				rs = UserVerify.stmt.executeQuery("SELECT Sprite, SpriteDirection, PlayerName, Zone, Xloc, Yloc, Level, XP, Health, Magic, Stamina, Strength, Defense, Vitality, Agility, Intelligence, Dexterity, Luck, Gold FROM accounts WHERE AccountID = " + UserVerify.clientID);
 				while(rs.next()){
+					PSprite = rs.getString("Sprite");
+					PSpriteDir = rs.getString("SpriteDirection");
 					Game.Playername = rs.getString("PlayerName");
 					DB_Zone = rs.getString("Zone");
 					Game.PlayerSpawnX = rs.getInt("Xloc");

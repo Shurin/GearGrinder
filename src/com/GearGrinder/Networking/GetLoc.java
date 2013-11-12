@@ -9,6 +9,7 @@ public class GetLoc extends Entity{
 public static int xp1;
 public static int yp1;
 public static int op1;
+public static String psdir = null;
 public static int getlocI;
 public static Boolean RENDER = false;
 	public static void GetLoc(){
@@ -18,9 +19,10 @@ public static Boolean RENDER = false;
 			for(getlocI = 1; getlocI < UserVerify.rowCount; getlocI++){
 				//System.out.println("INDEX: " + i);
 				ResultSet rs = null;
-					rs = GetLocThread.stmt.executeQuery("SELECT Online, Xloc, Yloc FROM accounts WHERE AccountID = " + getlocI);	
+					rs = GetLocThread.stmt.executeQuery("SELECT Online, SpriteDirection, Xloc, Yloc FROM accounts WHERE AccountID = " + getlocI);	
 					while(rs.next()){
 						if(rs.getInt("Online") == 1 && getlocI != UserVerify.clientID){
+							psdir = rs.getString("SpriteDirection");
 							xp1 = rs.getInt("Xloc");
 							yp1 = rs.getInt("Yloc");
 							RENDER = true;
