@@ -21,12 +21,12 @@ public static Boolean RENDER = false;
 				ResultSet rs = null;
 					rs = GetLocThread.stmt.executeQuery("SELECT Online, SpriteDirection, Xloc, Yloc FROM accounts WHERE AccountID = " + getlocI);	
 					while(rs.next()){
-						if(rs.getInt("Online") == 1 && getlocI != UserVerify.clientID){
+						op1 = rs.getInt("Online");
+						if(op1 == 1 && getlocI != UserVerify.clientID){
 							psdir = rs.getString("SpriteDirection");
 							xp1 = rs.getInt("Xloc");
 							yp1 = rs.getInt("Yloc");
 							RENDER = true;
-							//System.out.println("INDEX: " + i + " ID: " + i + "  X: " + x + "  Y: " + y);
 						}else{
 							RENDER = false;
 						}

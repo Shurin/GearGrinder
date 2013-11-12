@@ -14,10 +14,14 @@ public class UserVerify {
 	// JDBC driver name and database URL
 	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 	static final String DB_URL = "jdbc:mysql://184.168.194.136/GGdb";
-	
 	// Database credentials
 	static final String USER = "GGdb";
 	static final String PASS = "GGgg##12";
+	
+	//local settings for dev
+	//static final String DB_URL = "jdbc:mysql://localhost/ggdb";
+	//static final String USER = "root";
+	//static final String PASS = "RRRRrrrr$$$$4444r4";
 	
 	static final String tablename = "accounts";
 	public static int rowCount = -1;
@@ -33,7 +37,6 @@ public class UserVerify {
 	public static void UserVerify(){
 		
 		try{
-			System.out.println("verifying username ...");
 			// Register JDBC driver
 			Class.forName("com.mysql.jdbc.Driver");
 					
@@ -41,7 +44,6 @@ public class UserVerify {
 			conn = DriverManager.getConnection(DB_URL, USER, PASS);
 			
 			// Execute a query
-			System.out.println("Creating statement ...");
 			stmt = conn.createStatement();
 			
 			//finds total number of rows in accounts table
@@ -65,7 +67,6 @@ public class UserVerify {
 					clientID = (i+1);
 					Pusername = LoginPage.usrname;
 					Ppassword = LoginPage.usrpass;
-					System.out.println("LOGGED IN AS: " + Pusername + " : " + Ppassword);
 					loggedin = true;
 					InitialStat.InitialStat();
 				}

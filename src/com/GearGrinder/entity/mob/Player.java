@@ -166,14 +166,18 @@ public class Player extends Mob{
 		if(GetLoc.RENDER){
 			if(GetLoc.psdir.equals("down")){
 				sprite = animSprite.player_down;
+				screen.renderMob(GetLoc.xp1 -16, GetLoc.yp1 -16, sprite);
 			}else if(GetLoc.psdir.equals("up")){
 				sprite = animSprite.player_up;
+				screen.renderMob(GetLoc.xp1 -16, GetLoc.yp1 -16, sprite);
 			}else if(GetLoc.psdir.equals("left")){
 				sprite = animSprite.player_left;
+				screen.renderMob(GetLoc.xp1 -16, GetLoc.yp1 -16, sprite);
 			}else if(GetLoc.psdir.equals("right")){
 				sprite = animSprite.player_right;
+				screen.renderMob(GetLoc.xp1 -16, GetLoc.yp1 -16, sprite);
 			}
-			screen.renderMob(GetLoc.xp1 -16, GetLoc.yp1 -16, sprite);
+			
 		}
 	}
 	

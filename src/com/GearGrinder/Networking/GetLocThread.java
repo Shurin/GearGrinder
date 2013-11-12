@@ -14,15 +14,20 @@ public class GetLocThread implements Runnable{
 	public static Boolean asdf = true;
 	
 	// JDBC driver name and database URL
-			static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-			static final String DB_URL = "jdbc:mysql://184.168.194.136/GGdb";
+		static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+		static final String DB_URL = "jdbc:mysql://184.168.194.136/GGdb";
+		// Database credentials
+		static final String USER = "GGdb";
+		static final String PASS = "GGgg##12";
+		
+		//local settings for dev
+		//static final String DB_URL = "jdbc:mysql://localhost/ggdb";
+		//static final String USER = "root";
+		//static final String PASS = "RRRRrrrr$$$$4444r4";
+	
 			public static Connection conn = null;
 			public static Statement stmt = null;
 			public static ResultSet rs = null;
-			
-			// Database credentials
-			static final String USER = "GGdb";
-			static final String PASS = "GGgg##12";
 	
 	public GetLocThread(){
 		
@@ -74,6 +79,5 @@ public class GetLocThread implements Runnable{
 public static void GetLocThread(){
 	GetLocThread L = new GetLocThread();
 	L.start("GETLOC");
-	System.out.println("GET LOC THREAD CREATED ...");
 	}
 }
