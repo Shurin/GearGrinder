@@ -388,7 +388,7 @@ public class Game extends Canvas implements Runnable {
 
 	public static void portalcheck(){
 		if(Game.currentzone.equals("world")){
-			if((currentx >= 328 && currentx <= 345) && (currenty >= 193 && currenty <= 206)){
+			if((currentx >= 3896 && currentx <= 3913) && (currenty >= 3601 && currenty <= 3612)){
 				level.remove(player);
 				level.remove();
 				level = Game.level.dungeon1;
@@ -402,7 +402,7 @@ public class Game extends Canvas implements Runnable {
 				level.remove();
 				level = Game.level.world;
 				currentzone = "world";
-				player = new Player(337, 228, key);
+				player = new Player(3900, 3700, key);
 				level.add(player);
 			}else if((currentx >= 1640 && currentx <= 1645) && (currenty >= 225 && currenty <= 271)){
 				level.remove(player);
