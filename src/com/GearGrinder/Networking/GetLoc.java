@@ -4,25 +4,30 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.GearGrinder.entity.Entity;
-import com.GearGrinder.graphics.Screen;
-import com.GearGrinder.graphics.Sprite;
 
 public class GetLoc extends Entity{
 public static int xp1;
 public static int yp1;
+public static int op1;
+public static int getlocI;
+public static Boolean RENDER = false;
 	public static void GetLoc(){
-		sprite = Sprite.player_down;
 		try{
 			// Register JDBC driver
 			Class.forName("com.mysql.jdbc.Driver");
-			for(int i = 1; i < UserVerify.rowCount; i++){
+			for(getlocI = 1; getlocI < UserVerify.rowCount; getlocI++){
 				//System.out.println("INDEX: " + i);
 				ResultSet rs = null;
-					rs = GetLocThread.stmt.executeQuery("SELECT Xloc, Yloc FROM accounts WHERE AccountID = " + i);	
+					rs = GetLocThread.stmt.executeQuery("SELECT Online, Xloc, Yloc FROM accounts WHERE AccountID = " + getlocI);	
 					while(rs.next()){
-						xp1 = rs.getInt("Xloc");
-						yp1 = rs.getInt("Yloc");
-						//System.out.println("INDEX: " + i + " ID: " + i + "  X: " + x + "  Y: " + y);
+						if(rs.getInt("Online") == 1 && getlocI != UserVerify.clientID){
+							xp1 = rs.getInt("Xloc");
+							yp1 = rs.getInt("Yloc");
+							RENDER = true;
+							//System.out.println("INDEX: " + i + " ID: " + i + "  X: " + x + "  Y: " + y);
+						}else{
+							RENDER = false;
+						}
 					}
 			}
 		}catch(SQLException se){

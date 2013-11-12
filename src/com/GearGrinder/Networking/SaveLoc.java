@@ -13,7 +13,7 @@ public class SaveLoc {
 				// Register JDBC driver
 				Class.forName("com.mysql.jdbc.Driver");
 				
-					rs = UserVerify.stmt.executeUpdate("UPDATE `accounts` SET `Xloc`='"+Game.currentx+"', `Yloc`='"+Game.currenty+"' WHERE (`AccountID`='"+UserVerify.clientID+"') LIMIT 1");							
+					rs = UserVerify.stmt.executeUpdate("UPDATE `accounts` SET `Online`='"+InitialStat.Onlineint+"', `Xloc`='"+Game.currentx+"', `Yloc`='"+Game.currenty+"' WHERE (`AccountID`='"+UserVerify.clientID+"') LIMIT 1");							
 			}catch(SQLException se){
 				// Handle errors for JDBC
 				se.printStackTrace();

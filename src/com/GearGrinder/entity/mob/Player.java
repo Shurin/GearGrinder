@@ -4,6 +4,7 @@ import com.GearGrinder.Game;
 import com.GearGrinder.Networking.GetLoc;
 import com.GearGrinder.Networking.InitialStat;
 import com.GearGrinder.Networking.SaveStat;
+import com.GearGrinder.Networking.UserVerify;
 import com.GearGrinder.entity.Projectile.Projectile;
 import com.GearGrinder.entity.Projectile.QuakeProjectile;
 import com.GearGrinder.entity.Projectile.WizardProjectile;
@@ -95,8 +96,7 @@ public class Player extends Mob{
 			xa+=1.5;	
 			InitialStat.staminapercent = InitialStat.currentstamina / InitialStat.maxstamina * 100;
 			InitialStat.currentstamina--;
-		}
-		
+		}		
 		
 		if(input.spawnmob){
 			for(int i = 0; i < 1; i++){
@@ -116,8 +116,7 @@ public class Player extends Mob{
 			InitialStat.Onlineint = 0;
 			SaveStat.SaveStat();
 			System.exit(0);			
-		}
-		
+		}		
 		
 		clear();
 		updateShooting();	
@@ -158,7 +157,9 @@ public class Player extends Mob{
 		sprite = animSprite.getSprite();
 		// the -16 is to make the center of the player 0,0		
 		screen.renderMob(x - 16, y - 16, sprite);
-		screen.renderMob(GetLoc.xp1 -16, GetLoc.yp1 -16, sprite);
+		if(GetLoc.RENDER){
+			screen.renderMob(GetLoc.xp1 -16, GetLoc.yp1 -16, sprite);
+		}
 	}
 	
 	public void CharPanel(){

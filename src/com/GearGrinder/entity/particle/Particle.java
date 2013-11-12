@@ -73,6 +73,7 @@ public class Particle extends Entity{
 	}	
 
 	public void render(Screen screen){
+		sprite = Sprite.particle_normal;
 		screen.renderSprite((int)xx - 1, (int)yy - (int)zz, sprite, true);//gravity ( -(int) zz  ) only
 	}
 }
