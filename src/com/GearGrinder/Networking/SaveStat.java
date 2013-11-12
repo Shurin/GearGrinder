@@ -9,14 +9,6 @@ import java.sql.Statement;
 import com.GearGrinder.Game;
 
 public class SaveStat {
-
-	// JDBC driver name and database URL
-		static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-		static final String DB_URL = "jdbc:mysql://184.168.194.136/GGdb";
-		
-		// Database credentials
-		static final String USER = "GGdb";
-		static final String PASS = "GGgg##12";
 		
 		public static boolean saving = false;
 		
