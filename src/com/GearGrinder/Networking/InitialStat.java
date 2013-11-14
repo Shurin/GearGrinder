@@ -11,7 +11,6 @@ import com.GearGrinder.entity.Entity;
 public class InitialStat {
 
 	//PLAYER STATS
-		public static String charname = "CharName";
 		public static String PSprite = null;
 		public static String PSpriteDir = null;
 		public static int gold = 1;

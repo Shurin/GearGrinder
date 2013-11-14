@@ -66,8 +66,8 @@ public class Game extends Canvas implements Runnable {
 	private BufferedImage inventory = null;
 	private BufferedImage hud = null;
 	private BufferedImage logo = null;
-	private BufferedImage bag = null;
-	private BufferedImage bag2 = null;
+	private BufferedImage inventorybutton1 = null;
+	private BufferedImage inventorybutton2 = null;
 	private BufferedImage help = null;
 	private BufferedImage help2 = null;
 	private BufferedImage helppage = null;
@@ -224,8 +224,8 @@ public class Game extends Canvas implements Runnable {
 			inventory = ImageIO.read(new File(testpic));
 			hud = ImageIO.read(new File("hud.png"));
 			logo = ImageIO.read(new File("logo.png"));
-			bag = ImageIO.read(new File("bag.png"));
-			bag2 = ImageIO.read(new File("bag2.png"));
+			inventorybutton1 = ImageIO.read(new File("inventorybutton1.png"));
+			inventorybutton2 = ImageIO.read(new File("inventorybutton2.png"));
 			help = ImageIO.read(new File("help.png"));
 			help2 = ImageIO.read(new File("help2.png"));
 			helppage = ImageIO.read(new File("helppage.png"));
@@ -251,7 +251,7 @@ public class Game extends Canvas implements Runnable {
 			createBufferStrategy(3); // 3 = triple buffer
 			return;
 		}
-		screen.clear();
+		screen.clear(); //turn back on if gfx bugs arise
 		int xScroll = player.getX() - screen.width / 2; // puts player in middle
 														// of x-axis
 		int yScroll = player.getY() - screen.height / 2; // puts player in
@@ -261,8 +261,6 @@ public class Game extends Canvas implements Runnable {
 		for (int i = 0; i < pixels.length; i++) {
 			pixels[i] = screen.pixels[i];
 		}
-
-	//	MobHit.mobhit();
 		
 		Graphics g = bs.getDrawGraphics();
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
@@ -278,6 +276,8 @@ public class Game extends Canvas implements Runnable {
 		int hudy = height - 222;
 		int ixt = width - 499;
 		int iyt = height / 2 - 20;
+		int cpx = 30;
+		int cpy = 265;
 		
 		g.setColor(Color.BLACK);
 		g.fillRect(hudx + 50, hudy + 70, 210, 75);
@@ -307,23 +307,23 @@ public class Game extends Canvas implements Runnable {
 		
 		//INVENTORY
 		if(Player.invshow == true){
-			g.drawImage(bag2, width / 2 + 322, height - 78, null);
+			g.drawImage(inventorybutton2, hudx + 739, hudy + 88, null);
 			g.drawImage(inventory, width - 499, height / 2 - 20, null);
 			g.drawImage(broadsword, ixt + 10, iyt + 10, null);
 		}else {
-			//g.drawImage(bag, width / 2 + 322, height - 78, null);
+			g.drawImage(inventorybutton1, hudx + 739, hudy + 88, null);
 		}
 		
 		// HUD
-		g.drawImage(hud, width / 2 - 431, height - 222, null);
+		g.drawImage(hud, hudx, hudy, null);
 		
 		
 		
 		//HELP button
 		if(Player.helpshow == true){
-			g.drawImage(help2, width / 2 - 9, height - 99, null);
+			g.drawImage(help2, hudx + 413, hudy + 65, null);
 		}else {
-			g.drawImage(help, width / 2 - 9, height - 99, null);
+			g.drawImage(help, hudx + 413, hudy + 65, null);
 		}
 		
 		//HELP PANEL
@@ -351,19 +351,22 @@ public class Game extends Canvas implements Runnable {
 
 		//CHARACTER PANEL
 		if(Player.charshow == true){
-			g.drawImage(charpanel, 30, 265, null);		
+			g.drawImage(charpanel, cpx, cpy, null);		
 			g.setColor(Color.GREEN);
-			g.drawString("" + InitialStat.health, 135,  600);
-			g.drawString("" + InitialStat.magic, 420,  600);
-			g.drawString("" + InitialStat.strength, 135, 650);
-			g.drawString("" + InitialStat.defense, 135, 675);
-			g.drawString("" + InitialStat.vitality, 135, 700);
-			g.drawString("" + InitialStat.stamina, 135, 725);
+			g.drawString("Name:  " + Playername, cpx + 30, cpy + 24);
+			g.drawString("Level:  " + InitialStat.PlayerLevel, cpx + 225, cpy + 24);
+			g.drawString("Zone:  " + currentzone, cpx + 370, cpy + 24);
+			g.drawString("" + InitialStat.health, cpx + 105,  cpy + 335);
+			g.drawString("" + InitialStat.magic, cpx + 390,  cpy + 335);
+			g.drawString("" + InitialStat.strength, cpx + 105, cpy + 385);
+			g.drawString("" + InitialStat.defense, cpx + 105, cpy + 410);
+			g.drawString("" + InitialStat.vitality, cpx + 105, cpy + 435);
+			g.drawString("" + InitialStat.stamina, cpx + 105, cpy + 460);
 			//g.setFont(boldfont);
-			g.drawString("" + InitialStat.agility, 420, 650);
-			g.drawString("" + InitialStat.intelligence, 420, 675);
-			g.drawString("" + InitialStat.dexterity, 420, 700);
-			g.drawString("" + InitialStat.luck, 420, 725);
+			g.drawString("" + InitialStat.agility, cpx + 390, cpy + 385);
+			g.drawString("" + InitialStat.intelligence, cpx + 390, cpy + 410);
+			g.drawString("" + InitialStat.dexterity, cpx + 390, cpy + 435);
+			g.drawString("" + InitialStat.luck, cpx + 390, cpy + 460);
 			
 		}		
 		
