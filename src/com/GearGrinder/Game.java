@@ -14,6 +14,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import com.GearGrinder.Networking.GetLocThread;
 import com.GearGrinder.Networking.InitialStat;
@@ -24,6 +25,8 @@ import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.input.Keyboard;
 import com.GearGrinder.input.Mouse;
 import com.GearGrinder.level.Level;
+import com.GearGrinder.net.GameClient;
+import com.GearGrinder.net.GameServer;
 
 public class Game extends Canvas implements Runnable {
 
@@ -82,6 +85,9 @@ public class Game extends Canvas implements Runnable {
 
 	private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
+	
+	private GameClient socketClient;
+	private GameServer socketServer;
 
 	
 	public Game() {
@@ -123,6 +129,15 @@ public class Game extends Canvas implements Runnable {
 		running = true;
 		gamethread = new Thread(this, "Display");
 		gamethread.start();
+		
+		if(JOptionPane.showConfirmDialog(this, "RUN THE SERVER?") ==0){
+			socketServer = new GameServer(this);
+			socketServer.start();
+		}
+		socketClient = new GameClient(this, "86.90.26.29");
+		socketClient.start();
+		
+		socketClient.sendData("ping".getBytes());
 	}
 
 	public static synchronized void stop() {
@@ -235,7 +250,6 @@ public class Game extends Canvas implements Runnable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		uicached = true;
 	}
 	
