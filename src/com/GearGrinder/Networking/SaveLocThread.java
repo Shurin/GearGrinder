@@ -34,6 +34,14 @@ public class SaveLocThread implements Runnable{
 	}
 	
 	public synchronized void start(String time) {
+		try {
+			conn = DriverManager.getConnection(DB_URL, USER, PASS);
+			stmt = conn.createStatement();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		Game.running = true;
 		SaveLocThread = new Thread(this);
 		SaveLocThread.start();
@@ -48,14 +56,6 @@ public class SaveLocThread implements Runnable{
 	}
 	
 	public void run(){
-		
-		try {
-			conn = DriverManager.getConnection(DB_URL, USER, PASS);
-			stmt = conn.createStatement();
-		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
 		
 		long lastTime = System.nanoTime();
 	    long timer = System.currentTimeMillis();

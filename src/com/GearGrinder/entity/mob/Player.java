@@ -1,5 +1,7 @@
 package com.GearGrinder.entity.mob;
 
+import java.awt.Color;
+
 import com.GearGrinder.Game;
 import com.GearGrinder.Networking.GetLoc;
 import com.GearGrinder.Networking.InitialStat;
@@ -161,7 +163,7 @@ public class Player extends Mob{
 
 	public void render(Screen screen){
 		sprite = animSprite.getSprite();
-		// the -16 is to make the center of the player 0,0		
+		// the -16 is to make the center of the player 0,0
 		screen.renderMob(x - 16, y - 16, sprite);
 		if(GetLoc.RENDER){
 			if(GetLoc.psdir.equals("down")){
@@ -176,8 +178,7 @@ public class Player extends Mob{
 			}else if(GetLoc.psdir.equals("right")){
 				sprite = animSprite.player_right;
 				screen.renderMob(GetLoc.xp1 -16, GetLoc.yp1 -16, sprite);
-			}
-			
+			}			
 		}
 	}
 	

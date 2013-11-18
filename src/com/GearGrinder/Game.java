@@ -20,6 +20,7 @@ import com.GearGrinder.Networking.GetLocThread;
 import com.GearGrinder.Networking.InitialStat;
 import com.GearGrinder.Networking.SaveLocThread;
 import com.GearGrinder.Networking.SaveStat;
+import com.GearGrinder.Networking.UserVerify;
 import com.GearGrinder.entity.mob.Player;
 import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.input.Keyboard;
@@ -36,8 +37,10 @@ public class Game extends Canvas implements Runnable {
 	static double widthmax = screenSize.getWidth();
 	static double heightmax = screenSize.getHeight();
 
-	private static int width = (int) widthmax;
-	private static int height = (int) heightmax;
+	//private static int width = (int) widthmax;
+	//private static int height = (int) heightmax;
+	private static int width = 1024;
+	private static int height = 768;
 	private static int scale = 1;
 	public static BufferStrategy bs;
 	public static Graphics g;
@@ -71,11 +74,29 @@ public class Game extends Canvas implements Runnable {
 	private BufferedImage logo = null;
 	private BufferedImage inventorybutton1 = null;
 	private BufferedImage inventorybutton2 = null;
+	private BufferedImage mailbutton1 = null;
+	private BufferedImage mailbutton2 = null;
+	private BufferedImage characterbutton1 = null;
+	private BufferedImage characterbutton2 = null;
+	private BufferedImage storebutton1 = null;
+	private BufferedImage storebutton2 = null;
+	private BufferedImage repbutton1 = null;
+	private BufferedImage repbutton2 = null;
+	private BufferedImage skillsbutton1 = null;
+	private BufferedImage skillsbutton2 = null;
+	private BufferedImage questbutton1 = null;
+	private BufferedImage questbutton2 = null;
+	private BufferedImage mapbutton1 = null;
+	private BufferedImage mapbutton2 = null;
+	private BufferedImage talentsbutton1 = null;
+	private BufferedImage talentsbutton2 = null;
 	private BufferedImage help = null;
 	private BufferedImage help2 = null;
 	private BufferedImage helppage = null;
 	private BufferedImage charpanel = null;
 	private BufferedImage broadsword = null;
+	private BufferedImage spell_greenorb = null;
+	private BufferedImage spell_rock = null;
 	
 	private int savetick = 0;
 	
@@ -130,14 +151,14 @@ public class Game extends Canvas implements Runnable {
 		gamethread = new Thread(this, "Display");
 		gamethread.start();
 		
-		if(JOptionPane.showConfirmDialog(this, "RUN THE SERVER?") ==0){
+		/*if(JOptionPane.showConfirmDialog(this, "RUN THE SERVER?") ==0){
 			socketServer = new GameServer(this);
 			socketServer.start();
 		}
-		socketClient = new GameClient(this, "86.90.26.29");
-		socketClient.start();
+		socketClient = new GameClient(this, "24.253.228.197");
+		socketClient.start();*/
 		
-		socketClient.sendData("ping".getBytes());
+       // socketClient.sendData("ping".getBytes());
 	}
 
 	public static synchronized void stop() {
@@ -224,7 +245,6 @@ public class Game extends Canvas implements Runnable {
 				//XP refresher
 			//	InitialStat.XP = InitialStat.XP;
 				 
-				
 			}
 			PlayerSpawnX = player.getX();
 			PlayerSpawnY = player.getY();
@@ -233,6 +253,16 @@ public class Game extends Canvas implements Runnable {
 		}
 	}
 
+	public void test(){
+		socketClient = new GameClient(this, "24.253.228.197");
+		socketClient.start();
+		if(UserVerify.clientID != 3){
+			String info = (currentx + 16) + "," + (currenty + 16);
+			socketClient.sendData(info.getBytes());
+		}
+		
+	}
+	
 	public void uicache(){
 		try {
 			String testpic = "inventory.png";
@@ -241,6 +271,25 @@ public class Game extends Canvas implements Runnable {
 			logo = ImageIO.read(new File("logo.png"));
 			inventorybutton1 = ImageIO.read(new File("inventorybutton1.png"));
 			inventorybutton2 = ImageIO.read(new File("inventorybutton2.png"));
+			characterbutton1 = ImageIO.read(new File("characterbutton1.png"));
+			characterbutton2 = ImageIO.read(new File("characterbutton2.png"));
+			mailbutton1 = ImageIO.read(new File("mailbutton1.png"));
+			mailbutton2 = ImageIO.read(new File("mailbutton2.png"));
+			mapbutton1 = ImageIO.read(new File("mapbutton1.png"));
+			mapbutton2 = ImageIO.read(new File("mapbutton2.png"));
+			questbutton1 = ImageIO.read(new File("questbutton1.png"));
+			questbutton2 = ImageIO.read(new File("questbutton2.png"));
+			repbutton1 = ImageIO.read(new File("repbutton1.png"));
+			repbutton2 = ImageIO.read(new File("repbutton2.png"));
+			skillsbutton1 = ImageIO.read(new File("skillsbutton1.png"));
+			skillsbutton2 = ImageIO.read(new File("skillsbutton2.png"));
+			storebutton1 = ImageIO.read(new File("storebutton1.png"));
+			storebutton2 = ImageIO.read(new File("storebutton2.png"));
+			talentsbutton1 = ImageIO.read(new File("talentsbutton1.png"));
+			talentsbutton2 = ImageIO.read(new File("talentsbutton2.png"));
+			spell_greenorb = ImageIO.read(new File("Spells_GreenOrb.png"));
+			spell_rock = ImageIO.read(new File("Spells_Rock.png"));
+			help = ImageIO.read(new File("help.png"));
 			help = ImageIO.read(new File("help.png"));
 			help2 = ImageIO.read(new File("help2.png"));
 			helppage = ImageIO.read(new File("helppage.png"));
@@ -286,11 +335,18 @@ public class Game extends Canvas implements Runnable {
 		currentx = player.getX();
 		currenty = player.getY();
 		
-		int hudx = width / 2 - 431;
+		g.setColor(Color.getHSBColor(170, 0, 255));
+		int charsize = 7;
+		int middleofname = Playername.length() / 2;
+		g.drawString(Game.Playername, currentx - screen.xOffset - (charsize * middleofname), currenty - screen.yOffset - 24);
+		
+		// baseline locations
+		//using these makes the UI scale for any resolution
+		int hudx = width / 2 - 431; //main HUD
 		int hudy = height - 222;
-		int ixt = width - 499;
+		int ixt = width - 499; // Inventory
 		int iyt = height / 2 - 20;
-		int cpx = 30;
+		int cpx = 30; //Char Panel
 		int cpy = 265;
 		
 		g.setColor(Color.BLACK);
@@ -327,6 +383,19 @@ public class Game extends Canvas implements Runnable {
 		}else {
 			g.drawImage(inventorybutton1, hudx + 739, hudy + 88, null);
 		}
+		
+		g.drawImage(spell_greenorb, hudx + 268, hudy + 74, null);
+		g.drawImage(spell_rock, hudx + 323, hudy + 76, null);
+		
+		//unimplemented hud elements
+		//g.drawImage(mailbutton1, hudx + 639, hudy + 88, null);
+		g.drawImage(mapbutton1, hudx + 492, hudy + 88, null);
+		g.drawImage(questbutton1, hudx + 542, hudy + 88, null);
+		//g.drawImage(repbutton1, hudx, hudy + 88, null);
+		g.drawImage(skillsbutton1, hudx + 591, hudy + 88, null);
+		//g.drawImage(storebutton1, hudx, hudy + 88, null);
+		g.drawImage(talentsbutton1, hudx+ 690, hudy + 88, null);
+		g.drawImage(characterbutton1, hudx + 641, hudy + 88, null);
 		
 		// HUD
 		g.drawImage(hud, hudx, hudy, null);
@@ -398,6 +467,7 @@ public class Game extends Canvas implements Runnable {
 		}
 		
 		portalcheck();
+		//test();
 		
 		g.dispose();
 		bs.show();
@@ -434,8 +504,8 @@ public class Game extends Canvas implements Runnable {
 	
 	public static void launch() {
 		Game game = new Game();
-		game.frame.setUndecorated(true);
-		game.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		game.frame.setUndecorated(false);
+		//game.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		game.frame.setResizable(false); // must be first thing applied to frame
 		game.frame.setTitle("GearGrinder_BETA");
 		//Game.frame.setExtendedState(Frame.MAXIMIZED_BOTH);

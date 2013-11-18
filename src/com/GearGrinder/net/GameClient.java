@@ -37,14 +37,13 @@ public class GameClient extends Thread{
 				e.printStackTrace();
 			}
 			String message = new String(packet.getData());
-			System.out.println("CLIENT >> " + message);
-			System.out.println("SERVER >> " + new String(packet.getData()));
+			//System.out.println("CLIENT >> " + message);
+			//System.out.println("SERVER >> " + new String(packet.getData()));
 		}
 	}
 	
 	public void sendData(byte[] data){
 		DatagramPacket packet = new DatagramPacket(data, data.length, ipAddress, 4578);
-		System.out.println("Sending ping to " + ipAddress + ":4578  containing (" + packet.getData() + ").");
 		try {
 			socket.send(packet);
 		} catch (IOException e) {

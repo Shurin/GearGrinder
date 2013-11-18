@@ -5,9 +5,9 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
-import java.net.UnknownHostException;
 
 import com.GearGrinder.Game;
+import com.GearGrinder.Networking.GetLoc;
 
 public class GameServer extends Thread{
 	private DatagramSocket socket;
@@ -32,9 +32,19 @@ public class GameServer extends Thread{
 				e.printStackTrace();
 			}
 			String message = new String(packet.getData());
-			if(message.trim().equalsIgnoreCase("ping")){
+			String[] words = message.split(",");
+			String a = words[0]; //x
+			String b = words[1]; //y
+			String c = b.trim(); //y - the packet padding
+			
+			GetLoc.xp1 = Integer.valueOf(a);
+			GetLoc.yp1 = Integer.valueOf(c);
+			GetLoc.RENDER = true;
+			
+			//System.out.println("x:" + a +"y:" + c + "M");
+			/*if(message.trim().equalsIgnoreCase("ping")){
 				sendData("pong".getBytes(), packet.getAddress(), packet.getPort());
-			}
+			}*/
 		}
 	}
 	
