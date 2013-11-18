@@ -341,9 +341,11 @@ public class Game extends Canvas implements Runnable {
 		int middleofname = Playername.length() / 2;
 		g.drawString(Game.Playername, currentx - screen.xOffset - (charsize * middleofname), currenty - screen.yOffset - 24);
 		
-		g.setColor(Color.CYAN);
-		int midofothername = GetLoc.pname.length() /2;
-		g.drawString(GetLoc.pname, GetLoc.xp1 - screen.xOffset - (charsize * midofothername), GetLoc.yp1 - screen.yOffset - 24);
+		if(GetLoc.RENDER){
+			g.setColor(Color.CYAN);
+			int midofothername = GetLoc.pname.length() /2;
+			g.drawString(GetLoc.pname, GetLoc.xp1 - screen.xOffset - (charsize * midofothername), GetLoc.yp1 - screen.yOffset - 24);
+		}
 		
 		// baseline locations
 		//using these makes the UI scale for any resolution
