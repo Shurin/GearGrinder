@@ -6,7 +6,6 @@ import com.GearGrinder.Game;
 import com.GearGrinder.Networking.GetLoc;
 import com.GearGrinder.Networking.InitialStat;
 import com.GearGrinder.Networking.SaveStat;
-import com.GearGrinder.Networking.UserVerify;
 import com.GearGrinder.entity.Projectile.Projectile;
 import com.GearGrinder.entity.Projectile.QuakeProjectile;
 import com.GearGrinder.entity.Projectile.WizardProjectile;
@@ -170,7 +169,7 @@ public class Player extends Mob{
 				sprite = animSprite.player_down;
 				screen.renderMob(GetLoc.xp1 -16, GetLoc.yp1 -16, sprite);
 			}else if(GetLoc.psdir.equals("up")){
-				sprite = animSprite.player_up;
+				sprite = animSprite.player_up;				
 				screen.renderMob(GetLoc.xp1 -16, GetLoc.yp1 -16, sprite);
 			}else if(GetLoc.psdir.equals("left")){
 				sprite = animSprite.player_left;

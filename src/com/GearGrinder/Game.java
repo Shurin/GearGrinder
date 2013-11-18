@@ -16,6 +16,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import com.GearGrinder.Networking.GetLoc;
 import com.GearGrinder.Networking.GetLocThread;
 import com.GearGrinder.Networking.InitialStat;
 import com.GearGrinder.Networking.SaveLocThread;
@@ -340,6 +341,10 @@ public class Game extends Canvas implements Runnable {
 		int middleofname = Playername.length() / 2;
 		g.drawString(Game.Playername, currentx - screen.xOffset - (charsize * middleofname), currenty - screen.yOffset - 24);
 		
+		g.setColor(Color.CYAN);
+		int midofothername = GetLoc.pname.length() /2;
+		g.drawString(GetLoc.pname, GetLoc.xp1 - screen.xOffset - (charsize * midofothername), GetLoc.yp1 - screen.yOffset - 24);
+		
 		// baseline locations
 		//using these makes the UI scale for any resolution
 		int hudx = width / 2 - 431; //main HUD
@@ -472,7 +477,7 @@ public class Game extends Canvas implements Runnable {
 		g.dispose();
 		bs.show();
 	}	
-
+	
 	public static void portalcheck(){
 		if(Game.currentzone.equals("world")){
 			if((currentx >= 3896 && currentx <= 3913) && (currenty >= 3601 && currenty <= 3612)){
