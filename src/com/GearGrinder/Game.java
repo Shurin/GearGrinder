@@ -11,10 +11,10 @@ import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 import com.GearGrinder.Networking.GetLoc;
 import com.GearGrinder.Networking.GetLocThread;
@@ -98,6 +98,37 @@ public class Game extends Canvas implements Runnable {
 	private BufferedImage broadsword = null;
 	private BufferedImage spell_greenorb = null;
 	private BufferedImage spell_rock = null;
+	//URLs to the image locations
+	URL inv = this.getClass().getResource("/hud/inventory.png");
+	URL invb1 = this.getClass().getResource("/hud/inventorybutton1.png");
+	URL invb2 = this.getClass().getResource("/hud/inventorybutton2.png");
+	URL mb1 = this.getClass().getResource("/hud/mailbutton1.png");
+	URL mb2 = this.getClass().getResource("/hud/mailbutton2.png");
+	URL cb1 = this.getClass().getResource("/hud/characterbutton1.png");
+	URL cb2 = this.getClass().getResource("/hud/characterbutton2.png");
+	URL store1 = this.getClass().getResource("/hud/storebutton1.png");
+	URL store2 = this.getClass().getResource("/hud/storebutton2.png");
+	URL rep1 = this.getClass().getResource("/hud/repbutton1.png");
+	URL rep2 = this.getClass().getResource("/hud/repbutton2.png");
+	URL skills1 = this.getClass().getResource("/hud/skillsbutton1.png");
+	URL skills2 = this.getClass().getResource("/hud/skillsbutton2.png");
+	URL q1 = this.getClass().getResource("/hud/questbutton1.png");
+	URL q2 = this.getClass().getResource("/hud/questbutton2.png");
+	URL map1 = this.getClass().getResource("/hud/mapbutton1.png");
+	URL map2 = this.getClass().getResource("/hud/mapbutton2.png");
+	URL tb1 = this.getClass().getResource("/hud/talentsbutton1.png");
+	URL tb2 = this.getClass().getResource("/hud/talentsbutton2.png");
+	URL h1 = this.getClass().getResource("/hud/help.png");
+	URL h2 = this.getClass().getResource("/hud/help2.png");
+	URL hp = this.getClass().getResource("/hud/helppage.png");
+	URL cpan = this.getClass().getResource("/hud/charpanel.png");
+	URL bsword = this.getClass().getResource("/items/broadsword.png");
+	URL gorb = this.getClass().getResource("/hud/spells_greenorb.png");
+	URL rock = this.getClass().getResource("/hud/spells_rock.png");
+	URL lo = this.getClass().getResource("/hud/logo.png");	
+	URL str1 = this.getClass().getResource("/hud/storebutton1.png");
+	URL str2 = this.getClass().getResource("/hud/storebutton2.png");
+	URL h = this.getClass().getResource("/hud/hud.png");
 	
 	private int savetick = 0;
 	
@@ -266,38 +297,35 @@ public class Game extends Canvas implements Runnable {
 	
 	public void uicache(){
 		try {
-			String testpic = "inventory.png";
-			inventory = ImageIO.read(new File(testpic));
-			hud = ImageIO.read(new File("hud.png"));
-			logo = ImageIO.read(new File("logo.png"));
-			inventorybutton1 = ImageIO.read(new File("inventorybutton1.png"));
-			inventorybutton2 = ImageIO.read(new File("inventorybutton2.png"));
-			characterbutton1 = ImageIO.read(new File("characterbutton1.png"));
-			characterbutton2 = ImageIO.read(new File("characterbutton2.png"));
-			mailbutton1 = ImageIO.read(new File("mailbutton1.png"));
-			mailbutton2 = ImageIO.read(new File("mailbutton2.png"));
-			mapbutton1 = ImageIO.read(new File("mapbutton1.png"));
-			mapbutton2 = ImageIO.read(new File("mapbutton2.png"));
-			questbutton1 = ImageIO.read(new File("questbutton1.png"));
-			questbutton2 = ImageIO.read(new File("questbutton2.png"));
-			repbutton1 = ImageIO.read(new File("repbutton1.png"));
-			repbutton2 = ImageIO.read(new File("repbutton2.png"));
-			skillsbutton1 = ImageIO.read(new File("skillsbutton1.png"));
-			skillsbutton2 = ImageIO.read(new File("skillsbutton2.png"));
-			storebutton1 = ImageIO.read(new File("storebutton1.png"));
-			storebutton2 = ImageIO.read(new File("storebutton2.png"));
-			talentsbutton1 = ImageIO.read(new File("talentsbutton1.png"));
-			talentsbutton2 = ImageIO.read(new File("talentsbutton2.png"));
-			spell_greenorb = ImageIO.read(new File("Spells_GreenOrb.png"));
-			spell_rock = ImageIO.read(new File("Spells_Rock.png"));
-			help = ImageIO.read(new File("help.png"));
-			help = ImageIO.read(new File("help.png"));
-			help2 = ImageIO.read(new File("help2.png"));
-			helppage = ImageIO.read(new File("helppage.png"));
-			charpanel = ImageIO.read(new File("charpanel.png"));
-			broadsword = ImageIO.read(new File("BroadSword.png"));
+			inventory = ImageIO.read(inv);
+			hud = ImageIO.read(h);
+			logo = ImageIO.read(lo);
+			inventorybutton1 = ImageIO.read(invb1);
+			inventorybutton2 = ImageIO.read(invb2);
+			characterbutton1 = ImageIO.read(cb1);
+			characterbutton2 = ImageIO.read(cb2);
+			mailbutton1 = ImageIO.read(mb1);
+			mailbutton2 = ImageIO.read(mb2);
+			mapbutton1 = ImageIO.read(map1);
+			mapbutton2 = ImageIO.read(map2);
+			questbutton1 = ImageIO.read(q1);
+			questbutton2 = ImageIO.read(q2);
+			repbutton1 = ImageIO.read(rep1);
+			repbutton2 = ImageIO.read(rep2);
+			skillsbutton1 = ImageIO.read(skills1);
+			skillsbutton2 = ImageIO.read(skills2);
+			storebutton1 = ImageIO.read(str1);
+			storebutton2 = ImageIO.read(str2);
+			talentsbutton1 = ImageIO.read(tb1);
+			talentsbutton2 = ImageIO.read(tb2);
+			spell_greenorb = ImageIO.read(gorb);
+			spell_rock = ImageIO.read(rock);
+			help = ImageIO.read(h1);
+			help2 = ImageIO.read(h2);
+			helppage = ImageIO.read(hp);
+			charpanel = ImageIO.read(cpan);
+			broadsword = ImageIO.read(bsword);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		uicached = true;
@@ -382,15 +410,6 @@ public class Game extends Canvas implements Runnable {
 
 		// hud elements
 		
-		//INVENTORY
-		if(Player.invshow == true){
-			g.drawImage(inventorybutton2, hudx + 739, hudy + 88, null);
-			g.drawImage(inventory, width - 499, height / 2 - 20, null);
-			g.drawImage(broadsword, ixt + 10, iyt + 10, null);
-		}else {
-			g.drawImage(inventorybutton1, hudx + 739, hudy + 88, null);
-		}
-		
 		g.drawImage(spell_greenorb, hudx + 268, hudy + 74, null);
 		g.drawImage(spell_rock, hudx + 323, hudy + 76, null);
 		
@@ -439,6 +458,15 @@ public class Game extends Canvas implements Runnable {
 			g.drawString("I'll add more to this as needed ...", width / 2 - 60, 700);
 		}
 
+		// INVENTORY
+		if (Player.invshow == true) {
+			g.drawImage(inventorybutton2, hudx + 739, hudy + 88, null);
+			g.drawImage(inventory, width - 499, height / 2 - 20, null);
+			g.drawImage(broadsword, ixt + 10, iyt + 10, null);
+		} else {
+			g.drawImage(inventorybutton1, hudx + 739, hudy + 88, null);
+		}
+		
 		//CHARACTER PANEL
 		if(Player.charshow == true){
 			g.drawImage(charpanel, cpx, cpy, null);		

@@ -62,8 +62,8 @@ public class GetLocThread implements Runnable{
 		final double ns = 1000000000.0 / 60.0;
 		double delta = 0;
 		while (asdf == true) {
-			if (System.currentTimeMillis() - timer > 33) {
-				timer = timer + 33; // adds a second to above criteria
+			if (System.currentTimeMillis() - timer > 100) {
+				timer = timer + 100; // adds a second to above criteria
 				try {
 					// g.drawString("TIME INIT...", width / 3, height / 2);
 				} catch (Exception e) {
