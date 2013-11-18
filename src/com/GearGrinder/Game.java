@@ -9,9 +9,10 @@ import java.awt.Toolkit;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
@@ -37,7 +38,18 @@ public class Game extends Canvas implements Runnable {
 	static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	static double widthmax = screenSize.getWidth();
 	static double heightmax = screenSize.getHeight();
-
+	
+	static String timeStamp;
+	static String[] timeparts;
+	static String time1;
+	static String time2;
+	static int timeA;
+	static int hours;
+	static int minutes;
+	static int seconds;
+	public static boolean nightTime = false;
+	
+	
 	//private static int width = (int) widthmax;
 	//private static int height = (int) heightmax;
 	private static int width = 1024;
@@ -204,6 +216,7 @@ public class Game extends Canvas implements Runnable {
 
 	@Override
 	public void run() {
+
 		long lastTime = System.nanoTime();
 	    long timer = System.currentTimeMillis();
 		final double ns = 1000000000.0 / 60.0;
@@ -227,10 +240,7 @@ public class Game extends Canvas implements Runnable {
 			if (System.currentTimeMillis() - timer > 1000) {
 				timer = timer + 1000; // adds a second to above criteria
 				try {
-					//g.drawString("TIME INIT...", width / 3, height / 2);
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					//g.drawString("TIME INIT FAILED!", width / 4, height / 2);
 					e.printStackTrace();
 				}
 				frame.setTitle("GearGrinder    |    FPS: " + frames);
@@ -337,6 +347,17 @@ public class Game extends Canvas implements Runnable {
 	}
 	
 	public void render() {
+		timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+		timeparts = timeStamp.split("_");		
+		timeA = Integer.valueOf(timeparts[1]);
+		hours = timeA / 10000;
+		minutes = (timeA - (hours * 10000)) / 100;
+		seconds = (timeA - (hours * 10000) - (minutes * 100)) /1;
+		
+		if(hours > 19 || hours < 7) nightTime = true;
+		
+		
+		
 		if(uicached == false) uicache();
 		BufferStrategy bs = getBufferStrategy();
 		if (bs == null) {
@@ -355,6 +376,8 @@ public class Game extends Canvas implements Runnable {
 		}
 		
 		Graphics g = bs.getDrawGraphics();
+		
+		
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Veranda", 0, 16));
@@ -364,10 +387,15 @@ public class Game extends Canvas implements Runnable {
 		currentx = player.getX();
 		currenty = player.getY();
 		
+		g.setColor(Color.MAGENTA);
+		g.drawString("TIME: " + hours + ":" + minutes + ":" + seconds, width / 2, 100);
+		
+		
 		g.setColor(Color.getHSBColor(170, 0, 255));
 		int charsize = 7;
 		int middleofname = Playername.length() / 2;
 		g.drawString(Game.Playername, currentx - screen.xOffset - (charsize * middleofname), currenty - screen.yOffset - 24);
+		
 		
 		if(GetLoc.RENDER){
 			g.setColor(Color.CYAN);

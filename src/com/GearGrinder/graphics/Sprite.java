@@ -81,7 +81,20 @@ public class Sprite {
 	public static Sprite player_left_2 = new Sprite (32, 3, 2, SpriteSheet.playersprites);
 	public static Sprite player_right = new Sprite (32, 1, 0, SpriteSheet.playersprites);	
 	public static Sprite player_right_1 = new Sprite (32, 1, 1, SpriteSheet.playersprites);
-	public static Sprite player_right_2 = new Sprite (32, 1, 2, SpriteSheet.playersprites);	
+	public static Sprite player_right_2 = new Sprite (32, 1, 2, SpriteSheet.playersprites);
+	//PLAYER2 SPRITES
+	public static Sprite player2_up = new Sprite (32, 0, 0, SpriteSheet.player2sprites);
+	public static Sprite player2_up_1 = new Sprite (32, 0, 1, SpriteSheet.player2sprites);
+	public static Sprite player2_up_2 = new Sprite (32, 0, 2, SpriteSheet.player2sprites);
+	public static Sprite player2_down = new Sprite (32, 2, 0, SpriteSheet.player2sprites);
+	public static Sprite player2_down_1 = new Sprite (32, 2, 1, SpriteSheet.player2sprites);
+	public static Sprite player2_down_2 = new Sprite (32, 2, 2, SpriteSheet.player2sprites);	
+	public static Sprite player2_left = new Sprite (32, 3, 0, SpriteSheet.player2sprites);
+	public static Sprite player2_left_1 = new Sprite (32, 3, 1, SpriteSheet.player2sprites);	
+	public static Sprite player2_left_2 = new Sprite (32, 3, 2, SpriteSheet.player2sprites);
+	public static Sprite player2_right = new Sprite (32, 1, 0, SpriteSheet.player2sprites);	
+	public static Sprite player2_right_1 = new Sprite (32, 1, 1, SpriteSheet.player2sprites);
+	public static Sprite player2_right_2 = new Sprite (32, 1, 2, SpriteSheet.player2sprites);	
 	//
 	//MOB SPRITES
 	//
@@ -151,7 +164,7 @@ public class Sprite {
 	private void load() {
 		for (int y = 0; y < height; y++) {
 			for (int x = 0; x < width; x++) {
-				pixels[x + y * width] = sheet.pixels[(x + this.x) + (y + this.y)	* sheet.WIDTH];
+				pixels[x + y * width] = sheet.pixels[(x + this.x) + (y + this.y) * sheet.WIDTH];
 			}
 		}
 	}

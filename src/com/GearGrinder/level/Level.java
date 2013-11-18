@@ -4,6 +4,7 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.GearGrinder.Game;
 import com.GearGrinder.Networking.InitialStat;
 import com.GearGrinder.entity.Entity;
 import com.GearGrinder.entity.Projectile.Projectile;
@@ -265,133 +266,133 @@ public class Level {
 
 	public Tile getTile(int x, int y) {
 		if (x < 0 || y < 0 || x >= width || y >= height)
-			if(Player.invshow){
+			if(Game.nightTime){
 				return Tile.spawn_grass_tile_night;
 			}else{
 				return Tile.spawn_grass_tile;
 			}
 		if (tiles[x + y * width] == Tile.col_spawn_grass)
-			if(Player.invshow){
+			if(Game.nightTime){
 				return Tile.spawn_grass_tile_night;
 			}else{
 				return Tile.spawn_grass_tile;
 			}
 		if (tiles[x + y * width] == Tile.col_spawn_hedge)
-			if(Player.invshow){
+			if(Game.nightTime){
 				return Tile.spawn_hedge_tile_night;
 			}else{
 				return Tile.spawn_hedge_tile;
 			}
 		if (tiles[x + y * width] == Tile.col_spawn_water)
-			if(Player.invshow){
+			if(Game.nightTime){
 				return Tile.spawn_water_tile_night;
 			}else{
 				return Tile.spawn_water_tile;
 			}
 		if (tiles[x + y * width] == Tile.col_spawn_wall1)
-			if(Player.invshow){
+			if(Game.nightTime){
 				return Tile.spawn_wall1_tile_night;
 			}else{
 				return Tile.spawn_wall1_tile;
 			}
 		if (tiles[x + y * width] == Tile.col_spawn_wall2)
-			if(Player.invshow){
+			if(Game.nightTime){
 				return Tile.spawn_wall2_tile_night;
 			}else{
 				return Tile.spawn_wall2_tile;
 			}
 		if (tiles[x + y * width] == Tile.col_spawn_wall3)
-			if(Player.invshow){
+			if(Game.nightTime){
 				return Tile.spawn_wall3_tile_night;
 			}else{
 				return Tile.spawn_wall3_tile;
 			}
 		if (tiles[x + y * width] == Tile.col_spawn_wall4)
-			if(Player.invshow){
+			if(Game.nightTime){
 				return Tile.spawn_wall4_tile_night;
 			}else{
 				return Tile.spawn_wall4_tile;
 			}
 		if (tiles[x + y * width] == Tile.col_spawn_wall5)
-			if(Player.invshow){
+			if(Game.nightTime){
 				return Tile.spawn_wall5_tile_night;
 			}else{
 				return Tile.spawn_wall5_tile;
 			}
 		if (tiles[x + y * width] == Tile.col_spawn_wall6)
-			if(Player.invshow){
+			if(Game.nightTime){
 				return Tile.spawn_wall6_tile_night;
 			}else{
 				return Tile.spawn_wall6_tile;
 			}
 		if (tiles[x + y * width] == Tile.col_spawn_wall7)
-			if(Player.invshow){
+			if(Game.nightTime){
 				return Tile.spawn_wall7_tile_night;
 			}else{
 				return Tile.spawn_wall7_tile;
 			}
 		if (tiles[x + y * width] == Tile.col_spawn_wall8)
-			if(Player.invshow){
+			if(Game.nightTime){
 				return Tile.spawn_wall8_tile_night;
 			}else{
 				return Tile.spawn_wall8_tile;
 			}
 		if (tiles[x + y * width] == Tile.col_spawn_wall9)
-			if(Player.invshow){
+			if(Game.nightTime){
 				return Tile.spawn_wall9_tile_night;
 			}else{
 				return Tile.spawn_wall9_tile;
 			}
 		if (tiles[x + y * width] == Tile.col_spawn_wall10)
-			if(Player.invshow){
+			if(Game.nightTime){
 				return Tile.spawn_wall10_tile_night;
 			}else{
 				return Tile.spawn_wall10_tile;
 			}
 		if (tiles[x + y * width] == Tile.col_spawn_wall11)
-			if(Player.invshow){
+			if(Game.nightTime){
 				return Tile.spawn_wall11_tile_night;
 			}else{
 				return Tile.spawn_wall11_tile;
 			}
 		if (tiles[x + y * width] == Tile.col_spawn_wall12)
-			if(Player.invshow){
+			if(Game.nightTime){
 				return Tile.spawn_wall12_tile_night;
 			}else{
 				return Tile.spawn_wall12_tile;
 			}
 		if (tiles[x + y * width] == Tile.col_spawn_stairmiddle)
-			if(Player.invshow){
+			if(Game.nightTime){
 				return Tile.spawn_stairmiddle_tile_night;
 			}else{
 				return Tile.spawn_stairmiddle_tile;
 			}
 		if (tiles[x + y * width] == Tile.col_spawn_stairleft)
-			if(Player.invshow){
+			if(Game.nightTime){
 				return Tile.spawn_stairleft_tile_night;
 			}else{
 				return Tile.spawn_stairleft_tile;
 			}
 		if (tiles[x + y * width] == Tile.col_spawn_stairright)
-			if(Player.invshow){
+			if(Game.nightTime){
 				return Tile.spawn_stairright_tile_night;
 			}else{
 				return Tile.spawn_stairright_tile;
 			}
 		if (tiles[x + y * width] == Tile.col_spawn_floor)
-			if(Player.invshow){
+			if(Game.nightTime){
 				return Tile.spawn_floor_tile_night;
 			}else{
 				return Tile.spawn_floor_tile;
 			}
 		if (tiles[x + y * width] == Tile.col_portal_up)
-			if(Player.invshow){
+			if(Game.nightTime){
 				return Tile.global_portal_up_night;
 			}else{
 				return Tile.global_portal_up;
 			}
 		if (tiles[x + y * width] == Tile.col_portal_down)
-			if(Player.invshow){
+			if(Game.nightTime){
 				return Tile.global_portal_down_night;
 			}else{
 				return Tile.global_portal_down;

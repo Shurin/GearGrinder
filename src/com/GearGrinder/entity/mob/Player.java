@@ -27,6 +27,11 @@ public class Player extends Mob{
 	private AnimatedSprite up = new AnimatedSprite(SpriteSheet.player_up, 32, 32, 3);
 	private AnimatedSprite left = new AnimatedSprite(SpriteSheet.player_left, 32, 32, 3);
 	private AnimatedSprite right = new AnimatedSprite(SpriteSheet.player_right, 32, 32, 3);
+	//player2
+	private AnimatedSprite down2 = new AnimatedSprite(SpriteSheet.player2_down, 32, 32, 3);
+	private AnimatedSprite up2 = new AnimatedSprite(SpriteSheet.player2_up, 32, 32, 3);
+	private AnimatedSprite left2 = new AnimatedSprite(SpriteSheet.player2_left, 32, 32, 3);
+	private AnimatedSprite right2 = new AnimatedSprite(SpriteSheet.player2_right, 32, 32, 3);
 	private AnimatedSprite animSprite = down;
 	
 	public static boolean helpshow = false;
@@ -165,19 +170,35 @@ public class Player extends Mob{
 		// the -16 is to make the center of the player 0,0
 		screen.renderMob(x - 16, y - 16, sprite);
 		if(GetLoc.RENDER){
-			if(GetLoc.psdir.equals("down")){
-				sprite = animSprite.player_down;
-				screen.renderMob(GetLoc.xp1 -16, GetLoc.yp1 -16, sprite);
-			}else if(GetLoc.psdir.equals("up")){
-				sprite = animSprite.player_up;				
-				screen.renderMob(GetLoc.xp1 -16, GetLoc.yp1 -16, sprite);
-			}else if(GetLoc.psdir.equals("left")){
-				sprite = animSprite.player_left;
-				screen.renderMob(GetLoc.xp1 -16, GetLoc.yp1 -16, sprite);
-			}else if(GetLoc.psdir.equals("right")){
-				sprite = animSprite.player_right;
-				screen.renderMob(GetLoc.xp1 -16, GetLoc.yp1 -16, sprite);
-			}			
+			if(GetLoc.pspr.equals("psprite002")){
+				if(GetLoc.psdir.equals("down")){
+					sprite = animSprite.player2_down;
+					screen.renderMob(GetLoc.xp1 -16, GetLoc.yp1 -16, sprite);
+				}else if(GetLoc.psdir.equals("up")){
+					sprite = animSprite.player2_up;				
+					screen.renderMob(GetLoc.xp1 -16, GetLoc.yp1 -16, sprite);
+				}else if(GetLoc.psdir.equals("left")){
+					sprite = animSprite.player2_left;
+					screen.renderMob(GetLoc.xp1 -16, GetLoc.yp1 -16, sprite);
+				}else if(GetLoc.psdir.equals("right")){
+					sprite = animSprite.player2_right;
+					screen.renderMob(GetLoc.xp1 -16, GetLoc.yp1 -16, sprite);
+				}
+			}else if(GetLoc.pspr.equals("psprite001")){
+				if(GetLoc.psdir.equals("down")){
+					sprite = animSprite.player_down;
+					screen.renderMob(GetLoc.xp1 -16, GetLoc.yp1 -16, sprite);
+				}else if(GetLoc.psdir.equals("up")){
+					sprite = animSprite.player_up;				
+					screen.renderMob(GetLoc.xp1 -16, GetLoc.yp1 -16, sprite);
+				}else if(GetLoc.psdir.equals("left")){
+					sprite = animSprite.player_left;
+					screen.renderMob(GetLoc.xp1 -16, GetLoc.yp1 -16, sprite);
+				}else if(GetLoc.psdir.equals("right")){
+					sprite = animSprite.player_right;
+					screen.renderMob(GetLoc.xp1 -16, GetLoc.yp1 -16, sprite);
+				}
+			}
 		}
 	}
 	
