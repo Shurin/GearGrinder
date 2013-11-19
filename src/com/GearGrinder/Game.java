@@ -242,10 +242,6 @@ public class Game extends Canvas implements Runnable {
 			frames++;	
 			
 			if (System.currentTimeMillis() - timer > 1000) {
-				// define Server time and track it
-				calendar = new GregorianCalendar(TimeZone.getTimeZone("PST"));
-				time = formatter.format(calendar.getTime());
-				formatter.setTimeZone(TimeZone.getTimeZone("GMT-8"));
 				
 				timeint = Integer.valueOf(time);
 				hours = timeint / 10000;
@@ -358,7 +354,10 @@ public class Game extends Canvas implements Runnable {
 	}
 	
 	public void render() {	
- 		
+		calendar = new GregorianCalendar(TimeZone.getTimeZone("PST"));
+		time = formatter.format(calendar.getTime());
+		formatter.setTimeZone(TimeZone.getTimeZone("GMT-8"));
+		
 		if(uicached == false) uicache();
 		BufferStrategy bs = getBufferStrategy();
 		if (bs == null) {
@@ -389,7 +388,23 @@ public class Game extends Canvas implements Runnable {
 		currenty = player.getY();
 		
 		g.setColor(Color.MAGENTA);
-		g.drawString("TIME: " + hours + ":" + minutes + ":" + seconds, width / 2, 100);
+		if(hours < 10){
+			g.drawString("TIME: 0" + hours + ":" + minutes + ":" + seconds, width / 2, 100);
+		}else if(minutes < 10){
+			g.drawString("TIME: " + hours + ":0" + minutes + ":" + seconds, width / 2, 100);
+		}else if(seconds < 10){
+			g.drawString("TIME: " + hours + ":" + minutes + ":0" + seconds, width / 2, 100);
+		}else if(hours < 10 && minutes < 10 && seconds < 10){
+			g.drawString("TIME: 0" + hours + ":0" + minutes + ":0" + seconds, width / 2, 100);
+		}else if(hours < 10 && minutes < 10){
+			g.drawString("TIME: 0" + hours + ":0" + minutes + ":" + seconds, width / 2, 100);
+		}else if(hours < 10 && seconds < 10){
+			g.drawString("TIME: 0" + hours + ":" + minutes + ":0" + seconds, width / 2, 100);
+		}else if(minutes < 10 && seconds < 10){
+			g.drawString("TIME: " + hours + ":0" + minutes + ":0" + seconds, width / 2, 100);
+		}else{ 
+			g.drawString("TIME: " + hours + ":" + minutes + ":" + seconds, width / 2, 100);
+		}
 		
 		
 		g.setColor(Color.getHSBColor(170, 0, 255));
