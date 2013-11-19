@@ -11,8 +11,12 @@ import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.TimeZone;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
@@ -39,14 +43,14 @@ public class Game extends Canvas implements Runnable {
 	static double widthmax = screenSize.getWidth();
 	static double heightmax = screenSize.getHeight();
 	
-	static String timeStamp;
-	static String[] timeparts;
-	static String time1;
-	static String time2;
-	static int timeA;
+	static Calendar calendar;
+	static String time;
+	static DateFormat formatter = new SimpleDateFormat("HHmmss");
+	static int timeint;
 	static int hours;
 	static int minutes;
 	static int seconds;
+
 	public static boolean nightTime = false;
 	
 	
@@ -238,6 +242,18 @@ public class Game extends Canvas implements Runnable {
 			frames++;	
 			
 			if (System.currentTimeMillis() - timer > 1000) {
+				// define Server time and track it
+				calendar = new GregorianCalendar(TimeZone.getTimeZone("PST"));
+				time = formatter.format(calendar.getTime());
+				formatter.setTimeZone(TimeZone.getTimeZone("GMT-8"));
+				
+				timeint = Integer.valueOf(time);
+				hours = timeint / 10000;
+				minutes = (timeint - (hours * 10000)) / 100;
+				seconds = (timeint - (hours * 10000) - (minutes * 100)) / 1;
+				
+				if(hours > 19 || hours < 7) nightTime = true;				
+				
 				timer = timer + 1000; // adds a second to above criteria
 				try {
 				} catch (Exception e) {
@@ -283,15 +299,10 @@ public class Game extends Canvas implements Runnable {
 				}else {
 					InitialStat.currentstamina = InitialStat.maxstamina;
 					InitialStat.staminapercent = InitialStat.currentstamina / InitialStat.maxstamina * 100;
-				}
-				//XP refresher
-			//	InitialStat.XP = InitialStat.XP;
-				 
+				}				 
 			}
 			PlayerSpawnX = player.getX();
-			PlayerSpawnY = player.getY();
-			
-			 //JOptionPane.showMessageDialog(null, "menu initialized!");
+			PlayerSpawnY = player.getY();			
 		}
 	}
 
@@ -346,18 +357,8 @@ public class Game extends Canvas implements Runnable {
 		level.update();
 	}
 	
-	public void render() {
-		timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-		timeparts = timeStamp.split("_");		
-		timeA = Integer.valueOf(timeparts[1]);
-		hours = timeA / 10000;
-		minutes = (timeA - (hours * 10000)) / 100;
-		seconds = (timeA - (hours * 10000) - (minutes * 100)) /1;
-		
-		if(hours > 19 || hours < 7) nightTime = true;
-		
-		
-		
+	public void render() {	
+ 		
 		if(uicached == false) uicache();
 		BufferStrategy bs = getBufferStrategy();
 		if (bs == null) {
@@ -508,12 +509,10 @@ public class Game extends Canvas implements Runnable {
 			g.drawString("" + InitialStat.defense, cpx + 105, cpy + 410);
 			g.drawString("" + InitialStat.vitality, cpx + 105, cpy + 435);
 			g.drawString("" + InitialStat.stamina, cpx + 105, cpy + 460);
-			//g.setFont(boldfont);
 			g.drawString("" + InitialStat.agility, cpx + 390, cpy + 385);
 			g.drawString("" + InitialStat.intelligence, cpx + 390, cpy + 410);
 			g.drawString("" + InitialStat.dexterity, cpx + 390, cpy + 435);
-			g.drawString("" + InitialStat.luck, cpx + 390, cpy + 460);
-			
+			g.drawString("" + InitialStat.luck, cpx + 390, cpy + 460);			
 		}		
 		
 		//DEV DISPLAY
@@ -530,8 +529,7 @@ public class Game extends Canvas implements Runnable {
 		}
 		
 		portalcheck();
-		//test();
-		
+		//test();		
 		g.dispose();
 		bs.show();
 	}	
@@ -565,7 +563,7 @@ public class Game extends Canvas implements Runnable {
 		}
 	}
 	
-	public static void launch() {
+	public static void launch() {			
 		Game game = new Game();
 		game.frame.setUndecorated(false);
 		//game.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
