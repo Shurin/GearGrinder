@@ -242,15 +242,8 @@ public class Game extends Canvas implements Runnable {
 			frames++;	
 			
 			if (System.currentTimeMillis() - timer > 1000) {
-				
-				timeint = Integer.valueOf(time);
-				hours = timeint / 10000;
-				minutes = (timeint - (hours * 10000)) / 100;
-				seconds = (timeint - (hours * 10000) - (minutes * 100)) / 1;
-				
-				if(hours > 19 || hours < 7) nightTime = true;				
-				
 				timer = timer + 1000; // adds a second to above criteria
+				
 				try {
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -266,7 +259,7 @@ public class Game extends Canvas implements Runnable {
 					SaveStat.SaveStat();
 					savetick = 0;
 				}
-				
+			
 				//MAGIC HEALING LOOP
 				double magichealrate = InitialStat.maxmagic * 0.1;
 				if(InitialStat.currentmagic < InitialStat.maxmagic && (InitialStat.currentmagic + magichealrate) <= InitialStat.maxmagic){
@@ -295,7 +288,7 @@ public class Game extends Canvas implements Runnable {
 				}else {
 					InitialStat.currentstamina = InitialStat.maxstamina;
 					InitialStat.staminapercent = InitialStat.currentstamina / InitialStat.maxstamina * 100;
-				}				 
+				}
 			}
 			PlayerSpawnX = player.getX();
 			PlayerSpawnY = player.getY();			
@@ -357,6 +350,20 @@ public class Game extends Canvas implements Runnable {
 		calendar = new GregorianCalendar(TimeZone.getTimeZone("PST"));
 		time = formatter.format(calendar.getTime());
 		formatter.setTimeZone(TimeZone.getTimeZone("GMT-8"));
+		timeint = Integer.valueOf(time);
+		hours = timeint / 10000;
+		minutes = (timeint - (hours * 10000)) / 100;
+		seconds = (timeint - (hours * 10000) - (minutes * 100)) / 1;
+		
+		if(hours > 18) {
+			nightTime = true;			
+		}else if(hours < 8){
+			nightTime = true;
+		}else{
+			nightTime = false;
+		}
+		
+		System.out.println("night status: " + nightTime + "    hours = " + hours);
 		
 		if(uicached == false) uicache();
 		BufferStrategy bs = getBufferStrategy();

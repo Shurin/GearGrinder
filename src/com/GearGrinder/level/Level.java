@@ -265,140 +265,544 @@ public class Level {
 	}
 
 	public Tile getTile(int x, int y) {
-		if (x < 0 || y < 0 || x >= width || y >= height)
-			if(Game.nightTime){
-				return Tile.spawn_grass_tile_night;
-			}else{
-				return Tile.spawn_grass_tile;
-			}
-		if (tiles[x + y * width] == Tile.col_spawn_grass)
-			if(Game.nightTime){
-				return Tile.spawn_grass_tile_night;
-			}else{
-				return Tile.spawn_grass_tile;
-			}
-		if (tiles[x + y * width] == Tile.col_spawn_hedge)
-			if(Game.nightTime){
-				return Tile.spawn_hedge_tile_night;
-			}else{
-				return Tile.spawn_hedge_tile;
-			}
-		if (tiles[x + y * width] == Tile.col_spawn_water)
-			if(Game.nightTime){
-				return Tile.spawn_water_tile_night;
-			}else{
-				return Tile.spawn_water_tile;
-			}
-		if (tiles[x + y * width] == Tile.col_spawn_wall1)
-			if(Game.nightTime){
-				return Tile.spawn_wall1_tile_night;
-			}else{
-				return Tile.spawn_wall1_tile;
-			}
-		if (tiles[x + y * width] == Tile.col_spawn_wall2)
-			if(Game.nightTime){
-				return Tile.spawn_wall2_tile_night;
-			}else{
-				return Tile.spawn_wall2_tile;
-			}
-		if (tiles[x + y * width] == Tile.col_spawn_wall3)
-			if(Game.nightTime){
-				return Tile.spawn_wall3_tile_night;
-			}else{
-				return Tile.spawn_wall3_tile;
-			}
-		if (tiles[x + y * width] == Tile.col_spawn_wall4)
-			if(Game.nightTime){
-				return Tile.spawn_wall4_tile_night;
-			}else{
-				return Tile.spawn_wall4_tile;
-			}
-		if (tiles[x + y * width] == Tile.col_spawn_wall5)
-			if(Game.nightTime){
-				return Tile.spawn_wall5_tile_night;
-			}else{
-				return Tile.spawn_wall5_tile;
-			}
-		if (tiles[x + y * width] == Tile.col_spawn_wall6)
-			if(Game.nightTime){
-				return Tile.spawn_wall6_tile_night;
-			}else{
-				return Tile.spawn_wall6_tile;
-			}
-		if (tiles[x + y * width] == Tile.col_spawn_wall7)
-			if(Game.nightTime){
-				return Tile.spawn_wall7_tile_night;
-			}else{
-				return Tile.spawn_wall7_tile;
-			}
-		if (tiles[x + y * width] == Tile.col_spawn_wall8)
-			if(Game.nightTime){
-				return Tile.spawn_wall8_tile_night;
-			}else{
-				return Tile.spawn_wall8_tile;
-			}
-		if (tiles[x + y * width] == Tile.col_spawn_wall9)
-			if(Game.nightTime){
-				return Tile.spawn_wall9_tile_night;
-			}else{
-				return Tile.spawn_wall9_tile;
-			}
-		if (tiles[x + y * width] == Tile.col_spawn_wall10)
-			if(Game.nightTime){
-				return Tile.spawn_wall10_tile_night;
-			}else{
-				return Tile.spawn_wall10_tile;
-			}
-		if (tiles[x + y * width] == Tile.col_spawn_wall11)
-			if(Game.nightTime){
-				return Tile.spawn_wall11_tile_night;
-			}else{
-				return Tile.spawn_wall11_tile;
-			}
-		if (tiles[x + y * width] == Tile.col_spawn_wall12)
-			if(Game.nightTime){
-				return Tile.spawn_wall12_tile_night;
-			}else{
-				return Tile.spawn_wall12_tile;
-			}
-		if (tiles[x + y * width] == Tile.col_spawn_stairmiddle)
-			if(Game.nightTime){
-				return Tile.spawn_stairmiddle_tile_night;
-			}else{
-				return Tile.spawn_stairmiddle_tile;
-			}
-		if (tiles[x + y * width] == Tile.col_spawn_stairleft)
-			if(Game.nightTime){
-				return Tile.spawn_stairleft_tile_night;
-			}else{
-				return Tile.spawn_stairleft_tile;
-			}
-		if (tiles[x + y * width] == Tile.col_spawn_stairright)
-			if(Game.nightTime){
-				return Tile.spawn_stairright_tile_night;
-			}else{
-				return Tile.spawn_stairright_tile;
-			}
-		if (tiles[x + y * width] == Tile.col_spawn_floor)
-			if(Game.nightTime){
-				return Tile.spawn_floor_tile_night;
-			}else{
-				return Tile.spawn_floor_tile;
-			}
-		if (tiles[x + y * width] == Tile.col_portal_up)
-			if(Game.nightTime){
-				return Tile.global_portal_up_night;
-			}else{
-				return Tile.global_portal_up;
-			}
-		if (tiles[x + y * width] == Tile.col_portal_down)
-			if(Game.nightTime){
-				return Tile.global_portal_down_night;
-			}else{
-				return Tile.global_portal_down;
-			}
+		if(Game.nightTime == false){
+			//System.out.println("RENDER DAY TILES!");
+			if (x < 0 || y < 0 || x >= width || y >= height)return Tile.outdoors_grasscliff_018_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_001_tile)return Tile.outdoors_grass_001_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_002_tile)return Tile.outdoors_grass_002_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_003_tile)return Tile.outdoors_grass_003_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_004_tile)return Tile.outdoors_grass_004_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_005_tile)return Tile.outdoors_grass_005_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_006_tile)return Tile.outdoors_grass_006_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_007_tile)return Tile.outdoors_grass_007_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_008_tile)return Tile.outdoors_grass_008_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_009_tile)return Tile.outdoors_grass_009_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_010_tile)return Tile.outdoors_grass_010_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_011_tile)return Tile.outdoors_grass_011_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_012_tile)return Tile.outdoors_grass_012_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_013_tile)return Tile.outdoors_grass_013_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_014_tile)return Tile.outdoors_grass_014_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_015_tile)return Tile.outdoors_grass_015_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_016_tile)return Tile.outdoors_grass_016_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_017_tile)return Tile.outdoors_grass_017_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_018_tile)return Tile.outdoors_grass_018_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_019_tile)return Tile.outdoors_grass_019_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_020_tile)return Tile.outdoors_grass_020_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_021_tile)return Tile.outdoors_grass_021_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_022_tile)return Tile.outdoors_grass_022_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_023_tile)return Tile.outdoors_grass_023_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_024_tile)return Tile.outdoors_grass_024_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_001_tile)return Tile.outdoors_dirt_001_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_002_tile)return Tile.outdoors_dirt_002_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_003_tile)return Tile.outdoors_dirt_003_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_004_tile)return Tile.outdoors_dirt_004_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_005_tile)return Tile.outdoors_dirt_005_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_006_tile)return Tile.outdoors_dirt_006_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_007_tile)return Tile.outdoors_dirt_007_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_008_tile)return Tile.outdoors_dirt_008_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_009_tile)return Tile.outdoors_dirt_009_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_010_tile)return Tile.outdoors_dirt_010_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_011_tile)return Tile.outdoors_dirt_011_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_012_tile)return Tile.outdoors_dirt_012_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_013_tile)return Tile.outdoors_dirt_013_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_014_tile)return Tile.outdoors_dirt_014_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_015_tile)return Tile.outdoors_dirt_015_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_016_tile)return Tile.outdoors_dirt_016_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_017_tile)return Tile.outdoors_dirt_017_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_018_tile)return Tile.outdoors_dirt_018_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_019_tile)return Tile.outdoors_dirt_019_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_020_tile)return Tile.outdoors_dirt_020_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_021_tile)return Tile.outdoors_dirt_021_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_022_tile)return Tile.outdoors_dirt_022_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_023_tile)return Tile.outdoors_dirt_023_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_024_tile)return Tile.outdoors_dirt_024_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_001_tile)return Tile.outdoors_sand_001_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_002_tile)return Tile.outdoors_sand_002_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_003_tile)return Tile.outdoors_sand_003_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_004_tile)return Tile.outdoors_sand_004_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_005_tile)return Tile.outdoors_sand_005_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_006_tile)return Tile.outdoors_sand_006_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_007_tile)return Tile.outdoors_sand_007_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_008_tile)return Tile.outdoors_sand_008_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_009_tile)return Tile.outdoors_sand_009_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_010_tile)return Tile.outdoors_sand_010_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_011_tile)return Tile.outdoors_sand_011_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_012_tile)return Tile.outdoors_sand_012_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_013_tile)return Tile.outdoors_sand_013_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_014_tile)return Tile.outdoors_sand_014_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_015_tile)return Tile.outdoors_sand_015_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_016_tile)return Tile.outdoors_sand_016_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_017_tile)return Tile.outdoors_sand_017_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_018_tile)return Tile.outdoors_sand_018_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_019_tile)return Tile.outdoors_sand_019_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_020_tile)return Tile.outdoors_sand_020_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_021_tile)return Tile.outdoors_sand_021_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_022_tile)return Tile.outdoors_sand_022_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_023_tile)return Tile.outdoors_sand_023_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_024_tile)return Tile.outdoors_sand_024_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_001_tile)return Tile.outdoors_grassstone_001_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_002_tile)return Tile.outdoors_grassstone_002_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_003_tile)return Tile.outdoors_grassstone_003_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_004_tile)return Tile.outdoors_grassstone_004_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_005_tile)return Tile.outdoors_grassstone_005_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_006_tile)return Tile.outdoors_grassstone_006_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_007_tile)return Tile.outdoors_grassstone_007_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_008_tile)return Tile.outdoors_grassstone_008_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_009_tile)return Tile.outdoors_grassstone_009_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_010_tile)return Tile.outdoors_grassstone_010_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_011_tile)return Tile.outdoors_grassstone_011_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_012_tile)return Tile.outdoors_grassstone_012_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_013_tile)return Tile.outdoors_grassstone_013_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_014_tile)return Tile.outdoors_grassstone_014_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_015_tile)return Tile.outdoors_grassstone_015_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_016_tile)return Tile.outdoors_grassstone_016_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_017_tile)return Tile.outdoors_grassstone_017_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_018_tile)return Tile.outdoors_grassstone_018_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_019_tile)return Tile.outdoors_grassstone_019_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_020_tile)return Tile.outdoors_grassstone_020_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_021_tile)return Tile.outdoors_grassstone_021_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_022_tile)return Tile.outdoors_grassstone_022_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_023_tile)return Tile.outdoors_grassstone_023_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_024_tile)return Tile.outdoors_grassstone_024_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_001_tile)return Tile.outdoors_dirtstone_001_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_002_tile)return Tile.outdoors_dirtstone_002_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_003_tile)return Tile.outdoors_dirtstone_003_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_004_tile)return Tile.outdoors_dirtstone_004_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_005_tile)return Tile.outdoors_dirtstone_005_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_006_tile)return Tile.outdoors_dirtstone_006_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_007_tile)return Tile.outdoors_dirtstone_007_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_008_tile)return Tile.outdoors_dirtstone_008_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_009_tile)return Tile.outdoors_dirtstone_009_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_010_tile)return Tile.outdoors_dirtstone_010_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_011_tile)return Tile.outdoors_dirtstone_011_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_012_tile)return Tile.outdoors_dirtstone_012_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_013_tile)return Tile.outdoors_dirtstone_013_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_014_tile)return Tile.outdoors_dirtstone_014_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_015_tile)return Tile.outdoors_dirtstone_015_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_016_tile)return Tile.outdoors_dirtstone_016_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_017_tile)return Tile.outdoors_dirtstone_017_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_018_tile)return Tile.outdoors_dirtstone_018_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_019_tile)return Tile.outdoors_dirtstone_019_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_020_tile)return Tile.outdoors_dirtstone_020_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_021_tile)return Tile.outdoors_dirtstone_021_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_022_tile)return Tile.outdoors_dirtstone_022_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_023_tile)return Tile.outdoors_dirtstone_023_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_024_tile)return Tile.outdoors_dirtstone_024_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_001_tile)return Tile.outdoors_sandstone_001_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_002_tile)return Tile.outdoors_sandstone_002_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_003_tile)return Tile.outdoors_sandstone_003_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_004_tile)return Tile.outdoors_sandstone_004_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_005_tile)return Tile.outdoors_sandstone_005_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_006_tile)return Tile.outdoors_sandstone_006_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_007_tile)return Tile.outdoors_sandstone_007_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_008_tile)return Tile.outdoors_sandstone_008_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_009_tile)return Tile.outdoors_sandstone_009_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_010_tile)return Tile.outdoors_sandstone_010_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_011_tile)return Tile.outdoors_sandstone_011_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_012_tile)return Tile.outdoors_sandstone_012_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_013_tile)return Tile.outdoors_sandstone_013_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_014_tile)return Tile.outdoors_sandstone_014_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_015_tile)return Tile.outdoors_sandstone_015_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_016_tile)return Tile.outdoors_sandstone_016_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_017_tile)return Tile.outdoors_sandstone_017_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_018_tile)return Tile.outdoors_sandstone_018_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_019_tile)return Tile.outdoors_sandstone_019_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_020_tile)return Tile.outdoors_sandstone_020_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_021_tile)return Tile.outdoors_sandstone_021_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_022_tile)return Tile.outdoors_sandstone_022_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_023_tile)return Tile.outdoors_sandstone_023_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_024_tile)return Tile.outdoors_sandstone_024_tile;			
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_001_tile)return Tile.outdoors_grasscliff_001_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_002_tile)return Tile.outdoors_grasscliff_002_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_003_tile)return Tile.outdoors_grasscliff_003_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_004_tile)return Tile.outdoors_grasscliff_004_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_005_tile)return Tile.outdoors_grasscliff_005_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_006_tile)return Tile.outdoors_grasscliff_006_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_007_tile)return Tile.outdoors_grasscliff_007_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_008_tile)return Tile.outdoors_grasscliff_008_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_009_tile)return Tile.outdoors_grasscliff_009_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_010_tile)return Tile.outdoors_grasscliff_010_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_011_tile)return Tile.outdoors_grasscliff_011_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_012_tile)return Tile.outdoors_grasscliff_012_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_013_tile)return Tile.outdoors_grasscliff_013_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_014_tile)return Tile.outdoors_grasscliff_014_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_015_tile)return Tile.outdoors_grasscliff_015_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_016_tile)return Tile.outdoors_grasscliff_016_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_017_tile)return Tile.outdoors_grasscliff_017_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_018_tile)return Tile.outdoors_grasscliff_018_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_019_tile)return Tile.outdoors_grasscliff_019_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_020_tile)return Tile.outdoors_grasscliff_020_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_021_tile)return Tile.outdoors_grasscliff_021_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_022_tile)return Tile.outdoors_grasscliff_022_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_023_tile)return Tile.outdoors_grasscliff_023_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_024_tile)return Tile.outdoors_grasscliff_024_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_025_tile)return Tile.outdoors_grasscliff_025_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_026_tile)return Tile.outdoors_grasscliff_026_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_027_tile)return Tile.outdoors_grasscliff_027_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_028_tile)return Tile.outdoors_grasscliff_028_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_029_tile)return Tile.outdoors_grasscliff_029_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_030_tile)return Tile.outdoors_grasscliff_030_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_031_tile)return Tile.outdoors_grasscliff_031_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_032_tile)return Tile.outdoors_grasscliff_032_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_033_tile)return Tile.outdoors_grasscliff_033_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_034_tile)return Tile.outdoors_grasscliff_034_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_035_tile)return Tile.outdoors_grasscliff_035_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_036_tile)return Tile.outdoors_grasscliff_036_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_037_tile)return Tile.outdoors_grasscliff_037_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_038_tile)return Tile.outdoors_grasscliff_038_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_039_tile)return Tile.outdoors_grasscliff_039_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_040_tile)return Tile.outdoors_grasscliff_040_tile;			
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_001_tile)return Tile.outdoors_dirtcliff_001_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_002_tile)return Tile.outdoors_dirtcliff_002_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_003_tile)return Tile.outdoors_dirtcliff_003_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_004_tile)return Tile.outdoors_dirtcliff_004_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_005_tile)return Tile.outdoors_dirtcliff_005_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_006_tile)return Tile.outdoors_dirtcliff_006_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_007_tile)return Tile.outdoors_dirtcliff_007_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_008_tile)return Tile.outdoors_dirtcliff_008_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_009_tile)return Tile.outdoors_dirtcliff_009_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_010_tile)return Tile.outdoors_dirtcliff_010_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_011_tile)return Tile.outdoors_dirtcliff_011_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_012_tile)return Tile.outdoors_dirtcliff_012_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_013_tile)return Tile.outdoors_dirtcliff_013_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_014_tile)return Tile.outdoors_dirtcliff_014_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_015_tile)return Tile.outdoors_dirtcliff_015_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_016_tile)return Tile.outdoors_dirtcliff_016_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_017_tile)return Tile.outdoors_dirtcliff_017_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_018_tile)return Tile.outdoors_dirtcliff_018_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_019_tile)return Tile.outdoors_dirtcliff_019_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_020_tile)return Tile.outdoors_dirtcliff_020_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_021_tile)return Tile.outdoors_dirtcliff_021_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_022_tile)return Tile.outdoors_dirtcliff_022_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_023_tile)return Tile.outdoors_dirtcliff_023_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_024_tile)return Tile.outdoors_dirtcliff_024_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_025_tile)return Tile.outdoors_dirtcliff_025_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_026_tile)return Tile.outdoors_dirtcliff_026_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_027_tile)return Tile.outdoors_dirtcliff_027_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_028_tile)return Tile.outdoors_dirtcliff_028_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_029_tile)return Tile.outdoors_dirtcliff_029_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_030_tile)return Tile.outdoors_dirtcliff_030_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_031_tile)return Tile.outdoors_dirtcliff_031_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_032_tile)return Tile.outdoors_dirtcliff_032_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_033_tile)return Tile.outdoors_dirtcliff_033_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_034_tile)return Tile.outdoors_dirtcliff_034_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_035_tile)return Tile.outdoors_dirtcliff_035_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_036_tile)return Tile.outdoors_dirtcliff_036_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_037_tile)return Tile.outdoors_dirtcliff_037_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_038_tile)return Tile.outdoors_dirtcliff_038_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_039_tile)return Tile.outdoors_dirtcliff_039_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_040_tile)return Tile.outdoors_dirtcliff_040_tile;			
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_001_tile)return Tile.outdoors_sandcliff_001_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_002_tile)return Tile.outdoors_sandcliff_002_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_003_tile)return Tile.outdoors_sandcliff_003_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_004_tile)return Tile.outdoors_sandcliff_004_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_005_tile)return Tile.outdoors_sandcliff_005_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_006_tile)return Tile.outdoors_sandcliff_006_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_007_tile)return Tile.outdoors_sandcliff_007_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_008_tile)return Tile.outdoors_sandcliff_008_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_009_tile)return Tile.outdoors_sandcliff_009_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_010_tile)return Tile.outdoors_sandcliff_010_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_011_tile)return Tile.outdoors_sandcliff_011_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_012_tile)return Tile.outdoors_sandcliff_012_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_013_tile)return Tile.outdoors_sandcliff_013_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_014_tile)return Tile.outdoors_sandcliff_014_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_015_tile)return Tile.outdoors_sandcliff_015_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_016_tile)return Tile.outdoors_sandcliff_016_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_017_tile)return Tile.outdoors_sandcliff_017_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_018_tile)return Tile.outdoors_sandcliff_018_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_019_tile)return Tile.outdoors_sandcliff_019_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_020_tile)return Tile.outdoors_sandcliff_020_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_021_tile)return Tile.outdoors_sandcliff_021_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_022_tile)return Tile.outdoors_sandcliff_022_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_023_tile)return Tile.outdoors_sandcliff_023_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_024_tile)return Tile.outdoors_sandcliff_024_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_025_tile)return Tile.outdoors_sandcliff_025_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_026_tile)return Tile.outdoors_sandcliff_026_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_027_tile)return Tile.outdoors_sandcliff_027_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_028_tile)return Tile.outdoors_sandcliff_028_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_029_tile)return Tile.outdoors_sandcliff_029_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_030_tile)return Tile.outdoors_sandcliff_030_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_031_tile)return Tile.outdoors_sandcliff_031_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_032_tile)return Tile.outdoors_sandcliff_032_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_033_tile)return Tile.outdoors_sandcliff_033_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_034_tile)return Tile.outdoors_sandcliff_034_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_035_tile)return Tile.outdoors_sandcliff_035_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_036_tile)return Tile.outdoors_sandcliff_036_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_037_tile)return Tile.outdoors_sandcliff_037_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_038_tile)return Tile.outdoors_sandcliff_038_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_039_tile)return Tile.outdoors_sandcliff_039_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_040_tile)return Tile.outdoors_sandcliff_040_tile;
 		
-
-		return Tile.spawn_grass_tile;
+		}else if(Game.nightTime){
+			//System.out.println("RENDERING NIGHT TILES!");
+			if (x < 0 || y < 0 || x >= width || y >= height)return Tile.outdoors_grasscliff_018_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_001_tile)return Tile.outdoors_grass_001_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_002_tile)return Tile.outdoors_grass_002_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_003_tile)return Tile.outdoors_grass_003_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_004_tile)return Tile.outdoors_grass_004_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_005_tile)return Tile.outdoors_grass_005_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_006_tile)return Tile.outdoors_grass_006_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_007_tile)return Tile.outdoors_grass_007_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_008_tile)return Tile.outdoors_grass_008_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_009_tile)return Tile.outdoors_grass_009_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_010_tile)return Tile.outdoors_grass_010_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_011_tile)return Tile.outdoors_grass_011_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_012_tile)return Tile.outdoors_grass_012_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_013_tile)return Tile.outdoors_grass_013_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_014_tile)return Tile.outdoors_grass_014_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_015_tile)return Tile.outdoors_grass_015_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_016_tile)return Tile.outdoors_grass_016_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_017_tile)return Tile.outdoors_grass_017_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_018_tile)return Tile.outdoors_grass_018_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_019_tile)return Tile.outdoors_grass_019_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_020_tile)return Tile.outdoors_grass_020_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_021_tile)return Tile.outdoors_grass_021_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_022_tile)return Tile.outdoors_grass_022_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_023_tile)return Tile.outdoors_grass_023_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grass_024_tile)return Tile.outdoors_grass_024_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_001_tile)return Tile.outdoors_dirt_001_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_002_tile)return Tile.outdoors_dirt_002_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_003_tile)return Tile.outdoors_dirt_003_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_004_tile)return Tile.outdoors_dirt_004_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_005_tile)return Tile.outdoors_dirt_005_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_006_tile)return Tile.outdoors_dirt_006_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_007_tile)return Tile.outdoors_dirt_007_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_008_tile)return Tile.outdoors_dirt_008_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_009_tile)return Tile.outdoors_dirt_009_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_010_tile)return Tile.outdoors_dirt_010_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_011_tile)return Tile.outdoors_dirt_011_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_012_tile)return Tile.outdoors_dirt_012_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_013_tile)return Tile.outdoors_dirt_013_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_014_tile)return Tile.outdoors_dirt_014_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_015_tile)return Tile.outdoors_dirt_015_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_016_tile)return Tile.outdoors_dirt_016_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_017_tile)return Tile.outdoors_dirt_017_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_018_tile)return Tile.outdoors_dirt_018_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_019_tile)return Tile.outdoors_dirt_019_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_020_tile)return Tile.outdoors_dirt_020_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_021_tile)return Tile.outdoors_dirt_021_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_022_tile)return Tile.outdoors_dirt_022_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_023_tile)return Tile.outdoors_dirt_023_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirt_024_tile)return Tile.outdoors_dirt_024_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_001_tile)return Tile.outdoors_sand_001_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_002_tile)return Tile.outdoors_sand_002_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_003_tile)return Tile.outdoors_sand_003_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_004_tile)return Tile.outdoors_sand_004_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_005_tile)return Tile.outdoors_sand_005_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_006_tile)return Tile.outdoors_sand_006_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_007_tile)return Tile.outdoors_sand_007_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_008_tile)return Tile.outdoors_sand_008_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_009_tile)return Tile.outdoors_sand_009_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_010_tile)return Tile.outdoors_sand_010_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_011_tile)return Tile.outdoors_sand_011_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_012_tile)return Tile.outdoors_sand_012_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_013_tile)return Tile.outdoors_sand_013_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_014_tile)return Tile.outdoors_sand_014_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_015_tile)return Tile.outdoors_sand_015_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_016_tile)return Tile.outdoors_sand_016_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_017_tile)return Tile.outdoors_sand_017_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_018_tile)return Tile.outdoors_sand_018_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_019_tile)return Tile.outdoors_sand_019_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_020_tile)return Tile.outdoors_sand_020_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_021_tile)return Tile.outdoors_sand_021_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_022_tile)return Tile.outdoors_sand_022_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_023_tile)return Tile.outdoors_sand_023_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sand_024_tile)return Tile.outdoors_sand_024_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_001_tile)return Tile.outdoors_grassstone_001_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_002_tile)return Tile.outdoors_grassstone_002_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_003_tile)return Tile.outdoors_grassstone_003_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_004_tile)return Tile.outdoors_grassstone_004_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_005_tile)return Tile.outdoors_grassstone_005_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_006_tile)return Tile.outdoors_grassstone_006_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_007_tile)return Tile.outdoors_grassstone_007_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_008_tile)return Tile.outdoors_grassstone_008_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_009_tile)return Tile.outdoors_grassstone_009_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_010_tile)return Tile.outdoors_grassstone_010_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_011_tile)return Tile.outdoors_grassstone_011_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_012_tile)return Tile.outdoors_grassstone_012_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_013_tile)return Tile.outdoors_grassstone_013_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_014_tile)return Tile.outdoors_grassstone_014_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_015_tile)return Tile.outdoors_grassstone_015_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_016_tile)return Tile.outdoors_grassstone_016_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_017_tile)return Tile.outdoors_grassstone_017_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_018_tile)return Tile.outdoors_grassstone_018_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_019_tile)return Tile.outdoors_grassstone_019_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_020_tile)return Tile.outdoors_grassstone_020_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_021_tile)return Tile.outdoors_grassstone_021_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_022_tile)return Tile.outdoors_grassstone_022_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_023_tile)return Tile.outdoors_grassstone_023_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grassstone_024_tile)return Tile.outdoors_grassstone_024_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_001_tile)return Tile.outdoors_dirtstone_001_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_002_tile)return Tile.outdoors_dirtstone_002_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_003_tile)return Tile.outdoors_dirtstone_003_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_004_tile)return Tile.outdoors_dirtstone_004_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_005_tile)return Tile.outdoors_dirtstone_005_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_006_tile)return Tile.outdoors_dirtstone_006_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_007_tile)return Tile.outdoors_dirtstone_007_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_008_tile)return Tile.outdoors_dirtstone_008_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_009_tile)return Tile.outdoors_dirtstone_009_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_010_tile)return Tile.outdoors_dirtstone_010_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_011_tile)return Tile.outdoors_dirtstone_011_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_012_tile)return Tile.outdoors_dirtstone_012_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_013_tile)return Tile.outdoors_dirtstone_013_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_014_tile)return Tile.outdoors_dirtstone_014_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_015_tile)return Tile.outdoors_dirtstone_015_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_016_tile)return Tile.outdoors_dirtstone_016_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_017_tile)return Tile.outdoors_dirtstone_017_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_018_tile)return Tile.outdoors_dirtstone_018_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_019_tile)return Tile.outdoors_dirtstone_019_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_020_tile)return Tile.outdoors_dirtstone_020_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_021_tile)return Tile.outdoors_dirtstone_021_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_022_tile)return Tile.outdoors_dirtstone_022_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_023_tile)return Tile.outdoors_dirtstone_023_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtstone_024_tile)return Tile.outdoors_dirtstone_024_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_001_tile)return Tile.outdoors_sandstone_001_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_002_tile)return Tile.outdoors_sandstone_002_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_003_tile)return Tile.outdoors_sandstone_003_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_004_tile)return Tile.outdoors_sandstone_004_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_005_tile)return Tile.outdoors_sandstone_005_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_006_tile)return Tile.outdoors_sandstone_006_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_007_tile)return Tile.outdoors_sandstone_007_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_008_tile)return Tile.outdoors_sandstone_008_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_009_tile)return Tile.outdoors_sandstone_009_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_010_tile)return Tile.outdoors_sandstone_010_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_011_tile)return Tile.outdoors_sandstone_011_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_012_tile)return Tile.outdoors_sandstone_012_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_013_tile)return Tile.outdoors_sandstone_013_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_014_tile)return Tile.outdoors_sandstone_014_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_015_tile)return Tile.outdoors_sandstone_015_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_016_tile)return Tile.outdoors_sandstone_016_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_017_tile)return Tile.outdoors_sandstone_017_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_018_tile)return Tile.outdoors_sandstone_018_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_019_tile)return Tile.outdoors_sandstone_019_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_020_tile)return Tile.outdoors_sandstone_020_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_021_tile)return Tile.outdoors_sandstone_021_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_022_tile)return Tile.outdoors_sandstone_022_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_023_tile)return Tile.outdoors_sandstone_023_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandstone_024_tile)return Tile.outdoors_sandstone_024_night_tile;			
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_001_tile)return Tile.outdoors_grasscliff_001_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_002_tile)return Tile.outdoors_grasscliff_002_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_003_tile)return Tile.outdoors_grasscliff_003_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_004_tile)return Tile.outdoors_grasscliff_004_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_005_tile)return Tile.outdoors_grasscliff_005_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_006_tile)return Tile.outdoors_grasscliff_006_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_007_tile)return Tile.outdoors_grasscliff_007_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_008_tile)return Tile.outdoors_grasscliff_008_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_009_tile)return Tile.outdoors_grasscliff_009_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_010_tile)return Tile.outdoors_grasscliff_010_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_011_tile)return Tile.outdoors_grasscliff_011_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_012_tile)return Tile.outdoors_grasscliff_012_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_013_tile)return Tile.outdoors_grasscliff_013_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_014_tile)return Tile.outdoors_grasscliff_014_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_015_tile)return Tile.outdoors_grasscliff_015_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_016_tile)return Tile.outdoors_grasscliff_016_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_017_tile)return Tile.outdoors_grasscliff_017_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_018_tile)return Tile.outdoors_grasscliff_018_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_019_tile)return Tile.outdoors_grasscliff_019_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_020_tile)return Tile.outdoors_grasscliff_020_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_021_tile)return Tile.outdoors_grasscliff_021_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_022_tile)return Tile.outdoors_grasscliff_022_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_023_tile)return Tile.outdoors_grasscliff_023_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_024_tile)return Tile.outdoors_grasscliff_024_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_025_tile)return Tile.outdoors_grasscliff_025_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_026_tile)return Tile.outdoors_grasscliff_026_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_027_tile)return Tile.outdoors_grasscliff_027_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_028_tile)return Tile.outdoors_grasscliff_028_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_029_tile)return Tile.outdoors_grasscliff_029_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_030_tile)return Tile.outdoors_grasscliff_030_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_031_tile)return Tile.outdoors_grasscliff_031_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_032_tile)return Tile.outdoors_grasscliff_032_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_033_tile)return Tile.outdoors_grasscliff_033_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_034_tile)return Tile.outdoors_grasscliff_034_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_035_tile)return Tile.outdoors_grasscliff_035_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_036_tile)return Tile.outdoors_grasscliff_036_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_037_tile)return Tile.outdoors_grasscliff_037_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_038_tile)return Tile.outdoors_grasscliff_038_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_039_tile)return Tile.outdoors_grasscliff_039_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_grasscliff_040_tile)return Tile.outdoors_grasscliff_040_night_tile;			
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_001_tile)return Tile.outdoors_dirtcliff_001_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_002_tile)return Tile.outdoors_dirtcliff_002_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_003_tile)return Tile.outdoors_dirtcliff_003_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_004_tile)return Tile.outdoors_dirtcliff_004_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_005_tile)return Tile.outdoors_dirtcliff_005_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_006_tile)return Tile.outdoors_dirtcliff_006_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_007_tile)return Tile.outdoors_dirtcliff_007_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_008_tile)return Tile.outdoors_dirtcliff_008_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_009_tile)return Tile.outdoors_dirtcliff_009_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_010_tile)return Tile.outdoors_dirtcliff_010_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_011_tile)return Tile.outdoors_dirtcliff_011_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_012_tile)return Tile.outdoors_dirtcliff_012_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_013_tile)return Tile.outdoors_dirtcliff_013_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_014_tile)return Tile.outdoors_dirtcliff_014_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_015_tile)return Tile.outdoors_dirtcliff_015_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_016_tile)return Tile.outdoors_dirtcliff_016_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_017_tile)return Tile.outdoors_dirtcliff_017_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_018_tile)return Tile.outdoors_dirtcliff_018_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_019_tile)return Tile.outdoors_dirtcliff_019_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_020_tile)return Tile.outdoors_dirtcliff_020_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_021_tile)return Tile.outdoors_dirtcliff_021_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_022_tile)return Tile.outdoors_dirtcliff_022_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_023_tile)return Tile.outdoors_dirtcliff_023_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_024_tile)return Tile.outdoors_dirtcliff_024_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_025_tile)return Tile.outdoors_dirtcliff_025_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_026_tile)return Tile.outdoors_dirtcliff_026_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_027_tile)return Tile.outdoors_dirtcliff_027_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_028_tile)return Tile.outdoors_dirtcliff_028_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_029_tile)return Tile.outdoors_dirtcliff_029_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_030_tile)return Tile.outdoors_dirtcliff_030_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_031_tile)return Tile.outdoors_dirtcliff_031_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_032_tile)return Tile.outdoors_dirtcliff_032_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_033_tile)return Tile.outdoors_dirtcliff_033_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_034_tile)return Tile.outdoors_dirtcliff_034_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_035_tile)return Tile.outdoors_dirtcliff_035_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_036_tile)return Tile.outdoors_dirtcliff_036_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_037_tile)return Tile.outdoors_dirtcliff_037_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_038_tile)return Tile.outdoors_dirtcliff_038_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_039_tile)return Tile.outdoors_dirtcliff_039_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_dirtcliff_040_tile)return Tile.outdoors_dirtcliff_040_night_tile;			
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_001_tile)return Tile.outdoors_sandcliff_001_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_002_tile)return Tile.outdoors_sandcliff_002_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_003_tile)return Tile.outdoors_sandcliff_003_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_004_tile)return Tile.outdoors_sandcliff_004_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_005_tile)return Tile.outdoors_sandcliff_005_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_006_tile)return Tile.outdoors_sandcliff_006_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_007_tile)return Tile.outdoors_sandcliff_007_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_008_tile)return Tile.outdoors_sandcliff_008_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_009_tile)return Tile.outdoors_sandcliff_009_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_010_tile)return Tile.outdoors_sandcliff_010_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_011_tile)return Tile.outdoors_sandcliff_011_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_012_tile)return Tile.outdoors_sandcliff_012_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_013_tile)return Tile.outdoors_sandcliff_013_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_014_tile)return Tile.outdoors_sandcliff_014_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_015_tile)return Tile.outdoors_sandcliff_015_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_016_tile)return Tile.outdoors_sandcliff_016_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_017_tile)return Tile.outdoors_sandcliff_017_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_018_tile)return Tile.outdoors_sandcliff_018_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_019_tile)return Tile.outdoors_sandcliff_019_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_020_tile)return Tile.outdoors_sandcliff_020_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_021_tile)return Tile.outdoors_sandcliff_021_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_022_tile)return Tile.outdoors_sandcliff_022_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_023_tile)return Tile.outdoors_sandcliff_023_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_024_tile)return Tile.outdoors_sandcliff_024_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_025_tile)return Tile.outdoors_sandcliff_025_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_026_tile)return Tile.outdoors_sandcliff_026_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_027_tile)return Tile.outdoors_sandcliff_027_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_028_tile)return Tile.outdoors_sandcliff_028_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_029_tile)return Tile.outdoors_sandcliff_029_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_030_tile)return Tile.outdoors_sandcliff_030_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_031_tile)return Tile.outdoors_sandcliff_031_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_032_tile)return Tile.outdoors_sandcliff_032_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_033_tile)return Tile.outdoors_sandcliff_033_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_034_tile)return Tile.outdoors_sandcliff_034_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_035_tile)return Tile.outdoors_sandcliff_035_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_036_tile)return Tile.outdoors_sandcliff_036_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_037_tile)return Tile.outdoors_sandcliff_037_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_038_tile)return Tile.outdoors_sandcliff_038_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_039_tile)return Tile.outdoors_sandcliff_039_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_040_tile)return Tile.outdoors_sandcliff_040_night_tile;		
+		}
+		
+		return Tile.outdoors_sandwater_016_tile;
+		//return Tile.outdoors_grasscliff_018_tile;
 	}
 }
