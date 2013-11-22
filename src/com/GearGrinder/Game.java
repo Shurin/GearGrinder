@@ -363,8 +363,6 @@ public class Game extends Canvas implements Runnable {
 			nightTime = false;
 		}
 		
-		System.out.println("night status: " + nightTime + "    hours = " + hours);
-		
 		if(uicached == false) uicache();
 		BufferStrategy bs = getBufferStrategy();
 		if (bs == null) {
