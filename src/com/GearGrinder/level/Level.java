@@ -38,6 +38,7 @@ public class Level {
 
 	public static Level world = new SpawnLevel("/levels/world.png");
 	public static Level dungeon1 = new SpawnLevel("/levels/dungeon1.png");
+	public static Level noobisland = new SpawnLevel("/levels/noobisland.png");
 
 	public Level(int width, int height) {
 		this.width = width;

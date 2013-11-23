@@ -175,6 +175,9 @@ public class Game extends Canvas implements Runnable {
 		}else if(InitialStat.DB_Zone.equals("dungeon1")){
 			level = level.dungeon1;
 			currentzone = "dungeon1";
+		}else if(InitialStat.DB_Zone.equals("noobisland")){
+			level = level.noobisland;
+			currentzone = "noobisland";
 		}
 
 		player = new Player(PlayerSpawnX, PlayerSpawnY, key);
