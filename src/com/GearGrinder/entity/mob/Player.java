@@ -67,45 +67,49 @@ public class Player extends Mob{
 		if (input.up){
 			animSprite = up;
 			InitialStat.PSpriteDir = "up";
-			ya--;
+			//ya--;
+			ya-=10; //default is 1.5
 		} else if (input.down){
 			animSprite = down;
 			InitialStat.PSpriteDir = "down";
-			ya++;
+			//ya++;
+			ya+=20; //default is 1.5
 		}
 		if (input.left){
 			animSprite = left;
 			InitialStat.PSpriteDir = "left";
-			xa--;
+			//xa--;
+			xa-=20; //default is 1.5
 		} else if (input.right){
 			animSprite = right;
 			InitialStat.PSpriteDir = "right";
-			xa++;		
+			//xa++;
+			xa+=20; //default is 1.5
 		}
 		//sprint stuff
 		if (input.up && input.sprint && InitialStat.currentstamina > 0){
 			animSprite = up;
 			InitialStat.PSpriteDir = "up";
-			ya-=1.5;
+			ya-=20; //default is 1.5
 			InitialStat.staminapercent = InitialStat.currentstamina / InitialStat.maxstamina * 100;
 			InitialStat.currentstamina-- ;
 		} else if (input.down && input.sprint && InitialStat.currentstamina > 0){
 			animSprite = down;
 			InitialStat.PSpriteDir = "down";
-			ya+=1.5;
+			ya+=20; //default is 1.5
 			InitialStat.staminapercent = InitialStat.currentstamina / InitialStat.maxstamina * 100;
 			InitialStat.currentstamina--;
 		}
 		if (input.left && input.sprint && InitialStat.currentstamina > 0){
 			animSprite = left;
 			InitialStat.PSpriteDir = "left";
-			xa-=1.5;
+			xa-=20; //default is 1.5
 			InitialStat.staminapercent = InitialStat.currentstamina / InitialStat.maxstamina * 100;
 			InitialStat.currentstamina--;
 		} else if (input.right && input.sprint && InitialStat.currentstamina > 0){
 			animSprite = right;
 			InitialStat.PSpriteDir = "right";
-			xa+=1.5;	
+			xa+=20;	//default is 1.5
 			InitialStat.staminapercent = InitialStat.currentstamina / InitialStat.maxstamina * 100;
 			InitialStat.currentstamina--;
 		}		
