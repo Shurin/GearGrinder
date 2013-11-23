@@ -179,7 +179,11 @@ public class Game extends Canvas implements Runnable {
 			level = level.noobisland;
 			currentzone = "noobisland";
 		}
-
+		
+		if(InitialStat.PSprite.equals("psprite002")){
+			Player.spritefix();
+		}
+		
 		player = new Player(PlayerSpawnX, PlayerSpawnY, key);
 		level.add(player);
 

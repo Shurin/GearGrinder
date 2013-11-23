@@ -23,32 +23,44 @@ public class Player extends Mob{
 	private int anim = 0;
 	private boolean walking = false;
 	private int fireRate = 0;
-	private AnimatedSprite down = new AnimatedSprite(SpriteSheet.player_down, 32, 32, 3);
+	private static AnimatedSprite down = new AnimatedSprite(SpriteSheet.player_down, 32, 32, 3);
 	private AnimatedSprite up = new AnimatedSprite(SpriteSheet.player_up, 32, 32, 3);
 	private AnimatedSprite left = new AnimatedSprite(SpriteSheet.player_left, 32, 32, 3);
 	private AnimatedSprite right = new AnimatedSprite(SpriteSheet.player_right, 32, 32, 3);
 	//player2
-	private AnimatedSprite down2 = new AnimatedSprite(SpriteSheet.player2_down, 32, 32, 3);
+	private static AnimatedSprite down2 = new AnimatedSprite(SpriteSheet.player2_down, 32, 32, 3);
 	private AnimatedSprite up2 = new AnimatedSprite(SpriteSheet.player2_up, 32, 32, 3);
 	private AnimatedSprite left2 = new AnimatedSprite(SpriteSheet.player2_left, 32, 32, 3);
 	private AnimatedSprite right2 = new AnimatedSprite(SpriteSheet.player2_right, 32, 32, 3);
-	private AnimatedSprite animSprite = down;
+	private static AnimatedSprite animSprite = down;
 	
 	public static boolean helpshow = false;
 	public static boolean invshow = false;
 	public static boolean charshow = false;	
 	
 	
+	public static void spritefix(){
+		animSprite = down2;
+	}
+	
 	public Player(Keyboard input){
 		this.input = input;
-		sprite = Sprite.player_down;
+		if(InitialStat.PSprite.equals("psprite001")){
+			sprite = Sprite.player_down;
+		}else if(InitialStat.PSprite.equals("psprite002")){
+			sprite = Sprite.player2_down;
+		}
 	}
 	
 	public Player(int x, int y, Keyboard input){
 		this.x = x;
 		this.y = y;
 		this.input = input;
-		sprite = Sprite.player_down;
+		if(InitialStat.PSprite.equals("psprite001")){
+			sprite = Sprite.player_down;
+		}else if(InitialStat.PSprite.equals("psprite002")){
+			sprite = Sprite.player2_down;
+		}
 		fireRate = WizardProjectile.FIRE_RATE;
 	}
 	
@@ -65,49 +77,81 @@ public class Player extends Mob{
 			InitialStat.healthpercent = InitialStat.currenthealth / InitialStat.maxhealth * 100;			
 		}
 		if (input.up){
-			animSprite = up;
+			if(InitialStat.PSprite.equals("psprite001")){
+				animSprite = up;
+			}else if(InitialStat.PSprite.equals("psprite002")){
+				animSprite = up2;
+			}
 			InitialStat.PSpriteDir = "up";
 			//ya--;
 			ya-=10; //default is 1.5
 		} else if (input.down){
-			animSprite = down;
+			if(InitialStat.PSprite.equals("psprite001")){
+				animSprite = down;
+			}else if(InitialStat.PSprite.equals("psprite002")){
+				animSprite = down2;
+			}
 			InitialStat.PSpriteDir = "down";
 			//ya++;
 			ya+=20; //default is 1.5
 		}
 		if (input.left){
-			animSprite = left;
+			if(InitialStat.PSprite.equals("psprite001")){
+				animSprite = left;
+			}else if(InitialStat.PSprite.equals("psprite002")){
+				animSprite = left2;
+			}
 			InitialStat.PSpriteDir = "left";
 			//xa--;
 			xa-=20; //default is 1.5
 		} else if (input.right){
-			animSprite = right;
+			if(InitialStat.PSprite.equals("psprite001")){
+				animSprite = right;
+			}else if(InitialStat.PSprite.equals("psprite002")){
+				animSprite = right2;
+			}
 			InitialStat.PSpriteDir = "right";
 			//xa++;
 			xa+=20; //default is 1.5
 		}
 		//sprint stuff
 		if (input.up && input.sprint && InitialStat.currentstamina > 0){
-			animSprite = up;
+			if(InitialStat.PSprite.equals("psprite001")){
+				animSprite = up;
+			}else if(InitialStat.PSprite.equals("psprite002")){
+				animSprite = up2;
+			}
 			InitialStat.PSpriteDir = "up";
 			ya-=20; //default is 1.5
 			InitialStat.staminapercent = InitialStat.currentstamina / InitialStat.maxstamina * 100;
 			InitialStat.currentstamina-- ;
 		} else if (input.down && input.sprint && InitialStat.currentstamina > 0){
-			animSprite = down;
+			if(InitialStat.PSprite.equals("psprite001")){
+				animSprite = down;
+			}else if(InitialStat.PSprite.equals("psprite002")){
+				animSprite = down2;
+			}
 			InitialStat.PSpriteDir = "down";
 			ya+=20; //default is 1.5
 			InitialStat.staminapercent = InitialStat.currentstamina / InitialStat.maxstamina * 100;
 			InitialStat.currentstamina--;
 		}
 		if (input.left && input.sprint && InitialStat.currentstamina > 0){
-			animSprite = left;
+			if(InitialStat.PSprite.equals("psprite001")){
+				animSprite = left;
+			}else if(InitialStat.PSprite.equals("psprite002")){
+				animSprite = left2;
+			}
 			InitialStat.PSpriteDir = "left";
 			xa-=20; //default is 1.5
 			InitialStat.staminapercent = InitialStat.currentstamina / InitialStat.maxstamina * 100;
 			InitialStat.currentstamina--;
 		} else if (input.right && input.sprint && InitialStat.currentstamina > 0){
-			animSprite = right;
+			if(InitialStat.PSprite.equals("psprite001")){
+				animSprite = right;
+			}else if(InitialStat.PSprite.equals("psprite002")){
+				animSprite = right2;
+			}
 			InitialStat.PSpriteDir = "right";
 			xa+=20;	//default is 1.5
 			InitialStat.staminapercent = InitialStat.currentstamina / InitialStat.maxstamina * 100;
