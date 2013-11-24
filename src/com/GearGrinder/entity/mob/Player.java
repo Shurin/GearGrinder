@@ -249,7 +249,4 @@ public class Player extends Mob{
 			}
 		}
 	}
-	
-	public void CharPanel(){
-	}
 }

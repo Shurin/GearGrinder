@@ -36,9 +36,9 @@ public class Level {
 	public static int proyt;
 	public static int prodamage;
 
-	public static Level world = new SpawnLevel("/levels/world.png");
-	public static Level dungeon1 = new SpawnLevel("/levels/dungeon1.png");
-	public static Level noobisland = new SpawnLevel("/levels/noobisland.png");
+	public static Level world = new SpawnLevel("/levels/world_base.png");
+	public static Level dungeon1 = new SpawnLevel("/levels/dungeon1_base.png");
+	public static Level noobisland = new SpawnLevel("/levels/noobisland_base.png");
 
 	public Level(int width, int height) {
 		this.width = width;
@@ -48,6 +48,12 @@ public class Level {
 	}
 
 	public Level(String path) { // loads level from file
+		/*String mid = "_mid.png";
+		String top = "_top.png";
+		String[] parts = path.split("_");
+		String layer2 = parts[0] + mid;
+		String layer3 = parts[0] + top;		
+		System.out.println(path + "||" + layer2 + "||" + layer3);*/
 		loadLevel(path);
 		generateLevel();
 	}
