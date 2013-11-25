@@ -26,10 +26,6 @@ public class Level {
 	private List<Particle> particles = new ArrayList<Particle>();
 	private List<Player> players = new ArrayList<Player>();
 	
-	public static int mobxl;//boundaries for mob
-	public static int mobyb;
-	public static int mobxr;
-	public static int mobyt;
 	public static int proxl;//boundaries for projectile
 	public static int proyb;
 	public static int proxr;
@@ -111,19 +107,12 @@ public class Level {
 		boolean hit = false;
 		for (int i = 0; i < entities.size(); i++) {
 			if(projectiles.size() >= 0){
-				String mobname = entities.get(i).getName();
-				if(mobname == "ninjabot" || mobname == "ninjabotboss"){//sets boundaries for ninjabot/ninjabot boss mobs
-					mobxl = entities.get(i).getX() - 13;
-					mobyb = entities.get(i).getY() - 16;
-					mobxr = entities.get(i).getX() + 10;
-					mobyt = entities.get(i).getY() + 16;
-				}
 				for (int j = 0; j < projectiles.size(); j++) {
 					int prox = projectiles.get(j).getX();
 					int proy = projectiles.get(j).getY();
 					prodamage = projectiles.get(j).getDamage();
 					String name = projectiles.get(j).getName();
-					if(((prox >= mobxl) && (proy >= mobyb )) && ((prox <= mobxr) && (proy <= mobyt))){
+					if(((prox >= entities.get(i).getXL()) && (proy <= entities.get(i).getYT())) && ((prox <= entities.get(i).getXR()) && (proy >= entities.get(i).getYB()))){
 						entities.get(i).takeDmg(prodamage);
 						if(entities.get(i).getHP() <=0){
 							entities.get(i).remove();

@@ -16,6 +16,11 @@ public class Entity {
 	protected Sprite sprite;
 	protected String Name;
 	protected int mobHP;
+	protected int mobXL;
+	protected int mobXR;
+	protected int mobYT;
+	protected int mobYB;
+	
 	private boolean removed = false;
 	protected Level level;
 	protected final Random random = new Random();
@@ -31,6 +36,10 @@ public class Entity {
 		this.sprite = sprite;		
 		this.Name = Name;
 		this.mobHP = mobHP;
+		this.mobXL = mobXL;
+		this.mobXR = mobXR;
+		this.mobYB = mobYB;
+		this.mobYT = mobYT;
 	}
 	
 	public void update(){
@@ -52,6 +61,22 @@ public class Entity {
 	
 	public int getY(){
 		return y;
+	}
+	
+	public int getXL(){
+		return mobXL;
+	}
+	
+	public int getXR(){
+		return mobXR;
+	}
+	
+	public int getYT(){
+		return mobYT;
+	}
+	
+	public int getYB(){
+		return mobYB;
 	}
 	
 	public int getHP(){

@@ -25,6 +25,7 @@ public class NinjaBot extends Mob{
 		sprite = Sprite.ninjabot;
 		this.Name = "ninjabot";
 		this.mobHP = 200;
+		
 	}
 	
 	public void update() {
@@ -60,6 +61,11 @@ public class NinjaBot extends Mob{
 		} else {
 			walking = false;
 		}
+		
+		this.mobXL = getX() - 10;
+		this.mobXR = getX() + 10;
+		this.mobYB = getY() - 22; //this is actually the top edge
+		this.mobYT = getY() + 10; //this is actually the bottom edge
 	}
 
 	public void render(Screen screen) {

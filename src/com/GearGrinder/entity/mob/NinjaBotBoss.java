@@ -20,23 +20,12 @@ public class NinjaBotBoss extends Mob{
 	private int xa = 0;
 	private int ya = 0;
 	
-	public static int health = 100000;
-	public static double currenthealth = health;
-	public static double maxhealth = health;
-	public static double healthpercent = currenthealth / maxhealth * 100;
-	public static int magic = 300;
-	public static double currentmagic = magic;
-	public static double maxmagic = magic;
-	public static double magicpercent = currentmagic / maxmagic * 100;
-	public static int stamina = 150;
-	public static double currentstamina = stamina;
-	public static double maxstamina = stamina;
-	public static double staminapercent = currentstamina / maxstamina * 100;
-	
 	public NinjaBotBoss(int x, int y){
 		this.x = x * 16;
 		this.y = y * 16;
 		sprite = Sprite.ninjabotboss;
+		this.Name = "ninjabotboss";
+		this.mobHP = 2000;
 	}
 	
 	private void move(){
@@ -76,6 +65,10 @@ public class NinjaBotBoss extends Mob{
 			animSprite = right;
 			dir = Direction.RIGHT;
 		}
+		this.mobXL = getX() - 10;
+		this.mobXR = getX() + 10;
+		this.mobYB = getY() - 22; //this is actually the top edge
+		this.mobYT = getY() + 10; //this is actually the bottom edge
 	}
 	
 	public void render(Screen screen) {
