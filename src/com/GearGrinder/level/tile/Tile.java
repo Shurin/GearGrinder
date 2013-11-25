@@ -1055,7 +1055,7 @@ public class Tile {
 	public final static  int col_outdoors_grassdirt_006_tile = 0xFF42E2FF;
 	public final static  int col_outdoors_grassdirt_007_tile = 0xFF4FE4FF;
 	public final static  int col_outdoors_grassdirt_008_tile = 0xFF5BE6FF;
-	public final static  int col_outdoors_grassdirt_009_tile = 0xFF68B8FF;
+	public final static  int col_outdoors_grassdirt_009_tile = 0xFF68E8FF;
 	public final static  int col_outdoors_grassdirt_010_tile = 0xFF75EAFF;
 	public final static  int col_outdoors_grassdirt_011_tile = 0xFF82ECFF;
 	public final static  int col_outdoors_grassdirt_012_tile = 0xFF8EEEFF;
