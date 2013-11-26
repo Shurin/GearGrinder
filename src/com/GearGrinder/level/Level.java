@@ -21,7 +21,7 @@ public class Level {
 	protected int[] tiles;
 	protected int tile_size;
 
-	private List<Entity> entities = new ArrayList<Entity>();
+	public static List<Entity> entities = new ArrayList<Entity>();
 	private List<Projectile> projectiles = new ArrayList<Projectile>();
 	private List<Particle> particles = new ArrayList<Particle>();
 	private List<Player> players = new ArrayList<Player>();
