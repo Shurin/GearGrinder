@@ -599,23 +599,36 @@ public class Game extends Canvas implements Runnable {
 				int dtopX = width / 3 - 15;
 				int dtopY = height / 7;
 				int dtextY = dtopY + 87;
+				int nameX = dtopX + 244;
+				int nameOffset = Level.entities.get(npcDialog.npcindex).getName().length() * 4;
 				
-				g.drawImage(dialogwindow, dtopX, dtopY, null);				
+				g.drawImage(dialogwindow, dtopX, dtopY, null);
+				g.drawString(Level.entities.get(npcDialog.npcindex).getName(), nameX - nameOffset, dtopY + 42);
 				
 				for(int i = 0; i < textrows; i++){
 					int y = dtextY + 10;
 					g.drawString(Level.entities.get(npcDialog.npcindex).npcText().get(i), dtopX + 35, y);
 					dtextY = dtextY + 20;
 				}
+				if(Keyboard.dialog){
+					npcDialog.showDialog = false;
+				}
+			}else if(Level.entities.get(npcDialog.npcindex).npcType().equals("quest")){
+				int textrows = Level.entities.get(npcDialog.npcindex).npcText().size();
+				int dtopX = width / 3 - 15;
+				int dtopY = height / 7;
+				int dtextY = dtopY + 87;
+				int nameX = dtopX + 244;
+				int nameOffset = Level.entities.get(npcDialog.npcindex).getName().length() * 4;
 				
+				g.drawImage(dialogwindow, dtopX, dtopY, null);	
+				g.drawString(Level.entities.get(npcDialog.npcindex).getName(), nameX - nameOffset, dtopY + 42);
 				
-				//g.drawImage(dialogMiddle, width / 2, height / 2, null);
-				//g.drawImage(dialogMiddle, width / 2, height / 2, null);
-				//g.drawImage(dialogMiddle, width / 2, height / 2, null);
-				//g.drawImage(dialogMiddle, width / 2, height / 2, null);
-				//g.drawImage(dialogMiddle, width / 2, height / 2, null);
-				//g.drawImage(dialogBottom, width / 2, height / 2, null);
-
+				for(int i = 0; i < textrows; i++){
+					int y = dtextY + 10;
+					g.drawString(Level.entities.get(npcDialog.npcindex).npcText().get(i), dtopX + 35, y);
+					dtextY = dtextY + 20;
+				}
 				if(Keyboard.dialog){
 					npcDialog.showDialog = false;
 				}

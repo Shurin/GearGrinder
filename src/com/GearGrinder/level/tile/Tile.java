@@ -420,6 +420,10 @@ public class Tile {
 	public static Tile outdoors_sandcliff_038_tile = new SolidTile(Sprite.outdoors_sandcliff_038);
 	public static Tile outdoors_sandcliff_039_tile = new SolidTile(Sprite.outdoors_sandcliff_039);
 	public static Tile outdoors_sandcliff_040_tile = new SolidTile(Sprite.outdoors_sandcliff_040);
+	public static Tile outdoors_sandcliffgrass_001_tile = new SolidTile(Sprite.outdoors_sandcliffgrass_001);
+	public static Tile outdoors_sandcliffgrass_002_tile = new SolidTile(Sprite.outdoors_sandcliffgrass_002);
+	public static Tile outdoors_sandcliffgrass_003_tile = new SolidTile(Sprite.outdoors_sandcliffgrass_003);
+	public static Tile outdoors_sandcliffgrass_004_tile = new SolidTile(Sprite.outdoors_sandcliffgrass_004);
 	
 	//NIGHT TILES
 	public static Tile outdoors_grass_001_night_tile = new WalkableTile(Sprite.outdoors_grass_001_night);
@@ -830,6 +834,10 @@ public class Tile {
 	public static Tile outdoors_sandcliff_038_night_tile = new SolidTile(Sprite.outdoors_sandcliff_038_night);
 	public static Tile outdoors_sandcliff_039_night_tile = new SolidTile(Sprite.outdoors_sandcliff_039_night);
 	public static Tile outdoors_sandcliff_040_night_tile = new SolidTile(Sprite.outdoors_sandcliff_040_night);	
+	public static Tile outdoors_sandcliffgrass_001_night_tile = new SolidTile(Sprite.outdoors_sandcliffgrass_001_night);
+	public static Tile outdoors_sandcliffgrass_002_night_tile = new SolidTile(Sprite.outdoors_sandcliffgrass_002_night);
+	public static Tile outdoors_sandcliffgrass_003_night_tile = new SolidTile(Sprite.outdoors_sandcliffgrass_003_night);
+	public static Tile outdoors_sandcliffgrass_004_night_tile = new SolidTile(Sprite.outdoors_sandcliffgrass_004_night);
 	
 	// the colors that dictate what tiles are to be rendered
 	public final static  int col_outdoors_grass_001_tile = 0xFF7A45C2;
@@ -1240,7 +1248,10 @@ public class Tile {
 	public final static  int col_outdoors_sandcliff_038_tile = 0xFFFCD9A9;
 	public final static  int col_outdoors_sandcliff_039_tile = 0xFFFCDEB5;
 	public final static  int col_outdoors_sandcliff_040_tile = 0xFFFCE4C2;	
-
+	public final static  int col_outdoors_sandcliffgrass_001_tile = 0xFF63685D;
+	public final static  int col_outdoors_sandcliffgrass_002_tile = 0xFF656860;
+	public final static  int col_outdoors_sandcliffgrass_003_tile = 0xFF666863;
+	public final static  int col_outdoors_sandcliffgrass_004_tile = 0xFF676866;
 	
 	public final static int col_voidTile = 0x00000000;
 

@@ -13,16 +13,13 @@ public class SpriteSheet {
 	public int[] pixels;
 	public static String pstest = "/textures/sheets/playersprites.png";
 	
-	
-	public static SpriteSheet playersprites = new SpriteSheet("/textures/sheets/playersprites.png", 128); // 256 is the length of the spritesheet in pixels
-	public static SpriteSheet player2sprites = new SpriteSheet("/textures/sheets/player2sprites.png", 128); // 256 is the length of the spritesheet in pixels
+
+	// TILE SPRITE SHEETS //////////////////////////////////
 	public static SpriteSheet outdoor_tiles_1 = new SpriteSheet("/textures/sheets/outdoors_1.png", 640);
-	public static SpriteSheet outdoor_tiles_1_night = new SpriteSheet("/textures/sheets/outdoors_1_night.png", 640);
-	
-	
-	
-	
+	public static SpriteSheet outdoor_tiles_1_night = new SpriteSheet("/textures/sheets/outdoors_1_night.png", 640);	
+	// PROJECTILE SPRITE SHEETS ////////////////////////////
 	public static SpriteSheet projectile_wizard = new SpriteSheet("/textures/sheets/projectiles/wizard.png", 48); // 48 is the length of the spritesheet in pixels
+	// PLAYER SPRITE SHEETS ////////////////////////////////
 	//player
 	public static SpriteSheet player = new SpriteSheet("/textures/sheets/playersprites.png", 128, 96);
 	public static SpriteSheet player_down = new SpriteSheet(player, 2, 0, 1, 3, 32);
@@ -35,6 +32,7 @@ public class SpriteSheet {
 	public static SpriteSheet player2_up = new SpriteSheet(player2, 0, 0, 1, 3, 32);
 	public static SpriteSheet player2_right = new SpriteSheet(player2, 1, 0, 1, 3, 32);
 	public static SpriteSheet player2_left = new SpriteSheet(player2, 3, 0, 1, 3, 32);
+	//MOB SPRITE SHEETS ///////////////////////////////////
 	//Ninja Bot
 	public static SpriteSheet ninjabot = new SpriteSheet("/textures/sheets/ninjabot.png", 128, 96);
 	public static SpriteSheet ninjabot_down = new SpriteSheet(ninjabot, 2, 0, 1, 3, 32);
@@ -47,6 +45,14 @@ public class SpriteSheet {
 	public static SpriteSheet ninjabotboss_up = new SpriteSheet(ninjabotboss, 0, 0, 1, 3, 32);
 	public static SpriteSheet ninjabotboss_right = new SpriteSheet(ninjabotboss, 1, 0, 1, 3, 32);
 	public static SpriteSheet ninjabotboss_left = new SpriteSheet(ninjabotboss, 3, 0, 1, 3, 32);
+	//NPC SPRITE SHEETS ///////////////////////////////////
+	// weapon/armor smith
+	public static SpriteSheet smith = new SpriteSheet("/textures/sheets/NPCs/npc_smith.png", 128, 96);
+	public static SpriteSheet smith_down = new SpriteSheet(smith, 2, 0, 1, 3, 32);
+	public static SpriteSheet smith_up = new SpriteSheet(smith, 0, 0, 1, 3, 32);
+	public static SpriteSheet smith_right = new SpriteSheet(smith, 1, 0, 1, 3, 32);
+	public static SpriteSheet smith_left = new SpriteSheet(smith, 3, 0, 1, 3, 32);
+	
 	
 	private Sprite[] sprites;
 	

@@ -423,6 +423,10 @@ public class Sprite {
 	public static Sprite outdoors_sandcliff_038 = new Sprite(16, 23, 27, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_sandcliff_039 = new Sprite(16, 23, 28, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_sandcliff_040 = new Sprite(16, 23, 29, SpriteSheet.outdoor_tiles_1);	
+	public static Sprite outdoors_sandcliffgrass_001 = new Sprite(16, 10, 24, SpriteSheet.outdoor_tiles_1);
+	public static Sprite outdoors_sandcliffgrass_002 = new Sprite(16, 10, 25, SpriteSheet.outdoor_tiles_1);
+	public static Sprite outdoors_sandcliffgrass_003 = new Sprite(16, 11, 24, SpriteSheet.outdoor_tiles_1);
+	public static Sprite outdoors_sandcliffgrass_004 = new Sprite(16, 11, 25, SpriteSheet.outdoor_tiles_1);
 
 	
 	//NIGHT SPRITES
@@ -834,6 +838,10 @@ public class Sprite {
 	public static Sprite outdoors_sandcliff_038_night = new Sprite(16, 23, 27, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_sandcliff_039_night = new Sprite(16, 23, 28, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_sandcliff_040_night = new Sprite(16, 23, 29, SpriteSheet.outdoor_tiles_1_night);
+	public static Sprite outdoors_sandcliffgrass_001_night = new Sprite(16, 10, 24, SpriteSheet.outdoor_tiles_1_night);
+	public static Sprite outdoors_sandcliffgrass_002_night = new Sprite(16, 10, 25, SpriteSheet.outdoor_tiles_1_night);
+	public static Sprite outdoors_sandcliffgrass_003_night = new Sprite(16, 11, 24, SpriteSheet.outdoor_tiles_1_night);
+	public static Sprite outdoors_sandcliffgrass_004_night = new Sprite(16, 11, 25, SpriteSheet.outdoor_tiles_1_night);
 	
 
 	//PARTICLES
@@ -844,31 +852,31 @@ public class Sprite {
 	//PLAYER SPRITES
 	// _1 is right foot forward
 	// _2 is left foot forward
-	public static Sprite player_up = new Sprite (32, 0, 0, SpriteSheet.playersprites);
-	public static Sprite player_up_1 = new Sprite (32, 0, 1, SpriteSheet.playersprites);
-	public static Sprite player_up_2 = new Sprite (32, 0, 2, SpriteSheet.playersprites);
-	public static Sprite player_down = new Sprite (32, 2, 0, SpriteSheet.playersprites);
-	public static Sprite player_down_1 = new Sprite (32, 2, 1, SpriteSheet.playersprites);
-	public static Sprite player_down_2 = new Sprite (32, 2, 2, SpriteSheet.playersprites);	
-	public static Sprite player_left = new Sprite (32, 3, 0, SpriteSheet.playersprites);
-	public static Sprite player_left_1 = new Sprite (32, 3, 1, SpriteSheet.playersprites);	
-	public static Sprite player_left_2 = new Sprite (32, 3, 2, SpriteSheet.playersprites);
-	public static Sprite player_right = new Sprite (32, 1, 0, SpriteSheet.playersprites);	
-	public static Sprite player_right_1 = new Sprite (32, 1, 1, SpriteSheet.playersprites);
-	public static Sprite player_right_2 = new Sprite (32, 1, 2, SpriteSheet.playersprites);
+	public static Sprite player_up = new Sprite (32, 0, 0, SpriteSheet.player);
+	public static Sprite player_up_1 = new Sprite (32, 0, 1, SpriteSheet.player);
+	public static Sprite player_up_2 = new Sprite (32, 0, 2, SpriteSheet.player);
+	public static Sprite player_down = new Sprite (32, 2, 0, SpriteSheet.player);
+	public static Sprite player_down_1 = new Sprite (32, 2, 1, SpriteSheet.player);
+	public static Sprite player_down_2 = new Sprite (32, 2, 2, SpriteSheet.player);	
+	public static Sprite player_left = new Sprite (32, 3, 0, SpriteSheet.player);
+	public static Sprite player_left_1 = new Sprite (32, 3, 1, SpriteSheet.player);	
+	public static Sprite player_left_2 = new Sprite (32, 3, 2, SpriteSheet.player);
+	public static Sprite player_right = new Sprite (32, 1, 0, SpriteSheet.player);	
+	public static Sprite player_right_1 = new Sprite (32, 1, 1, SpriteSheet.player);
+	public static Sprite player_right_2 = new Sprite (32, 1, 2, SpriteSheet.player);
 	//PLAYER2 SPRITES
-	public static Sprite player2_up = new Sprite (32, 0, 0, SpriteSheet.player2sprites);
-	public static Sprite player2_up_1 = new Sprite (32, 0, 1, SpriteSheet.player2sprites);
-	public static Sprite player2_up_2 = new Sprite (32, 0, 2, SpriteSheet.player2sprites);
-	public static Sprite player2_down = new Sprite (32, 2, 0, SpriteSheet.player2sprites);
-	public static Sprite player2_down_1 = new Sprite (32, 2, 1, SpriteSheet.player2sprites);
-	public static Sprite player2_down_2 = new Sprite (32, 2, 2, SpriteSheet.player2sprites);	
-	public static Sprite player2_left = new Sprite (32, 3, 0, SpriteSheet.player2sprites);
-	public static Sprite player2_left_1 = new Sprite (32, 3, 1, SpriteSheet.player2sprites);	
-	public static Sprite player2_left_2 = new Sprite (32, 3, 2, SpriteSheet.player2sprites);
-	public static Sprite player2_right = new Sprite (32, 1, 0, SpriteSheet.player2sprites);	
-	public static Sprite player2_right_1 = new Sprite (32, 1, 1, SpriteSheet.player2sprites);
-	public static Sprite player2_right_2 = new Sprite (32, 1, 2, SpriteSheet.player2sprites);	
+	public static Sprite player2_up = new Sprite (32, 0, 0, SpriteSheet.player2);
+	public static Sprite player2_up_1 = new Sprite (32, 0, 1, SpriteSheet.player2);
+	public static Sprite player2_up_2 = new Sprite (32, 0, 2, SpriteSheet.player2);
+	public static Sprite player2_down = new Sprite (32, 2, 0, SpriteSheet.player2);
+	public static Sprite player2_down_1 = new Sprite (32, 2, 1, SpriteSheet.player2);
+	public static Sprite player2_down_2 = new Sprite (32, 2, 2, SpriteSheet.player2);	
+	public static Sprite player2_left = new Sprite (32, 3, 0, SpriteSheet.player2);
+	public static Sprite player2_left_1 = new Sprite (32, 3, 1, SpriteSheet.player2);	
+	public static Sprite player2_left_2 = new Sprite (32, 3, 2, SpriteSheet.player2);
+	public static Sprite player2_right = new Sprite (32, 1, 0, SpriteSheet.player2);	
+	public static Sprite player2_right_1 = new Sprite (32, 1, 1, SpriteSheet.player2);
+	public static Sprite player2_right_2 = new Sprite (32, 1, 2, SpriteSheet.player2);	
 	//
 	//MOB SPRITES
 	//

@@ -8,6 +8,7 @@ import com.GearGrinder.Networking.InitialStat;
 import com.GearGrinder.entity.Entity;
 import com.GearGrinder.entity.Projectile.Projectile;
 import com.GearGrinder.entity.mob.Player;
+import com.GearGrinder.entity.mob.npc_smith;
 import com.GearGrinder.entity.mob.testnpc;
 import com.GearGrinder.entity.mob.testnpc2;
 import com.GearGrinder.entity.particle.Particle;
@@ -113,8 +114,11 @@ public class Level {
 	}
 	
 	public void addMob(){
-		add(new testnpc(1777,763));
-		add(new testnpc2(1773,763));
+		if(Game.level == noobisland){
+			add(new npc_smith(1062,3687));
+			add(new testnpc(1777,763));
+			add(new testnpc2(1773,763));
+		}
 	}
 	
 	public void mobhit(){
@@ -686,6 +690,10 @@ public class Level {
 			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_038_tile)return Tile.outdoors_sandcliff_038_tile;
 			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_039_tile)return Tile.outdoors_sandcliff_039_tile;
 			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_040_tile)return Tile.outdoors_sandcliff_040_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffgrass_001_tile)return Tile.outdoors_sandcliff_001_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffgrass_002_tile)return Tile.outdoors_sandcliff_002_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffgrass_003_tile)return Tile.outdoors_sandcliff_003_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffgrass_004_tile)return Tile.outdoors_sandcliff_004_tile;
 			if (tiles[x + y * width] == Tile.col_voidTile)return Tile.voidTile;
 		
 		}else if(Game.nightTime){
@@ -1098,7 +1106,11 @@ public class Level {
 			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_037_tile)return Tile.outdoors_sandcliff_037_night_tile;
 			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_038_tile)return Tile.outdoors_sandcliff_038_night_tile;
 			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_039_tile)return Tile.outdoors_sandcliff_039_night_tile;
-			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_040_tile)return Tile.outdoors_sandcliff_040_night_tile;		
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_040_tile)return Tile.outdoors_sandcliff_040_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffgrass_001_tile)return Tile.outdoors_sandcliff_001_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffgrass_002_tile)return Tile.outdoors_sandcliff_002_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffgrass_003_tile)return Tile.outdoors_sandcliff_003_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffgrass_004_tile)return Tile.outdoors_sandcliff_004_night_tile;
 			if (tiles[x + y * width] == Tile.col_voidTile)return Tile.voidTile;
 		}
 		
