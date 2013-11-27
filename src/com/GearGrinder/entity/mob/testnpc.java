@@ -21,6 +21,7 @@ public class testnpc extends Mob{
 		this.y = y * 16;
 		sprite = Sprite.ninjabot;
 		this.Name = "a test npc";
+		this.mobHP = 2147483647;
 		this.npc = true;
 		this.npcType = "a simple test npc";
 		this.npcText = new ArrayList<String> ();
