@@ -117,6 +117,7 @@ public class Game extends Canvas implements Runnable {
 	private BufferedImage dialogTop = null;
 	private BufferedImage dialogMiddle = null;
 	private BufferedImage dialogBottom = null;
+	private BufferedImage dialogwindow = null;
 	//URLs to the image locations
 	URL inv = this.getClass().getResource("/hud/inventory.png");
 	URL invb1 = this.getClass().getResource("/hud/inventorybutton1.png");
@@ -151,6 +152,7 @@ public class Game extends Canvas implements Runnable {
 	URL dTop = this.getClass().getResource("/hud/dialog_top.png");
 	URL dMid = this.getClass().getResource("/hud/dialog_middle.png");
 	URL dBottom = this.getClass().getResource("/hud/dialog_bottom.png");
+	URL dwindow = this.getClass().getResource("/hud/dialog.png");
 	
 	private int savetick = 0;
 	
@@ -370,6 +372,7 @@ public class Game extends Canvas implements Runnable {
 			dialogTop = ImageIO.read(dTop);
 			dialogMiddle = ImageIO.read(dMid);
 			dialogBottom = ImageIO.read(dBottom);
+			dialogwindow = ImageIO.read(dwindow);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -593,57 +596,16 @@ public class Game extends Canvas implements Runnable {
 			g.drawString("dialog initiated", 50, 50);
 			if(Level.entities.get(npcDialog.npcindex).npcType().equals("a simple test npc")){
 				int textrows = Level.entities.get(npcDialog.npcindex).npcText().size();
-				int dtopX = width / 3;
+				int dtopX = width / 3 - 15;
 				int dtopY = height / 7;
-				int dmidY = dtopY + 47;
+				int dtextY = dtopY + 87;
 				
-				g.drawImage(dialogTop, dtopX, dtopY, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 10, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 20, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 30, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 40, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 50, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 60, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 70, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 80, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 90, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 100, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 110, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 120, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 130, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 140, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 150, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 160, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 170, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 180, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 190, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 200, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 210, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 220, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 230, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 240, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 250, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 260, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 270, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 280, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 290, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 300, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 310, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 320, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 330, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 340, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 350, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 360, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 370, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 380, null);
-				g.drawImage(dialogMiddle, dtopX, dmidY + 390, null);
-				g.drawImage(dialogBottom, dtopX, dmidY + 400, null);
+				g.drawImage(dialogwindow, dtopX, dtopY, null);				
 				
 				for(int i = 0; i < textrows; i++){
-					int y = dmidY + 10;
-					g.drawString(Level.entities.get(npcDialog.npcindex).npcText().get(i), dtopX + 15, y);
-					dmidY = dmidY + 20;
+					int y = dtextY + 10;
+					g.drawString(Level.entities.get(npcDialog.npcindex).npcText().get(i), dtopX + 35, y);
+					dtextY = dtextY + 20;
 				}
 				
 				
