@@ -313,8 +313,8 @@ public class Tile {
 	public static Tile outdoors_grasscliff_011_tile = new SolidTile(Sprite.outdoors_grasscliff_011);
 	public static Tile outdoors_grasscliff_012_tile = new SolidTile(Sprite.outdoors_grasscliff_012);
 	public static Tile outdoors_grasscliff_013_tile = new SolidTile(Sprite.outdoors_grasscliff_013);
-	public static Tile outdoors_grasscliff_014_tile = new SolidTile(Sprite.outdoors_grasscliff_014);
-	public static Tile outdoors_grasscliff_015_tile = new SolidTile(Sprite.outdoors_grasscliff_015);
+	public static Tile outdoors_grasscliff_014_tile = new WalkableTile(Sprite.outdoors_grasscliff_014);
+	public static Tile outdoors_grasscliff_015_tile = new WalkableTile(Sprite.outdoors_grasscliff_015);
 	public static Tile outdoors_grasscliff_016_tile = new SolidTile(Sprite.outdoors_grasscliff_016);
 	public static Tile outdoors_grasscliff_017_tile = new SolidTile(Sprite.outdoors_grasscliff_017);
 	public static Tile outdoors_grasscliff_018_tile = new SolidTile(Sprite.outdoors_grasscliff_018);
@@ -323,8 +323,8 @@ public class Tile {
 	public static Tile outdoors_grasscliff_021_tile = new SolidTile(Sprite.outdoors_grasscliff_021);
 	public static Tile outdoors_grasscliff_022_tile = new SolidTile(Sprite.outdoors_grasscliff_022);
 	public static Tile outdoors_grasscliff_023_tile = new SolidTile(Sprite.outdoors_grasscliff_023);
-	public static Tile outdoors_grasscliff_024_tile = new SolidTile(Sprite.outdoors_grasscliff_024);
-	public static Tile outdoors_grasscliff_025_tile = new SolidTile(Sprite.outdoors_grasscliff_025);
+	public static Tile outdoors_grasscliff_024_tile = new WalkableTile(Sprite.outdoors_grasscliff_024);
+	public static Tile outdoors_grasscliff_025_tile = new WalkableTile(Sprite.outdoors_grasscliff_025);
 	public static Tile outdoors_grasscliff_026_tile = new SolidTile(Sprite.outdoors_grasscliff_026);
 	public static Tile outdoors_grasscliff_027_tile = new SolidTile(Sprite.outdoors_grasscliff_027);
 	public static Tile outdoors_grasscliff_028_tile = new SolidTile(Sprite.outdoors_grasscliff_028);
@@ -353,8 +353,8 @@ public class Tile {
 	public static Tile outdoors_dirtcliff_011_tile = new SolidTile(Sprite.outdoors_dirtcliff_011);
 	public static Tile outdoors_dirtcliff_012_tile = new SolidTile(Sprite.outdoors_dirtcliff_012);
 	public static Tile outdoors_dirtcliff_013_tile = new SolidTile(Sprite.outdoors_dirtcliff_013);
-	public static Tile outdoors_dirtcliff_014_tile = new SolidTile(Sprite.outdoors_dirtcliff_014);
-	public static Tile outdoors_dirtcliff_015_tile = new SolidTile(Sprite.outdoors_dirtcliff_015);
+	public static Tile outdoors_dirtcliff_014_tile = new WalkableTile(Sprite.outdoors_dirtcliff_014);
+	public static Tile outdoors_dirtcliff_015_tile = new WalkableTile(Sprite.outdoors_dirtcliff_015);
 	public static Tile outdoors_dirtcliff_016_tile = new SolidTile(Sprite.outdoors_dirtcliff_016);
 	public static Tile outdoors_dirtcliff_017_tile = new SolidTile(Sprite.outdoors_dirtcliff_017);
 	public static Tile outdoors_dirtcliff_018_tile = new SolidTile(Sprite.outdoors_dirtcliff_018);
@@ -363,8 +363,8 @@ public class Tile {
 	public static Tile outdoors_dirtcliff_021_tile = new SolidTile(Sprite.outdoors_dirtcliff_021);
 	public static Tile outdoors_dirtcliff_022_tile = new SolidTile(Sprite.outdoors_dirtcliff_022);
 	public static Tile outdoors_dirtcliff_023_tile = new SolidTile(Sprite.outdoors_dirtcliff_023);
-	public static Tile outdoors_dirtcliff_024_tile = new SolidTile(Sprite.outdoors_dirtcliff_024);
-	public static Tile outdoors_dirtcliff_025_tile = new SolidTile(Sprite.outdoors_dirtcliff_025);
+	public static Tile outdoors_dirtcliff_024_tile = new WalkableTile(Sprite.outdoors_dirtcliff_024);
+	public static Tile outdoors_dirtcliff_025_tile = new WalkableTile(Sprite.outdoors_dirtcliff_025);
 	public static Tile outdoors_dirtcliff_026_tile = new SolidTile(Sprite.outdoors_dirtcliff_026);
 	public static Tile outdoors_dirtcliff_027_tile = new SolidTile(Sprite.outdoors_dirtcliff_027);
 	public static Tile outdoors_dirtcliff_028_tile = new SolidTile(Sprite.outdoors_dirtcliff_028);
@@ -393,8 +393,8 @@ public class Tile {
 	public static Tile outdoors_sandcliff_011_tile = new SolidTile(Sprite.outdoors_sandcliff_011);
 	public static Tile outdoors_sandcliff_012_tile = new SolidTile(Sprite.outdoors_sandcliff_012);
 	public static Tile outdoors_sandcliff_013_tile = new SolidTile(Sprite.outdoors_sandcliff_013);
-	public static Tile outdoors_sandcliff_014_tile = new SolidTile(Sprite.outdoors_sandcliff_014);
-	public static Tile outdoors_sandcliff_015_tile = new SolidTile(Sprite.outdoors_sandcliff_015);
+	public static Tile outdoors_sandcliff_014_tile = new WalkableTile(Sprite.outdoors_sandcliff_014);
+	public static Tile outdoors_sandcliff_015_tile = new WalkableTile(Sprite.outdoors_sandcliff_015);
 	public static Tile outdoors_sandcliff_016_tile = new SolidTile(Sprite.outdoors_sandcliff_016);
 	public static Tile outdoors_sandcliff_017_tile = new SolidTile(Sprite.outdoors_sandcliff_017);
 	public static Tile outdoors_sandcliff_018_tile = new SolidTile(Sprite.outdoors_sandcliff_018);
@@ -403,8 +403,8 @@ public class Tile {
 	public static Tile outdoors_sandcliff_021_tile = new SolidTile(Sprite.outdoors_sandcliff_021);
 	public static Tile outdoors_sandcliff_022_tile = new SolidTile(Sprite.outdoors_sandcliff_022);
 	public static Tile outdoors_sandcliff_023_tile = new SolidTile(Sprite.outdoors_sandcliff_023);
-	public static Tile outdoors_sandcliff_024_tile = new SolidTile(Sprite.outdoors_sandcliff_024);
-	public static Tile outdoors_sandcliff_025_tile = new SolidTile(Sprite.outdoors_sandcliff_025);
+	public static Tile outdoors_sandcliff_024_tile = new WalkableTile(Sprite.outdoors_sandcliff_024);
+	public static Tile outdoors_sandcliff_025_tile = new WalkableTile(Sprite.outdoors_sandcliff_025);
 	public static Tile outdoors_sandcliff_026_tile = new SolidTile(Sprite.outdoors_sandcliff_026);
 	public static Tile outdoors_sandcliff_027_tile = new SolidTile(Sprite.outdoors_sandcliff_027);
 	public static Tile outdoors_sandcliff_028_tile = new SolidTile(Sprite.outdoors_sandcliff_028);
