@@ -10,6 +10,7 @@ public class Tile {
 	public Sprite sprite;
 	
 	// tile definitions
+	public static Tile voidTile = new VoidTile(Sprite.voidSprite);
 	//DAY TILES
 	public static Tile outdoors_grass_001_tile = new WalkableTile(Sprite.outdoors_grass_001);
 	public static Tile outdoors_grass_002_tile = new WalkableTile(Sprite.outdoors_grass_002);
@@ -1241,7 +1242,7 @@ public class Tile {
 	public final static  int col_outdoors_sandcliff_040_tile = 0xFF012345;	
 
 	
-
+	public final static int col_voidTile = 0x00000000;
 
 
 	public Tile(Sprite sprite){

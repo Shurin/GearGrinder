@@ -1,6 +1,5 @@
 package com.GearGrinder.level;
 
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,9 +8,10 @@ import com.GearGrinder.Networking.InitialStat;
 import com.GearGrinder.entity.Entity;
 import com.GearGrinder.entity.Projectile.Projectile;
 import com.GearGrinder.entity.mob.Player;
+import com.GearGrinder.entity.mob.testnpc;
+import com.GearGrinder.entity.mob.testnpc2;
 import com.GearGrinder.entity.particle.Particle;
 import com.GearGrinder.graphics.Screen;
-import com.GearGrinder.input.Keyboard;
 import com.GearGrinder.level.tile.Tile;
 
 public class Level {
@@ -31,6 +31,7 @@ public class Level {
 	public static int proxr;
 	public static int proyt;
 	public static int prodamage;
+	public static int levelticker = 0;
 
 	public static Level world = new SpawnLevel("/levels/world_base.png");
 	public static Level dungeon1 = new SpawnLevel("/levels/dungeon1_base.png");
@@ -40,7 +41,6 @@ public class Level {
 		this.width = width;
 		this.height = height;
 		tilesInt = new int[width * height];
-		generateLevel();
 	}
 
 	public Level(String path) { // loads level from file
@@ -50,8 +50,17 @@ public class Level {
 		String layer2 = parts[0] + mid;
 		String layer3 = parts[0] + top;		
 		System.out.println(path + "||" + layer2 + "||" + layer3);*/
+		
 		loadLevel(path);
-		generateLevel();
+		//loadLevel(layer2);
+		//loadLevel(layer3);
+
+		levelticker++; // makes sure mobs are only spawned on the last run of Level();
+		if(levelticker == 6){
+			addMob();
+			levelticker = 0;
+		}else{
+		}
 	}
 
 	protected void generateLevel() { // creates random level
@@ -101,6 +110,11 @@ public class Level {
 			if (players.get(i).isRemoved())
 				players.remove(i);
 		}
+	}
+	
+	public void addMob(){
+		add(new testnpc(1777,763));
+		add(new testnpc2(1773,763));
 	}
 	
 	public void mobhit(){
@@ -672,6 +686,7 @@ public class Level {
 			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_038_tile)return Tile.outdoors_sandcliff_038_tile;
 			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_039_tile)return Tile.outdoors_sandcliff_039_tile;
 			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_040_tile)return Tile.outdoors_sandcliff_040_tile;
+			if (tiles[x + y * width] == Tile.col_voidTile)return Tile.voidTile;
 		
 		}else if(Game.nightTime){
 			//System.out.println("RENDERING NIGHT TILES!");
@@ -1084,6 +1099,7 @@ public class Level {
 			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_038_tile)return Tile.outdoors_sandcliff_038_night_tile;
 			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_039_tile)return Tile.outdoors_sandcliff_039_night_tile;
 			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_040_tile)return Tile.outdoors_sandcliff_040_night_tile;		
+			if (tiles[x + y * width] == Tile.col_voidTile)return Tile.voidTile;
 		}
 		
 		return Tile.outdoors_sandwater_016_tile;

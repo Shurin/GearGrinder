@@ -1,70 +1,52 @@
 package com.GearGrinder.entity.mob;
 
+import java.util.ArrayList;
+
 import com.GearGrinder.graphics.AnimatedSprite;
 import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.graphics.Sprite;
 import com.GearGrinder.graphics.SpriteSheet;
 
-public class NinjaBot extends Mob{
-	
+public class testnpc2 extends Mob{
+
 	private AnimatedSprite down = new AnimatedSprite(SpriteSheet.ninjabot_down, 32, 32, 3);
 	private AnimatedSprite up = new AnimatedSprite(SpriteSheet.ninjabot_up, 32, 32, 3);
 	private AnimatedSprite left = new AnimatedSprite(SpriteSheet.ninjabot_left, 32, 32, 3);
 	private AnimatedSprite right = new AnimatedSprite(SpriteSheet.ninjabot_right, 32, 32, 3);
 
-	private AnimatedSprite animSprite = down;
+	private AnimatedSprite animSprite = right;	
 	
-	private int time = 0;
-	private int xa = 0;
-	private int ya = 0;
-	
-	public NinjaBot(int x, int y){
+	public testnpc2(int x, int y){
 		this.x = x * 16;
 		this.y = y * 16;
 		sprite = Sprite.ninjabot;
-		this.Name = "ninjabot";
-		this.mobHP = 200;
-		this.npc = false;		
+		this.Name = "a test npc";
+		this.npc = true;
+		this.npcType = "a simple test npc";
+		this.npcText = new ArrayList<String> ();
+		npcText.add("Hello.");
+		npcText.add(" ");
+		npcText.add("I am the second test NPC.");
+		npcText.add(" ");
+		npcText.add("We will be used to test distinguishing");
+		npcText.add("between various types of NPCs.");
+		npcText.add(" ");
+		npcText.add(" ");
+		npcText.add(" ");
+		npcText.add(" ");
+		npcText.add(" ");
+		npcText.add(" ");
+		npcText.add(" ");
+		npcText.add("Please press ENTER to continue ...");
 	}
 	
 	public void update() {
-		time++;
-		if(time % 30 == 0){
-			xa = 0;
-			ya = 0;
-			if(random.nextInt(12) == 6){
-				xa = random.nextInt(3) - 1;
-				ya = random.nextInt(3) - 1;
-			}
-		}
-		
-		if(walking) animSprite.update();
-		else animSprite.setFrame(0);
-		if (ya < 0){
-			animSprite = up;
-			dir = Direction.UP;
-		} else if (ya > 0){
-			animSprite = down;
-			dir = Direction.DOWN;
-		}
-		if (xa < 0){
-			animSprite = left;
-			dir = Direction.LEFT;
-		} else if (xa > 0){
-			animSprite = right;
-			dir = Direction.RIGHT;
-		}
-		if(xa != 0 || ya != 0){
-			move(xa, ya);
-			walking = true;
-		} else {
-			walking = false;
-		}
 		
 		this.mobXL = getX() - 10;
 		this.mobXR = getX() + 10;
 		this.mobYB = getY() - 22; //this is actually the top edge
 		this.mobYT = getY() + 10; //this is actually the bottom edge
+		
 	}
 
 	public void render(Screen screen) {

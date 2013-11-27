@@ -1,5 +1,6 @@
 package com.GearGrinder.entity;
 
+import java.util.List;
 import java.util.Random;
 
 import com.GearGrinder.graphics.Screen;
@@ -20,6 +21,9 @@ public class Entity {
 	protected int mobXR;
 	protected int mobYT;
 	protected int mobYB;
+	protected boolean npc = false; //false = mob, true = npc
+	protected String npcType = null; //the type of npc
+	protected List<String> npcText= null; // the text/dialog for an npc
 	
 	private boolean removed = false;
 	protected Level level;
@@ -40,6 +44,9 @@ public class Entity {
 		this.mobXR = mobXR;
 		this.mobYB = mobYB;
 		this.mobYT = mobYT;
+		this.npc = npc;
+		this.npcType = npcType;
+		this.npcText = npcText;
 	}
 	
 	public void update(){
@@ -89,6 +96,18 @@ public class Entity {
 			mobHP = 0;
 		}
 		return mobHP;
+	}
+	
+	public boolean npc(){
+		return npc;
+	}
+	
+	public String npcType(){
+		return npcType;
+	}
+	
+	public List<String> npcText(){
+		return npcText;
 	}
 	
 	public Sprite getSprite(){

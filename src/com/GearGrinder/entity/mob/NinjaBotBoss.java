@@ -2,7 +2,6 @@ package com.GearGrinder.entity.mob;
 
 import java.util.List;
 
-import com.GearGrinder.entity.Projectile.Projectile;
 import com.GearGrinder.graphics.AnimatedSprite;
 import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.graphics.Sprite;
@@ -26,6 +25,7 @@ public class NinjaBotBoss extends Mob{
 		sprite = Sprite.ninjabotboss;
 		this.Name = "ninjabotboss";
 		this.mobHP = 2000;
+		this.npc = false;
 	}
 	
 	private void move(){

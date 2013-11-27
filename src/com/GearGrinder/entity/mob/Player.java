@@ -39,6 +39,8 @@ public class Player extends Mob{
 	public static boolean helpshow = false;
 	public static boolean invshow = false;
 	public static boolean charshow = false;	
+	public static boolean dialog = false;
+	protected int j;
 	
 	
 	public static void spritefix(){
@@ -163,7 +165,7 @@ public class Player extends Mob{
 				}
 				if(walkleft){
 					xa-=1.5;
-				}				
+				}	
 			}
 			
 			//sprint stuff
@@ -232,6 +234,42 @@ public class Player extends Mob{
 			System.exit(0);			
 		}		
 		
+		
+		/////
+		//check to see if player is interacting with an npc
+		/////
+		
+		for(int i = 0; i < Level.entities.size(); i++){
+			if(((Game.currentx >= Level.entities.get(i).getXL()) && (Game.currenty - 5 <= Level.entities.get(i).getYT())) && ((Game.currentx <= Level.entities.get(i).getXR()) && (Game.currenty >= Level.entities.get(i).getYB()))){
+				if(input.interacting == true && dialog == false && Level.entities.get(i).npc() == true){
+					dialog = true;
+					j=i;
+					//System.out.println("interacting from below");
+					npcDialog.initDialog(j);
+				}
+			}else if(((Game.currentx >= Level.entities.get(i).getXL()) && (Game.currenty <= Level.entities.get(i).getYT())) && ((Game.currentx <= Level.entities.get(i).getXR()) && (Game.currenty + 10 >= Level.entities.get(i).getYB()))){
+				if(input.interacting == true && dialog == false && Level.entities.get(i).npc() == true){
+					dialog = true;
+					j=i;
+					//System.out.println("interacting from above");
+					npcDialog.initDialog(j);
+				}
+			}else if(((Game.currentx >= Level.entities.get(i).getXL()) && (Game.currenty <= Level.entities.get(i).getYT())) && ((Game.currentx - 10 <= Level.entities.get(i).getXR()) && (Game.currenty >= Level.entities.get(i).getYB()))){
+				if(input.interacting == true && dialog == false && Level.entities.get(i).npc() == true){
+					dialog = true;
+					j=i;
+					//System.out.println("interacting from right");
+					npcDialog.initDialog(j);
+				}
+			}else if(((Game.currentx + 10 >= Level.entities.get(i).getXL()) && (Game.currenty <= Level.entities.get(i).getYT())) && ((Game.currentx <= Level.entities.get(i).getXR()) && (Game.currenty >= Level.entities.get(i).getYB()))){
+				if(input.interacting == true && dialog == false && Level.entities.get(i).npc() == true){
+					dialog = true;
+					j=i;
+					//System.out.println("interacting from left");
+					npcDialog.initDialog(j);
+				}
+			}
+		}
 		clear();
 		updateShooting();	
 	}

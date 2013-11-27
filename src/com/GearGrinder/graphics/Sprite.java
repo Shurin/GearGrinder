@@ -12,7 +12,7 @@ public class Sprite {
 
 	// Sprite can take in size, x, y, SpriteSheet.name
 	// OR it can take size and fixed color like below
-	public static Sprite voidSprite = new Sprite(16, 0x1B87E0);
+	public static Sprite voidSprite = new Sprite(16, 0x00000000);
 	//SPAWN LEVEL SPRITES
 	//DAY SPRITES	
 	public static Sprite outdoors_grass_001 = new Sprite(16, 0, 0, SpriteSheet.outdoor_tiles_1);
