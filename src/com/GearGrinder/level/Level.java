@@ -8,6 +8,8 @@ import com.GearGrinder.Networking.InitialStat;
 import com.GearGrinder.entity.Entity;
 import com.GearGrinder.entity.Projectile.Projectile;
 import com.GearGrinder.entity.mob.Player;
+import com.GearGrinder.entity.mob.campfire;
+import com.GearGrinder.entity.mob.npc_skills;
 import com.GearGrinder.entity.mob.npc_smith;
 import com.GearGrinder.entity.mob.testnpc;
 import com.GearGrinder.entity.mob.testnpc2;
@@ -118,6 +120,12 @@ public class Level {
 			add(new npc_smith(1062,3687));
 			add(new testnpc(1777,763));
 			add(new testnpc2(1773,763));
+			add(new npc_skills(1063, 3470));
+			add(new campfire(1061, 3476));
+			add(new campfire(1114, 3476));
+			add(new campfire(1061, 3470));
+			add(new campfire(1114, 3470));
+			add(new campfire(1062, 3685));
 		}
 	}
 	
@@ -159,10 +167,6 @@ public class Level {
 
 	public List<Projectile> getProjectiles() {
 		return projectiles;
-	}
-
-	private void time() { // manages the time in game ( day / night)
-
 	}
 
 	public boolean projectileCollision(int x, int y, int size, int xOffset,

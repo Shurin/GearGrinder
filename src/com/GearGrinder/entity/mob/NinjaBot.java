@@ -21,7 +21,7 @@ public class NinjaBot extends Mob{
 	public NinjaBot(int x, int y){
 		this.x = x * 16;
 		this.y = y * 16;
-		sprite = Sprite.ninjabot;
+		sprite = animSprite.getSprite();
 		this.Name = "ninjabot";
 		this.mobHP = 200;
 		this.npc = false;		

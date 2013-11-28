@@ -22,7 +22,7 @@ public class NinjaBotBoss extends Mob{
 	public NinjaBotBoss(int x, int y){
 		this.x = x * 16;
 		this.y = y * 16;
-		sprite = Sprite.ninjabotboss;
+		sprite = animSprite.getSprite();
 		this.Name = "ninjabotboss";
 		this.mobHP = 2000;
 		this.npc = false;

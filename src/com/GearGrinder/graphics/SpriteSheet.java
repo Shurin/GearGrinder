@@ -11,14 +11,18 @@ public class SpriteSheet {
 	public final int SIZE;
 	public final int WIDTH, HEIGHT;
 	public int[] pixels;
-	public static String pstest = "/textures/sheets/playersprites.png";
+	
 	
 
 	// TILE SPRITE SHEETS //////////////////////////////////
 	public static SpriteSheet outdoor_tiles_1 = new SpriteSheet("/textures/sheets/outdoors_1.png", 640);
 	public static SpriteSheet outdoor_tiles_1_night = new SpriteSheet("/textures/sheets/outdoors_1_night.png", 640);	
 	// PROJECTILE SPRITE SHEETS ////////////////////////////
-	public static SpriteSheet projectile_wizard = new SpriteSheet("/textures/sheets/projectiles/wizard.png", 48); // 48 is the length of the spritesheet in pixels
+	public static SpriteSheet projectile_wizard = new SpriteSheet("/textures/sheets/projectiles/wizard.png", 48); // 48 is the height of the spritesheet in pixels
+	// MISC SPRITES SHEETS
+	public static SpriteSheet campfire = new SpriteSheet("/textures/sheets/campfire.png", 32, 128);
+	public static SpriteSheet campfire_flames = new SpriteSheet(campfire, 0, 0, 1, 4, 32);
+	
 	// PLAYER SPRITE SHEETS ////////////////////////////////
 	//player
 	public static SpriteSheet player = new SpriteSheet("/textures/sheets/playersprites.png", 128, 96);
@@ -52,6 +56,11 @@ public class SpriteSheet {
 	public static SpriteSheet smith_up = new SpriteSheet(smith, 0, 0, 1, 3, 32);
 	public static SpriteSheet smith_right = new SpriteSheet(smith, 1, 0, 1, 3, 32);
 	public static SpriteSheet smith_left = new SpriteSheet(smith, 3, 0, 1, 3, 32);
+	public static SpriteSheet skills = new SpriteSheet("/textures/sheets/NPCs/npc_skills.png", 128, 96);
+	public static SpriteSheet skills_down = new SpriteSheet(skills, 2, 0, 1, 3, 32);
+	public static SpriteSheet skills_up = new SpriteSheet(skills, 0, 0, 1, 3, 32);
+	public static SpriteSheet skills_right = new SpriteSheet(skills, 1, 0, 1, 3, 32);
+	public static SpriteSheet skills_left = new SpriteSheet(skills, 3, 0, 1, 3, 32);
 	
 	
 	private Sprite[] sprites;

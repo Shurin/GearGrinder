@@ -4,37 +4,35 @@ import java.util.ArrayList;
 
 import com.GearGrinder.graphics.AnimatedSprite;
 import com.GearGrinder.graphics.Screen;
-import com.GearGrinder.graphics.Sprite;
 import com.GearGrinder.graphics.SpriteSheet;
 
-public class npc_smith extends Mob{
+public class npc_skills extends Mob{
+	private AnimatedSprite down = new AnimatedSprite(SpriteSheet.skills_down, 32, 32, 3);
+	private AnimatedSprite up = new AnimatedSprite(SpriteSheet.skills_up, 32, 32, 3);
+	private AnimatedSprite left = new AnimatedSprite(SpriteSheet.skills_left, 32, 32, 3);
+	private AnimatedSprite right = new AnimatedSprite(SpriteSheet.skills_right, 32, 32, 3);
 
-	private AnimatedSprite down = new AnimatedSprite(SpriteSheet.smith_down, 32, 32, 3);
-	private AnimatedSprite up = new AnimatedSprite(SpriteSheet.smith_up, 32, 32, 3);
-	private AnimatedSprite left = new AnimatedSprite(SpriteSheet.smith_left, 32, 32, 3);
-	private AnimatedSprite right = new AnimatedSprite(SpriteSheet.smith_right, 32, 32, 3);
-
-	private AnimatedSprite animSprite = down;	
+	private AnimatedSprite animSprite = right;	
 	
-	public npc_smith(int x, int y){
+	public npc_skills(int x, int y){
 		this.x = x * 16;
 		this.y = y * 16;
 		sprite = animSprite.getSprite();
-		this.Name = "Verdyn";
+		this.Name = "Ivin";
 		this.mobHP = 2147483647;
 		this.npc = true;
-		this.npcType = "quest";
+		this.npcType = "skills";
 		this.npcText = new ArrayList<String> ();
 		npcText.add("Hello.");
 		npcText.add(" ");
-		npcText.add("I am the NPC who tells you some story about how you got");
-		npcText.add("here. And I will start a quest chain, teaching you the");
-		npcText.add("basics of the game.");
+		npcText.add("I am a  general skill trainer");
+		npcText.add("We will all be the same throughout the world.");
 		npcText.add(" ");
-		npcText.add("In the process, I will have you kill some MOBs around");
-		npcText.add("here.");
 		npcText.add(" ");
-		npcText.add("You will receive some gold, some items, and some XP.");
+		npcText.add("You can learn new skills from us for a small");
+		npcText.add("fee, so long as your level is high enough.");
+		npcText.add(" ");
+		npcText.add("These will be non class specific skills.");
 		npcText.add(" ");
 		npcText.add(" ");
 		npcText.add(" ");

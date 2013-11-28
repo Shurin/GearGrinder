@@ -877,13 +877,7 @@ public class Sprite {
 	public static Sprite player2_right = new Sprite (32, 1, 0, SpriteSheet.player2);	
 	public static Sprite player2_right_1 = new Sprite (32, 1, 1, SpriteSheet.player2);
 	public static Sprite player2_right_2 = new Sprite (32, 1, 2, SpriteSheet.player2);	
-	//
-	//MOB SPRITES
-	//
-	//NINJA BOT
-	public static Sprite ninjabot = new Sprite(32, 0, 0, SpriteSheet.ninjabot_down);
-	//NINJA BOT BOSS
-	public static Sprite ninjabotboss = new Sprite(32, 0, 0, SpriteSheet.ninjabotboss_down);
+	
 	
 	
 	protected Sprite(SpriteSheet sheet, int width, int height){
