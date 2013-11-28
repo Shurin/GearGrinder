@@ -285,7 +285,7 @@ public class Level {
 	public Tile getTile(int x, int y) {
 		if(Game.nightTime == false){
 			//System.out.println("RENDER DAY TILES!");
-			if (x < 0 || y < 0 || x >= width || y >= height)return Tile.outdoors_grasscliff_018_tile;
+			if (x < 0 || y < 0 || x >= width || y >= height)return Tile.voidTile;
 			if (tiles[x + y * width] == Tile.col_outdoors_grass_001_tile)return Tile.outdoors_grass_001_tile;
 			if (tiles[x + y * width] == Tile.col_outdoors_grass_002_tile)return Tile.outdoors_grass_002_tile;
 			if (tiles[x + y * width] == Tile.col_outdoors_grass_003_tile)return Tile.outdoors_grass_003_tile;
@@ -694,15 +694,15 @@ public class Level {
 			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_038_tile)return Tile.outdoors_sandcliff_038_tile;
 			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_039_tile)return Tile.outdoors_sandcliff_039_tile;
 			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_040_tile)return Tile.outdoors_sandcliff_040_tile;
-			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffgrass_001_tile)return Tile.outdoors_sandcliff_001_tile;
-			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffgrass_002_tile)return Tile.outdoors_sandcliff_002_tile;
-			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffgrass_003_tile)return Tile.outdoors_sandcliff_003_tile;
-			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffgrass_004_tile)return Tile.outdoors_sandcliff_004_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffgrass_001_tile)return Tile.outdoors_sandcliffgrass_001_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffgrass_002_tile)return Tile.outdoors_sandcliffgrass_002_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffgrass_003_tile)return Tile.outdoors_sandcliffgrass_003_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffgrass_004_tile)return Tile.outdoors_sandcliffgrass_004_tile;
 			if (tiles[x + y * width] == Tile.col_voidTile)return Tile.voidTile;
 		
 		}else if(Game.nightTime){
 			//System.out.println("RENDERING NIGHT TILES!");
-			if (x < 0 || y < 0 || x >= width || y >= height)return Tile.outdoors_grasscliff_018_night_tile;
+			if (x < 0 || y < 0 || x >= width || y >= height)return Tile.voidTile;
 			if (tiles[x + y * width] == Tile.col_outdoors_grass_001_tile)return Tile.outdoors_grass_001_night_tile;
 			if (tiles[x + y * width] == Tile.col_outdoors_grass_002_tile)return Tile.outdoors_grass_002_night_tile;
 			if (tiles[x + y * width] == Tile.col_outdoors_grass_003_tile)return Tile.outdoors_grass_003_night_tile;
@@ -1111,14 +1111,14 @@ public class Level {
 			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_038_tile)return Tile.outdoors_sandcliff_038_night_tile;
 			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_039_tile)return Tile.outdoors_sandcliff_039_night_tile;
 			if (tiles[x + y * width] == Tile.col_outdoors_sandcliff_040_tile)return Tile.outdoors_sandcliff_040_night_tile;
-			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffgrass_001_tile)return Tile.outdoors_sandcliff_001_night_tile;
-			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffgrass_002_tile)return Tile.outdoors_sandcliff_002_night_tile;
-			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffgrass_003_tile)return Tile.outdoors_sandcliff_003_night_tile;
-			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffgrass_004_tile)return Tile.outdoors_sandcliff_004_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffgrass_001_tile)return Tile.outdoors_sandcliffgrass_001_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffgrass_002_tile)return Tile.outdoors_sandcliffgrass_002_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffgrass_003_tile)return Tile.outdoors_sandcliffgrass_003_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffgrass_004_tile)return Tile.outdoors_sandcliffgrass_004_night_tile;
 			if (tiles[x + y * width] == Tile.col_voidTile)return Tile.voidTile;
 		}
 		
-		return Tile.outdoors_sandwater_016_tile;
+		return Tile.voidTile;
 		//return Tile.outdoors_grasscliff_018_tile;
 	}
 }
