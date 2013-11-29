@@ -5,7 +5,7 @@ import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.graphics.SpriteSheet;
 
 public class campfire extends Mob{
-	private AnimatedSprite flames = new AnimatedSprite(SpriteSheet.campfire_flames, 32, 32, 4);
+	private AnimatedSprite flames = new AnimatedSprite(SpriteSheet.campfire_flames, 32, 32, 3);
 
 	private AnimatedSprite animSprite = flames;
 	

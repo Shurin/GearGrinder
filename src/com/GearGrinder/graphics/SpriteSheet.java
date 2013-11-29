@@ -22,7 +22,7 @@ public class SpriteSheet {
 	public static SpriteSheet green_orb = new SpriteSheet(projectile_wizard, 0, 0, 1, 3, 16);
 	// MISC SPRITES SHEETS
 	public static SpriteSheet campfire = new SpriteSheet("/textures/sheets/campfire.png", 32, 128);
-	public static SpriteSheet campfire_flames = new SpriteSheet(campfire, 0, 0, 1, 4, 32);
+	public static SpriteSheet campfire_flames = new SpriteSheet(campfire, 0, 0, 1, 3, 32);
 	
 	// PLAYER SPRITE SHEETS ////////////////////////////////
 	//player

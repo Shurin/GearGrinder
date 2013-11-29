@@ -5,7 +5,6 @@
 import com.GearGrinder.entity.spawner.ParticleSpawner;
 import com.GearGrinder.graphics.AnimatedSprite;
 import com.GearGrinder.graphics.Screen;
-import com.GearGrinder.graphics.Sprite;
 import com.GearGrinder.graphics.SpriteSheet;
 
 public class WizardProjectile extends Projectile{
