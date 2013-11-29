@@ -93,6 +93,22 @@ public class Screen {
 		}
 	}
 	
+	//animated projectile
+	public void renderProjectile(int xp, int yp, Projectile p, Sprite sprite) {
+		xp -= xOffset;
+		yp -= yOffset;
+		for (int y = 0; y < sprite.SIZE; y++) {
+			int ya = y + yp; // ya = actual y position
+			for (int x = 0; x < sprite.SIZE; x++) {
+				int xa = x + xp; // ya = actual y position
+				if (xa < -sprite.SIZE || xa >= width || ya < 0 || ya >= height)	break;
+				if(xa <0) xa = 0;
+				int col = sprite.pixels[x + y * sprite.SIZE];
+				if(col != 0xffff00ff) pixels[xa + ya * width] = col;
+			}
+		}
+	}
+	
 	public void renderMob(int xp, int yp, Sprite sprite){
 		// all player sprites are in 16 px chunks!!
 		xp -= xOffset;
