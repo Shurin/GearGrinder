@@ -1,13 +1,15 @@
 package com.GearGrinder.entity.mob;
 
+import com.GearGrinder.Game;
 import com.GearGrinder.graphics.AnimatedSprite;
 import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.graphics.SpriteSheet;
 
 public class campfire extends Mob{
 	private AnimatedSprite flames = new AnimatedSprite(SpriteSheet.campfire_flames, 32, 32, 3);
+	private AnimatedSprite noflames = new AnimatedSprite(SpriteSheet.campfire_noflames, 32, 32, 1);
 
-	private AnimatedSprite animSprite = flames;
+	private AnimatedSprite animSprite = noflames;
 	
 	public campfire(int x, int y){
 		this.x = x * 16;
@@ -19,6 +21,11 @@ public class campfire extends Mob{
 	}
 	
 	public void update() {
+		if(Game.nightTime){
+			animSprite = flames;
+		}else {
+			animSprite = noflames;
+		}
 			animSprite.update();			
 						
 		this.mobXL = getX() - 10;

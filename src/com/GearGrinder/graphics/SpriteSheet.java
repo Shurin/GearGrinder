@@ -23,6 +23,8 @@ public class SpriteSheet {
 	// MISC SPRITES SHEETS
 	public static SpriteSheet campfire = new SpriteSheet("/textures/sheets/campfire.png", 32, 128);
 	public static SpriteSheet campfire_flames = new SpriteSheet(campfire, 0, 0, 1, 3, 32);
+	public static SpriteSheet campfire_dead = new SpriteSheet("/textures/sheets/campfire_dead.png", 32, 32);
+	public static SpriteSheet campfire_noflames = new SpriteSheet(campfire_dead, 0, 0, 1, 1, 32);
 	
 	// PLAYER SPRITE SHEETS ////////////////////////////////
 	//player
@@ -57,6 +59,7 @@ public class SpriteSheet {
 	public static SpriteSheet smith_up = new SpriteSheet(smith, 0, 0, 1, 3, 32);
 	public static SpriteSheet smith_right = new SpriteSheet(smith, 1, 0, 1, 3, 32);
 	public static SpriteSheet smith_left = new SpriteSheet(smith, 3, 0, 1, 3, 32);
+	// general skill trainer
 	public static SpriteSheet skills = new SpriteSheet("/textures/sheets/NPCs/npc_skills.png", 128, 96);
 	public static SpriteSheet skills_down = new SpriteSheet(skills, 2, 0, 1, 3, 32);
 	public static SpriteSheet skills_up = new SpriteSheet(skills, 0, 0, 1, 3, 32);

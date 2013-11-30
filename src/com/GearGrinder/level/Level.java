@@ -698,6 +698,10 @@ public class Level {
 			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffgrass_002_tile)return Tile.outdoors_sandcliffgrass_002_tile;
 			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffgrass_003_tile)return Tile.outdoors_sandcliffgrass_003_tile;
 			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffgrass_004_tile)return Tile.outdoors_sandcliffgrass_004_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffcave_001_tile)return Tile.outdoors_sandcliffcave_001_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffcave_002_tile)return Tile.outdoors_sandcliffcave_002_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffcave_003_tile)return Tile.outdoors_sandcliffcave_003_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffcave_004_tile)return Tile.outdoors_sandcliffcave_004_tile;
 			if (tiles[x + y * width] == Tile.col_voidTile)return Tile.voidTile;
 		
 		}else if(Game.nightTime){
@@ -1115,6 +1119,10 @@ public class Level {
 			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffgrass_002_tile)return Tile.outdoors_sandcliffgrass_002_night_tile;
 			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffgrass_003_tile)return Tile.outdoors_sandcliffgrass_003_night_tile;
 			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffgrass_004_tile)return Tile.outdoors_sandcliffgrass_004_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffcave_001_tile)return Tile.outdoors_sandcliffcave_001_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffcave_002_tile)return Tile.outdoors_sandcliffcave_002_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffcave_003_tile)return Tile.outdoors_sandcliffcave_003_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandcliffcave_004_tile)return Tile.outdoors_sandcliffcave_004_night_tile;
 			if (tiles[x + y * width] == Tile.col_voidTile)return Tile.voidTile;
 		}
 		
