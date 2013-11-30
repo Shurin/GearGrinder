@@ -44,7 +44,11 @@ public class Player extends Mob{
 	
 	
 	public static void spritefix(){
-		animSprite = down2;
+		if(InitialStat.PSprite.equals("psprite001")){
+			animSprite = down;
+		}else if(InitialStat.PSprite.equals("psprite002")){
+			animSprite = down2;
+		}
 	}
 	
 	public Player(Keyboard input){
@@ -210,9 +214,7 @@ public class Player extends Mob{
 				xa+=20;	//default is 1.5
 				InitialStat.staminapercent = InitialStat.currentstamina / InitialStat.maxstamina * 100;
 				InitialStat.currentstamina--;
-			}		
-			
-			
+			}					
 		
 		if(input.spawnmob){
 			for(int i = 0; i < 1; i++){
@@ -232,8 +234,7 @@ public class Player extends Mob{
 			InitialStat.Onlineint = 0;
 			SaveStat.SaveStat();
 			System.exit(0);			
-		}		
-		
+		}			
 		
 		/////
 		//check to see if player is interacting with an npc

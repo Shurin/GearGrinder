@@ -35,6 +35,8 @@ public class Level {
 	public static int proyt;
 	public static int prodamage;
 	public static int levelticker = 0;
+	protected int timer = 0;
+	protected boolean wateranimate = false;
 
 	public static Level world = new SpawnLevel("/levels/world_base.png");
 	public static Level dungeon1 = new SpawnLevel("/levels/dungeon1_base.png");
@@ -283,6 +285,16 @@ public class Level {
 	}
 
 	public Tile getTile(int x, int y) {
+		/*timer++;
+		if(timer / 1500 == 1){
+			timer = 0;
+			if(wateranimate == true){
+				wateranimate = false;
+			}else if(wateranimate == false){
+				wateranimate = true;
+			}
+		}*/
+
 		if(Game.nightTime == false){
 			//System.out.println("RENDER DAY TILES!");
 			if (x < 0 || y < 0 || x >= width || y >= height)return Tile.voidTile;
@@ -482,6 +494,15 @@ public class Level {
 			if (tiles[x + y * width] == Tile.col_outdoors_sandwater_002_tile)return Tile.outdoors_sandwater_002_tile;
 			if (tiles[x + y * width] == Tile.col_outdoors_sandwater_003_tile)return Tile.outdoors_sandwater_003_tile;
 			if (tiles[x + y * width] == Tile.col_outdoors_sandwater_004_tile)return Tile.outdoors_sandwater_004_tile;
+			/*if(wateranimate == true){
+				System.out.println("animateion stage 1");
+				if (tiles[x + y * width] == Tile.col_outdoors_sandwater_005_tile)return Tile.outdoors_sandwater_005_tile;
+				if (tiles[x + y * width] == Tile.col_outdoors_sandwater_006_tile)return Tile.outdoors_sandwater_006_tile;
+			}else if(wateranimate == false){
+				System.out.println("animateion stage 1");
+				if (tiles[x + y * width] == Tile.col_outdoors_sandwater_005_tile)return Tile.outdoors_sandwater_006_tile;
+				if (tiles[x + y * width] == Tile.col_outdoors_sandwater_006_tile)return Tile.outdoors_sandwater_005_tile;
+			}*/	
 			if (tiles[x + y * width] == Tile.col_outdoors_sandwater_005_tile)return Tile.outdoors_sandwater_005_tile;
 			if (tiles[x + y * width] == Tile.col_outdoors_sandwater_006_tile)return Tile.outdoors_sandwater_006_tile;
 			if (tiles[x + y * width] == Tile.col_outdoors_sandwater_007_tile)return Tile.outdoors_sandwater_007_tile;
@@ -902,8 +923,17 @@ public class Level {
 			if (tiles[x + y * width] == Tile.col_outdoors_sandwater_001_tile)return Tile.outdoors_sandwater_001_night_tile;
 			if (tiles[x + y * width] == Tile.col_outdoors_sandwater_002_tile)return Tile.outdoors_sandwater_002_night_tile;
 			if (tiles[x + y * width] == Tile.col_outdoors_sandwater_003_tile)return Tile.outdoors_sandwater_003_night_tile;
-			if (tiles[x + y * width] == Tile.col_outdoors_sandwater_004_tile)return Tile.outdoors_sandwater_004_night_tile;
+			/*if(wateranimate == true){
+				System.out.println("animateion stage 1   " + wateranimate);
+				if (tiles[x + y * width] == Tile.col_outdoors_sandwater_005_tile)return Tile.outdoors_sandwater_005_night_tile;
+				if (tiles[x + y * width] == Tile.col_outdoors_sandwater_006_tile)return Tile.outdoors_sandwater_006_night_tile;
+			}else if(wateranimate == false){
+				System.out.println("animateion stage 2   " + wateranimate);
+				if (tiles[x + y * width] == Tile.col_outdoors_sandwater_005_tile)return Tile.outdoors_sandwater_006_night_tile;
+				if (tiles[x + y * width] == Tile.col_outdoors_sandwater_006_tile)return Tile.outdoors_sandwater_005_night_tile;
+			}*/
 			if (tiles[x + y * width] == Tile.col_outdoors_sandwater_005_tile)return Tile.outdoors_sandwater_005_night_tile;
+			if (tiles[x + y * width] == Tile.col_outdoors_sandwater_006_tile)return Tile.outdoors_sandwater_006_night_tile;
 			if (tiles[x + y * width] == Tile.col_outdoors_sandwater_006_tile)return Tile.outdoors_sandwater_006_night_tile;
 			if (tiles[x + y * width] == Tile.col_outdoors_sandwater_007_tile)return Tile.outdoors_sandwater_007_night_tile;
 			if (tiles[x + y * width] == Tile.col_outdoors_sandwater_008_tile)return Tile.outdoors_sandwater_008_night_tile;

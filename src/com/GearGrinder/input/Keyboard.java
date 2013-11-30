@@ -36,7 +36,6 @@ public class Keyboard implements KeyListener{
 			keys[e.getKeyCode()] = true;
 			if((keys[e.getKeyCode()] == keys[KeyEvent.VK_SPACE]) && interacting == false){
 				interacting = true;
-				//System.out.println("Space pushed");
 			}
 	}
 
@@ -44,15 +43,11 @@ public class Keyboard implements KeyListener{
 			keys[e.getKeyCode()] = false;
 			if((keys[e.getKeyCode()] == keys[KeyEvent.VK_SPACE]) && interacting == true){
 				interacting = false;
-				//System.out.println("Space released");
 				Player.dialog = false;
 			}
 	}
 	
-	public void keyTyped(KeyEvent e) {
-	
-		//System.out.println("space pressed: interacting = " + interacting + ",  dialog = " + Player.dialog);
-		
+	public void keyTyped(KeyEvent e) {		
 				if(keys[e.getKeyCode()] != keys[KeyEvent.VK_I]){
 					if(Player.invshow == false){
 						Player.invshow = true;
