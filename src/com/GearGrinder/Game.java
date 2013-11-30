@@ -84,6 +84,7 @@ public class Game extends Canvas implements Runnable {
 	private static Player player;
 	public static boolean running = false;
 	public static boolean logcheck = false;
+	public static boolean dungeonallowed = true;
 	
 	//ui elements
 	private BufferedImage inventory = null;
@@ -655,36 +656,29 @@ public class Game extends Canvas implements Runnable {
 		}
 		
 		portalcheck();
+		if(dungeonallowed == false){
+			g.setColor(Color.BLACK);
+			g.fillRect(width / 2 - 135, height / 2 - 122, 330, 30);
+			g.setColor(Color.RED);
+			g.drawString("YOU CANNOT ENTER THIS DUNGEON YET.", width / 2 - 130, height / 2 - 100);
+			dungeonallowed = true;
+		}
 		//test();		
 		g.dispose();
 		bs.show();
 	}	
 	
 	public static void portalcheck(){
-		if(Game.currentzone.equals("world")){
-			if((currentx >= 3896 && currentx <= 3913) && (currenty >= 3601 && currenty <= 3612)){
-				level.remove(player);
+		//the x and y in portal check goes by pixels, not tiles
+		if(Game.currentzone.equals("noobisland")){
+			if((currentx >= 17032 && currentx <= 17049) && (currenty >= 55841 && currenty <= 55854)){
+				/*level.remove(player);
 				level.remove();
 				level = Game.level.dungeon1;
 				currentzone = "dungeon1";
 				player = new Player(52, 84, key);
-				level.add(player);
-			}
-		}else if(Game.currentzone.equals("dungeon1")){
-			if((currentx >= 21 && currentx <= 34) && (currenty >= 65 && currenty <= 95)){
-				level.remove(player);
-				level.remove();
-				level = Game.level.world;
-				currentzone = "world";
-				player = new Player(3900, 3700, key);
-				level.add(player);
-			}else if((currentx >= 1640 && currentx <= 1645) && (currenty >= 225 && currenty <= 271)){
-				level.remove(player);
-				level.remove();
-				level = Game.level.world;
-				currentzone = "world";
-				player = new Player(337, 228, key);
-				level.add(player);
+				level.add(player);*/
+				dungeonallowed = false;
 			}
 		}
 	}
