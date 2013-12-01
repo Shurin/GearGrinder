@@ -5,8 +5,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
 import java.awt.Toolkit;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
@@ -34,6 +32,7 @@ import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.input.Keyboard;
 import com.GearGrinder.input.Mouse;
 import com.GearGrinder.level.Level;
+import com.GearGrinder.level.Quests;
 import com.GearGrinder.net.GameClient;
 import com.GearGrinder.net.GameServer;
 
@@ -58,7 +57,7 @@ public class Game extends Canvas implements Runnable {
 	
 	//private static int width = (int) widthmax;
 	//private static int height = (int) heightmax;
-	private static int width = 1024;
+	private static int width = 1360;
 	private static int height = 768;
 	private static int scale = 1;
 	public static BufferStrategy bs;
@@ -197,6 +196,8 @@ public class Game extends Canvas implements Runnable {
 		
 		player = new Player(PlayerSpawnX, PlayerSpawnY, key);
 		level.add(player);
+		
+		//Quests.Quests();
 
 		addKeyListener(key);
 

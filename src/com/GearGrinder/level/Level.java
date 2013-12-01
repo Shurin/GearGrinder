@@ -8,6 +8,7 @@ import com.GearGrinder.Networking.InitialStat;
 import com.GearGrinder.entity.Entity;
 import com.GearGrinder.entity.Projectile.Projectile;
 import com.GearGrinder.entity.mob.NinjaBot;
+import com.GearGrinder.entity.mob.NinjaBotBoss;
 import com.GearGrinder.entity.mob.Player;
 import com.GearGrinder.entity.mob.campfire;
 import com.GearGrinder.entity.mob.npc_skills;
@@ -130,6 +131,46 @@ public class Level {
 			add(new campfire(1114, 3470));
 			add(new campfire(1062, 3685));
 			add(new NinjaBot(1115, 3670));
+			add(new NinjaBot(1132, 3650));
+			add(new NinjaBot(1151, 3671));
+			add(new NinjaBot(1170, 3644));
+			add(new NinjaBot(1200, 3668));
+			add(new NinjaBot(1223, 3647));
+			add(new NinjaBot(1255, 3651));
+			add(new NinjaBot(1136, 3681));
+			add(new NinjaBot(1090, 3650));
+			add(new NinjaBot(1169, 3628));
+			add(new NinjaBot(1156, 3611));
+			add(new NinjaBot(1183, 3601));
+			add(new NinjaBot(1177, 3574));
+			add(new NinjaBot(1154, 3537));
+			add(new NinjaBot(1200, 3534));
+			add(new NinjaBot(1258, 3528));
+			add(new NinjaBot(1241, 3551));
+			add(new NinjaBot(1212, 3564));
+			add(new NinjaBot(1229, 3591));
+			add(new NinjaBot(1253, 3615));
+			add(new NinjaBot(1209, 3626));
+			add(new NinjaBot(1178, 3684));
+			add(new NinjaBot(1157, 3591));
+			add(new NinjaBot(1177, 3551));
+			add(new NinjaBot(1225, 3537));
+			add(new NinjaBot(1206, 3582));
+			add(new NinjaBot(1255, 3569));
+			add(new NinjaBot(1205, 3607));
+			add(new NinjaBot(1227, 3571));
+			add(new NinjaBot(1251, 3597));
+			add(new NinjaBot(1190, 3527));
+			add(new NinjaBot(1185, 3648));
+			add(new NinjaBot(1162, 3564));
+			add(new NinjaBot(1156, 3526));
+			add(new NinjaBot(1240, 3530));
+			add(new NinjaBot(1232, 3604));
+			add(new NinjaBot(1164, 3652));
+			add(new NinjaBot(1207, 3548));
+			add(new NinjaBot(1262, 3544));		
+			add(new NinjaBot(1262, 3602));
+			add(new NinjaBotBoss(1231, 3623));
 		}
 	}
 	
@@ -141,13 +182,11 @@ public class Level {
 					int prox = projectiles.get(j).getX();
 					int proy = projectiles.get(j).getY();
 					prodamage = projectiles.get(j).getDamage();
-					String name = projectiles.get(j).getName();
 					if(((prox >= entities.get(i).getXL()) && (proy <= entities.get(i).getYT())) && ((prox <= entities.get(i).getXR()) && (proy >= entities.get(i).getYB()))){
 						entities.get(i).takeDmg(prodamage);
 						if(entities.get(i).getHP() <=0){
 							entities.get(i).remove();
-							if(InitialStat.XP + 1 > InitialStat.leveltotalxp){
-								
+							if(InitialStat.XP + 1 > InitialStat.leveltotalxp){								
 								InitialStat.PlayerLevel += 1;
 								InitialStat.XP = 0;
 								InitialStat.XP += 1;
