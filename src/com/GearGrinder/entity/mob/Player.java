@@ -1,6 +1,7 @@
 package com.GearGrinder.entity.mob;
 
 import java.awt.Color;
+import java.util.ArrayList;
 
 import com.GearGrinder.Game;
 import com.GearGrinder.Networking.GetLoc;
@@ -41,6 +42,9 @@ public class Player extends Mob{
 	public static boolean charshow = false;	
 	public static boolean dialog = false;
 	protected int j;
+	
+	public static ArrayList<ArrayList<String>> quests = new ArrayList<ArrayList<String>>();
+	private static int activequests = -1;
 	
 	
 	public static void spritefix(){
@@ -276,6 +280,16 @@ public class Player extends Mob{
 		}
 		clear();
 		updateShooting();	
+	}
+	
+	public static void questlogupdate(){
+		for(int i = 0; i < InitialStat.questcount; i++){
+			//System.out.println("searching " + i + "........." + InitialStat.listofquests.get(0).get(i) + "....");
+			//System.out.println(InitialStat.listofquests);
+			if(InitialStat.listofquests.get(0).get(i).equals("1")){
+				System.out.println("there is an active quest");
+			}
+		}
 	}
 	
 	private void clear(){

@@ -376,6 +376,7 @@ public class Game extends Canvas implements Runnable {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		Player.questlogupdate();
 		uicached = true;
 	}
 	

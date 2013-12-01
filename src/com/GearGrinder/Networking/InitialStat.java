@@ -40,7 +40,7 @@ public class InitialStat {
 		public static double XPpercent = 725 / leveltotalxp * XP; 
 		public static String DB_Zone = null;
 		public static int Onlineint = 1;
-		private static int rowcount = -1;
+		public static int questcount = -1;
 		
 		//dummy values for the quest data
 		private static String Started;
@@ -163,7 +163,7 @@ public class InitialStat {
 	      rs = UserVerify.stmt.executeQuery("SELECT COUNT(*) FROM Quests_" + Game.Playername);
 	      // get the number of rows from the result set
 	      rs.next();
-	      rowcount = rs.getInt(1);
+	      questcount = rs.getInt(1);
 	    }catch(SQLException se){
 			// Handle errors for JDBC
 			se.printStackTrace();
@@ -179,20 +179,19 @@ public class InitialStat {
 	    	questbloat.add(" ");
 	    }
 	    
-	    for(int i = 0; i< rowcount; i++){
+	  for(int i = 0; i< questcount; i++){
 	    	listofquests.add(questbloat);
-	    }
+	  }
 	    
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 			
 			System.out.println("Loading Quest Data ...");
 			
-			for(int i = 0; i < rowcount ; i++){
+			for(int i = 0; i < questcount ; i++){
 				rs = UserVerify.stmt.executeQuery("SELECT Started, Complete, Title, MinLevel, MaxLevel, Solo, Timer, TimeLeft, MobName, MobAmount, MobKilled, Collect1, Amount1, Left1, Collect2, Amount2, Left2, Collect3, Amount3, Left3, Collect4, Amount4, Left4, Collect5, Amount5, Left5, Collect6, Amount6, Left6, Gold, XP, Item1, Item2, Item3, Item4, Item5, Item6 FROM Quests_" + Game.Playername + " WHERE QuestID = " + i);
 				
 				while(rs.next()){
-					
 					Startedint = rs.getInt("Started");
 					Completeint = rs.getInt("Complete");
 					Title = rs.getString("Title");
@@ -258,7 +257,8 @@ public class InitialStat {
 					QXP = Integer.toString(QXPint);
 					
 					
-					// Load the quest data into an array list	
+					// Load the quest data into an array list
+					System.out.println("loading data in ...");
 					listofquests.get(i).set(0, Started);
 					listofquests.get(i).set(1,  Complete);
 					listofquests.get(i).set(2, Title);
@@ -295,9 +295,71 @@ public class InitialStat {
 					listofquests.get(i).set(33, Item3);
 					listofquests.get(i).set(34, Item4);
 					listofquests.get(i).set(35, Item5);
-					listofquests.get(i).set(36, Item6);					
+					listofquests.get(i).set(36, Item6);	
+					
+					
+					
+					  Started = null;
+					  Complete = null;
+					  Title = null;
+					  MinLevel = null;
+					  MaxLevel = null;
+					  Solo = null;
+					  Timer = null;
+					  TimeLeft = null;
+					  MobName = null;
+					  MobAmount = null;
+					  MobKilled = null;
+					  Collect1 = null;
+					  Collect2 = null;
+					  Collect3 = null;
+					  Collect4 = null;
+					  Collect5 = null;
+					  Collect6 = null;
+					  Amount1 = null;
+					  Amount2 = null;
+					  Amount3 = null;
+					  Amount4 = null;
+					  Amount5 = null;
+					  Amount6 = null;
+					  Left1 = null;
+					  Left2 = null;
+					  Left3 = null;
+					  Left4 = null;
+					  Left5 = null;
+					  Left6 = null;
+					  Item1 = null;
+					  Item2 = null;
+					  Item3 = null;
+					  Item4 = null;
+					  Item5 = null;
+					  Item6 = null;
+					  QXP = null;
+					  QGold = null;
+					 Startedint = 0;
+					 Completeint = 0;
+					 Soloint = 0;
+					 MinLevelint = 0;
+					 MaxLevelint = 0;
+					 QXPint = 0;
+					 QGoldint = 0;
+					 Timerint = 0;
+					 TimeLeftint = 0;
+					 MobAmountint = 0;
+					 MobKilledint = 0;
+					 Amount1int = 0;
+					 Amount2int = 0;
+					 Amount3int = 0;
+					 Amount4int = 0;
+					 Amount5int = 0;
+					 Amount6int = 0;
+					 Left1int = 0;
+					 Left2int = 0;
+					 Left3int = 0;
+					 Left4int = 0;
+					 Left5int = 0;
+					 Left6int = 0;
 				}				
-				rs = null;	
 			}
 		}catch(SQLException se){
 			// Handle errors for JDBC
@@ -305,7 +367,8 @@ public class InitialStat {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		System.out.println("Loaded " + rowcount + " Quests ...");
+		System.out.println(listofquests);
+		System.out.println("Loaded " + questcount + " Quests ...");
 		System.out.println("Loading World ...");
 		Game.launch();
 	}
