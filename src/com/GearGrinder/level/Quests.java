@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Quests {
 	
-	ArrayList<ArrayList<String>> listquests = new ArrayList<ArrayList<String>>();
-	ArrayList<String> quest1 = new ArrayList<String>();
+	public static ArrayList<ArrayList<String>> listquests = new ArrayList<ArrayList<String>>();
+	public static ArrayList<String> quest1 = new ArrayList<String>();
 	
 	public static boolean quest1comp = false;
 	

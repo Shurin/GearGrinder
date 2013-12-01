@@ -40,9 +40,6 @@ public class InitialStat {
 		public static double XPpercent = 725 / leveltotalxp * XP; 
 		public static String DB_Zone = null;
 		public static int Onlineint = 1;
-		public static List<Entity> onlineplayersID = new ArrayList<Entity>();//stores the ID of online players
-		public static List<Entity> onlineplayersX = new ArrayList<Entity>();//stores the ID of online players
-		public static List<Entity> onlineplayersY = new ArrayList<Entity>();//stores the ID of online players
 	
 	
 	public static void InitialStat(){
@@ -92,9 +89,5 @@ public class InitialStat {
 			e.printStackTrace();
 		}
 		Game.launch();
-	}
-	
-	public static void whosonline(){
-		
 	}
 }

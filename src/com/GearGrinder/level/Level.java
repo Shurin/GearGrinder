@@ -7,6 +7,7 @@ import com.GearGrinder.Game;
 import com.GearGrinder.Networking.InitialStat;
 import com.GearGrinder.entity.Entity;
 import com.GearGrinder.entity.Projectile.Projectile;
+import com.GearGrinder.entity.mob.NinjaBot;
 import com.GearGrinder.entity.mob.Player;
 import com.GearGrinder.entity.mob.campfire;
 import com.GearGrinder.entity.mob.npc_skills;
@@ -128,6 +129,7 @@ public class Level {
 			add(new campfire(1061, 3470));
 			add(new campfire(1114, 3470));
 			add(new campfire(1062, 3685));
+			add(new NinjaBot(1115, 3670));
 		}
 	}
 	
