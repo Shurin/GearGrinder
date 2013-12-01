@@ -35,7 +35,7 @@ public class UserVerify {
 	
 	
 	public static void UserVerify(){
-		
+		System.out.println("Loggin In ...");
 		try{
 			// Register JDBC driver
 			Class.forName("com.mysql.jdbc.Driver");
@@ -68,6 +68,7 @@ public class UserVerify {
 					Pusername = LoginPage.usrname;
 					Ppassword = LoginPage.usrpass;
 					loggedin = true;
+					System.out.println("Player Logged In As " + Pusername + " ...");
 					InitialStat.InitialStat();
 				}
 			}

@@ -231,8 +231,11 @@ public class Player extends Mob{
 		}
 		
 		if(input.escape){	
+			System.out.println("Preparing Shutdown ...");
 			InitialStat.Onlineint = 0;
+			System.out.println("Saving Player Info ...");
 			SaveStat.SaveStat();
+			System.out.println("Closing Game ...");
 			System.exit(0);			
 		}			
 		

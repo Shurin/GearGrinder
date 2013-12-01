@@ -43,6 +43,8 @@ public class InitialStat {
 		private static int rowcount = -1;
 		
 		//dummy values for the quest data
+		private static String Started;
+		private static String Complete;
 		private static String Title;
 		private static String MinLevel;
 		private static String MaxLevel;
@@ -78,6 +80,8 @@ public class InitialStat {
 		private static String Item6;
 		private static String QXP;
 		private static String QGold;
+		private static int Startedint;
+		private static int Completeint;
 		private static int Soloint;
 		private static int MinLevelint;
 		private static int MaxLevelint;
@@ -111,7 +115,7 @@ public class InitialStat {
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 			
-			System.out.println("Loading Player stats ...");
+			System.out.println("Loading Player Stats ...");
 			
 				rs = UserVerify.stmt.executeQuery("SELECT Sprite, SpriteDirection, PlayerName, Zone, Xloc, Yloc, Level, XP, Health, Magic, Stamina, Strength, Defense, Vitality, Agility, Intelligence, Dexterity, Luck, Gold FROM accounts WHERE AccountID = " + UserVerify.clientID);
 				while(rs.next()){
@@ -171,7 +175,7 @@ public class InitialStat {
 	    rs = null;
 		
 		// quest loader
-	    for(int j = 0; j < 35; j++){
+	    for(int j = 0; j < 37; j++){
 	    	questbloat.add(" ");
 	    }
 	    
@@ -182,12 +186,15 @@ public class InitialStat {
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 			
-			System.out.println("Loading Quest data ...");
+			System.out.println("Loading Quest Data ...");
 			
 			for(int i = 0; i < rowcount ; i++){
-				rs = UserVerify.stmt.executeQuery("SELECT Title, MinLevel, MaxLevel, Solo, Timer, TimeLeft, MobName, MobAmount, MobKilled, Collect1, Amount1, Left1, Collect2, Amount2, Left2, Collect3, Amount3, Left3, Collect4, Amount4, Left4, Collect5, Amount5, Left5, Collect6, Amount6, Left6, Gold, XP, Item1, Item2, Item3, Item4, Item5, Item6 FROM Quests_" + Game.Playername + " WHERE QuestID = " + i);
+				rs = UserVerify.stmt.executeQuery("SELECT Started, Complete, Title, MinLevel, MaxLevel, Solo, Timer, TimeLeft, MobName, MobAmount, MobKilled, Collect1, Amount1, Left1, Collect2, Amount2, Left2, Collect3, Amount3, Left3, Collect4, Amount4, Left4, Collect5, Amount5, Left5, Collect6, Amount6, Left6, Gold, XP, Item1, Item2, Item3, Item4, Item5, Item6 FROM Quests_" + Game.Playername + " WHERE QuestID = " + i);
 				
 				while(rs.next()){
+					
+					Startedint = rs.getInt("Started");
+					Completeint = rs.getInt("Complete");
 					Title = rs.getString("Title");
 					MinLevelint = rs.getInt("MinLevel");//
 					MaxLevelint = rs.getInt("MaxLevel");//
@@ -224,8 +231,10 @@ public class InitialStat {
 					Item5= rs.getString("Item5");
 					Item6= rs.getString("Item6");
 					
+					
 					//convert the ints to strings
-					//strI = Integer.toString(i);
+					Started = Integer.toString(Startedint);
+					Complete = Integer.toString(Completeint);
 					MinLevel = Integer.toString(MinLevelint);
 					MaxLevel = Integer.toString(MaxLevelint);
 					Solo = Integer.toString(Soloint);
@@ -248,44 +257,45 @@ public class InitialStat {
 					QGold = Integer.toString(QGoldint);
 					QXP = Integer.toString(QXPint);
 					
-					// Load the quest data into an array list
 					
-					
-					listofquests.get(i).set(0, Title);
-					listofquests.get(i).set(1, MinLevel);
-					listofquests.get(i).set(2, MaxLevel);
-					listofquests.get(i).set(3, Solo);
-					listofquests.get(i).set(4, Timer);
-					listofquests.get(i).set(5, TimeLeft);
-					listofquests.get(i).set(6, MobName);
-					listofquests.get(i).set(7, MobAmount);
-					listofquests.get(i).set(8, MobKilled);
-					listofquests.get(i).set(9, Collect1);
-					listofquests.get(i).set(10, Amount1);
-					listofquests.get(i).set(11, Left1);
-					listofquests.get(i).set(12, Collect2);
-					listofquests.get(i).set(13, Amount2);
-					listofquests.get(i).set(14, Left2);
-					listofquests.get(i).set(15, Collect3);
-					listofquests.get(i).set(16, Amount3);
-					listofquests.get(i).set(17, Left3);
-					listofquests.get(i).set(18, Collect4);
-					listofquests.get(i).set(19, Amount4);
-					listofquests.get(i).set(20, Left4);
-					listofquests.get(i).set(21, Collect5);
-					listofquests.get(i).set(22, Amount5);
-					listofquests.get(i).set(23, Left5);
-					listofquests.get(i).set(24, Collect6);
-					listofquests.get(i).set(25, Amount6);
-					listofquests.get(i).set(26, Left6);
-					listofquests.get(i).set(27, QGold);
-					listofquests.get(i).set(28, QXP);
-					listofquests.get(i).set(29, Item1);
-					listofquests.get(i).set(30, Item2);
-					listofquests.get(i).set(31, Item3);
-					listofquests.get(i).set(32, Item4);
-					listofquests.get(i).set(33, Item5);
-					listofquests.get(i).set(34, Item6);					
+					// Load the quest data into an array list	
+					listofquests.get(i).set(0, Started);
+					listofquests.get(i).set(1,  Complete);
+					listofquests.get(i).set(2, Title);
+					listofquests.get(i).set(3, MinLevel);
+					listofquests.get(i).set(4, MaxLevel);
+					listofquests.get(i).set(5, Solo);
+					listofquests.get(i).set(6, Timer);
+					listofquests.get(i).set(7, TimeLeft);
+					listofquests.get(i).set(8, MobName);
+					listofquests.get(i).set(9, MobAmount);
+					listofquests.get(i).set(10, MobKilled);
+					listofquests.get(i).set(11, Collect1);
+					listofquests.get(i).set(12, Amount1);
+					listofquests.get(i).set(13, Left1);
+					listofquests.get(i).set(14, Collect2);
+					listofquests.get(i).set(15, Amount2);
+					listofquests.get(i).set(16, Left2);
+					listofquests.get(i).set(17, Collect3);
+					listofquests.get(i).set(18, Amount3);
+					listofquests.get(i).set(19, Left3);
+					listofquests.get(i).set(20, Collect4);
+					listofquests.get(i).set(21, Amount4);
+					listofquests.get(i).set(22, Left4);
+					listofquests.get(i).set(23, Collect5);
+					listofquests.get(i).set(24, Amount5);
+					listofquests.get(i).set(25, Left5);
+					listofquests.get(i).set(26, Collect6);
+					listofquests.get(i).set(27, Amount6);
+					listofquests.get(i).set(28, Left6);
+					listofquests.get(i).set(29, QGold);
+					listofquests.get(i).set(30, QXP);
+					listofquests.get(i).set(31, Item1);
+					listofquests.get(i).set(32, Item2);
+					listofquests.get(i).set(33, Item3);
+					listofquests.get(i).set(34, Item4);
+					listofquests.get(i).set(35, Item5);
+					listofquests.get(i).set(36, Item6);					
 				}				
 				rs = null;	
 			}
@@ -295,8 +305,8 @@ public class InitialStat {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		System.out.println(listofquests);
-		System.out.println("Loading world ...");
+		System.out.println("Loaded " + rowcount + " Quests ...");
+		System.out.println("Loading World ...");
 		Game.launch();
 	}
 }

@@ -196,11 +196,8 @@ public class Game extends Canvas implements Runnable {
 		
 		player = new Player(PlayerSpawnX, PlayerSpawnY, key);
 		level.add(player);
-		
-		//Quests.Quests();
 
 		addKeyListener(key);
-
 		addMouseListener(mouse);
 		addMouseMotionListener(mouse);
 	}
@@ -293,7 +290,6 @@ public class Game extends Canvas implements Runnable {
 				
 				savetick = savetick +1;
 				if(savetick == 60){
-					System.out.println("Saving Game ...");
 					SaveStat.SaveStat();
 					savetick = 0;
 				}
