@@ -44,7 +44,7 @@ public class Player extends Mob{
 	protected int j;
 	
 	public static ArrayList<ArrayList<String>> quests = new ArrayList<ArrayList<String>>();
-	private static int activequests = -1;
+	public static int activequests = -1;
 	
 	
 	public static void spritefix(){
@@ -282,15 +282,6 @@ public class Player extends Mob{
 		updateShooting();	
 	}
 	
-	public static void questloginit(){
-		for(int i = 0; i < InitialStat.questcount; i++){
-			//System.out.println("searching " + i + "........." + InitialStat.listofquests.get(0).get(i) + "....");
-			//System.out.println(InitialStat.listofquests);
-			if(InitialStat.listofquests.get(0).get(i).equals("1")){
-				quests.add(new ArrayList<String>(InitialStat.questbloat));
-			}
-		}
-	}
 	
 	private void clear(){
 		for(int i = 0; i< level.getProjectiles().size(); i++){

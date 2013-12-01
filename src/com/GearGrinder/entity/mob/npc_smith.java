@@ -39,8 +39,8 @@ public class npc_smith extends Mob{
 		npcText.add(" ");
 		npcText.add(" ");
 		npcText.add(" ");
-		npcText.add(" ");
-		npcText.add(" ");
+		npcText.add("For starters, head east and kill 10 Ninja Bots.");
+		npcText.add("Talk to me when you're done for a reward.");
 		npcText.add(" ");
 		npcText.add(" ");
 		npcText.add(" ");

@@ -3,10 +3,9 @@ package com.GearGrinder.Networking;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import com.GearGrinder.Game;
-import com.GearGrinder.entity.Entity;
+import com.GearGrinder.entity.mob.Player;
 
 public class InitialStat {
 
@@ -369,7 +368,58 @@ public class InitialStat {
 		}
 		System.out.println(listofquests);
 		System.out.println("Loaded " + questcount + " Quests ...");
+		System.out.println("Loading Player's Quest Log ...");
+		questlog();
 		System.out.println("Loading World ...");
 		Game.launch();
 	}
+	
+	public static void questlog(){
+		Player.quests.clear();
+		Player.activequests = 0;
+		for(int i = 0; i < InitialStat.questcount; i++){
+			if(InitialStat.listofquests.get(i).get(0).equals("1")){
+				Player.activequests++;
+				Player.quests.add(new ArrayList<String>(InitialStat.questbloat));
+				Player.quests.get(i).set(0, listofquests.get(i).get(0));
+				Player.quests.get(i).set(1, listofquests.get(i).get(1));
+				Player.quests.get(i).set(2, listofquests.get(i).get(2));
+				Player.quests.get(i).set(3, listofquests.get(i).get(3));
+				Player.quests.get(i).set(4, listofquests.get(i).get(4));
+				Player.quests.get(i).set(5, listofquests.get(i).get(5));
+				Player.quests.get(i).set(6, listofquests.get(i).get(6));
+				Player.quests.get(i).set(7, listofquests.get(i).get(7));
+				Player.quests.get(i).set(8, listofquests.get(i).get(8));
+				Player.quests.get(i).set(9, listofquests.get(i).get(9));
+				Player.quests.get(i).set(10, listofquests.get(i).get(10));
+				Player.quests.get(i).set(11, listofquests.get(i).get(11));
+				Player.quests.get(i).set(12, listofquests.get(i).get(12));
+				Player.quests.get(i).set(13, listofquests.get(i).get(13));
+				Player.quests.get(i).set(14, listofquests.get(i).get(14));
+				Player.quests.get(i).set(15, listofquests.get(i).get(15));
+				Player.quests.get(i).set(16, listofquests.get(i).get(16));
+				Player.quests.get(i).set(17, listofquests.get(i).get(17));
+				Player.quests.get(i).set(18, listofquests.get(i).get(18));
+				Player.quests.get(i).set(19, listofquests.get(i).get(19));
+				Player.quests.get(i).set(20, listofquests.get(i).get(20));
+				Player.quests.get(i).set(21, listofquests.get(i).get(21));
+				Player.quests.get(i).set(22, listofquests.get(i).get(22));
+				Player.quests.get(i).set(23, listofquests.get(i).get(23));
+				Player.quests.get(i).set(24, listofquests.get(i).get(24));
+				Player.quests.get(i).set(25, listofquests.get(i).get(25));
+				Player.quests.get(i).set(26, listofquests.get(i).get(26));
+				Player.quests.get(i).set(27, listofquests.get(i).get(27));
+				Player.quests.get(i).set(28, listofquests.get(i).get(28));
+				Player.quests.get(i).set(29, listofquests.get(i).get(29));
+				Player.quests.get(i).set(30, listofquests.get(i).get(30));
+				Player.quests.get(i).set(31, listofquests.get(i).get(31));
+				Player.quests.get(i).set(32, listofquests.get(i).get(32));
+				Player.quests.get(i).set(33, listofquests.get(i).get(33));
+				Player.quests.get(i).set(34, listofquests.get(i).get(34));
+				Player.quests.get(i).set(35, listofquests.get(i).get(35));
+				Player.quests.get(i).set(36, listofquests.get(i).get(36));
+			}
+		}
+	}
+	
 }

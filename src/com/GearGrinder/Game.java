@@ -32,7 +32,6 @@ import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.input.Keyboard;
 import com.GearGrinder.input.Mouse;
 import com.GearGrinder.level.Level;
-import com.GearGrinder.level.Quests;
 import com.GearGrinder.net.GameClient;
 import com.GearGrinder.net.GameServer;
 
@@ -376,7 +375,6 @@ public class Game extends Canvas implements Runnable {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		Player.questloginit();
 		uicached = true;
 	}
 	
@@ -631,6 +629,9 @@ public class Game extends Canvas implements Runnable {
 						dtextY = dtextY + 20;
 					}
 					if(Keyboard.dialog){
+						InitialStat.listofquests.get(0).set(0, "1");
+						InitialStat.questlog();
+						System.out.println(Player.quests);
 						npcDialog.showDialog = false;
 					}
 				}else{
@@ -657,6 +658,11 @@ public class Game extends Canvas implements Runnable {
 				}
 			}
 		}
+		
+		///////////////////////////////
+		/////// SHOW QUEST LOG ////////
+		///////////////////////////////
+		
 		
 		portalcheck();
 		if(dungeonallowed == false){
