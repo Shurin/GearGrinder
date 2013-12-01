@@ -282,12 +282,12 @@ public class Player extends Mob{
 		updateShooting();	
 	}
 	
-	public static void questlogupdate(){
+	public static void questloginit(){
 		for(int i = 0; i < InitialStat.questcount; i++){
 			//System.out.println("searching " + i + "........." + InitialStat.listofquests.get(0).get(i) + "....");
 			//System.out.println(InitialStat.listofquests);
 			if(InitialStat.listofquests.get(0).get(i).equals("1")){
-				System.out.println("there is an active quest");
+				quests.add(new ArrayList<String>(InitialStat.questbloat));
 			}
 		}
 	}

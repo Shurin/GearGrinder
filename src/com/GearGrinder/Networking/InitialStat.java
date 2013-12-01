@@ -180,7 +180,7 @@ public class InitialStat {
 	    }
 	    
 	  for(int i = 0; i< questcount; i++){
-	    	listofquests.add(questbloat);
+	    	listofquests.add(new ArrayList<String>(questbloat));
 	  }
 	    
 		try{
