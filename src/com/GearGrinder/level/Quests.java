@@ -111,6 +111,8 @@ public class Quests {
 		
 		System.out.println(listofquests);
 		
+
+		
 		System.out.println("Finished Loading Quests ...");
 		
 		ArrayList playerquests = (ArrayList) listofquests.clone();

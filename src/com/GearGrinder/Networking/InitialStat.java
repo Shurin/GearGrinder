@@ -51,7 +51,7 @@ public class InitialStat {
 		private static String TimeLeft;
 		private static String MobName;
 		private static String MobAmount;
-		private static String MobLeft;
+		private static String MobKilled;
 		private static String Collect1;
 		private static String Collect2;
 		private static String Collect3;
@@ -86,7 +86,7 @@ public class InitialStat {
 		private static int Timerint;
 		private static int TimeLeftint;
 		private static int MobAmountint;
-		private static int MobLeftint;
+		private static int MobKilledint;
 		private static int Amount1int;
 		private static int Amount2int;
 		private static int Amount3int;
@@ -101,7 +101,9 @@ public class InitialStat {
 		private static int Left6int;
 		
 		public static ArrayList<ArrayList<String>> listofquests = new ArrayList<ArrayList<String>>();
-		public static ArrayList<String> questdata = new ArrayList<String>();
+		public static ArrayList<String> questbloat = new ArrayList<String>();
+		
+		private static String test = "qweqweqwe";
 	
 	public static void InitialStat(){
 		ResultSet rs = null;
@@ -169,13 +171,21 @@ public class InitialStat {
 	    rs = null;
 		
 		// quest loader
+	    for(int j = 0; j < 35; j++){
+	    	questbloat.add(" ");
+	    }
+	    
+	    for(int i = 0; i< rowcount; i++){
+	    	listofquests.add(questbloat);
+	    }
+	    
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 			
 			System.out.println("Loading Quest data ...");
 			
-			for(int i = 1; i < rowcount + 1; i++){
-				rs = UserVerify.stmt.executeQuery("SELECT Title, MinLevel, MaxLevel, Solo, Timer, TimeLeft, MobName, MobAmount, MobLeft, Collect1, Amount1, Left1, Collect2, Amount2, Left2, Collect3, Amount3, Left3, Collect4, Amount4, Left4, Collect5, Amount5, Left5, Collect6, Amount6, Left6, Gold, XP, Item1, Item2, Item3, Item4, Item5, Item6 FROM Quests_" + Game.Playername + " WHERE QuestID = " + i);
+			for(int i = 0; i < rowcount ; i++){
+				rs = UserVerify.stmt.executeQuery("SELECT Title, MinLevel, MaxLevel, Solo, Timer, TimeLeft, MobName, MobAmount, MobKilled, Collect1, Amount1, Left1, Collect2, Amount2, Left2, Collect3, Amount3, Left3, Collect4, Amount4, Left4, Collect5, Amount5, Left5, Collect6, Amount6, Left6, Gold, XP, Item1, Item2, Item3, Item4, Item5, Item6 FROM Quests_" + Game.Playername + " WHERE QuestID = " + i);
 				
 				while(rs.next()){
 					Title = rs.getString("Title");
@@ -186,7 +196,7 @@ public class InitialStat {
 					TimeLeftint = rs.getInt("TimeLeft");//
 					MobName = rs.getString("MobName");
 					MobAmountint = rs.getInt("MobAmount");//
-					MobLeftint = rs.getInt("MobLeft");//
+					MobKilledint = rs.getInt("MobKilled");//
 					Collect1 = rs.getString("Collect1");
 					Amount1int = rs.getInt("Amount1");//
 					Left1int = rs.getInt("Left1");//
@@ -222,7 +232,7 @@ public class InitialStat {
 					Timer = Integer.toString(Timerint);
 					TimeLeft = Integer.toString(TimeLeftint);
 					MobAmount = Integer.toString(MobAmountint);
-					MobLeft = Integer.toString(MobLeftint);
+					MobKilled = Integer.toString(MobKilledint);
 					Amount1 = Integer.toString(Amount1int);
 					Left1 = Integer.toString(Left1int);
 					Amount2 = Integer.toString(Amount2int);
@@ -239,50 +249,45 @@ public class InitialStat {
 					QXP = Integer.toString(QXPint);
 					
 					// Load the quest data into an array list
-					questdata.add(Title);
-					questdata.add(MinLevel);
-					questdata.add(MaxLevel);
-					questdata.add(Solo);
-					questdata.add(Timer);
-					questdata.add(TimeLeft);
-					questdata.add(MobName);
-					questdata.add(MobAmount);
-					questdata.add(MobLeft);
-					questdata.add(Collect1);
-					questdata.add(Amount1);
-					questdata.add(Left1);
-					questdata.add(Collect2);
-					questdata.add(Amount2);
-					questdata.add(Left2);
-					questdata.add(Collect3);
-					questdata.add(Amount3);
-					questdata.add(Left3);
-					questdata.add(Collect4);
-					questdata.add(Amount4);
-					questdata.add(Left4);
-					questdata.add(Collect5);
-					questdata.add(Amount5);
-					questdata.add(Left5);
-					questdata.add(Collect6);
-					questdata.add(Amount6);
-					questdata.add(Left6);
-					questdata.add(QGold);
-					questdata.add(QXP);
-					questdata.add(Item1);
-					questdata.add(Item2);
-					questdata.add(Item3);
-					questdata.add(Item4);
-					questdata.add(Item5);
-					questdata.add(Item6);
 					
-					listofquests.add(questdata);
 					
-					questdata.clear();
-					
-				}
-				
+					listofquests.get(i).set(0, Title);
+					listofquests.get(i).set(1, MinLevel);
+					listofquests.get(i).set(2, MaxLevel);
+					listofquests.get(i).set(3, Solo);
+					listofquests.get(i).set(4, Timer);
+					listofquests.get(i).set(5, TimeLeft);
+					listofquests.get(i).set(6, MobName);
+					listofquests.get(i).set(7, MobAmount);
+					listofquests.get(i).set(8, MobKilled);
+					listofquests.get(i).set(9, Collect1);
+					listofquests.get(i).set(10, Amount1);
+					listofquests.get(i).set(11, Left1);
+					listofquests.get(i).set(12, Collect2);
+					listofquests.get(i).set(13, Amount2);
+					listofquests.get(i).set(14, Left2);
+					listofquests.get(i).set(15, Collect3);
+					listofquests.get(i).set(16, Amount3);
+					listofquests.get(i).set(17, Left3);
+					listofquests.get(i).set(18, Collect4);
+					listofquests.get(i).set(19, Amount4);
+					listofquests.get(i).set(20, Left4);
+					listofquests.get(i).set(21, Collect5);
+					listofquests.get(i).set(22, Amount5);
+					listofquests.get(i).set(23, Left5);
+					listofquests.get(i).set(24, Collect6);
+					listofquests.get(i).set(25, Amount6);
+					listofquests.get(i).set(26, Left6);
+					listofquests.get(i).set(27, QGold);
+					listofquests.get(i).set(28, QXP);
+					listofquests.get(i).set(29, Item1);
+					listofquests.get(i).set(30, Item2);
+					listofquests.get(i).set(31, Item3);
+					listofquests.get(i).set(32, Item4);
+					listofquests.get(i).set(33, Item5);
+					listofquests.get(i).set(34, Item6);					
+				}				
 				rs = null;	
-				System.out.println("quest " + i + " loaded.");
 			}
 		}catch(SQLException se){
 			// Handle errors for JDBC
