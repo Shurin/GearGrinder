@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.GearGrinder.Game;
 import com.GearGrinder.Networking.InitialStat;
+import com.GearGrinder.Networking.SaveLoc;
 import com.GearGrinder.entity.Entity;
 import com.GearGrinder.entity.Projectile.Projectile;
 import com.GearGrinder.entity.mob.NinjaBot;
@@ -186,6 +187,26 @@ public class Level {
 						entities.get(i).takeDmg(prodamage);
 						if(entities.get(i).getHP() <=0){
 							entities.get(i).remove();
+							for(int k = 0; k < InitialStat.questcount; k++){
+								if(InitialStat.listofquests.get(k).get(10).equals(entities.get(i).getName())){
+									String tempstring = null;
+									int tempint = 0;
+									String tempstring2 = null;
+									int tempint2 = 0;
+									tempstring = InitialStat.listofquests.get(k).get(12);
+									tempint = Integer.valueOf(tempstring);
+									tempstring2 = InitialStat.listofquests.get(k).get(11);
+									tempint2 = Integer.valueOf(tempstring2);
+									if(tempint + 1 <= tempint2){
+										tempint = tempint + 1;
+										tempstring = Integer.toString(tempint);
+										InitialStat.listofquests.get(k).set(12, tempstring);
+									}else if(tempint + 1 > tempint2){
+										InitialStat.listofquests.get(k).set(3, "1");
+										SaveLoc.SaveQuests();
+									}
+								}
+							}
 							if(InitialStat.XP + 1 > InitialStat.leveltotalxp){								
 								InitialStat.PlayerLevel += 1;
 								InitialStat.XP = 0;

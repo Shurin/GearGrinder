@@ -23,6 +23,7 @@ import javax.swing.JFrame;
 import com.GearGrinder.Networking.GetLoc;
 import com.GearGrinder.Networking.GetLocThread;
 import com.GearGrinder.Networking.InitialStat;
+import com.GearGrinder.Networking.SaveLoc;
 import com.GearGrinder.Networking.SaveLocThread;
 import com.GearGrinder.Networking.SaveStat;
 import com.GearGrinder.Networking.UserVerify;
@@ -590,6 +591,7 @@ public class Game extends Canvas implements Runnable {
 		///////// DIALOG SECTION //////////
 		///////////////////////////////////
 		
+		
 		if(npcDialog.showDialog){
 			g.drawString("dialog initiated", 50, 50);
 			if(Level.entities.get(npcDialog.npcindex).npcType().equals("a simple test npc")){
@@ -613,29 +615,76 @@ public class Game extends Canvas implements Runnable {
 				}
 			}else if(Level.entities.get(npcDialog.npcindex).npcType().equals("quest")){
 				if(Level.entities.get(npcDialog.npcindex).getName().equals("Verdyn")){
-					int textrows = Level.entities.get(npcDialog.npcindex).npcText().size();
-					int dtopX = width / 3 - 15;
-					int dtopY = height / 7;
-					int dtextY = dtopY + 87;
-					int nameX = dtopX + 244;
-					int nameOffset = Level.entities.get(npcDialog.npcindex).getName().length() * 4;
-					
-					g.drawImage(dialogwindow, dtopX, dtopY, null);	
-					g.drawString(Level.entities.get(npcDialog.npcindex).getName(), nameX - nameOffset, dtopY + 42);
-					
-					for(int i = 0; i < textrows; i++){
-						int y = dtextY + 10;
-						g.drawString(Level.entities.get(npcDialog.npcindex).npcText().get(i), dtopX + 35, y);
-						dtextY = dtextY + 20;
+					for(int i = 0; i < InitialStat.questcount; i++){
+						if(InitialStat.listofquests.get(i).get(4).toString().equals("Ninja Slayer") && InitialStat.listofquests.get(i).get(2).toString().equals("0") && InitialStat.listofquests.get(i).get(3).toString().equals("0")){
+							int textrows = Level.entities.get(npcDialog.npcindex).npcText().size();
+							int dtopX = width / 3 - 15;
+							int dtopY = height / 7;
+							int dtextY = dtopY + 87;
+							int nameX = dtopX + 244;
+							int nameOffset = Level.entities.get(npcDialog.npcindex).getName().length() * 4;
+							
+							g.drawImage(dialogwindow, dtopX, dtopY, null);
+							g.drawString(Level.entities.get(npcDialog.npcindex).getName(), nameX - nameOffset, dtopY + 42);
+							
+							for(int j = 0; j < textrows; j++){
+								int y = dtextY + 10;
+								g.drawString(Level.entities.get(npcDialog.npcindex).npcText().get(j), dtopX + 35, y);
+								dtextY = dtextY + 20;
+							}
+							if(Keyboard.dialog){
+								InitialStat.listofquests.get(0).set(2, "1");
+								SaveLoc.SaveQuests();
+								InitialStat.questlog();
+								npcDialog.showDialog = false;
+							}
+						}else if(InitialStat.listofquests.get(i).get(4).toString().equals("Ninja Slayer") && InitialStat.listofquests.get(i).get(2).toString().equals("1") && InitialStat.listofquests.get(i).get(3).toString().equals("0")){
+							int dtopX = width / 3 - 15;
+							int dtopY = height / 7;
+							int dtextY = dtopY + 87;
+							int nameX = dtopX + 244;
+							int nameOffset = Level.entities.get(npcDialog.npcindex).getName().length() * 4;
+							
+							g.drawImage(dialogwindow, dtopX, dtopY, null);
+							g.drawString(Level.entities.get(npcDialog.npcindex).getName(), nameX - nameOffset, dtopY + 42);
+							g.drawString("Come back when you've kill all of those nasty NinjaBots ...", dtopX + 35, dtopY + (42 * 5));
+
+							if(Keyboard.dialog){
+								npcDialog.showDialog = false;
+							}
+						}else if(InitialStat.listofquests.get(i).get(0).toString().equals("0") && InitialStat.listofquests.get(i).get(2).toString().equals("1") && InitialStat.listofquests.get(i).get(3).toString().equals("1")){
+							int dtopX = width / 3 - 15;
+							int dtopY = height / 7;
+							int dtextY = dtopY + 87;
+							int nameX = dtopX + 244;
+							int nameOffset = Level.entities.get(npcDialog.npcindex).getName().length() * 4;
+							
+							g.drawImage(dialogwindow, dtopX, dtopY, null);
+							g.drawString(Level.entities.get(npcDialog.npcindex).getName(), nameX - nameOffset, dtopY + 42);
+							g.drawString("Great work! Here's your reward!", dtopX + 35, dtopY + (42 * 5));
+
+							if(Keyboard.dialog){
+								InitialStat.listofquests.get(0).set(2, "0");
+								SaveLoc.SaveQuests();
+								InitialStat.questlog();
+								npcDialog.showDialog = false;
+							}
+						}else if(InitialStat.listofquests.get(i).get(4).toString().equals("Ninja Slayer") && InitialStat.listofquests.get(i).get(2).toString().equals("0") && InitialStat.listofquests.get(i).get(3).toString().equals("1")){
+							int dtopX = width / 3 - 15;
+							int dtopY = height / 7;
+							int dtextY = dtopY + 87;
+							int nameX = dtopX + 244;
+							int nameOffset = Level.entities.get(npcDialog.npcindex).getName().length() * 4;
+							
+							g.drawImage(dialogwindow, dtopX, dtopY, null);
+							g.drawString(Level.entities.get(npcDialog.npcindex).getName(), nameX - nameOffset, dtopY + 42);
+							g.drawString("I have nothing more for you at this time ...", dtopX + 35, dtopY + (42 * 5));
+
+							if(Keyboard.dialog){
+								npcDialog.showDialog = false;
+							}
+						}
 					}
-					if(Keyboard.dialog){
-						InitialStat.listofquests.get(0).set(0, "1");
-						InitialStat.questlog();
-						System.out.println(Player.quests);
-						npcDialog.showDialog = false;
-					}
-				}else{
-					npcDialog.showDialog = false;
 				}
 			}else if(Level.entities.get(npcDialog.npcindex).npcType().equals("skills")){
 				int textrows = Level.entities.get(npcDialog.npcindex).npcText().size();
@@ -662,7 +711,21 @@ public class Game extends Canvas implements Runnable {
 		///////////////////////////////
 		/////// SHOW QUEST LOG ////////
 		///////////////////////////////
-		
+		if(Player.activequests > 0){
+			g.setFont(new Font("Veranda", 0, 10));
+			g.setColor(Color.BLACK);
+			g.fillRect((width / 4) * 3, height / 12, 300, 500);
+			int logX = (width / 4) * 3;
+			int logY = height / 12;
+			for(int i = 0; i < InitialStat.questcount; i++){
+				if(InitialStat.listofquests.get(i).get(1).equals("kill") && InitialStat.listofquests.get(i).get(2).toString().equals("1")){
+					logY = logY + 35;
+					g.setColor(Color.WHITE);
+					g.drawString("Quest " + InitialStat.listofquests.get(i).get(0) + ": " + InitialStat.listofquests.get(i).get(4), logX + 10, logY);
+					g.drawString("Kill: " + InitialStat.listofquests.get(i).get(10) + "  " + InitialStat.listofquests.get(i).get(12) + " / " + InitialStat.listofquests.get(i).get(11), logX + 35, logY + 15);
+				}
+			}
+		}
 		
 		portalcheck();
 		if(dungeonallowed == false){

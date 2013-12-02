@@ -33,5 +33,4 @@ public class SaveStat {
 			}
 			saving = false;
 		}
-	
 }
