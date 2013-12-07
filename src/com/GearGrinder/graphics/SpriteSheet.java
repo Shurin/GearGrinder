@@ -16,7 +16,9 @@ public class SpriteSheet {
 
 	// TILE SPRITE SHEETS //////////////////////////////////
 	public static SpriteSheet outdoor_tiles_1 = new SpriteSheet("/textures/sheets/outdoors_1.png", 640);
-	public static SpriteSheet outdoor_tiles_1_night = new SpriteSheet("/textures/sheets/outdoors_1_night.png", 640);	
+	public static SpriteSheet outdoor_tiles_1_night = new SpriteSheet("/textures/sheets/outdoors_1_night.png", 640);
+	public static SpriteSheet trees = new SpriteSheet("/textures/sheets/trees.png", 192);
+	public static SpriteSheet trees_night = new SpriteSheet("/textures/sheets/trees_night.png", 192);
 	// PROJECTILE SPRITE SHEETS ////////////////////////////
 	public static SpriteSheet projectile_wizard = new SpriteSheet("/textures/sheets/projectiles/wizard.png", 48, 48); // 48 is the height of the spritesheet in pixels
 	public static SpriteSheet green_orb = new SpriteSheet(projectile_wizard, 0, 0, 1, 3, 16);
