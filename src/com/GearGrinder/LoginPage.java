@@ -1,32 +1,31 @@
 package com.GearGrinder;
 
-import java.awt.Component;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import com.GearGrinder.Networking.UserVerify;
-import java.awt.Color;
 
+public class LoginPage {
 
-public class LoginPage{
-  
 	public static String usrname = null;
 	public static String usrpass = null;
-	
-	
 
-	public static void main(String[] args){
-		LoginPage();
+	public static void main(String[] args) {
+		if (args.length == 2) {
+			usrname = args[0];
+			usrpass = args[1];
+			UserVerify.UserVerify();
+		} else LoginPage();
 	}
-	
-	public static void LoginPage(){
+
+	public static void LoginPage() {
 		JFrame frmGeargrinder = new JFrame("Demo application");
 		frmGeargrinder.setTitle("GearGrinder");
 		frmGeargrinder.getContentPane().setBackground(Color.BLACK);
@@ -36,7 +35,7 @@ public class LoginPage{
 		placeComponents(frmGeargrinder);
 		frmGeargrinder.setVisible(true);
 	}
-	
+
 	private static void placeComponents(final JFrame frame) {
 		frame.getContentPane().setLayout(null);
 
@@ -82,13 +81,12 @@ public class LoginPage{
 			}
 		};
 		loginButton.addActionListener(loginButtonListener);
-		
+
 		registerButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.exit(1);
 			}
 		});
-	}  
+	}
 }
-

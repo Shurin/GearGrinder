@@ -2,9 +2,8 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry exported="true" kind="lib" path="libs/bodyeditor-loader.jar" sourcepath="libs/bodyeditor-loader-sources.jar"/>
 	<classpathentry kind="lib" path="res"/>
-	<classpathentry kind="lib" path="D:/Code/GearGrinder/org.apache.commons.net_2.2.0.v201101241833.jar"/>
-	<classpathentry kind="lib" path="D:/Code/GearGrinder/mysql-connector-java-5.1.27-bin.jar"/>
+	<classpathentry kind="lib" path="mysql-connector-java-5.1.27-bin.jar"/>
+	<classpathentry kind="lib" path="org.apache.commons.net_2.2.0.v201101241833.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
