@@ -1,4 +1,5 @@
 package com.GearGrinder.graphics;
+
 // sprites can use blank pixel transparency or they 
 // can use the color 0xff00ff
 // just remember that the alpha for that color 
@@ -13,8 +14,8 @@ public class Sprite {
 	// Sprite can take in size, x, y, SpriteSheet.name
 	// OR it can take size and fixed color like below
 	public static Sprite voidSprite = new Sprite(16, 0x00000000);
-	//SPAWN LEVEL SPRITES
-	//DAY SPRITES	
+	// SPAWN LEVEL SPRITES
+	// DAY SPRITES
 	public static Sprite outdoors_grass_001 = new Sprite(16, 0, 0, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_grass_002 = new Sprite(16, 0, 1, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_grass_003 = new Sprite(16, 0, 2, SpriteSheet.outdoor_tiles_1);
@@ -86,7 +87,7 @@ public class Sprite {
 	public static Sprite outdoors_grasswater_021 = new Sprite(16, 11, 2, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_grasswater_022 = new Sprite(16, 11, 3, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_grasswater_023 = new Sprite(16, 11, 4, SpriteSheet.outdoor_tiles_1);
-	public static Sprite outdoors_grasswater_024 = new Sprite(16, 11, 5, SpriteSheet.outdoor_tiles_1);	
+	public static Sprite outdoors_grasswater_024 = new Sprite(16, 11, 5, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_grassdirt_001 = new Sprite(16, 12, 0, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_grassdirt_002 = new Sprite(16, 12, 1, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_grassdirt_003 = new Sprite(16, 12, 2, SpriteSheet.outdoor_tiles_1);
@@ -110,7 +111,7 @@ public class Sprite {
 	public static Sprite outdoors_grassdirt_021 = new Sprite(16, 15, 2, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_grassdirt_022 = new Sprite(16, 15, 3, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_grassdirt_023 = new Sprite(16, 15, 4, SpriteSheet.outdoor_tiles_1);
-	public static Sprite outdoors_grassdirt_024 = new Sprite(16, 15, 5, SpriteSheet.outdoor_tiles_1);	
+	public static Sprite outdoors_grassdirt_024 = new Sprite(16, 15, 5, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_dirt_001 = new Sprite(16, 0, 6, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_dirt_002 = new Sprite(16, 0, 7, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_dirt_003 = new Sprite(16, 0, 8, SpriteSheet.outdoor_tiles_1);
@@ -182,31 +183,31 @@ public class Sprite {
 	public static Sprite outdoors_dirtwater_021 = new Sprite(16, 11, 8, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_dirtwater_022 = new Sprite(16, 11, 9, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_dirtwater_023 = new Sprite(16, 11, 10, SpriteSheet.outdoor_tiles_1);
-	public static Sprite outdoors_dirtwater_024 = new Sprite(16, 11, 11, SpriteSheet.outdoor_tiles_1);		
-	public static Sprite outdoors_dirtgrass_001 = new Sprite(16, 12, 6, SpriteSheet.outdoor_tiles_1);	
-	public static Sprite outdoors_dirtgrass_002 = new Sprite(16, 12, 7, SpriteSheet.outdoor_tiles_1);	
-	public static Sprite outdoors_dirtgrass_003 = new Sprite(16, 12, 8, SpriteSheet.outdoor_tiles_1);	
-	public static Sprite outdoors_dirtgrass_004 = new Sprite(16, 12, 9, SpriteSheet.outdoor_tiles_1);	
-	public static Sprite outdoors_dirtgrass_005 = new Sprite(16, 12, 10, SpriteSheet.outdoor_tiles_1);	
-	public static Sprite outdoors_dirtgrass_006 = new Sprite(16, 12, 11, SpriteSheet.outdoor_tiles_1);	
-	public static Sprite outdoors_dirtgrass_007 = new Sprite(16, 13, 6, SpriteSheet.outdoor_tiles_1);	
-	public static Sprite outdoors_dirtgrass_008 = new Sprite(16, 13, 7, SpriteSheet.outdoor_tiles_1);	
-	public static Sprite outdoors_dirtgrass_009 = new Sprite(16, 13, 8, SpriteSheet.outdoor_tiles_1);	
-	public static Sprite outdoors_dirtgrass_010 = new Sprite(16, 13, 9, SpriteSheet.outdoor_tiles_1);	
-	public static Sprite outdoors_dirtgrass_011 = new Sprite(16, 13, 10, SpriteSheet.outdoor_tiles_1);	
-	public static Sprite outdoors_dirtgrass_012 = new Sprite(16, 13, 11, SpriteSheet.outdoor_tiles_1);	
-	public static Sprite outdoors_dirtgrass_013 = new Sprite(16, 14, 6, SpriteSheet.outdoor_tiles_1);	
-	public static Sprite outdoors_dirtgrass_014 = new Sprite(16, 14, 7, SpriteSheet.outdoor_tiles_1);	
-	public static Sprite outdoors_dirtgrass_015 = new Sprite(16, 14, 8, SpriteSheet.outdoor_tiles_1);	
-	public static Sprite outdoors_dirtgrass_016 = new Sprite(16, 14, 9, SpriteSheet.outdoor_tiles_1);	
-	public static Sprite outdoors_dirtgrass_017 = new Sprite(16, 14, 10, SpriteSheet.outdoor_tiles_1);	
-	public static Sprite outdoors_dirtgrass_018 = new Sprite(16, 14, 11, SpriteSheet.outdoor_tiles_1);	
-	public static Sprite outdoors_dirtgrass_019 = new Sprite(16, 15, 6, SpriteSheet.outdoor_tiles_1);	
-	public static Sprite outdoors_dirtgrass_020 = new Sprite(16, 15, 7, SpriteSheet.outdoor_tiles_1);	
-	public static Sprite outdoors_dirtgrass_021 = new Sprite(16, 15, 8, SpriteSheet.outdoor_tiles_1);	
-	public static Sprite outdoors_dirtgrass_022 = new Sprite(16, 15, 9, SpriteSheet.outdoor_tiles_1);	
-	public static Sprite outdoors_dirtgrass_023 = new Sprite(16, 15, 10, SpriteSheet.outdoor_tiles_1);	
-	public static Sprite outdoors_dirtgrass_024 = new Sprite(16, 15, 11, SpriteSheet.outdoor_tiles_1);		
+	public static Sprite outdoors_dirtwater_024 = new Sprite(16, 11, 11, SpriteSheet.outdoor_tiles_1);
+	public static Sprite outdoors_dirtgrass_001 = new Sprite(16, 12, 6, SpriteSheet.outdoor_tiles_1);
+	public static Sprite outdoors_dirtgrass_002 = new Sprite(16, 12, 7, SpriteSheet.outdoor_tiles_1);
+	public static Sprite outdoors_dirtgrass_003 = new Sprite(16, 12, 8, SpriteSheet.outdoor_tiles_1);
+	public static Sprite outdoors_dirtgrass_004 = new Sprite(16, 12, 9, SpriteSheet.outdoor_tiles_1);
+	public static Sprite outdoors_dirtgrass_005 = new Sprite(16, 12, 10, SpriteSheet.outdoor_tiles_1);
+	public static Sprite outdoors_dirtgrass_006 = new Sprite(16, 12, 11, SpriteSheet.outdoor_tiles_1);
+	public static Sprite outdoors_dirtgrass_007 = new Sprite(16, 13, 6, SpriteSheet.outdoor_tiles_1);
+	public static Sprite outdoors_dirtgrass_008 = new Sprite(16, 13, 7, SpriteSheet.outdoor_tiles_1);
+	public static Sprite outdoors_dirtgrass_009 = new Sprite(16, 13, 8, SpriteSheet.outdoor_tiles_1);
+	public static Sprite outdoors_dirtgrass_010 = new Sprite(16, 13, 9, SpriteSheet.outdoor_tiles_1);
+	public static Sprite outdoors_dirtgrass_011 = new Sprite(16, 13, 10, SpriteSheet.outdoor_tiles_1);
+	public static Sprite outdoors_dirtgrass_012 = new Sprite(16, 13, 11, SpriteSheet.outdoor_tiles_1);
+	public static Sprite outdoors_dirtgrass_013 = new Sprite(16, 14, 6, SpriteSheet.outdoor_tiles_1);
+	public static Sprite outdoors_dirtgrass_014 = new Sprite(16, 14, 7, SpriteSheet.outdoor_tiles_1);
+	public static Sprite outdoors_dirtgrass_015 = new Sprite(16, 14, 8, SpriteSheet.outdoor_tiles_1);
+	public static Sprite outdoors_dirtgrass_016 = new Sprite(16, 14, 9, SpriteSheet.outdoor_tiles_1);
+	public static Sprite outdoors_dirtgrass_017 = new Sprite(16, 14, 10, SpriteSheet.outdoor_tiles_1);
+	public static Sprite outdoors_dirtgrass_018 = new Sprite(16, 14, 11, SpriteSheet.outdoor_tiles_1);
+	public static Sprite outdoors_dirtgrass_019 = new Sprite(16, 15, 6, SpriteSheet.outdoor_tiles_1);
+	public static Sprite outdoors_dirtgrass_020 = new Sprite(16, 15, 7, SpriteSheet.outdoor_tiles_1);
+	public static Sprite outdoors_dirtgrass_021 = new Sprite(16, 15, 8, SpriteSheet.outdoor_tiles_1);
+	public static Sprite outdoors_dirtgrass_022 = new Sprite(16, 15, 9, SpriteSheet.outdoor_tiles_1);
+	public static Sprite outdoors_dirtgrass_023 = new Sprite(16, 15, 10, SpriteSheet.outdoor_tiles_1);
+	public static Sprite outdoors_dirtgrass_024 = new Sprite(16, 15, 11, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_sand_001 = new Sprite(16, 0, 12, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_sand_002 = new Sprite(16, 0, 13, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_sand_003 = new Sprite(16, 0, 14, SpriteSheet.outdoor_tiles_1);
@@ -277,7 +278,7 @@ public class Sprite {
 	public static Sprite outdoors_sandwater_020 = new Sprite(16, 11, 13, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_sandwater_021 = new Sprite(16, 11, 14, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_sandwater_022 = new Sprite(16, 11, 15, SpriteSheet.outdoor_tiles_1);
-	public static Sprite outdoors_sandwater_023 = new Sprite(16, 11, 16, SpriteSheet.outdoor_tiles_1);	
+	public static Sprite outdoors_sandwater_023 = new Sprite(16, 11, 16, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_sandwater_024 = new Sprite(16, 11, 17, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_sandgrass_001 = new Sprite(16, 12, 12, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_sandgrass_002 = new Sprite(16, 12, 13, SpriteSheet.outdoor_tiles_1);
@@ -302,7 +303,7 @@ public class Sprite {
 	public static Sprite outdoors_sandgrass_021 = new Sprite(16, 15, 14, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_sandgrass_022 = new Sprite(16, 15, 15, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_sandgrass_023 = new Sprite(16, 15, 16, SpriteSheet.outdoor_tiles_1);
-	public static Sprite outdoors_sandgrass_024 = new Sprite(16, 15, 17, SpriteSheet.outdoor_tiles_1);		
+	public static Sprite outdoors_sandgrass_024 = new Sprite(16, 15, 17, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_grasscliff_001 = new Sprite(16, 12, 20, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_grasscliff_002 = new Sprite(16, 12, 21, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_grasscliff_003 = new Sprite(16, 12, 22, SpriteSheet.outdoor_tiles_1);
@@ -342,7 +343,7 @@ public class Sprite {
 	public static Sprite outdoors_grasscliff_037 = new Sprite(16, 15, 26, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_grasscliff_038 = new Sprite(16, 15, 27, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_grasscliff_039 = new Sprite(16, 15, 28, SpriteSheet.outdoor_tiles_1);
-	public static Sprite outdoors_grasscliff_040 = new Sprite(16, 15, 29, SpriteSheet.outdoor_tiles_1);	
+	public static Sprite outdoors_grasscliff_040 = new Sprite(16, 15, 29, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_dirtcliff_001 = new Sprite(16, 16, 20, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_dirtcliff_002 = new Sprite(16, 16, 21, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_dirtcliff_003 = new Sprite(16, 16, 22, SpriteSheet.outdoor_tiles_1);
@@ -382,7 +383,7 @@ public class Sprite {
 	public static Sprite outdoors_dirtcliff_037 = new Sprite(16, 19, 26, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_dirtcliff_038 = new Sprite(16, 19, 27, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_dirtcliff_039 = new Sprite(16, 19, 28, SpriteSheet.outdoor_tiles_1);
-	public static Sprite outdoors_dirtcliff_040 = new Sprite(16, 19, 29, SpriteSheet.outdoor_tiles_1);	
+	public static Sprite outdoors_dirtcliff_040 = new Sprite(16, 19, 29, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_sandcliff_001 = new Sprite(16, 20, 20, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_sandcliff_002 = new Sprite(16, 20, 21, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_sandcliff_003 = new Sprite(16, 20, 22, SpriteSheet.outdoor_tiles_1);
@@ -422,7 +423,7 @@ public class Sprite {
 	public static Sprite outdoors_sandcliff_037 = new Sprite(16, 23, 26, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_sandcliff_038 = new Sprite(16, 23, 27, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_sandcliff_039 = new Sprite(16, 23, 28, SpriteSheet.outdoor_tiles_1);
-	public static Sprite outdoors_sandcliff_040 = new Sprite(16, 23, 29, SpriteSheet.outdoor_tiles_1);	
+	public static Sprite outdoors_sandcliff_040 = new Sprite(16, 23, 29, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_sandcliffgrass_001 = new Sprite(16, 10, 24, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_sandcliffgrass_002 = new Sprite(16, 10, 25, SpriteSheet.outdoor_tiles_1);
 	public static Sprite outdoors_sandcliffgrass_003 = new Sprite(16, 11, 24, SpriteSheet.outdoor_tiles_1);
@@ -480,8 +481,7 @@ public class Sprite {
 	public static Sprite trees_047 = new Sprite(16, 11, 2, SpriteSheet.trees);
 	public static Sprite trees_048 = new Sprite(16, 11, 3, SpriteSheet.trees);
 
-	
-	//NIGHT SPRITES
+	// NIGHT SPRITES
 	public static Sprite outdoors_grass_001_night = new Sprite(16, 0, 0, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_grass_002_night = new Sprite(16, 0, 1, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_grass_003_night = new Sprite(16, 0, 2, SpriteSheet.outdoor_tiles_1_night);
@@ -553,7 +553,7 @@ public class Sprite {
 	public static Sprite outdoors_grasswater_021_night = new Sprite(16, 11, 2, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_grasswater_022_night = new Sprite(16, 11, 3, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_grasswater_023_night = new Sprite(16, 11, 4, SpriteSheet.outdoor_tiles_1_night);
-	public static Sprite outdoors_grasswater_024_night = new Sprite(16, 11, 5, SpriteSheet.outdoor_tiles_1_night);	
+	public static Sprite outdoors_grasswater_024_night = new Sprite(16, 11, 5, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_grassdirt_001_night = new Sprite(16, 12, 0, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_grassdirt_002_night = new Sprite(16, 12, 1, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_grassdirt_003_night = new Sprite(16, 12, 2, SpriteSheet.outdoor_tiles_1_night);
@@ -577,7 +577,7 @@ public class Sprite {
 	public static Sprite outdoors_grassdirt_021_night = new Sprite(16, 15, 2, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_grassdirt_022_night = new Sprite(16, 15, 3, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_grassdirt_023_night = new Sprite(16, 15, 4, SpriteSheet.outdoor_tiles_1_night);
-	public static Sprite outdoors_grassdirt_024_night = new Sprite(16, 15, 5, SpriteSheet.outdoor_tiles_1_night);	
+	public static Sprite outdoors_grassdirt_024_night = new Sprite(16, 15, 5, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_dirt_001_night = new Sprite(16, 0, 6, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_dirt_002_night = new Sprite(16, 0, 7, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_dirt_003_night = new Sprite(16, 0, 8, SpriteSheet.outdoor_tiles_1_night);
@@ -649,31 +649,31 @@ public class Sprite {
 	public static Sprite outdoors_dirtwater_021_night = new Sprite(16, 11, 8, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_dirtwater_022_night = new Sprite(16, 11, 9, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_dirtwater_023_night = new Sprite(16, 11, 10, SpriteSheet.outdoor_tiles_1_night);
-	public static Sprite outdoors_dirtwater_024_night = new Sprite(16, 11, 11, SpriteSheet.outdoor_tiles_1_night);	
-	public static Sprite outdoors_dirtgrass_001_night = new Sprite(16, 12, 6, SpriteSheet.outdoor_tiles_1_night);	
-	public static Sprite outdoors_dirtgrass_002_night = new Sprite(16, 12, 7, SpriteSheet.outdoor_tiles_1_night);	
-	public static Sprite outdoors_dirtgrass_003_night = new Sprite(16, 12, 8, SpriteSheet.outdoor_tiles_1_night);	
-	public static Sprite outdoors_dirtgrass_004_night = new Sprite(16, 12, 9, SpriteSheet.outdoor_tiles_1_night);	
-	public static Sprite outdoors_dirtgrass_005_night = new Sprite(16, 12, 10, SpriteSheet.outdoor_tiles_1_night);	
-	public static Sprite outdoors_dirtgrass_006_night = new Sprite(16, 12, 11, SpriteSheet.outdoor_tiles_1_night);	
-	public static Sprite outdoors_dirtgrass_007_night = new Sprite(16, 13, 6, SpriteSheet.outdoor_tiles_1_night);	
-	public static Sprite outdoors_dirtgrass_008_night = new Sprite(16, 13, 7, SpriteSheet.outdoor_tiles_1_night);	
-	public static Sprite outdoors_dirtgrass_009_night = new Sprite(16, 13, 8, SpriteSheet.outdoor_tiles_1_night);	
-	public static Sprite outdoors_dirtgrass_010_night = new Sprite(16, 13, 9, SpriteSheet.outdoor_tiles_1_night);	
-	public static Sprite outdoors_dirtgrass_011_night = new Sprite(16, 13, 10, SpriteSheet.outdoor_tiles_1_night);	
-	public static Sprite outdoors_dirtgrass_012_night = new Sprite(16, 13, 11, SpriteSheet.outdoor_tiles_1_night);	
-	public static Sprite outdoors_dirtgrass_013_night = new Sprite(16, 14, 6, SpriteSheet.outdoor_tiles_1_night);	
-	public static Sprite outdoors_dirtgrass_014_night = new Sprite(16, 14, 7, SpriteSheet.outdoor_tiles_1_night);	
-	public static Sprite outdoors_dirtgrass_015_night = new Sprite(16, 14, 8, SpriteSheet.outdoor_tiles_1_night);	
-	public static Sprite outdoors_dirtgrass_016_night = new Sprite(16, 14, 9, SpriteSheet.outdoor_tiles_1_night);	
-	public static Sprite outdoors_dirtgrass_017_night = new Sprite(16, 14, 10, SpriteSheet.outdoor_tiles_1_night);	
-	public static Sprite outdoors_dirtgrass_018_night = new Sprite(16, 14, 11, SpriteSheet.outdoor_tiles_1_night);	
-	public static Sprite outdoors_dirtgrass_019_night = new Sprite(16, 15, 6, SpriteSheet.outdoor_tiles_1_night);	
-	public static Sprite outdoors_dirtgrass_020_night = new Sprite(16, 15, 7, SpriteSheet.outdoor_tiles_1_night);	
-	public static Sprite outdoors_dirtgrass_021_night = new Sprite(16, 15, 8, SpriteSheet.outdoor_tiles_1_night);	
-	public static Sprite outdoors_dirtgrass_022_night = new Sprite(16, 15, 9, SpriteSheet.outdoor_tiles_1_night);	
-	public static Sprite outdoors_dirtgrass_023_night = new Sprite(16, 15, 10, SpriteSheet.outdoor_tiles_1_night);	
-	public static Sprite outdoors_dirtgrass_024_night = new Sprite(16, 15, 11, SpriteSheet.outdoor_tiles_1_night);	
+	public static Sprite outdoors_dirtwater_024_night = new Sprite(16, 11, 11, SpriteSheet.outdoor_tiles_1_night);
+	public static Sprite outdoors_dirtgrass_001_night = new Sprite(16, 12, 6, SpriteSheet.outdoor_tiles_1_night);
+	public static Sprite outdoors_dirtgrass_002_night = new Sprite(16, 12, 7, SpriteSheet.outdoor_tiles_1_night);
+	public static Sprite outdoors_dirtgrass_003_night = new Sprite(16, 12, 8, SpriteSheet.outdoor_tiles_1_night);
+	public static Sprite outdoors_dirtgrass_004_night = new Sprite(16, 12, 9, SpriteSheet.outdoor_tiles_1_night);
+	public static Sprite outdoors_dirtgrass_005_night = new Sprite(16, 12, 10, SpriteSheet.outdoor_tiles_1_night);
+	public static Sprite outdoors_dirtgrass_006_night = new Sprite(16, 12, 11, SpriteSheet.outdoor_tiles_1_night);
+	public static Sprite outdoors_dirtgrass_007_night = new Sprite(16, 13, 6, SpriteSheet.outdoor_tiles_1_night);
+	public static Sprite outdoors_dirtgrass_008_night = new Sprite(16, 13, 7, SpriteSheet.outdoor_tiles_1_night);
+	public static Sprite outdoors_dirtgrass_009_night = new Sprite(16, 13, 8, SpriteSheet.outdoor_tiles_1_night);
+	public static Sprite outdoors_dirtgrass_010_night = new Sprite(16, 13, 9, SpriteSheet.outdoor_tiles_1_night);
+	public static Sprite outdoors_dirtgrass_011_night = new Sprite(16, 13, 10, SpriteSheet.outdoor_tiles_1_night);
+	public static Sprite outdoors_dirtgrass_012_night = new Sprite(16, 13, 11, SpriteSheet.outdoor_tiles_1_night);
+	public static Sprite outdoors_dirtgrass_013_night = new Sprite(16, 14, 6, SpriteSheet.outdoor_tiles_1_night);
+	public static Sprite outdoors_dirtgrass_014_night = new Sprite(16, 14, 7, SpriteSheet.outdoor_tiles_1_night);
+	public static Sprite outdoors_dirtgrass_015_night = new Sprite(16, 14, 8, SpriteSheet.outdoor_tiles_1_night);
+	public static Sprite outdoors_dirtgrass_016_night = new Sprite(16, 14, 9, SpriteSheet.outdoor_tiles_1_night);
+	public static Sprite outdoors_dirtgrass_017_night = new Sprite(16, 14, 10, SpriteSheet.outdoor_tiles_1_night);
+	public static Sprite outdoors_dirtgrass_018_night = new Sprite(16, 14, 11, SpriteSheet.outdoor_tiles_1_night);
+	public static Sprite outdoors_dirtgrass_019_night = new Sprite(16, 15, 6, SpriteSheet.outdoor_tiles_1_night);
+	public static Sprite outdoors_dirtgrass_020_night = new Sprite(16, 15, 7, SpriteSheet.outdoor_tiles_1_night);
+	public static Sprite outdoors_dirtgrass_021_night = new Sprite(16, 15, 8, SpriteSheet.outdoor_tiles_1_night);
+	public static Sprite outdoors_dirtgrass_022_night = new Sprite(16, 15, 9, SpriteSheet.outdoor_tiles_1_night);
+	public static Sprite outdoors_dirtgrass_023_night = new Sprite(16, 15, 10, SpriteSheet.outdoor_tiles_1_night);
+	public static Sprite outdoors_dirtgrass_024_night = new Sprite(16, 15, 11, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_sand_001_night = new Sprite(16, 0, 12, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_sand_002_night = new Sprite(16, 0, 13, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_sand_003_night = new Sprite(16, 0, 14, SpriteSheet.outdoor_tiles_1_night);
@@ -745,7 +745,7 @@ public class Sprite {
 	public static Sprite outdoors_sandwater_021_night = new Sprite(16, 11, 14, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_sandwater_022_night = new Sprite(16, 11, 15, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_sandwater_023_night = new Sprite(16, 11, 16, SpriteSheet.outdoor_tiles_1_night);
-	public static Sprite outdoors_sandwater_024_night = new Sprite(16, 11, 17, SpriteSheet.outdoor_tiles_1_night);		
+	public static Sprite outdoors_sandwater_024_night = new Sprite(16, 11, 17, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_sandgrass_001_night = new Sprite(16, 12, 12, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_sandgrass_002_night = new Sprite(16, 12, 13, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_sandgrass_003_night = new Sprite(16, 12, 14, SpriteSheet.outdoor_tiles_1_night);
@@ -769,7 +769,7 @@ public class Sprite {
 	public static Sprite outdoors_sandgrass_021_night = new Sprite(16, 15, 14, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_sandgrass_022_night = new Sprite(16, 15, 15, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_sandgrass_023_night = new Sprite(16, 15, 16, SpriteSheet.outdoor_tiles_1_night);
-	public static Sprite outdoors_sandgrass_024_night = new Sprite(16, 15, 17, SpriteSheet.outdoor_tiles_1_night);	
+	public static Sprite outdoors_sandgrass_024_night = new Sprite(16, 15, 17, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_grasscliff_001_night = new Sprite(16, 12, 20, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_grasscliff_002_night = new Sprite(16, 12, 21, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_grasscliff_003_night = new Sprite(16, 12, 22, SpriteSheet.outdoor_tiles_1_night);
@@ -809,7 +809,7 @@ public class Sprite {
 	public static Sprite outdoors_grasscliff_037_night = new Sprite(16, 15, 26, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_grasscliff_038_night = new Sprite(16, 15, 27, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_grasscliff_039_night = new Sprite(16, 15, 28, SpriteSheet.outdoor_tiles_1_night);
-	public static Sprite outdoors_grasscliff_040_night = new Sprite(16, 15, 29, SpriteSheet.outdoor_tiles_1_night);	
+	public static Sprite outdoors_grasscliff_040_night = new Sprite(16, 15, 29, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_dirtcliff_001_night = new Sprite(16, 16, 20, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_dirtcliff_002_night = new Sprite(16, 16, 21, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_dirtcliff_003_night = new Sprite(16, 16, 22, SpriteSheet.outdoor_tiles_1_night);
@@ -849,7 +849,7 @@ public class Sprite {
 	public static Sprite outdoors_dirtcliff_037_night = new Sprite(16, 19, 26, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_dirtcliff_038_night = new Sprite(16, 19, 27, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_dirtcliff_039_night = new Sprite(16, 19, 28, SpriteSheet.outdoor_tiles_1_night);
-	public static Sprite outdoors_dirtcliff_040_night = new Sprite(16, 19, 29, SpriteSheet.outdoor_tiles_1_night);	
+	public static Sprite outdoors_dirtcliff_040_night = new Sprite(16, 19, 29, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_sandcliff_001_night = new Sprite(16, 20, 20, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_sandcliff_002_night = new Sprite(16, 20, 21, SpriteSheet.outdoor_tiles_1_night);
 	public static Sprite outdoors_sandcliff_003_night = new Sprite(16, 20, 22, SpriteSheet.outdoor_tiles_1_night);
@@ -946,52 +946,49 @@ public class Sprite {
 	public static Sprite trees_046_night = new Sprite(16, 11, 1, SpriteSheet.trees_night);
 	public static Sprite trees_047_night = new Sprite(16, 11, 2, SpriteSheet.trees_night);
 	public static Sprite trees_048_night = new Sprite(16, 11, 3, SpriteSheet.trees_night);
-	
 
-	//PARTICLES
-	public static Sprite particle_normal = new Sprite(3, 0xff68B96F);//size in px and color
+	// PARTICLES
+	public static Sprite particle_normal = new Sprite(3, 0xff68B96F);// size in px and color
 	// PROJECTILE SPRITES
-	public static Sprite projectile_wizard = new Sprite (16, 0, 0, SpriteSheet.projectile_wizard);
-	public static Sprite projectile_quake = new Sprite (16, 1, 0, SpriteSheet.projectile_wizard);
-	//PLAYER SPRITES
+	public static Sprite projectile_wizard = new Sprite(16, 0, 0, SpriteSheet.projectile_wizard);
+	public static Sprite projectile_quake = new Sprite(16, 1, 0, SpriteSheet.projectile_wizard);
+	// PLAYER SPRITES
 	// _1 is right foot forward
 	// _2 is left foot forward
-	public static Sprite player_up = new Sprite (32, 0, 0, SpriteSheet.player);
-	public static Sprite player_up_1 = new Sprite (32, 0, 1, SpriteSheet.player);
-	public static Sprite player_up_2 = new Sprite (32, 0, 2, SpriteSheet.player);
-	public static Sprite player_down = new Sprite (32, 2, 0, SpriteSheet.player);
-	public static Sprite player_down_1 = new Sprite (32, 2, 1, SpriteSheet.player);
-	public static Sprite player_down_2 = new Sprite (32, 2, 2, SpriteSheet.player);	
-	public static Sprite player_left = new Sprite (32, 3, 0, SpriteSheet.player);
-	public static Sprite player_left_1 = new Sprite (32, 3, 1, SpriteSheet.player);	
-	public static Sprite player_left_2 = new Sprite (32, 3, 2, SpriteSheet.player);
-	public static Sprite player_right = new Sprite (32, 1, 0, SpriteSheet.player);	
-	public static Sprite player_right_1 = new Sprite (32, 1, 1, SpriteSheet.player);
-	public static Sprite player_right_2 = new Sprite (32, 1, 2, SpriteSheet.player);
-	//PLAYER2 SPRITES
-	public static Sprite player2_up = new Sprite (32, 0, 0, SpriteSheet.player2);
-	public static Sprite player2_up_1 = new Sprite (32, 0, 1, SpriteSheet.player2);
-	public static Sprite player2_up_2 = new Sprite (32, 0, 2, SpriteSheet.player2);
-	public static Sprite player2_down = new Sprite (32, 2, 0, SpriteSheet.player2);
-	public static Sprite player2_down_1 = new Sprite (32, 2, 1, SpriteSheet.player2);
-	public static Sprite player2_down_2 = new Sprite (32, 2, 2, SpriteSheet.player2);	
-	public static Sprite player2_left = new Sprite (32, 3, 0, SpriteSheet.player2);
-	public static Sprite player2_left_1 = new Sprite (32, 3, 1, SpriteSheet.player2);	
-	public static Sprite player2_left_2 = new Sprite (32, 3, 2, SpriteSheet.player2);
-	public static Sprite player2_right = new Sprite (32, 1, 0, SpriteSheet.player2);	
-	public static Sprite player2_right_1 = new Sprite (32, 1, 1, SpriteSheet.player2);
-	public static Sprite player2_right_2 = new Sprite (32, 1, 2, SpriteSheet.player2);	
-	
-	
-	
-	protected Sprite(SpriteSheet sheet, int width, int height){
-		if(width == height) SIZE = width;
+	public static Sprite player_up = new Sprite(32, 0, 0, SpriteSheet.player);
+	public static Sprite player_up_1 = new Sprite(32, 0, 1, SpriteSheet.player);
+	public static Sprite player_up_2 = new Sprite(32, 0, 2, SpriteSheet.player);
+	public static Sprite player_down = new Sprite(32, 2, 0, SpriteSheet.player);
+	public static Sprite player_down_1 = new Sprite(32, 2, 1, SpriteSheet.player);
+	public static Sprite player_down_2 = new Sprite(32, 2, 2, SpriteSheet.player);
+	public static Sprite player_left = new Sprite(32, 3, 0, SpriteSheet.player);
+	public static Sprite player_left_1 = new Sprite(32, 3, 1, SpriteSheet.player);
+	public static Sprite player_left_2 = new Sprite(32, 3, 2, SpriteSheet.player);
+	public static Sprite player_right = new Sprite(32, 1, 0, SpriteSheet.player);
+	public static Sprite player_right_1 = new Sprite(32, 1, 1, SpriteSheet.player);
+	public static Sprite player_right_2 = new Sprite(32, 1, 2, SpriteSheet.player);
+	// PLAYER2 SPRITES
+	public static Sprite player2_up = new Sprite(32, 0, 0, SpriteSheet.player2);
+	public static Sprite player2_up_1 = new Sprite(32, 0, 1, SpriteSheet.player2);
+	public static Sprite player2_up_2 = new Sprite(32, 0, 2, SpriteSheet.player2);
+	public static Sprite player2_down = new Sprite(32, 2, 0, SpriteSheet.player2);
+	public static Sprite player2_down_1 = new Sprite(32, 2, 1, SpriteSheet.player2);
+	public static Sprite player2_down_2 = new Sprite(32, 2, 2, SpriteSheet.player2);
+	public static Sprite player2_left = new Sprite(32, 3, 0, SpriteSheet.player2);
+	public static Sprite player2_left_1 = new Sprite(32, 3, 1, SpriteSheet.player2);
+	public static Sprite player2_left_2 = new Sprite(32, 3, 2, SpriteSheet.player2);
+	public static Sprite player2_right = new Sprite(32, 1, 0, SpriteSheet.player2);
+	public static Sprite player2_right_1 = new Sprite(32, 1, 1, SpriteSheet.player2);
+	public static Sprite player2_right_2 = new Sprite(32, 1, 2, SpriteSheet.player2);
+
+	protected Sprite(SpriteSheet sheet, int width, int height) {
+		if (width == height) SIZE = width;
 		else SIZE = -1;
 		this.width = width;
 		this.height = height;
 		this.sheet = sheet;
 	}
-	
+
 	public Sprite(int size, int x, int y, SpriteSheet sheet) {
 		SIZE = size;
 		this.width = size;
@@ -1003,14 +1000,14 @@ public class Sprite {
 		load();
 	}
 
-	public Sprite (int width, int height, int color){
-		SIZE = -1;//not used, just makes this function error free
+	public Sprite(int width, int height, int color) {
+		SIZE = -1;// not used, just makes this function error free
 		this.width = width;
 		this.height = height;
 		pixels = new int[width * height];
 		setColor(color);
 	}
-	
+
 	public Sprite(int size, int color) {
 		SIZE = size;
 		this.width = size;
@@ -1019,33 +1016,31 @@ public class Sprite {
 		setColor(color);
 	}
 
-	public Sprite(int[] pixels, int width, int height){
-		if(width == height) SIZE = width;
+	public Sprite(int[] pixels, int width, int height) {
+		if (width == height) SIZE = width;
 		else SIZE = -1;
 		this.width = width;
 		this.height = height;
 		this.pixels = pixels;
 	}
-	
+
 	private void setColor(int color) {
-		for (int i = 0; i < width * height; i++) {
+		for (int i = 0; i < width * height; i++)
 			pixels[i] = color;
-		}
 	}
-	
-	public int getWidth(){
+
+	public int getWidth() {
 		return width;
 	}
-	
-	public int getHeight(){
+
+	public int getHeight() {
 		return height;
 	}
 
 	private void load() {
 		for (int y = 0; y < height; y++) {
-			for (int x = 0; x < width; x++) {
+			for (int x = 0; x < width; x++)
 				pixels[x + y * width] = sheet.pixels[(x + this.x) + (y + this.y) * sheet.WIDTH];
-			}
 		}
 	}
 }

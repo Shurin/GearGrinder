@@ -22,43 +22,41 @@ public class Screen {
 		this.height = height;
 		pixels = new int[width * height]; // atm it's 50,400
 
-		for (int i = 0; i < MAP_SIZE * MAP_SIZE; i++) {
+		for (int i = 0; i < MAP_SIZE * MAP_SIZE; i++)
 			tiles[i] = random.nextInt(0xffffff);
-		}
 	}
 
 	public void clear() {
-		for (int i = 0; i < pixels.length; i++) {
+		for (int i = 0; i < pixels.length; i++)
 			pixels[i] = 0;
-		}
 	}
-	
-	//testing purposes only
-	public void renderSheet(int xp, int yp, SpriteSheet sheet, boolean fixed){
-		if(fixed){
+
+	// testing purposes only
+	public void renderSheet(int xp, int yp, SpriteSheet sheet, boolean fixed) {
+		if (fixed) {
 			xp -= xOffset;
 			yp -= yOffset;
 		}
-		for(int y = 0; y < sheet.HEIGHT; y++){
+		for (int y = 0; y < sheet.HEIGHT; y++) {
 			int ya = y + yp;
-			for(int x = 0; x < sheet.WIDTH; x++){
+			for (int x = 0; x < sheet.WIDTH; x++) {
 				int xa = x + xp;
-				if(xa < 0 || xa >= width || ya < 0 || ya >= height) continue;
+				if (xa < 0 || xa >= width || ya < 0 || ya >= height) continue;
 				pixels[xa + ya * width] = sheet.pixels[x + y * sheet.WIDTH];
 			}
 		}
 	}
-	
-	public void renderSprite(int xp, int yp, Sprite sprite, boolean fixed){
-		if(fixed){
+
+	public void renderSprite(int xp, int yp, Sprite sprite, boolean fixed) {
+		if (fixed) {
 			xp -= xOffset;
 			yp -= yOffset;
 		}
-		for(int y = 0; y < sprite.getHeight(); y++){
+		for (int y = 0; y < sprite.getHeight(); y++) {
 			int ya = y + yp;
-			for(int x = 0; x < sprite.getWidth(); x++){
+			for (int x = 0; x < sprite.getWidth(); x++) {
 				int xa = x + xp;
-				if(xa < 0 || xa >= width || ya < 0 || ya >= height) continue;
+				if (xa < 0 || xa >= width || ya < 0 || ya >= height) continue;
 				pixels[xa + ya * width] = sprite.pixels[x + y * sprite.getWidth()];
 			}
 		}
@@ -71,13 +69,13 @@ public class Screen {
 			int ya = y + yp; // ya = actual y position
 			for (int x = 0; x < sprite.SIZE; x++) {
 				int xa = x + xp; // ya = actual y position
-				if (xa < -sprite.SIZE || xa >= width || ya < 0 || ya >= height)	break;
-				if(xa <0 ) xa = 0;
+				if (xa < -sprite.SIZE || xa >= width || ya < 0 || ya >= height) break;
+				if (xa < 0) xa = 0;
 				pixels[xa + ya * width] = sprite.pixels[x + y * sprite.SIZE];
 			}
 		}
 	}
-	
+
 	public void renderProjectile(int xp, int yp, Projectile p) {
 		xp -= xOffset;
 		yp -= yOffset;
@@ -85,15 +83,15 @@ public class Screen {
 			int ya = y + yp; // ya = actual y position
 			for (int x = 0; x < p.getSpriteSize(); x++) {
 				int xa = x + xp; // ya = actual y position
-				if (xa < -p.getSpriteSize() || xa >= width || ya < 0 || ya >= height)	break;
-				if(xa <0) xa = 0;
+				if (xa < -p.getSpriteSize() || xa >= width || ya < 0 || ya >= height) break;
+				if (xa < 0) xa = 0;
 				int col = p.getSprite().pixels[x + y * p.getSprite().SIZE];
-				if(col != 0xffff00ff) pixels[xa + ya * width] = col;
+				if (col != 0xffff00ff) pixels[xa + ya * width] = col;
 			}
 		}
 	}
-	
-	//animated projectile
+
+	// animated projectile
 	public void renderProjectile(int xp, int yp, Projectile p, Sprite sprite) {
 		xp -= xOffset;
 		yp -= yOffset;
@@ -101,15 +99,15 @@ public class Screen {
 			int ya = y + yp; // ya = actual y position
 			for (int x = 0; x < sprite.SIZE; x++) {
 				int xa = x + xp; // ya = actual y position
-				if (xa < -sprite.SIZE || xa >= width || ya < 0 || ya >= height)	break;
-				if(xa <0) xa = 0;
+				if (xa < -sprite.SIZE || xa >= width || ya < 0 || ya >= height) break;
+				if (xa < 0) xa = 0;
 				int col = sprite.pixels[x + y * sprite.SIZE];
-				if(col != 0xffff00ff) pixels[xa + ya * width] = col;
+				if (col != 0xffff00ff) pixels[xa + ya * width] = col;
 			}
 		}
 	}
-	
-	public void renderMob(int xp, int yp, Sprite sprite){
+
+	public void renderMob(int xp, int yp, Sprite sprite) {
 		// all player sprites are in 16 px chunks!!
 		xp -= xOffset;
 		yp -= yOffset;
@@ -117,15 +115,15 @@ public class Screen {
 			int ya = y + yp;
 			for (int x = 0; x < sprite.SIZE; x++) {
 				int xa = x + xp;
-				if (xa < -sprite.SIZE || xa >= width || ya < 0 || ya >= height)	break;
-				if(xa <0) xa = 0;
+				if (xa < -sprite.SIZE || xa >= width || ya < 0 || ya >= height) break;
+				if (xa < 0) xa = 0;
 				int col = sprite.pixels[x + y * sprite.SIZE];
 				if (col != 0xffff00ff) pixels[xa + ya * width] = col;
 			}
 		}
 	}
 
-	public void renderMob(int xp, int yp, Mob mob){
+	public void renderMob(int xp, int yp, Mob mob) {
 		// all mob sprites are in 16 px chunks!!
 		xp -= xOffset;
 		yp -= yOffset;
@@ -135,14 +133,14 @@ public class Screen {
 			for (int x = 0; x < 32; x++) {
 				int xa = x + xp;
 				int xs = x;
-				if (xa < -32 || xa >= width || ya < 0 || ya >= height)	break;
-				if(xa <0) xa = 0;
+				if (xa < -32 || xa >= width || ya < 0 || ya >= height) break;
+				if (xa < 0) xa = 0;
 				int col = mob.getSprite().pixels[xs + ys * 32];
 				if (col != 0xffff00ff) pixels[xa + ya * width] = col;
 			}
 		}
 	}
-	
+
 	public void setOffset(int xOffset, int yOffset) {
 		this.xOffset = xOffset;
 		this.yOffset = yOffset;

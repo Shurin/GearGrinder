@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.GearGrinder.Game;
 import com.GearGrinder.LoginPage;
 
 public class UserVerify {
@@ -17,12 +16,12 @@ public class UserVerify {
 	// Database credentials
 	static final String USER = "GGdb";
 	static final String PASS = "GGgg##12";
-	
-	//local settings for dev
-	//static final String DB_URL = "jdbc:mysql://localhost/ggdb";
-	//static final String USER = "root";
-	//static final String PASS = "RRRRrrrr$$$$4444r4";
-	
+
+	// local settings for dev
+	// static final String DB_URL = "jdbc:mysql://localhost/ggdb";
+	// static final String USER = "root";
+	// static final String PASS = "RRRRrrrr$$$$4444r4";
+
 	static final String tablename = "accounts";
 	public static int rowCount = -1;
 	public static int clientID = 0;
@@ -32,39 +31,38 @@ public class UserVerify {
 	public static Connection conn = null;
 	public static Statement stmt = null;
 	public static ResultSet rs = null;
-	
-	
-	public static void UserVerify(){
+
+	public static void UserVerify() {
 		System.out.println("Loggin In ...");
-		try{
+		try {
 			// Register JDBC driver
 			Class.forName("com.mysql.jdbc.Driver");
-					
+
 			// Open a connection
 			conn = DriverManager.getConnection(DB_URL, USER, PASS);
-			
+
 			// Execute a query
 			stmt = conn.createStatement();
-			
-			//finds total number of rows in accounts table
+
+			// finds total number of rows in accounts table
 			countRows(conn, tablename);
-			
-			String []accounts = new String[rowCount + 1];
-			String []passwords = new String[rowCount + 1];
-			
-			for(int Rowi = 0; Rowi < rowCount + 1; Rowi ++){
+
+			String[] accounts = new String[rowCount + 1];
+			String[] passwords = new String[rowCount + 1];
+
+			for (int Rowi = 0; Rowi < rowCount + 1; Rowi++) {
 				rs = stmt.executeQuery("SELECT AccountName, AccountPwd FROM accounts WHERE AccountID = " + Rowi);
-				while(rs.next()){
+				while (rs.next()) {
 					String index = rs.getString("AccountName");
 					String index2 = rs.getString("AccountPwd");
 					accounts[Rowi] = index;
 					passwords[Rowi] = index2;
 				}
 			}
-			
-			for(int i = 0; i < rowCount; i ++){
-				if((accounts[i+1].equals(LoginPage.usrname)) && (passwords[i+1].equals(LoginPage.usrpass))){
-					clientID = (i+1);
+
+			for (int i = 0; i < rowCount; i++) {
+				if ((accounts[i + 1].equals(LoginPage.usrname)) && (passwords[i + 1].equals(LoginPage.usrpass))) {
+					clientID = (i + 1);
 					Pusername = LoginPage.usrname;
 					Ppassword = LoginPage.usrpass;
 					loggedin = true;
@@ -72,29 +70,23 @@ public class UserVerify {
 					InitialStat.InitialStat();
 				}
 			}
-			
-			if(loggedin == false){
-				LoginPage.LoginPage();
-			}
-			
-		}catch(SQLException se){
+
+			if (loggedin == false) LoginPage.LoginPage();
+		} catch (SQLException se) {
 			// Handle errors for JDBC
 			se.printStackTrace();
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static int countRows(Connection conn, String tableName) throws SQLException {
-	    // select the number of rows in the table
-	    ResultSet rs = null;
-	    try {
-	      rs = stmt.executeQuery("SELECT COUNT(*) FROM " + tableName);
-	      // get the number of rows from the result set
-	      rs.next();
-	      rowCount = rs.getInt(1);
-	    } finally {
-	    }
-	    return rowCount;
-	  }
+		// select the number of rows in the table
+		ResultSet rs = null;
+		rs = stmt.executeQuery("SELECT COUNT(*) FROM " + tableName);
+		// get the number of rows from the result set
+		rs.next();
+		rowCount = rs.getInt(1);
+		return rowCount;
+	}
 }

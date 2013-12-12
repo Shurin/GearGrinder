@@ -11,7 +11,7 @@ public class Projectile extends Entity{
 	protected double angle;
 	protected Sprite sprite;
 	protected double x, y;
-	protected double nx, ny; //vector variables
+	protected double nx, ny; // vector variables
 	protected double speed, range, distance;
 	protected int damage;
 	

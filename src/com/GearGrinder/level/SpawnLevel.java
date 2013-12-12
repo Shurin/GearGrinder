@@ -5,9 +5,6 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import com.GearGrinder.entity.mob.NinjaBot;
-import com.GearGrinder.entity.mob.NinjaBotBoss;
-
 public class SpawnLevel extends Level{
 	
 	public SpawnLevel(String path) {		

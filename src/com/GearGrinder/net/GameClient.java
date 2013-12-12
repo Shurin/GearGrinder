@@ -9,13 +9,13 @@ import java.net.UnknownHostException;
 
 import com.GearGrinder.Game;
 
-public class GameClient extends Thread{
+public class GameClient extends Thread {
 
 	private InetAddress ipAddress;
 	private DatagramSocket socket;
 	private Game game;
-	
-	public GameClient(Game game, String ipAddress){
+
+	public GameClient(Game game, String ipAddress) {
 		this.game = game;
 		try {
 			this.socket = new DatagramSocket();
@@ -26,9 +26,9 @@ public class GameClient extends Thread{
 			e.printStackTrace();
 		}
 	}
-	
-	public void run(){
-		while(true){
+
+	public void run() {
+		while (true) {
 			byte[] data = new byte[1024];
 			DatagramPacket packet = new DatagramPacket(data, data.length);
 			try {
@@ -37,12 +37,12 @@ public class GameClient extends Thread{
 				e.printStackTrace();
 			}
 			String message = new String(packet.getData());
-			//System.out.println("CLIENT >> " + message);
-			//System.out.println("SERVER >> " + new String(packet.getData()));
+			// System.out.println("CLIENT >> " + message);
+			// System.out.println("SERVER >> " + new String(packet.getData()));
 		}
 	}
-	
-	public void sendData(byte[] data){
+
+	public void sendData(byte[] data) {
 		DatagramPacket packet = new DatagramPacket(data, data.length, ipAddress, 4578);
 		try {
 			socket.send(packet);

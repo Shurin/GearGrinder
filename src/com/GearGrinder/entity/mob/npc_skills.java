@@ -6,15 +6,15 @@ import com.GearGrinder.graphics.AnimatedSprite;
 import com.GearGrinder.graphics.Screen;
 import com.GearGrinder.graphics.SpriteSheet;
 
-public class npc_skills extends Mob{
+public class npc_skills extends Mob {
 	private AnimatedSprite down = new AnimatedSprite(SpriteSheet.skills_down, 32, 32, 3);
 	private AnimatedSprite up = new AnimatedSprite(SpriteSheet.skills_up, 32, 32, 3);
 	private AnimatedSprite left = new AnimatedSprite(SpriteSheet.skills_left, 32, 32, 3);
 	private AnimatedSprite right = new AnimatedSprite(SpriteSheet.skills_right, 32, 32, 3);
 
-	private AnimatedSprite animSprite = right;	
-	
-	public npc_skills(int x, int y){
+	private AnimatedSprite animSprite = right;
+
+	public npc_skills(int x, int y) {
 		this.x = x * 16;
 		this.y = y * 16;
 		sprite = animSprite.getSprite();
@@ -22,7 +22,7 @@ public class npc_skills extends Mob{
 		this.mobHP = 2147483647;
 		this.npc = true;
 		this.npcType = "skills";
-		this.npcText = new ArrayList<String> ();
+		this.npcText = new ArrayList<String>();
 		npcText.add("Hello.");
 		npcText.add(" ");
 		npcText.add("I am a  general skill trainer");
@@ -45,14 +45,12 @@ public class npc_skills extends Mob{
 		npcText.add(" ");
 		npcText.add("Please press ENTER to continue ...");
 	}
-	
+
 	public void update() {
-		
 		this.mobXL = getX() - 10;
 		this.mobXR = getX() + 10;
-		this.mobYB = getY() - 22; //this is actually the top edge
-		this.mobYT = getY() + 10; //this is actually the bottom edge
-		
+		this.mobYB = getY() - 22; // this is actually the top edge
+		this.mobYT = getY() + 10; // this is actually the bottom edge
 	}
 
 	public void render(Screen screen) {
