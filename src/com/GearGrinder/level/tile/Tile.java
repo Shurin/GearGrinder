@@ -107,7 +107,7 @@ public class Tile {
 	public static Tile outdoors_grassdirt_021_tile = new WalkableTile(Sprite.outdoors_grassdirt_021);
 	public static Tile outdoors_grassdirt_022_tile = new WalkableTile(Sprite.outdoors_grassdirt_022);
 	public static Tile outdoors_grassdirt_023_tile = new WalkableTile(Sprite.outdoors_grassdirt_023);
-	public static Tile outdoors_grassdirt_024_tile = new WalkableTile(Sprite.outdoors_sandgrass_024);	
+	public static Tile outdoors_grassdirt_024_tile = new WalkableTile(Sprite.outdoors_grassdirt_024);	
 	public static Tile outdoors_dirt_001_tile = new WalkableTile(Sprite.outdoors_dirt_001);
 	public static Tile outdoors_dirt_002_tile = new WalkableTile(Sprite.outdoors_dirt_002);
 	public static Tile outdoors_dirt_003_tile = new WalkableTile(Sprite.outdoors_dirt_003);
