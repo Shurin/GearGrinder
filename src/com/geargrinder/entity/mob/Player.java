@@ -232,6 +232,42 @@ public class Player extends Mob {
 		}
 		clear();
 		updateShooting();
+		MagicHealing();
+		HealthHealing();
+		StaminaHealing();
+	}
+
+	private void MagicHealing() {
+		double magichealrate = InitialStat.maxmagic * 0.1;
+		if (InitialStat.currentmagic < InitialStat.maxmagic && (InitialStat.currentmagic + magichealrate) <= InitialStat.maxmagic) {
+			InitialStat.currentmagic = (int) magichealrate + InitialStat.currentmagic;
+			InitialStat.magicpercent = InitialStat.currentmagic / InitialStat.maxmagic * 100;
+		} else {
+			InitialStat.currentmagic = InitialStat.maxmagic;
+			InitialStat.magicpercent = InitialStat.currentmagic / InitialStat.maxmagic * 100;
+		}
+	}
+
+	private void HealthHealing() {
+		double healthhealrate = InitialStat.maxhealth * 0.02;
+		if (InitialStat.currenthealth < InitialStat.maxhealth && (InitialStat.currenthealth + healthhealrate) <= InitialStat.maxhealth) {
+			InitialStat.currenthealth = (int) healthhealrate + InitialStat.currenthealth;
+			InitialStat.healthpercent = InitialStat.currenthealth / InitialStat.maxhealth * 100;
+		} else {
+			InitialStat.currenthealth = InitialStat.maxhealth;
+			InitialStat.healthpercent = InitialStat.currenthealth / InitialStat.maxhealth * 100;
+		}
+	}
+
+	private void StaminaHealing() {
+		double staminaregenrate = InitialStat.maxstamina * 0.02;
+		if (InitialStat.currentstamina < InitialStat.maxstamina && (InitialStat.currentstamina + staminaregenrate) <= InitialStat.maxstamina) {
+			InitialStat.currentstamina = (int) staminaregenrate + InitialStat.currentstamina;
+			InitialStat.staminapercent = InitialStat.currentstamina / InitialStat.maxstamina * 100;
+		} else {
+			InitialStat.currentstamina = InitialStat.maxstamina;
+			InitialStat.staminapercent = InitialStat.currentstamina / InitialStat.maxstamina * 100;
+		}
 	}
 
 	private void clear() {

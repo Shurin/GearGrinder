@@ -44,8 +44,6 @@ public class Game extends Canvas implements Runnable {
 
 	public static boolean nightTime = false;
 
-	// private static int width = (int) widthmax;
-	// private static int height = (int) heightmax;
 	private static int width = 1360;
 	private static int height = 768;
 	private static int scale = 1;
@@ -131,14 +129,12 @@ public class Game extends Canvas implements Runnable {
 	public static void launch() {
 		Game game = new Game();
 		game.frame.setUndecorated(false);
-		// game.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		game.frame.setResizable(false); // must be first thing applied to frame
+		game.frame.setResizable(false);
 		game.frame.setTitle("GearGrinder_ALPHA");
-		// Game.frame.setExtendedState(Frame.MAXIMIZED_BOTH);
 		game.frame.add(game);
 		game.frame.pack();
 		game.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		game.frame.setLocationRelativeTo(null); // centers the frame
+		game.frame.setLocationRelativeTo(null);
 		game.frame.setVisible(true);
 
 		SaveLocThread.SaveLocThread();
@@ -151,15 +147,6 @@ public class Game extends Canvas implements Runnable {
 		running = true;
 		gamethread = new Thread(this, "Display");
 		gamethread.start();
-
-		/*if(JOptionPane.showConfirmDialog(this, "RUN THE SERVER?") ==0){
-			socketServer = new GameServer(this);
-			socketServer.start();
-		}
-		socketClient = new GameClient(this, "24.253.228.197");
-		socketClient.start();*/
-
-		// socketClient.sendData("ping".getBytes());
 	}
 
 	public static synchronized void stop() {
@@ -180,7 +167,6 @@ public class Game extends Canvas implements Runnable {
 		int frames = 0;
 		int updates = 0;
 		requestFocus();
-		// game loop
 		while (running == true) {
 			long now = System.nanoTime();
 			delta = delta + (now - lastTime) / ns;
@@ -190,14 +176,15 @@ public class Game extends Canvas implements Runnable {
 				updates++;
 				delta--;
 			}
-			render();// our gfx handler
+			render();
 			frames++;
 
 			if (System.currentTimeMillis() - timer > 1000) {
-				timer = timer + 1000; // adds a second to above criteria
+				timer += 1000;
 				frame.setTitle("GearGrinder    |    FPS: " + frames);
 				fpsDisplay = frames;
 				upsDisplay = updates;
+				tick();
 				updates = 0;
 				frames = 0;
 
@@ -206,49 +193,11 @@ public class Game extends Canvas implements Runnable {
 					SaveStat.SaveStat();
 					savetick = 0;
 				}
-
-				// MAGIC HEALING LOOP
-				double magichealrate = InitialStat.maxmagic * 0.1;
-				if (InitialStat.currentmagic < InitialStat.maxmagic && (InitialStat.currentmagic + magichealrate) <= InitialStat.maxmagic) {
-					InitialStat.currentmagic = (int) magichealrate + InitialStat.currentmagic;
-					InitialStat.magicpercent = InitialStat.currentmagic / InitialStat.maxmagic * 100;
-				} else {
-					InitialStat.currentmagic = InitialStat.maxmagic;
-					InitialStat.magicpercent = InitialStat.currentmagic / InitialStat.maxmagic * 100;
-				}
-
-				// MAGIC HEALING LOOP
-				double healthhealrate = InitialStat.maxhealth * 0.02;
-				if (InitialStat.currenthealth < InitialStat.maxhealth && (InitialStat.currenthealth + healthhealrate) <= InitialStat.maxhealth) {
-					InitialStat.currenthealth = (int) healthhealrate + InitialStat.currenthealth;
-					InitialStat.healthpercent = InitialStat.currenthealth / InitialStat.maxhealth * 100;
-				} else {
-					InitialStat.currenthealth = InitialStat.maxhealth;
-					InitialStat.healthpercent = InitialStat.currenthealth / InitialStat.maxhealth * 100;
-				}
-
-				// STAMINA REGEN LOOP
-				double staminaregenrate = InitialStat.maxstamina * 0.02;
-				if (InitialStat.currentstamina < InitialStat.maxstamina && (InitialStat.currentstamina + staminaregenrate) <= InitialStat.maxstamina) {
-					InitialStat.currentstamina = (int) staminaregenrate + InitialStat.currentstamina;
-					InitialStat.staminapercent = InitialStat.currentstamina / InitialStat.maxstamina * 100;
-				} else {
-					InitialStat.currentstamina = InitialStat.maxstamina;
-					InitialStat.staminapercent = InitialStat.currentstamina / InitialStat.maxstamina * 100;
-				}
 			}
-			PlayerSpawnX = player.getX();
-			PlayerSpawnY = player.getY();
 		}
 	}
 
-	public static void update() {
-		key.update();
-		level.update();
-	}
-
-	public void render() {
-		// Not part of the render...
+	public static void tick() {
 		calendar = new GregorianCalendar(TimeZone.getTimeZone("PST"));
 		time = formatter.format(calendar.getTime());
 		formatter.setTimeZone(TimeZone.getTimeZone("GMT-8"));
@@ -260,8 +209,17 @@ public class Game extends Canvas implements Runnable {
 		if (hours > 18) nightTime = true;
 		else if (hours < 8) nightTime = true;
 		else nightTime = false;
+	}
 
-		// Render
+	public static void update() {
+		key.update();
+		level.update();
+
+		PlayerSpawnX = player.getX();
+		PlayerSpawnY = player.getY();
+	}
+
+	public void render() {
 		BufferStrategy bs = getBufferStrategy();
 		if (bs == null) {
 			createBufferStrategy(3);
