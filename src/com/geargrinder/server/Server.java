@@ -5,15 +5,13 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Server implements Runnable {
 
 	private DatagramSocket socket;
 	private int port;
 	private boolean running = false;
-	private Thread run, send, receive, manage;
+	private Thread run, send, receive;
 	private int maxClients;
 
 	public Server(int port, int max) {
@@ -34,7 +32,6 @@ public class Server implements Runnable {
 		running = true;
 		System.out.println("Server started on port " + port);
 		receive();
-		manage();
 		long timer = System.currentTimeMillis();
 		while (running) {
 			if (System.currentTimeMillis() - timer > 1000) {
@@ -45,7 +42,12 @@ public class Server implements Runnable {
 	}
 
 	private void update() {
-
+		for (int i = 0; i < Clients.getmaxClients(); i++) {
+			if (!Clients.getClient(i).isUpdated()) {
+				sendAll("p:" + Clients.getClient(i).name + ";" + Clients.getClient(i).PosX + ";" + Clients.getClient(i).PosY + ";" + Clients.getClient(i).worldID);
+				Clients.getClient(i).update();
+			}
+		}
 	}
 
 	private void receive() {
@@ -89,28 +91,19 @@ public class Server implements Runnable {
 		send.start();
 	}
 
-	private void manage() {
-		manage = new Thread("Manager") {
-			public void run() {
-
-			}
-		};
-		manage.start();
-	}
-
 	private void process(DatagramPacket packet) {
 		String string = new String(packet.getData());
 		if (string.startsWith("/c/")) { // Connect
-			int id = clients.size();
-			clients.add(id, new ServerClient(string.substring(3, string.length()), packet.getAddress(), packet.getPort(), id));
-			System.out.println(string.substring(3, string.length()) + " - " + packet.getAddress() + ":" + packet.getPort() + " Time: " + clients.get(id).hours + ":" + clients.get(id).min + ":" + clients.get(id).sec + " Commits:" + clients.get(id).commits);
-			send(("data " + clients.get(id).hours + " " + clients.get(id).min + " " + clients.get(id).sec + " " + clients.get(id).commits + " " + id + " 1").getBytes(), packet.getAddress(), packet.getPort());
-		} else if (string.startsWith("/p/")) { // Update poss
-			int id = Integer.parseInt(string.split("/m/")[1]);
-			clients.get(id).commit();
+			int id = Clients.getFreeID();
+			Clients.add(new ServerClient(string.substring(3, string.length()), packet.getAddress(), packet.getPort(), id), id);
+			System.out.println(string.substring(3, string.length()) + "/" + packet.getAddress() + ":" + packet.getPort() + " - has connected.");
+		} else if (string.startsWith("/p/")) { // Update pos
+			int id = Integer.parseInt(string.split("/p/")[1]);
+			String pos = string.split("/p/")[2];
+			Clients.getClient(id).updatePos(Integer.parseInt(pos.split(" ")[0]), Integer.parseInt(pos.split(" ")[1]), Integer.parseInt(pos.split(" ")[2]));
 		} else if (string.startsWith("/cl/")) { // Close
-			int id = Integer.parseInt(string.split("/s/")[1].split(" ")[0]);
-			clients.get(id).save(Integer.parseInt(string.split("/s/")[1].split(" ")[1]), Integer.parseInt(string.split("/s/")[1].split(" ")[2]), Integer.parseInt(string.split("/s/")[1].split(" ")[3]));
+			int id = Integer.parseInt(string.split("/cl/")[1].split(" ")[0]);
+			Clients.getClient(id).save();
 		} else if (string.startsWith("//")) {
 			System.exit(1);
 		}
