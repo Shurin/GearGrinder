@@ -1,5 +1,7 @@
 package com.geargrinder.server;
 
+import com.geargrinder.server.data.ServerClient;
+
 public class Clients {
 
 	private static ServerClient[] clients;
@@ -21,12 +23,12 @@ public class Clients {
 	}
 
 	public static String getName(int id) {
-		return clients[id].name;
+		return clients[id].AccountName;
 	}
 
 	public static int getID(String name) {
 		for (int i = 0; i < clients.length; i++) {
-			if (clients[i].name.equalsIgnoreCase(name)) return i;
+			if (clients[i].AccountName.equalsIgnoreCase(name)) return i;
 		}
 		return errorCode;
 	}

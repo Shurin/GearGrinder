@@ -301,7 +301,6 @@ public class InitialStat {
 				}
 			}
 		} catch (SQLException se) {
-			// Handle errors for JDBC
 			se.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();

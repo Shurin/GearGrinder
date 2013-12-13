@@ -6,6 +6,8 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
 
+import com.geargrinder.server.data.ServerClient;
+
 public class Server implements Runnable {
 
 	private DatagramSocket socket;
@@ -43,8 +45,8 @@ public class Server implements Runnable {
 
 	private void update() {
 		for (int i = 0; i < Clients.getmaxClients(); i++) {
-			if (!Clients.getClient(i).isUpdated()) {
-				sendAll("p:" + Clients.getClient(i).name + ";" + Clients.getClient(i).PosX + ";" + Clients.getClient(i).PosY + ";" + Clients.getClient(i).worldID);
+			if (Clients.getClient(i) != null && !Clients.getClient(i).isUpdated()) {
+				sendAll("p:" + Clients.getClient(i).AccountName + ";" + Clients.getClient(i).locX + ";" + Clients.getClient(i).locY + ";" + Clients.getClient(i).worldID);
 				Clients.getClient(i).update();
 			}
 		}
