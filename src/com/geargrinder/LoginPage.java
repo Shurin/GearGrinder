@@ -27,7 +27,7 @@ public class LoginPage {
 
 	public static void LoginPage() {
 		JFrame frmGeargrinder = new JFrame("Demo application");
-		frmGeargrinder.setTitle("GearGrinder");
+		frmGeargrinder.setTitle("geargrinder");
 		frmGeargrinder.getContentPane().setBackground(Color.BLACK);
 		frmGeargrinder.setSize(300, 150);
 		frmGeargrinder.setLocationRelativeTo(null);
