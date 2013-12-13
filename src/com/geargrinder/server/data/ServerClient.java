@@ -7,6 +7,8 @@ public class ServerClient {
 	public InetAddress address;
 	public int port;
 	public boolean updated = false;
+	public Inventory inv;
+	public Quests[] quests;
 
 	private final int ID;
 	public int AccountID;
