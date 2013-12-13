@@ -244,8 +244,8 @@ public class Player extends Mob {
 	private void updateShooting() {
 		if (Mouse.getB() == 1 && fireRate <= 0) {
 			int manacost = 5;
-			double dx = Mouse.getX() - Game.getWindowWidth() / 2;
-			double dy = Mouse.getY() - Game.getWindowHeight() / 2;
+			double dx = Mouse.getX() - Game.getWindowWidth(true) / 2;
+			double dy = Mouse.getY() - Game.getWindowHeight(true) / 2;
 			double dir = Math.atan2(dy, dx);// atan2 takes y first
 			String Name = "wizpro";
 			Projectile p = new WizardProjectile(x, y, dir, Name);
@@ -253,8 +253,8 @@ public class Player extends Mob {
 			fireRate = WizardProjectile.FIRE_RATE;
 		} else if (Mouse.getB() == 3 && fireRate <= 0) {
 			int manacost = 85;
-			double dx = Mouse.getX() - Game.getWindowWidth() / 2;
-			double dy = Mouse.getY() - Game.getWindowHeight() / 2;
+			double dx = Mouse.getX() - Game.getWindowWidth(true) / 2;
+			double dy = Mouse.getY() - Game.getWindowHeight(true) / 2;
 			double dir = Math.atan2(dy, dx);// atan2 takes y first
 			String Name = "quakepro";
 			Projectile p = new QuakeProjectile(x, y, dir, Name);
