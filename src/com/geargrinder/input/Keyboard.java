@@ -1,12 +1,14 @@
 package com.geargrinder.input;
 
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import com.geargrinder.Networking.SaveStat;
 import com.geargrinder.entity.mob.Player;
 
-public class Keyboard implements KeyListener {
+public class Keyboard implements KeyListener, FocusListener {
 
 	public static boolean[] keys = new boolean[230];
 	public static boolean up, down, left, right, sprint, damage, spawnmob, escape, space, dialog;
@@ -51,5 +53,15 @@ public class Keyboard implements KeyListener {
 			if (Player.charshow == false) Player.charshow = true;
 			else if (Player.charshow == true) Player.charshow = false;
 		} else if (keys[e.getKeyCode()] != keys[KeyEvent.VK_NUMPAD9] && SaveStat.saving == false) SaveStat.SaveStat();
+	}
+
+	@Override
+	public void focusGained(FocusEvent arg0) {
+	}
+
+	@Override
+	public void focusLost(FocusEvent arg0) {
+		for (int i = 0; i < keys.length; i++)
+			keys[i] = false;
 	}
 }

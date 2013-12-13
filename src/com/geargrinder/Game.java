@@ -114,6 +114,8 @@ public class Game extends Canvas implements Runnable {
 		addKeyListener(key);
 		addMouseListener(mouse);
 		addMouseMotionListener(mouse);
+		addFocusListener(key);
+		addFocusListener(mouse);
 	}
 
 	public static int getWindowWidth(boolean useScale) {

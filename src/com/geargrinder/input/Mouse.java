@@ -1,12 +1,14 @@
 package com.geargrinder.input;
 
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
 import com.geargrinder.entity.mob.Player;
 
-public class Mouse implements MouseListener, MouseMotionListener {
+public class Mouse implements MouseListener, MouseMotionListener, FocusListener {
 
 	private static int mouseX = -1;
 	private static int mouseY = -1;
@@ -33,11 +35,9 @@ public class Mouse implements MouseListener, MouseMotionListener {
 	public void mouseMoved(MouseEvent e) {
 		mouseX = e.getX();
 		mouseY = e.getY();
-		// System.out.println("" + e.getX() + ", " + e.getY());
 	}
 
 	public void mouseClicked(MouseEvent e) {
-
 	}
 
 	public void mousePressed(MouseEvent e) {
@@ -65,14 +65,21 @@ public class Mouse implements MouseListener, MouseMotionListener {
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
+	}
 
+	@Override
+	public void focusGained(FocusEvent e) {
+	}
+
+	@Override
+	public void focusLost(FocusEvent e) {
+		mouseX = -1;
+		mouseY = -1;
+		mouseB = -1;
 	}
 
 }
